@@ -1,6 +1,6 @@
 namespace Library;
 
-public class Game_Commands
+public class GameCommands
 {
     private Game game = new Game();
 }

@@ -2,23 +2,27 @@ namespace Library;
 
 public class Player
 {
+    private List<Pokemon> pokemons = new();
+    private int maxPokemons = 6;
+    
     private string name;
     public string Name
     {
-        get { return name; }
+        get => name;
     }
-    private List<Pokemon> pokemons = new List<Pokemon>();
-    public Pokemon currentPokemon;
-    private int maxPokemons = 6;
-
-
+    
+    private Pokemon currentPokemon;
+    public Pokemon CurrentPokemon
+    {
+        get => currentPokemon;
+    }
+    
     public void AddPokemon(Pokemon pokemon)
     {
-        if (pokemons.Count < 6)
-        {
-            pokemons.Add(pokemon);
-            currentPokemon ??= pokemon;
-        }
+        if (pokemons.Count >= maxPokemons || pokemons.Contains(pokemon)) return;
+        
+        pokemons.Add(pokemon);
+        currentPokemon ??= pokemon;
     }
 
     public void ChangePokemon(Pokemon pokemon)
@@ -28,27 +32,20 @@ public class Player
             currentPokemon = pokemon;
         }
     }
+    
+    public void ClearPokemons()
+    {
+        pokemons.Clear();
+        currentPokemon = null!;
+    }
 
     public void Attack(Player enemyPlayer, int moveSlot)
     {
         currentPokemon.Attack(enemyPlayer.currentPokemon, moveSlot);
     }
+    
     public bool HasLost()
     {
-        foreach (var pokemon in pokemons)
-        {
-            if (!pokemon.isDead())
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public void ClearPokemons()
-    {
-        pokemons.Clear();
-        currentPokemon = null;
+        return pokemons.All(pokemon => pokemon.IsDead());
     }
 }

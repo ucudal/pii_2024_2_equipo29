@@ -2,41 +2,46 @@ namespace Library;
 
 public class Calculate
 {
-    public static int calculateDamage(Pokemon attacker, Pokemon defender, Move move)
+    public static int CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
     {
-        float B = calculateBonus(attacker.Types, move.type);
-        float E = calculateEffectivity(defender.Types, move.type);
-        int V = calculateVariation(85, 100);
-        int P = move.Power;
-        int A = attacker.AttackPoints;
-        int D = attacker.DefensePoints;
-        if (move.isSpecialMove)
+        float b = CalculateBonus(attacker.Types, move.Type);
+        float e = CalculateEffectivity(defender.Types, move.Type);
+        int v = CalculateVariation(85, 100);
+        int p = move.Power;
+        int a = attacker.AttackPoints;
+        int d = attacker.DefensePoints;
+        
+        if (move.IsSpecialMove)
         {
-            A = attacker.SpecialAttackPoints;
-            D = attacker.SpecialDefensePoints;
+            a = attacker.SpecialAttackPoints;
+            d = attacker.SpecialDefensePoints;
         }
         
-        double dmg = 0.1*B*E*V*((1.2*A*P/(25*D))+2);  
-        
+        double dmg = 0.1 * b * e * v * (((1.2 * a * p) / (25 * d)) + 2);  
         
         return (int)Math.Round(dmg);
     }
 
-    private static float calculateBonus(List<Type> pokemonTypes, Type moveType) // A terminar
+    private static float CalculateBonus(List<Type> pokemonTypes, Type moveType)
     {
-        float bonus = 0;
-        return bonus;
+        return pokemonTypes.Any(pokemonType => pokemonType == moveType) 
+            ? 1.5f 
+            : 1;
     }
     
-    private static float calculateEffectivity(List<Type> enemyTypes, Type moveType)  // A terminar
+    private static float CalculateEffectivity(List<Type> enemyTypes, Type moveType)
     {
-        float effectivity = 0;
+        float effectivity = 1;
+        foreach (Type enemyType in enemyTypes)
+        {
+            effectivity *= TypeEffectivity.Effectivity[moveType.Name][enemyType.Name];
+        }
+        
         return effectivity;
     }
 
-    private static int calculateVariation(int min, int max)
+    private static int CalculateVariation(int min, int max)
     {
-        Random var = new Random();
-        return var.Next(min, max);
+        return new Random().Next(min, max);
     }
 }

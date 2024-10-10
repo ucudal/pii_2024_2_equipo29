@@ -3,13 +3,13 @@ namespace Library;
 public class Game
 {
     private List<Player> players;
-    private int maxPlayers;
+    private int maxPlayers = 2;
     private Player PlayerInTurn;
     private int roundCount;
-    public bool HasStarted;
+    public bool HasStarted { get; private set; }
     public bool IsFullPlayers
     {
-        get { return players.Count == maxPlayers; }
+        get => players.Count == maxPlayers;
     }
 
     public void AddPlayer(Player player)
@@ -22,14 +22,16 @@ public class Game
 
     public void ToogleTurn()
     {
-        PlayerInTurn = (PlayerInTurn == players[0]) ? players[1] : players[0];
+        PlayerInTurn = PlayerInTurn == players[0]
+            ? players[1] 
+            : players[0];
     }
 
     public void Start()
     {
         if (IsFullPlayers)
         {
-            ToogleTurn();
+            PlayerInTurn = GetRandomPlayer();
             HasStarted = true;
         }
     }
@@ -56,8 +58,13 @@ public class Game
         return null;
     }
 
-    public string viewTurn()
+    public string ViewTurn()
     {
-        return $"Turno de {PlayerInTurn.Name}\n {PlayerInTurn.currentPokemon.viewPokemon()}\n";
+        return $"Turno de {PlayerInTurn.Name}\n {PlayerInTurn.CurrentPokemon.ViewPokemon()}\n";
+    }
+
+    private Player GetRandomPlayer()
+    {
+        return players[new Random().Next(0, players.Count)];
     }
 }
