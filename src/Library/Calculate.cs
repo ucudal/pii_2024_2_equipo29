@@ -1,8 +1,8 @@
 namespace Library;
 
-public class Calculate
+public class Calculate: ICalculate
 {
-    public static int CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
+    public int CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
     {
         float b = CalculateBonus(attacker.Types, move.Type);
         float e = CalculateEffectivity(defender.Types, move.Type);
