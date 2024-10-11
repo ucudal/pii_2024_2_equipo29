@@ -14,12 +14,12 @@
 
 ---
 
-## Desafíos de la Entrega
+## Desafíos de la entrega
 
 ### Formula de ataque de un Pokémon
 Se estudió la manera en como implementar los ataques de los pokemons, para lo cual se encontró la siguiente fórmula:
 
-Daño = 0.01 * B * E * V * ((((0.2 * N + 1) * A * P) / (25 * D)) + 2)
+![Formula de ataque](assets/formulaAtaque.png)
 
 - **B**: Bonificación. Si el ataque es del mismo tipo que el Pokémon que lo lanza, toma un valor de 1.5. Si el ataque es de un tipo diferente, toma un valor de 1.
 - **E**: Efectividad. Puede tomar los valores de 0, 0.5, 1 o 2. (Hay casos especiales donde puede tomar valores de 0.25 o 4. Esto puede pasar si el pokemon atacado tiene más de un tipo).
