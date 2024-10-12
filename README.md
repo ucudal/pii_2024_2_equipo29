@@ -15,7 +15,9 @@
 ### Formula de ataque de un Pokémon
 Se estudió la manera en como implementar los ataques de los pokemons, para lo cual se encontró la siguiente fórmula:
 
-![Formula de ataque](assets/formulaAtaque.png)
+<div style="text-align: center;">
+  <img src="assets/formulaAtaque.png" alt="Formula de ataque" />
+</div>
 
 - **B**: Bonificación. Si el ataque es del mismo tipo que el Pokémon que lo lanza, toma un valor de 1.5. Si el ataque es de un tipo diferente, toma un valor de 1.
 - **E**: Efectividad. Puede tomar los valores de 0, 0.5, 1 o 2. (Hay casos especiales donde puede tomar valores de 0.25 o 4. Esto puede pasar si el pokemon atacado tiene más de un tipo).
