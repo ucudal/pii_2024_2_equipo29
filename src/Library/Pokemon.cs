@@ -9,7 +9,12 @@ public class Pokemon
     public int InitialHp => initialHp;
     
     private int hp;
-    public int Hp => hp;
+
+    public int Hp
+    {
+        get => hp;
+        set => hp = value;
+    }
     
     private int attack;
     public int AttackPoints => attack;
