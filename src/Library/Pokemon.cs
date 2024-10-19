@@ -13,7 +13,7 @@ public class Pokemon
     private int hp;
     public int Hp
     {
-        get => hp; 
+        get => hp;
         set => hp = value;
     }
     
