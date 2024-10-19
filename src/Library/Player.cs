@@ -1,6 +1,6 @@
 namespace Library;
 
-public class Player
+public class Player: IPokemonManager
 {
     private List<Pokemon> pokemons = new();
     private int maxPokemons = 6;
@@ -47,5 +47,29 @@ public class Player
     public bool HasLost()
     {
         return pokemons.All(pokemon => pokemon.IsDead());
+    }
+
+    public Pokemon GetNextPokemon()
+    {
+        if (pokemons.Count == 0) return null!;
+        
+        int indexNextPokemon = pokemons.IndexOf(currentPokemon) + 1;
+        
+        for (int i = indexNextPokemon; i < pokemons.Count; i++)
+        {
+            if (!pokemons[i].IsDead()) return pokemons[i];
+        }
+        
+        for (int i = 0; i < indexNextPokemon; i++)
+        {
+            if (!pokemons[i].IsDead()) return pokemons[i];
+        }
+        
+        return null!;
+    }
+
+    public void UseItem(IItem item)
+    {
+        string message = item.Use(currentPokemon);
     }
 }
