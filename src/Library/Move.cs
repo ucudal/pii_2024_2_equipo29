@@ -7,6 +7,7 @@ public class Move
     public Type Type { get; }
     public bool IsSpecialMove { get; }
     public int Power { get; }
+    public string Effect = "normal";
 
     public string ViewMove()
     {

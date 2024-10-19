@@ -1,3 +1,5 @@
+using Library.States;
+
 namespace Library;
 
 public class Pokemon
@@ -9,7 +11,11 @@ public class Pokemon
     public int InitialHp => initialHp;
     
     private int hp;
-    public int Hp => hp;
+    public int Hp
+    {
+        get => hp; 
+        set => hp = value;
+    }
     
     private int attack;
     public int AttackPoints => attack;
@@ -25,14 +31,11 @@ public class Pokemon
 
     public List<Move> Moves { get; }
     public List<Type> Types { get; }
-
+    
+    public State state { get; set; }
     public void Attack(Pokemon enemy, int moveSlot)
     {
-        ICalculate calculate = new Calculate();
-        int dmg = calculate.CalculateDamage(this, enemy, Moves[moveSlot]);
-        enemy.hp = dmg > enemy.hp 
-            ? 0 
-            : enemy.hp - dmg;
+        state.Attack(this, enemy, moveSlot);
     }
 
     public bool IsDead()
