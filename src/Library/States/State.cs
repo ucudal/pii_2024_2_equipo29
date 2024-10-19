@@ -12,21 +12,21 @@ public abstract class State
             ? 0 
             : enemy.Hp - dmg;
 
-        if (enemy.state.Name == "normal")
+        if (enemy.PokemonState.Name == "normal")
         {
             switch (move.Effect.ToLower())    // Applying effects
             {
                 case "dormir":
-                    enemy.state = new Sleep();
+                    enemy.PokemonState = new Sleep();
                     break;
                 case "paralizar":
-                    enemy.state = new Paralyze();
+                    enemy.PokemonState = new Paralyze();
                     break;
                 case "veneno":
-                    enemy.state = new Poison();
+                    enemy.PokemonState = new Poison();
                     break;
                 case "quemadura":
-                    enemy.state = new Burn();
+                    enemy.PokemonState = new Burn();
                     break;
             }
         }

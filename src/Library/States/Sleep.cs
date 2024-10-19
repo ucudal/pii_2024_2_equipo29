@@ -20,7 +20,7 @@ public class Sleep: State
         }
         else
         {
-            currentPokemon.state = new Normal();
+            currentPokemon.PokemonState = new Normal();
         }
     }
 

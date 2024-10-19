@@ -32,10 +32,11 @@ public class Pokemon
     public List<Move> Moves { get; }
     public List<Type> Types { get; }
     
-    public State state { get; set; }
+    public State PokemonState { get; set; }
+    
     public void Attack(Pokemon enemy, int moveSlot)
     {
-        state.Attack(this, enemy, moveSlot);
+        PokemonState.Attack(this, enemy, moveSlot);
     }
 
     public bool IsDead()
