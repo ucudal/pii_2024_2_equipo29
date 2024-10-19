@@ -28,7 +28,7 @@ public class Pokemon
 
     public void Attack(Pokemon enemy, int moveSlot)
     {
-        Calculate calculate = new Calculate();
+        ICalculate calculate = new Calculate();
         int dmg = calculate.CalculateDamage(this, enemy, Moves[moveSlot]);
         enemy.hp = dmg > enemy.hp 
             ? 0 

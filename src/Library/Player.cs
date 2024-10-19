@@ -41,7 +41,7 @@ public class Player
 
     public void Attack(Player enemyPlayer, int moveSlot)
     {
-        currentPokemon.Attack(enemyPlayer.currentPokemon, moveSlot);
+        currentPokemon.Attack(enemyPlayer.CurrentPokemon, moveSlot);
     }
     
     public bool HasLost()
