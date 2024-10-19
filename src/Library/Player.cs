@@ -11,37 +11,33 @@ public class Player: IPokemonManager
         get => name;
     }
     
-    private Pokemon currentPokemon;
-    public Pokemon CurrentPokemon
-    {
-        get => currentPokemon;
-    }
+    public Pokemon CurrentPokemon { get; private set; }
     
     public void AddPokemon(Pokemon pokemon)
     {
         if (pokemons.Count >= maxPokemons || pokemons.Contains(pokemon)) return;
         
         pokemons.Add(pokemon);
-        currentPokemon ??= pokemon;
+        CurrentPokemon ??= pokemon;
     }
 
     public void ChangePokemon(Pokemon pokemon)
     {
         if (pokemons.Contains(pokemon))
         {
-            currentPokemon = pokemon;
+            CurrentPokemon = pokemon;
         }
     }
     
     public void ClearPokemons()
     {
         pokemons.Clear();
-        currentPokemon = null!;
+        CurrentPokemon = null!;
     }
 
-    public void Attack(Player enemyPlayer, int moveSlot)
+    public void Attack(IPokemonManager enemyPlayer, int moveSlot)
     {
-        currentPokemon.Attack(enemyPlayer.CurrentPokemon, moveSlot);
+        CurrentPokemon.Attack(enemyPlayer.CurrentPokemon, moveSlot);
     }
     
     public bool HasLost()
@@ -53,7 +49,7 @@ public class Player: IPokemonManager
     {
         if (pokemons.Count == 0) return null!;
         
-        int indexNextPokemon = pokemons.IndexOf(currentPokemon) + 1;
+        int indexNextPokemon = pokemons.IndexOf(CurrentPokemon) + 1;
         
         for (int i = indexNextPokemon; i < pokemons.Count; i++)
         {
@@ -70,6 +66,6 @@ public class Player: IPokemonManager
 
     public void UseItem(IItem item)
     {
-        string message = item.Use(currentPokemon);
+        string message = item.Use(CurrentPokemon);
     }
 }
