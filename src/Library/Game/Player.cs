@@ -4,14 +4,23 @@ public class Player: IPokemonManager
 {
     private List<Pokemon> pokemons = new();
     private int maxPokemons = 6;
-    
+    public int pokemonsCount => pokemons.Count;
+  
     private string name;
     public string Name
     {
         get => name;
     }
+    public List<IItem> Items = new List<IItem>();
     
     public Pokemon CurrentPokemon { get; private set; }
+
+
+    public Player(string name)
+    {
+        this.name = name;
+        AddBaseItems();
+    }
     
     public void AddPokemon(Pokemon pokemon)
     {
@@ -66,6 +75,33 @@ public class Player: IPokemonManager
 
     public void UseItem(IItem item)
     {
+        Items.Remove(item);
         string message = item.Use(CurrentPokemon);
+    }
+
+    private void AddBaseItems()
+    {
+        Items.Add(new Revive());
+        for (int i = 0; i < 4; i++)
+        {
+            Items.Add(new SuperPotion());
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Items.Add(new FullHeal());
+        }
+    }
+
+    public Pokemon GetPokemonByName(string PokemonName)
+    {
+        foreach (var pokemon in pokemons)
+        {
+            if (pokemon.Name == PokemonName)
+            {
+                return pokemon;
+            }
+        }
+
+        return null;
     }
 }
