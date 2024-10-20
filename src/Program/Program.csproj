@@ -1,6 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="DSharpPlus" Version="4.5.0" />
+    <PackageReference Include="DSharpPlus.CommandsNext" Version="4.5.0" />
+    <PackageReference Include="DSharpPlus.Interactivity" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Library\Library.csproj" />
   </ItemGroup>
 
