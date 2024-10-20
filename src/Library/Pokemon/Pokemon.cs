@@ -61,12 +61,8 @@ public class Pokemon
 
     public string ViewPokemon()
     {
-        string msg = $"{name.ToUpper()}   ({hp}/{initialHp})\n";  // Nose si la idea es que se muestren todas las stats aca
-        msg += $"Attack: {attack}\n" +
-               $"Special Attack: {specialAttack}\n" +                                          
-               $"Defense: {defense}\n" +
-               $"Special Defense: {specialDefense}\n";
-        
+        string msg = $"{name.ToUpper()}   ({hp}/{initialHp})\n";
+
         if (Types != null)
         {
             msg += $" / Types: \n";
@@ -75,7 +71,6 @@ public class Pokemon
                 msg += $"-{type.Name} \n";
             }
         }
-        msg += ViewMoves();                     // Nose si la idea es que se muestren todos los moves aca
         
         return msg;
     }

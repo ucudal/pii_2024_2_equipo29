@@ -1,9 +1,12 @@
-﻿namespace Program;
+﻿using Library.DiscordBot;
+
+namespace Program;
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        DiscordBot bot = new DiscordBot();
+        await bot.Iniciate();
     }
 }
