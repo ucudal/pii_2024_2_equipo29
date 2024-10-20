@@ -1,17 +1,19 @@
+using Library.States;
+
 namespace Library;
 
 public class Move
 {
-    private string name;
-    public int Accuracy { get; }
-    public Type Type { get; }
+    public string Name { get; set; }
+    public int Accuracy { get; set; }
+    public Type Type { get; set; }
+    public int Power { get; set; }
     public bool IsSpecialMove { get; }
-    public int Power { get; }
-    public string Effect = "normal";
+    public EnumEffect Effect { get; set; } = EnumEffect.Normal;
 
     public string ViewMove()
     {
-        string msg = $"Move: {name.ToUpper()} Power: {Power} / Accuracy: {Accuracy}";
+        string msg = $"Move: {Name.ToUpper()} Power: {Power} / Accuracy: {Accuracy}";
         if (Type != null)
         {
             msg += $" / Type: {Type.Name}";

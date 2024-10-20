@@ -5,34 +5,15 @@ namespace Library;
 
 public class Pokemon
 {
-    private string name;
-    public string Name => name;
-    
-    private int initialHp;
-    public int InitialHp => initialHp;
-    
-    private int hp;
-    public int Hp
-    {
-        get => hp;
-        set => hp = value;
-    }
-    
-    private int attack;
-    public int AttackPoints => attack;
-    
-    private int specialAttack;
-    public int SpecialAttackPoints => specialAttack;
-    
-    private int defense;
-    public int DefensePoints => defense;
-    
-    private int specialDefense;
-    public int SpecialDefensePoints => specialDefense;
-
-    public List<Move> Moves { get; }
-    public List<Type> Types { get; }
-    
+    public string Name { get; set; }
+    public int InitialHp { get; set; }
+    public int Hp { get; set; }
+    public int AttackPoints { get; set; }
+    public int SpecialAttackPoints { get; set; }
+    public int DefensePoints { get; set; }
+    public int SpecialDefensePoints { get; set; }
+    public List<Move> Moves { get; set; }
+    public List<Type> Types { get; set; }
     public State PokemonState { get; set; }
     
     public void Attack(Pokemon enemy, int moveSlot)
@@ -46,7 +27,7 @@ public class Pokemon
 
     public bool IsDead()
     {
-        return hp == 0;
+        return Hp == 0;
     }
     
     public string ViewMoves()
