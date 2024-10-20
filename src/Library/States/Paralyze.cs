@@ -2,6 +2,11 @@ namespace Library.States;
 
 public class Paralyze: State
 {
+    public Paralyze()
+    {
+        Name = "paralizar";
+    }
+    
     public override void Attack(Pokemon attacker, Pokemon enemy, int moveSlot)
     {
         if (CanAttack())
@@ -14,9 +19,5 @@ public class Paralyze: State
     {
         Random rand = new Random();
         return rand.Next(2) == 0;
-    }
-    public Paralyze()
-    {
-        Name = "paralizar";
     }
 }

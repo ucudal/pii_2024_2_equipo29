@@ -3,34 +3,37 @@ namespace Library.States;
 public abstract class State
 {
     public string Name;
+    
     public virtual void Attack(Pokemon attacker, Pokemon enemy, int moveSlot)
     {
         ICalculate calculate = new Calculate();
         Move move = attacker.Moves[moveSlot];
         int dmg = calculate.CalculateDamage(attacker, enemy, move);
+        
         enemy.Hp = dmg > enemy.Hp 
             ? 0 
             : enemy.Hp - dmg;
 
-        if (enemy.PokemonState.Name == "normal")
+        if (enemy.PokemonState is Normal)
         {
-            switch (move.Effect.ToLower())    // Applying effects
+            switch (move.Effect)    // Applying effects
             {
-                case "dormir":
+                case EnumEffect.Sleep:
                     enemy.PokemonState = new Sleep();
                     break;
-                case "paralizar":
+                case EnumEffect.Paralyze:
                     enemy.PokemonState = new Paralyze();
                     break;
-                case "veneno":
+                case EnumEffect.Poison:
                     enemy.PokemonState = new Poison();
                     break;
-                case "quemadura":
+                case EnumEffect.Burn:
                     enemy.PokemonState = new Burn();
                     break;
             }
         }
     }
+    
     public virtual void OnTurn(Pokemon currentPokemon)
     {
         

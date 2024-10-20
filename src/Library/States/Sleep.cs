@@ -4,7 +4,12 @@ public class Sleep: State
 {
     private int remainingTurns;
     private int sleepTurns;
-
+    
+    public Sleep()
+    {
+        Name = "dormir";
+    }
+    
     private void setRandomSleepTurns(int min, int max)
     {
         Random rand = new Random();
@@ -22,10 +27,5 @@ public class Sleep: State
         {
             currentPokemon.PokemonState = new Normal();
         }
-    }
-
-    public Sleep()
-    {
-        Name = "dormir";
     }
 }
