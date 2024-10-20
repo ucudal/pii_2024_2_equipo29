@@ -2,6 +2,9 @@ namespace Library;
 
 public class Calculate: ICalculate
 {
+    private int critChancePercentage = 10;
+    private int critDamagePercentage = 20;
+    
     public int CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
     {
         float b = CalculateBonus(attacker.Types, move.Type);
@@ -17,11 +20,18 @@ public class Calculate: ICalculate
             d = attacker.SpecialDefensePoints;
         }
         
-        double dmg = 0.1 * b * e * v * (((1.2 * a * p) / (25 * d)) + 2);  
-        
+        double dmg = 0.1 * b * e * v * (((1.2 * a * p) / (25 * d)) + 2);
+
+        dmg = ApplyCrit(dmg);
         return (int)Math.Round(dmg);
     }
 
+    private double ApplyCrit(double dmg)
+    {
+        Random rand = new Random();
+        dmg += rand.Next(0, 100) <= critChancePercentage ? dmg * critDamagePercentage / 100 : 0;
+        return dmg;
+    }
     private static float CalculateBonus(List<Type> pokemonTypes, Type moveType)
     {
         return pokemonTypes.Any(pokemonType => pokemonType == moveType) 

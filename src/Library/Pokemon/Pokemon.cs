@@ -1,3 +1,4 @@
+using System.Transactions;
 using Library.States;
 
 namespace Library;
@@ -36,7 +37,11 @@ public class Pokemon
     
     public void Attack(Pokemon enemy, int moveSlot)
     {
-        PokemonState.Attack(this, enemy, moveSlot);
+        Random rand = new Random();
+        if (rand.Next(0, 100) < Moves[moveSlot].Accuracy)
+        {
+            PokemonState.Attack(this, enemy, moveSlot);
+        }
     }
 
     public bool IsDead()

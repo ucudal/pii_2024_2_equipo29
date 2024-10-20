@@ -3,7 +3,7 @@ namespace Library;
 public class Move
 {
     private string name;
-    private int accuracy;
+    public int Accuracy { get; }
     public Type Type { get; }
     public bool IsSpecialMove { get; }
     public int Power { get; }
@@ -11,7 +11,7 @@ public class Move
 
     public string ViewMove()
     {
-        string msg = $"Move: {name.ToUpper()} Power: {Power} / Accuracy: {accuracy}";
+        string msg = $"Move: {name.ToUpper()} Power: {Power} / Accuracy: {Accuracy}";
         if (Type != null)
         {
             msg += $" / Type: {Type.Name}";
