@@ -15,6 +15,12 @@ public class Pokemon
     public List<Move> Moves { get; set; }
     public List<Type> Types { get; set; }
     public State PokemonState { get; set; }
+
+    public Pokemon()
+    {
+        Moves = new List<Move>();
+        Types = new List<Type>();
+    }
     
     public void Attack(Pokemon enemy, int moveSlot)
     {
@@ -42,9 +48,9 @@ public class Pokemon
 
     public string ViewPokemon()
     {
-        string msg = $"{name.ToUpper()}   ({hp}/{initialHp})\n";
+        string msg = $"{Name.ToUpper()}   ({Hp}/{InitialHp})\n";
 
-        if (Types != null)
+        if (Types.Count > 0)
         {
             msg += $" / Types: \n";
             foreach (var type in Types)
