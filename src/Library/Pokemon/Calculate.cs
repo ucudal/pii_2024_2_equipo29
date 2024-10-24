@@ -7,20 +7,20 @@ public class Calculate: ICalculate
     
     public int CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
     {
-        float b = CalculateBonus(attacker.Types, move.Type);
-        float e = CalculateEffectivity(defender.Types, move.Type);
-        int v = CalculateVariation(85, 100);
-        int p = move.Power;
-        int a = attacker.AttackPoints;
-        int d = attacker.DefensePoints;
+        float bonus = CalculateBonus(attacker.Types, move.Type);
+        float effectivity = CalculateEffectivity(defender.Types, move.Type);
+        int variation = CalculateVariation(85, 100);
+        int power = move.Power;
+        int attackPoints = attacker.AttackPoints;
+        int defensePoints = attacker.DefensePoints;
         
         if (move.IsSpecialMove)
         {
-            a = attacker.SpecialAttackPoints;
-            d = attacker.SpecialDefensePoints;
+            attackPoints = attacker.SpecialAttackPoints;
+            defensePoints = attacker.SpecialDefensePoints;
         }
         
-        double dmg = 0.1 * b * e * v * (((1.2 * a * p) / (25 * d)) + 2);
+        double dmg = 0.1 * bonus * effectivity * variation * (((1.2 * attackPoints * power) / (25 * defensePoints)) + 2);
 
         dmg = ApplyCrit(dmg);
         return (int)Math.Round(dmg);
