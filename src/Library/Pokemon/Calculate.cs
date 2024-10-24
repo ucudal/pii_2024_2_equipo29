@@ -21,25 +21,28 @@ public class Calculate: ICalculate
         }
         
         double dmg = 0.1 * bonus * effectivity * variation * (((1.2 * attackPoints * power) / (25 * defensePoints)) + 2);
-
         dmg = ApplyCrit(dmg);
+        
         return (int)Math.Round(dmg);
     }
 
     private double ApplyCrit(double dmg)
     {
-        Random rand = new Random();
-        dmg += rand.Next(0, 100) <= critChancePercentage ? dmg * critDamagePercentage / 100 : 0;
+        int randomValue = new Random().Next(0, 100);
+        dmg += randomValue <= critChancePercentage
+            ? dmg * critDamagePercentage / 100
+            : 0;
         return dmg;
     }
-    private static float CalculateBonus(List<Type> pokemonTypes, Type moveType)
+    
+    private float CalculateBonus(List<Type> pokemonTypes, Type moveType)
     {
         return pokemonTypes.Any(pokemonType => pokemonType == moveType) 
             ? 1.5f 
             : 1;
     }
     
-    private static float CalculateEffectivity(List<Type> enemyTypes, Type moveType)
+    private float CalculateEffectivity(List<Type> enemyTypes, Type moveType)
     {
         float effectivity = 1;
         foreach (Type enemyType in enemyTypes)
@@ -50,7 +53,7 @@ public class Calculate: ICalculate
         return effectivity;
     }
 
-    private static int CalculateVariation(int min, int max)
+    private int CalculateVariation(int min, int max)
     {
         return new Random().Next(min, max);
     }
