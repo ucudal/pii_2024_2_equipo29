@@ -2,7 +2,17 @@ namespace Library;
 
 public class GameCommands
 {
-    private Game game = new Game();
+    private Game game;
+
+    public GameCommands()
+    {
+        game = new Game();
+    }
+
+    public void StartGame()
+    {
+        game.Start();
+    }
     
     public void ChoosePokemon(Player player, string pokemonName)
     {
@@ -25,29 +35,28 @@ public class GameCommands
     }
 
 
-    public void ShowCatalogue()
+    public string ShowCatalogue()
     {
-        string msg = "https://pokemon-blog-api.netlify.app/";
-        // Enviar MSG 
+        return "https://pokemon-blog-api.netlify.app/";
     }
 
-    public void ShowTurn(Player inTurn, Player notInTurn)
+    public void ShowTurn(Player playerInTurn, Player notInTurn)
     {
-        string msg = $"Turno de: {inTurn.Name} \n" +
-                     inTurn.CurrentPokemon.ViewPokemon() + "\n" +
-                     inTurn.CurrentPokemon.ViewMoves() + "\n\n" +
-                     $"Recive: {inTurn.Name} \n" +
+        string msg = $"Turno de: {playerInTurn.Name} \n" +
+                     playerInTurn.CurrentPokemon.ViewPokemon() + "\n" +
+                     playerInTurn.CurrentPokemon.ViewMoves() + "\n\n" +
+                     $"Recive: {playerInTurn.Name} \n" +
                      notInTurn.CurrentPokemon.ViewPokemon();
         
         // falta mandar msg
     }
 
-    public void ChangePokemon(Player inTurn, string pokemonName)
+    public void ChangePokemon(Player playerInTurn, string pokemonName)
     {
-        Pokemon pokemon = inTurn.GetPokemonByName(pokemonName);
+        Pokemon pokemon = playerInTurn.GetPokemonByName(pokemonName);
         if (pokemon != null)
         {
-            inTurn.ChangePokemon(pokemon);
+            playerInTurn.ChangePokemon(pokemon);
         }
     }
 
