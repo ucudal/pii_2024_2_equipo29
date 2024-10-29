@@ -12,8 +12,11 @@
 
 ## Token para el bot de discord
 Se ha implementado el uso de variables de entorno para evitar subir el token del bot de discord a Github.
+
 Para su correcto funcionamiento se debe ejecutar el siguiente comando en la terminal de **PowerShell**:
-`setx DISCORD_TOKEN "<Token>"`
+`setx DISCORD_TOKEN "<Token>"`.
+
+Posteriormente, será necesario reiniciar la computadora.
 
 ## Formula de ataque de un Pokémon
 Se estudió la manera en como implementar los ataques de los pokemons, para lo cual se encontró la siguiente fórmula:
