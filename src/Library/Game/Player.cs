@@ -1,6 +1,6 @@
 namespace Library;
 
-public class Player: IPokemonManager
+public class Player : IPokemonManager
 {
     private List<Pokemon> pokemons = new();
     private int maxPokemons = 6;
@@ -14,7 +14,6 @@ public class Player: IPokemonManager
     public List<IItem> Items = new List<IItem>();
     
     public Pokemon CurrentPokemon { get; private set; }
-
 
     public Player(string name)
     {
@@ -92,16 +91,16 @@ public class Player: IPokemonManager
         }
     }
 
-    public Pokemon GetPokemonByName(string PokemonName)
+    public Pokemon GetPokemonByName(string pokemonName)
     {
         foreach (var pokemon in pokemons)
         {
-            if (pokemon.Name == PokemonName)
+            if (pokemon.Name == pokemonName)
             {
                 return pokemon;
             }
         }
 
-        return null;
+        return null!;
     }
 }

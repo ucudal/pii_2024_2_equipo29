@@ -10,9 +10,12 @@
 - **Anna Paula Tomas**: [pauuuutomas](https://github.com/pauuuutomas)
 - **Gabriel Fioritti**: [GabrielFioritti](https://github.com/GabrielFioritti)
 
-## Desafíos de la entrega
+## Token para el bot de discord
+Se ha implementado el uso de variables de entorno para evitar subir el token del bot de discord a Github.
+Para su correcto funcionamiento se debe ejecutar el siguiente comando en la terminal de **PowerShell**:
+`setx DISCORD_TOKEN "<Token>"`
 
-### Formula de ataque de un Pokémon
+## Formula de ataque de un Pokémon
 Se estudió la manera en como implementar los ataques de los pokemons, para lo cual se encontró la siguiente fórmula:
 
 <div style="text-align: center;">
@@ -29,11 +32,15 @@ Se estudió la manera en como implementar los ataques de los pokemons, para lo c
 
 La formula fue extraida de [Wikidex](https://www.wikidex.net/wiki/Daño)
 
-### Implementación de una pokédex para la búsqueda de pokemons
+## Implementación de una pokédex para la búsqueda de pokemons
 Se implementó una **Pokédex** para permitir que el usuario busque entre los 1025 pokémons, esto facilitará al usuario que vaya a utilizar el bot, a la hora de buscar los pokemons, podrá filtrar por cada tipo de pokemon o ordanar la lista por ID, nombre, vida, ataque o defensa. 
 La Pokédex se encuentra disponible en el siguiente enlace:  
 [Pokédex](https://pokemon-blog-api.netlify.app)
 
+# Segunda Entrega
+Contenido de la segunda entrega...
+
+# Primer entrega
 ## Principios SOLID utilizados
 - **SRP** (Principio de Responsabilidad Única)
 - **DIP** (Prinicipio de Inversión de Dependencias)

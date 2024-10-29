@@ -55,7 +55,7 @@ public class Game
             }
         }
 
-        return null;
+        return null!;
     }
 
     public string ViewTurn()

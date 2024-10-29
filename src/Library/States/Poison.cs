@@ -1,6 +1,6 @@
 namespace Library.States;
 
-public class Poison: State
+public class Poison : State
 {
     public Poison()
     {

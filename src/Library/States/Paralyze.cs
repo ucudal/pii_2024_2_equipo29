@@ -1,6 +1,6 @@
 namespace Library.States;
 
-public class Paralyze: State
+public class Paralyze : State
 {
     public Paralyze()
     {

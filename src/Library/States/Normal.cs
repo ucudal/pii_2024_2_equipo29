@@ -1,6 +1,6 @@
 namespace Library.States;
 
-public class Normal: State
+public class Normal : State
 {
     public Normal()
     {

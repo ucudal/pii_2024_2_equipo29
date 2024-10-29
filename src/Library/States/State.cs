@@ -2,7 +2,7 @@ namespace Library.States;
 
 public abstract class State
 {
-    public string Name;
+    public string Name { get; set; }
     
     public virtual void Attack(Pokemon attacker, Pokemon enemy, int moveSlot)
     {

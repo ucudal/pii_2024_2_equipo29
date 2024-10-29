@@ -1,6 +1,6 @@
 namespace Library.States;
 
-public class Burn: State
+public class Burn : State
 {
     public Burn()
     {
