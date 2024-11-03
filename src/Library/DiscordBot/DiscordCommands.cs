@@ -1,33 +1,37 @@
 ﻿using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.Entities;
+using DSharpPlus.SlashCommands;
 
 namespace Library.DiscordBot
 {
-    public class DiscordCommands : BaseCommandModule
+    public class DiscordCommands : ApplicationCommandModule
     {
         private GameCommands gameCommands;
-        public DiscordCommands()
+        
+        [SlashCommand("Test", "Verifica el estado del bot.")]
+        public async Task Test(InteractionContext context)
         {
+            await context.CreateResponseAsync("Funciona");
+        }
+
+        [SlashCommand("ShowCatalogue", "Muestra un link al catálogo de los pokemons.")]
+        public async Task ShowCatalogue(InteractionContext context)
+        {
+            await context.CreateResponseAsync($"Catálogo: {gameCommands.ShowCatalogue()}");
+        }
+        
+        [SlashCommand("StartGame", "Iniciar nueva partida.")]
+        public async Task StartGame(InteractionContext context)
+        {
+            await context.CreateResponseAsync("Iniciando juego, por favor espera...");
             gameCommands = new GameCommands();
-        }
-        
-        [Command("Test")]
-        public async Task Test(CommandContext context)
-        {
-            await context.Channel.SendMessageAsync("Funciona");
-        }
-        
-        [Command("ShowCatalogue")]
-        public async Task ShowCatalogue(CommandContext context)
-        {
-            await context.Channel.SendMessageAsync(gameCommands.ShowCatalogue());
-        }
-        
-        [Command("ShowCatalogue")]
-        public async Task StartGame(CommandContext context)
-        {
             gameCommands.StartGame();
-            await context.Channel.SendMessageAsync(gameCommands.ShowCatalogue());
+            
+            string catalogue = gameCommands.ShowCatalogue();
+            var builder = new DiscordWebhookBuilder().WithContent($"Juego iniciado. Catálogo: {catalogue}");
+
+            await context.EditResponseAsync(builder);
         }
     }
 }
