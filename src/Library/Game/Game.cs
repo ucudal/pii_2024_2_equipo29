@@ -1,8 +1,10 @@
+using DSharpPlus.CommandsNext;
+
 namespace Library;
 
 public class Game
 {
-    private List<Player> players;
+    private List<Player> players = new List<Player>();
     private int maxPlayers = 2;
     private Player PlayerInTurn;
     private int roundCount;
@@ -12,11 +14,11 @@ public class Game
         get => players.Count == maxPlayers;
     }
 
-    public void AddPlayer(Player player)
+    public void AddPlayer(string playerName)
     {
         if (!IsFullPlayers)
         {
-            players.Add(player);
+            players.Add(new Player(playerName));
         }
     }
 
