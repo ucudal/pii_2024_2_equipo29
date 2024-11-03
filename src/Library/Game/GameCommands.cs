@@ -41,7 +41,7 @@ public class GameCommands
     }
 
 
-    public string ShowCatalogue()
+    public static string ShowCatalogue()
     {
         return "https://pokemon-blog-api.netlify.app/";
     }

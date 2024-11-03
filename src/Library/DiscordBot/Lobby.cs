@@ -8,7 +8,7 @@ public class Lobby
 {
     private static Lobby instance;
     private List<DiscordMember> waitingPlayers = new();
-    public List<GameRoom> rooms = new();
+    public List<GameRoom> rooms { get; } = new();
 
     private Lobby() { }
     
@@ -24,7 +24,7 @@ public class Lobby
     public async Task AddWaitingPlayer(InteractionContext context)
     {
         DiscordMember member = context.Member;
-        if (!IsWaitingPlayerByName(member.Username) && waitingPlayers.Count < 2)
+        if (!IsWaitingPlayerByName(member.Username) && waitingPlayers.Count < Game.MaxPlayers)
         {
             waitingPlayers.Add(member);
             Console.WriteLine(waitingPlayers.Count);
@@ -44,7 +44,7 @@ public class Lobby
 
     public async Task TryToStartGame(InteractionContext context)
     {
-        if (waitingPlayers.Count == 2)
+        if (waitingPlayers.Count == Game.MaxPlayers)
         {
             GameRoom room = new GameRoom();
             foreach (DiscordMember member in waitingPlayers)
