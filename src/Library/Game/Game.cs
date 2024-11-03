@@ -4,14 +4,14 @@ namespace Library;
 
 public class Game
 {
+    public static int MaxPlayers { get; } = 2;
     private List<Player> players = new List<Player>();
-    private int maxPlayers = 2;
     private Player PlayerInTurn;
     private int roundCount;
     public bool HasStarted { get; private set; }
     public bool IsFullPlayers
     {
-        get => players.Count == maxPlayers;
+        get => players.Count == MaxPlayers;
     }
 
     public void AddPlayer(string playerName)

@@ -8,8 +8,8 @@ namespace Library.DiscordBot;
 public class GameRoom
 {
     public ulong Id { get; private set; }
-    public List<DiscordMember> Members { get;} = new();
-    public GameCommands commands  { get;} = new();
+    public List<DiscordMember> Members { get; } = new();
+    public GameCommands commands  { get; } = new();
 
     public void AddMember(DiscordMember member)
     {

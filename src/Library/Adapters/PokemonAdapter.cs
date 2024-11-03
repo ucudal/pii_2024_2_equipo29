@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Library.Services;
 using Library.States;
 
@@ -14,7 +15,16 @@ public class PokemonAdapter
 
     public async Task<Pokemon> GetPokemonAsync(string pokemonName)
     {
-        var apiResponse = await pokeApiService.GetPokemonDataAsync(pokemonName);
+        JsonDocument apiResponse;
+        try
+        {
+            apiResponse = await pokeApiService.GetPokemonDataAsync(pokemonName);
+        }
+        catch(HttpRequestException)
+        {
+            return null!;
+        }
+        
         var pokemonJson = apiResponse.RootElement;
 
         Pokemon pokemon = new Pokemon
