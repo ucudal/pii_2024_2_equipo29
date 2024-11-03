@@ -8,8 +8,7 @@ namespace Library.DiscordBot
     public class DiscordCommands : ApplicationCommandModule
     {
         private GameCommands gameCommands;
-
-        public Lobby lobby = new Lobby();
+        
         public DiscordCommands()
         {
             gameCommands = new GameCommands();
@@ -21,24 +20,21 @@ namespace Library.DiscordBot
             await context.CreateResponseAsync("Funciona");
         }
         
-        [Command("jugar")] 
-        public async Task AddPlayer(CommandContext context)
+        [SlashCommand("Play", "Permite jugar.")] 
+        public async Task AddPlayer(InteractionContext context)
         {
-            await lobby.AddWaitingPlayer(context);
-            await lobby.TryToStartGame(context);
+            await context.CreateResponseAsync("Iniciando partida...");
+            await Lobby.GetInstance().AddWaitingPlayer(context);
+            await Lobby.GetInstance().TryToStartGame(context);
+            
+            var builder = new DiscordWebhookBuilder().WithContent($"Juego iniciado.");
+            await context.EditResponseAsync(builder);
         }
         
         [SlashCommand("ShowCatalogue", "Muestra un link al catálogo de los pokemons.")]
         public async Task ShowCatalogue(InteractionContext context)
         {
             await context.CreateResponseAsync($"Catálogo: {gameCommands.ShowCatalogue()}");
-        }
-        
-        [Command("StartGame")]
-        public async Task StartGame(CommandContext context)
-        {
-            await lobby.TryToStartGame(context);
-            await context.Channel.SendMessageAsync(gameCommands.ShowCatalogue());
         }
         
         [SlashCommand("StartGame", "Iniciar nueva partida.")]
@@ -50,7 +46,6 @@ namespace Library.DiscordBot
             
             string catalogue = gameCommands.ShowCatalogue();
             var builder = new DiscordWebhookBuilder().WithContent($"Juego iniciado. Catálogo: {catalogue}");
-
             await context.EditResponseAsync(builder);
         }
     }

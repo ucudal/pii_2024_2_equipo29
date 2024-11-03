@@ -1,23 +1,23 @@
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
+using DSharpPlus.SlashCommands;
 
 namespace Library.DiscordBot;
 
 public class GameRoom
 {
     public ulong Id { get; private set; }
-    public List<DiscordMember> Members { get;} = new List<DiscordMember>();
+    public List<DiscordMember> Members { get;} = new();
+    public GameCommands commands  { get;} = new();
 
-    public GameCommands commands  { get;} = new GameCommands();
-
-    public async Task AddMember(DiscordMember member, CommandContext context)
+    public void AddMember(DiscordMember member)
     {
         Members.Add(member);
         commands.AddPlayer(member.Username);
     }
     
-    public async Task CreateRoomAsync(CommandContext context)
+    public async Task CreateRoomAsync(InteractionContext context)
     {
         var everyoneRole = context.Guild.EveryoneRole;
 
