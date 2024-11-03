@@ -1,8 +1,10 @@
+using DSharpPlus.CommandsNext;
+
 namespace Library;
 
 public class GameCommands
 {
-    private Game game;
+    public Game game;
 
     public GameCommands()
     {
@@ -13,7 +15,11 @@ public class GameCommands
     {
         game.Start();
     }
-    
+
+    public void AddPlayer(string playerName)
+    {
+        game.AddPlayer(playerName);
+    }
     public void ChoosePokemon(Player player, string pokemonName)
     {
         if (player.GetPokemonByName(pokemonName) == null)
