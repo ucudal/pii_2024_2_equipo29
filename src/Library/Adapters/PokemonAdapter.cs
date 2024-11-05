@@ -119,15 +119,16 @@ public class PokemonAdapter
                         .GetProperty("name")
                         .GetString() ?? string.Empty
                 },
-                Effect = pokemon.Moves.Count == 4
+                Effect = pokemon.Moves.Count == 3
                     ? PokemonEffects.Effects[moveJson
                         .GetProperty("type")
                         .GetProperty("name")
                         .GetString() ?? "normal"]
                     : EnumEffect.Normal,
-                Power = power
+                Power = power,
+                IsSpecialMove = pokemon.Moves.Count == 3
             };
-
+            
             pokemon.Moves.Add(move);
             if (pokemon.Moves.Count == 4) break;
         }
