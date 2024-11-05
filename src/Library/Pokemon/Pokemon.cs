@@ -48,15 +48,22 @@ public class Pokemon
 
     public string ViewPokemon()
     {
-        string msg = $"{Name.ToUpper()}   ({Hp}/{InitialHp})\n";
+        string msg = $"**{Name.ToUpper()}**   ({Hp}/{InitialHp})";
 
         if (Types.Count > 0)
         {
-            msg += $" / Types: \n";
+            msg += $" (Types: ";
             foreach (var type in Types)
             {
-                msg += $"-{type.Name} \n";
+                msg += $"-{type.Name} ";
             }
+
+            msg += ")\n";
+        }
+
+        foreach (var move in Moves)
+        {
+            msg += move.ViewMove() + "\n";
         }
         
         return msg;

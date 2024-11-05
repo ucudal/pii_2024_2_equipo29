@@ -15,12 +15,32 @@ namespace Library.DiscordBot
         public async Task AddPlayer(InteractionContext context)
         {
             await context.CreateResponseAsync("Iniciando partida...");
-            await Lobby.GetInstance().AddWaitingPlayer(context);
+            var builder = new DiscordWebhookBuilder().WithContent(Lobby.GetInstance().AddWaitingPlayer(context));
             await Lobby.GetInstance().TryToStartGame(context);
             
-            var builder = new DiscordWebhookBuilder().WithContent("Juego iniciado.");
             await context.EditResponseAsync(builder);
         }
+        
+        [SlashCommand("Choose", "Permite jugar.")] 
+        public async Task ChoosePokemon(InteractionContext context,
+            [Option("Pokemon", "Pokémon a elegir")] string pokemonName)
+        {
+            Lobby lobby = Lobby.GetInstance();
+            GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
+            await context.CreateResponseAsync("Buscando Pokemon...");
+            var builder = new DiscordWebhookBuilder();
+            
+            if (room != null!)
+            {
+                builder.WithContent(await room.commands.ChoosePokemon(context.Member.Username, pokemonName.ToLower()));
+            }
+            else
+            {
+                builder.WithContent("Debe elegir en el canal de batalla");
+            }
+            await context.EditResponseAsync(builder);
+        }
+        
         
         [SlashCommand("ShowCatalogue", "Muestra un link al catálogo de los pokemons.")]
         public async Task ShowCatalogue(InteractionContext context)
@@ -33,8 +53,29 @@ namespace Library.DiscordBot
         {
             await context.CreateResponseAsync("Iniciando juego, por favor espera...");
             
-            string catalogue = GameCommands.ShowCatalogue();
-            var builder = new DiscordWebhookBuilder().WithContent($"Juego iniciado. Catálogo: {catalogue}");
+            Lobby lobby = Lobby.GetInstance();
+            GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
+            var builder = new DiscordWebhookBuilder();
+            
+            if (room != null!)
+            {
+                builder.WithContent(room.commands.StartBattle());
+            }
+            else
+            {
+                builder.WithContent("Debe estar en el canal de batalla para iniciarla");
+            }
+            
+            await context.EditResponseAsync(builder);
+        }
+
+        [SlashCommand("ClearRooms", "Iniciar nueva partida.")]
+        public async Task ClearRooms(InteractionContext context)
+        {
+            await context.CreateResponseAsync("Eliminando todas los servidores de batalla...");
+            await Lobby.GetInstance().ClearLobby(context);
+            
+            var builder = new DiscordWebhookBuilder().WithContent("Servidores de batalla eliminados correctamente");
             await context.EditResponseAsync(builder);
         }
     }

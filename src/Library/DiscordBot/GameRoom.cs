@@ -40,8 +40,15 @@ public class GameRoom
 
         // Crear el canal privado con las sobreescrituras de permisos
         var privateChannel = await context.Guild.CreateTextChannelAsync("Battle", overwrites: overwrites);
-
+        
         Id = privateChannel.Id;
+        await privateChannel.SendMessageAsync($"Catálogo: {GameCommands.ShowCatalogue()}");
         await context.Channel.SendMessageAsync($"Canal privado creado: {privateChannel.Mention}");
+    }
+
+    public async Task DeleteRoom(InteractionContext context)
+    {
+        var guild = await context.Client.GetGuildAsync(Id);
+        await guild.DeleteAsync();
     }
 }

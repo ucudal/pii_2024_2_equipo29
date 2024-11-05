@@ -65,8 +65,33 @@ public class Game
         return $"Turno de {PlayerInTurn.Name}\n {PlayerInTurn.CurrentPokemon.ViewPokemon()}\n";
     }
 
+    public Player GetPlayerByName(string playerName)
+    {
+        foreach (var player in players)
+        {
+            if (player.Name == playerName)
+            {
+                return player;
+            } 
+        }
+
+        return null!;
+    }
     private Player GetRandomPlayer()
     {
         return players[new Random().Next(0, players.Count)];
+    }
+
+    public bool AllPlayersReady()
+    {
+        foreach (var player in players)
+        {
+            if (!player.HasAllPokemnos())
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

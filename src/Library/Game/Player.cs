@@ -3,7 +3,7 @@ namespace Library;
 public class Player : IPokemonManager
 {
     private List<Pokemon> pokemons = new();
-    private int maxPokemons = 6;
+    public const int maxPokemons = 2;
     public int pokemonsCount => pokemons.Count;
   
     private string name;
@@ -102,5 +102,10 @@ public class Player : IPokemonManager
         }
 
         return null!;
+    }
+
+    public bool HasAllPokemnos()
+    {
+        return pokemonsCount == maxPokemons;
     }
 }

@@ -1,4 +1,6 @@
 using DSharpPlus.CommandsNext;
+using Library.Adapters;
+using Library.Services;
 
 namespace Library;
 
@@ -10,37 +12,76 @@ public class GameCommands
     {
         game = new Game();
     }
-
-    public void StartGame()
-    {
-        game.Start();
-    }
+    
 
     public void AddPlayer(string playerName)
     {
         game.AddPlayer(playerName);
     }
-    public void ChoosePokemon(Player player, string pokemonName)
+    
+    public async Task<string> ChoosePokemon(string playerName, string pokemonName)
     {
-        if (player.GetPokemonByName(pokemonName) == null)
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Player player = game.GetPlayerByName(playerName);
+        string msg = "";
+        if (player != null!)
         {
-            if (player.pokemonsCount < 6)
+                if (player.GetPokemonByName(pokemonName) == null!)
+                {
+                    if (player.pokemonsCount < Player.maxPokemons)
+                    {
+                        Pokemon pokemon = await pokemonAdapter.GetPokemonAsync(pokemonName);
+                        if (pokemon != null!)
+                        {
+                            player.AddPokemon(pokemon);
+                            msg += $"{pokemonName} ha sido agregado al equipo de {player.Name}  ***({player.pokemonsCount}/6)***";
+                        }
+                        else
+                        {
+                            msg += $"{pokemonName} no ha sido encontrado";
+                        }
+                    }
+                    else
+                    {
+                        msg += $"{player.Name} ya ha alcanzado el maximo de pokemons en su equipo";
+                    }
+                }
+                else
+                {
+                    msg += $"{pokemonName} ya se encuentra en el equipo de {player.Name}";
+                }
+        }
+        else
+        {
+            msg += $"{playerName} no ha sido encontrado";
+        }
+        
+        return msg;
+    }
+
+    public string StartBattle()
+    {
+        string msg = "";
+        if (!game.HasStarted)
+        {
+            if (game.AllPlayersReady())
             {
-                /*Pokemon pokemon = getPokemonFromApi();
-                player.AddPokemon(pokemon);*/
+                game.Start();
+                msg = $"Juego iniciado. \n" +
+                      $"{game.ViewTurn()}";
             }
             else
             {
-                // MSG sobre que ya tiene 6 pokemons 
+                msg = "Espera a que todos los jugadores esten listos";
             }
         }
         else
         {
-            // Msg sobre que ya tiene el Pokemon
+            msg = "La partida ya esta en curso";
         }
+    
+        return msg;
     }
-
-
     public static string ShowCatalogue()
     {
         return "https://pokemon-blog-api.netlify.app/";
@@ -60,7 +101,7 @@ public class GameCommands
     public void ChangePokemon(Player playerInTurn, string pokemonName)
     {
         Pokemon pokemon = playerInTurn.GetPokemonByName(pokemonName);
-        if (pokemon != null)
+        if (pokemon != null!)
         {
             playerInTurn.ChangePokemon(pokemon);
         }
