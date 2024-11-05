@@ -12,7 +12,6 @@ public class GameCommands
     {
         game = new Game();
     }
-    
 
     public void AddPlayer(string playerName)
     {
@@ -97,6 +96,13 @@ public class GameCommands
                      notInTurn.CurrentPokemon.ViewPokemon();
         
         // falta mandar msg
+    }
+    
+    public string Attack(int moveSlot)
+    {
+        IPokemonManager enemyPlayer = game.PlayerNotInTurn;
+        game.PlayerInTurn.Attack(enemyPlayer, moveSlot);
+        return "¡El pokemon a sido atacado!";
     }
 
     public void ChangePokemon(Player playerInTurn, string pokemonName)

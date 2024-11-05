@@ -4,9 +4,20 @@ namespace Library;
 
 public class Game
 {
-    public static int MaxPlayers { get; } = 2;
+    public static int MaxPlayers { get; } = 1;
     private List<Player> players = new List<Player>();
-    private Player PlayerInTurn;
+    public Player PlayerInTurn { get; private set; }
+
+    public Player PlayerNotInTurn
+    {
+        get
+        {
+            return PlayerInTurn == players[0]
+                ? players[1] 
+                : players[0];
+        }
+    }
+
     private int roundCount;
     public bool HasStarted { get; private set; }
     public bool IsFullPlayers

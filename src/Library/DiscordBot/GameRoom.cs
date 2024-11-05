@@ -9,12 +9,12 @@ public class GameRoom
 {
     public ulong Id { get; private set; }
     public List<DiscordMember> Members { get; } = new();
-    public GameCommands commands  { get; } = new();
+    public GameCommands Commands { get; } = new();
 
     public void AddMember(DiscordMember member)
     {
         Members.Add(member);
-        commands.AddPlayer(member.Username);
+        Commands.AddPlayer(member.Username);
     }
     
     public async Task CreateRoomAsync(InteractionContext context)

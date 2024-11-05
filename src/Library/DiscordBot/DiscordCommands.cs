@@ -25,14 +25,13 @@ namespace Library.DiscordBot
         public async Task ChoosePokemon(InteractionContext context,
             [Option("Pokemon", "Pokémon a elegir")] string pokemonName)
         {
-            Lobby lobby = Lobby.GetInstance();
-            GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
+            GameRoom room = Lobby.GetInstance().GetGameRoomById(context.Channel.Id);
             await context.CreateResponseAsync("Buscando Pokemon...");
             var builder = new DiscordWebhookBuilder();
             
             if (room != null!)
             {
-                builder.WithContent(await room.commands.ChoosePokemon(context.Member.Username, pokemonName.ToLower()));
+                builder.WithContent(await room.Commands.ChoosePokemon(context.Member.Username, pokemonName.ToLower()));
             }
             else
             {
@@ -59,13 +58,33 @@ namespace Library.DiscordBot
             
             if (room != null!)
             {
-                builder.WithContent(room.commands.StartBattle());
+                builder.WithContent(room.Commands.StartBattle());
             }
             else
             {
                 builder.WithContent("Debe estar en el canal de batalla para iniciarla");
             }
             
+            await context.EditResponseAsync(builder);
+        }
+        
+        [SlashCommand("Attack", "Ataca a un pokemon enemigo.")]
+        public async Task Attack(InteractionContext context,
+            [Option("MoveSlot", "Movimiento a utilizar.")] string moveSlot)
+        {
+            GameRoom room = Lobby.GetInstance().GetGameRoomById(context.Channel.Id);
+            
+            if (room == null)
+            {
+                await context.CreateResponseAsync("Debe estar en el canal de batalla para atacar un pokemon.");
+                return;
+            }
+            
+            await context.CreateResponseAsync(room.Commands.Attack(int.Parse(moveSlot)));
+            return;
+            var builder = new DiscordWebhookBuilder();
+            builder.WithContent(room.Commands.Attack(int.Parse(moveSlot)));
+
             await context.EditResponseAsync(builder);
         }
 

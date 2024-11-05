@@ -69,14 +69,6 @@ public class Lobby
 
     public GameRoom GetGameRoomById(ulong id)
     {
-        foreach (var room in rooms)
-        {
-            if (room.Id == id)
-            {
-                return room;
-            }
-        }
-
-        return null!;
+        return rooms.Find(room => room.Id == id)!;
     }
 }
