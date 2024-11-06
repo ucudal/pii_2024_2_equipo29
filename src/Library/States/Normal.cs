@@ -1,9 +1,16 @@
-namespace Library.States;
-
-public class Normal : State
+namespace Library.States
 {
-    public Normal()
+    /// <summary>
+    /// Clase que representa el estado normal en un Pokémon.
+    /// </summary>
+    public class Normal : State
     {
-        Name = "normal";
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="Normal"/> con el nombre del estado "normal".
+        /// </summary>
+        public Normal()
+        {
+            Name = "normal";
+        }
     }
 }
