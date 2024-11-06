@@ -9,7 +9,7 @@ public class Move
     public Type Type { get; set; }
     public int Power { get; set; }
     public bool IsSpecialMove { get; set; }
-    public EnumEffect Effect { get; set; } = EnumEffect.Normal;
+    public EnumState State { get; set; } = EnumState.Normal;
 
     public string ViewMove()
     {
@@ -18,7 +18,7 @@ public class Move
         {
             msg += $" / Type: {Type.Name}";
         }
-        msg += $" / Effect: {Effect}";
+        msg += $" / Effect: {State}";
         return msg;
     }
 }

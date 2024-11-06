@@ -1,10 +1,8 @@
-using DSharpPlus.CommandsNext;
-
 namespace Library;
 
 public class Game
 {
-    public static int MaxPlayers { get; } = 1;
+    public static int MaxPlayers { get; } = 2;
     private List<Player> players = new List<Player>();
     public Player PlayerInTurn { get; private set; }
 
@@ -35,9 +33,9 @@ public class Game
 
     public void ToogleTurn()
     {
-        PlayerInTurn = PlayerInTurn == players[0]
-            ? players[1] 
-            : players[0];
+        PlayerInTurn = PlayerNotInTurn;
+        
+        PlayerInTurn.CurrentPokemon.StateMachine.ApplyEffect(PlayerInTurn.CurrentPokemon);
     }
 
     public void Start()
@@ -47,6 +45,11 @@ public class Game
             PlayerInTurn = GetRandomPlayer();
             HasStarted = true;
         }
+    }
+    
+    public bool IsPlayerNameInTurn(string playerName)
+    {
+        return PlayerInTurn.Name == playerName;
     }
 
     public void Reset()  // Nose si era esta la idea (REVISAR)
@@ -60,14 +63,8 @@ public class Game
 
     public Player GetWinner()
     {
-        foreach (var player in players)
-        {
-            if (player.HasLost())
-            {
-                return player;
-            }
-        }
-
+        if (PlayerInTurn.HasLost()) return PlayerNotInTurn;
+        if (PlayerNotInTurn.HasLost()) return PlayerInTurn;
         return null!;
     }
 

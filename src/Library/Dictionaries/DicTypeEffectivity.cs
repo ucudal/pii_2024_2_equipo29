@@ -1,6 +1,6 @@
 namespace Library;
  
- public abstract class TypeEffectivity
+ public abstract class DicTypeEffectivity
  {
      public static Dictionary<string, Dictionary<string, float>> Effectivity { get; } = new()
      {

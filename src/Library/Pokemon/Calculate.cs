@@ -47,7 +47,7 @@ public class Calculate: ICalculate
         float effectivity = 1;
         foreach (Type enemyType in enemyTypes)
         {
-            effectivity *= TypeEffectivity.Effectivity[moveType.Name][enemyType.Name];
+            effectivity *= DicTypeEffectivity.Effectivity[moveType.Name][enemyType.Name];
         }
         
         return effectivity;

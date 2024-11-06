@@ -46,6 +46,7 @@ public class Player : IPokemonManager
     public void Attack(IPokemonManager enemyPlayer, int moveSlot)
     {
         CurrentPokemon.Attack(enemyPlayer.CurrentPokemon, moveSlot);
+        if (enemyPlayer.CurrentPokemon.IsDead()) enemyPlayer.ChangePokemon(enemyPlayer.GetNextPokemon());
     }
     
     public bool HasLost()
@@ -55,19 +56,25 @@ public class Player : IPokemonManager
 
     public Pokemon GetNextPokemon()
     {
+        Console.WriteLine("Entro 1");
         if (pokemons.Count == 0) return null!;
+        Console.WriteLine("Entro 2");
         
-        int indexNextPokemon = pokemons.IndexOf(CurrentPokemon) + 1;
+        int indexNextPokemon = GetPokemonIndex(CurrentPokemon) + 1;
+        Console.WriteLine("Entro 3");
         
         for (int i = indexNextPokemon; i < pokemons.Count; i++)
         {
-            if (!pokemons[i].IsDead()) return pokemons[i];
+            Console.WriteLine($"Entro 4: i = {indexNextPokemon}; i < {pokemons.Count}; i++");
+            if (!pokemons[i].IsDead()) Console.WriteLine("Entro 5"); return pokemons[i];
         }
         
         for (int i = 0; i < indexNextPokemon; i++)
         {
-            if (!pokemons[i].IsDead()) return pokemons[i];
+            Console.WriteLine("Entro 6");
+            if (!pokemons[i].IsDead()) Console.WriteLine("Entro 7"); return pokemons[i];
         }
+        Console.WriteLine("Entro 8");
         
         return null!;
     }
@@ -102,6 +109,11 @@ public class Player : IPokemonManager
         }
 
         return null!;
+    }
+    
+    public int GetPokemonIndex(Pokemon pokemon)
+    {
+        return pokemons.IndexOf(pokemon);
     }
 
     public bool HasAllPokemnos()

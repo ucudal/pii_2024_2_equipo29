@@ -1,3 +1,4 @@
+using System.Reflection.Metadata.Ecma335;
 using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 
@@ -80,12 +81,7 @@ namespace Library.DiscordBot
                 return;
             }
             
-            await context.CreateResponseAsync(room.Commands.Attack(int.Parse(moveSlot)));
-            return;
-            var builder = new DiscordWebhookBuilder();
-            builder.WithContent(room.Commands.Attack(int.Parse(moveSlot)));
-
-            await context.EditResponseAsync(builder);
+            await context.CreateResponseAsync(room.Commands.Attack(int.Parse(moveSlot), context.User.Username));
         }
 
         [SlashCommand("ClearRooms", "Iniciar nueva partida.")]

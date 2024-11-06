@@ -1,3 +1,4 @@
+using System.Reflection.Metadata.Ecma335;
 using DSharpPlus.CommandsNext;
 using Library.Adapters;
 using Library.Services;
@@ -6,18 +7,23 @@ namespace Library;
 
 public class GameCommands
 {
-    public Game game;
+    private Game game;
 
     public GameCommands()
     {
         game = new Game();
     }
 
+    public Player GetPlayerInTurn()
+    {
+        return game.PlayerInTurn;
+    }
+
     public void AddPlayer(string playerName)
     {
         game.AddPlayer(playerName);
     }
-    
+
     public async Task<string> ChoosePokemon(string playerName, string pokemonName)
     {
         PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
@@ -25,36 +31,37 @@ public class GameCommands
         string msg = "";
         if (player != null!)
         {
-                if (player.GetPokemonByName(pokemonName) == null!)
+            if (player.GetPokemonByName(pokemonName) == null!)
+            {
+                if (player.pokemonsCount < Player.maxPokemons)
                 {
-                    if (player.pokemonsCount < Player.maxPokemons)
+                    Pokemon pokemon = await pokemonAdapter.GetPokemonAsync(pokemonName);
+                    if (pokemon != null!)
                     {
-                        Pokemon pokemon = await pokemonAdapter.GetPokemonAsync(pokemonName);
-                        if (pokemon != null!)
-                        {
-                            player.AddPokemon(pokemon);
-                            msg += $"{pokemonName} ha sido agregado al equipo de {player.Name}  ***({player.pokemonsCount}/6)***";
-                        }
-                        else
-                        {
-                            msg += $"{pokemonName} no ha sido encontrado";
-                        }
+                        player.AddPokemon(pokemon);
+                        msg +=
+                            $"{pokemonName} ha sido agregado al equipo de {player.Name}  ***({player.pokemonsCount}/6)***";
                     }
                     else
                     {
-                        msg += $"{player.Name} ya ha alcanzado el maximo de pokemons en su equipo";
+                        msg += $"{pokemonName} no ha sido encontrado";
                     }
                 }
                 else
                 {
-                    msg += $"{pokemonName} ya se encuentra en el equipo de {player.Name}";
+                    msg += $"{player.Name} ya ha alcanzado el maximo de pokemons en su equipo";
                 }
+            }
+            else
+            {
+                msg += $"{pokemonName} ya se encuentra en el equipo de {player.Name}";
+            }
         }
         else
         {
             msg += $"{playerName} no ha sido encontrado";
         }
-        
+
         return msg;
     }
 
@@ -78,10 +85,10 @@ public class GameCommands
         {
             msg = "La partida ya esta en curso";
         }
-    
+
         return msg;
     }
-    
+
     public static string ShowCatalogue()
     {
         return "https://pokemon-blog-api.netlify.app/";
@@ -94,15 +101,55 @@ public class GameCommands
                      playerInTurn.CurrentPokemon.ViewMoves() + "\n\n" +
                      $"Recive: {playerInTurn.Name} \n" +
                      notInTurn.CurrentPokemon.ViewPokemon();
-        
+
         // falta mandar msg
     }
-    
-    public string Attack(int moveSlot)
+
+    public string Attack(int moveSlot, string playerNameAttacker)
     {
-        IPokemonManager enemyPlayer = game.PlayerNotInTurn;
-        game.PlayerInTurn.Attack(enemyPlayer, moveSlot);
-        return "¡El pokemon a sido atacado!";
+        Player winner = game.GetWinner();
+        if (winner != null)
+        {
+            return $"¡La partida ya ha finalizado, el jugador {winner.Name} ha ganado!";
+        }
+        
+        string playerNameInTurn = game.PlayerInTurn.Name;
+        if (!game.IsPlayerNameInTurn(playerNameAttacker))
+        {
+            return $"No puedes atacar, es el turno de {playerNameInTurn}";
+        }
+        
+        
+        
+        
+        bool playerCanAttack = game.PlayerInTurn.CurrentPokemon.StateMachine.CanAttack();
+        string stateName = game.PlayerInTurn.CurrentPokemon.StateMachine.CurrentState.Name;
+        
+        if (!playerCanAttack)
+        {
+            
+            return $"No puedes atacar, estás bajo el efecto {stateName}";
+        }
+        else
+        {
+            IPokemonManager enemyPlayer = game.PlayerNotInTurn;
+            game.PlayerInTurn.Attack(enemyPlayer, moveSlot);
+            game.ToogleTurn();
+            return $"Lo atacaste, estás bajo el efecto {stateName}";
+        }
+        
+        
+        
+
+        winner = game.GetWinner();
+        if (winner != null)
+        {
+            return $"¡El jugador {winner.Name} ha ganado!";
+        }
+
+        
+
+        return $"¡El pokemon a sido atacado!\n{game.ViewTurn()}";
     }
 
     public void ChangePokemon(Player playerInTurn, string pokemonName)

@@ -75,9 +75,7 @@ public class PokemonAdapter
                 })
                 .ToList(),
 
-            Moves = new List<Move>(),
-
-            PokemonState = new Normal()
+            Moves = new List<Move>()
         };
 
         var moves = pokemonJson
@@ -119,12 +117,12 @@ public class PokemonAdapter
                         .GetProperty("name")
                         .GetString() ?? string.Empty
                 },
-                Effect = pokemon.Moves.Count == 3
-                    ? PokemonEffects.Effects[moveJson
+                State = pokemon.Moves.Count == 3
+                    ? DicPokemonTypeStates.States[moveJson
                         .GetProperty("type")
                         .GetProperty("name")
                         .GetString() ?? "normal"]
-                    : EnumEffect.Normal,
+                    : EnumState.Normal,
                 Power = power,
                 IsSpecialMove = pokemon.Moves.Count == 3
             };

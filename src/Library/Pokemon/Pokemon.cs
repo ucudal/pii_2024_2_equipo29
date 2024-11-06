@@ -14,21 +14,32 @@ public class Pokemon
     public int SpecialDefensePoints { get; set; }
     public List<Move> Moves { get; set; }
     public List<Type> Types { get; set; }
-    public State PokemonState { get; set; }
+    public StateMachine StateMachine { get; }
 
     public Pokemon()
     {
         Moves = new List<Move>();
         Types = new List<Type>();
+        StateMachine = new StateMachine(new Normal());
     }
     
-    public void Attack(Pokemon enemy, int moveSlot)
+    public void Attack(Pokemon pokemonEnemy, int moveSlot)
     {
-        Random rand = new Random();
-        if (rand.Next(0, 100) < Moves[moveSlot].Accuracy)
+        if (new Random().Next(0, 100) >= Moves[moveSlot].Accuracy)
         {
-            PokemonState.Attack(this, enemy, moveSlot);
-        }
+            Console.WriteLine("No tienes puntería, le erraste.");
+            return;
+        };
+        
+        Move move = Moves[moveSlot];
+        ICalculate calculate = new Calculate();
+        int dmg = calculate.CalculateDamage(this, pokemonEnemy, move);
+    
+        pokemonEnemy.Hp = dmg > pokemonEnemy.Hp 
+            ? 0 
+            : pokemonEnemy.Hp - dmg;
+
+        StateApplier.ApplyStateEffect(pokemonEnemy.StateMachine, move.State);
     }
 
     public bool IsDead()

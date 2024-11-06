@@ -1,6 +1,6 @@
 namespace Library.States;
 
-public enum EnumEffect
+public enum EnumState
 {
     Normal,
     Sleep,
