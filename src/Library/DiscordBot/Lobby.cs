@@ -27,14 +27,10 @@ public class Lobby
         if (!IsWaitingPlayerByName(member.Username) && waitingPlayers.Count < Game.MaxPlayers)
         {
             waitingPlayers.Add(member);
-            Console.WriteLine(waitingPlayers.Count);
             
-            return $"{member.Username.ToUpper()} ha sido agregado a la lista de espera";
+            return $"**{member.Username.ToUpper()}** se ha agregado a la lista de espera.";
         }
-        else
-        {
-            return $"{member.Username.ToUpper()} ya se encuentra esperando rival";
-        }
+        return $"**{member.Username.ToUpper()}** ya se encuentra esperando rival.";
     }
     
     private bool IsWaitingPlayerByName(string name)

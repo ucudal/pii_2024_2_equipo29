@@ -6,13 +6,13 @@ public class Sleep : IPokemonState
     private int minSleepTurns = 1;
     private int maxSleepTurns = 4;
     private int remainingTurns;
-    
+
     public Sleep()
     {
         Name = EnumState.Sleep.ToString();
-        SetRandomSleepTurns(minSleepTurns, maxSleepTurns);
+        SetRandomSleepTurns(minSleepTurns + 1, maxSleepTurns + 1);
     }
-    
+
     public void ApplyEffect(Pokemon currentPokemon)
     {
         if (remainingTurns > 0)
@@ -28,6 +28,11 @@ public class Sleep : IPokemonState
     public bool CanAttack()
     {
         return remainingTurns == 0;
+    }
+
+    public int GetRemainingTurnsWithEffect()
+    {
+        return remainingTurns;
     }
     
     private void SetRandomSleepTurns(int min, int max)

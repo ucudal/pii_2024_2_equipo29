@@ -13,6 +13,11 @@ public class StateMachine
     {
         CurrentState.ApplyEffect(pokemon);
     }
+    
+    public int GetRemainingTurnsWithEffect()
+    {
+        return CurrentState.GetRemainingTurnsWithEffect();
+    }
 
     public bool CanAttack()
     {

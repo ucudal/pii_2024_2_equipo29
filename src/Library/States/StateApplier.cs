@@ -2,10 +2,12 @@ namespace Library.States;
 
 public abstract class StateApplier
 {
-    public static void ApplyStateEffect(StateMachine stateMachine, EnumState state)
+    public static string ApplyStateEffect(StateMachine stateMachine, EnumState state)
     {
-        Console.WriteLine($"\n\n'{stateMachine.CurrentState.Name}' != '{EnumState.Normal.ToString()}'");
-        if (stateMachine.CurrentState.Name != EnumState.Normal.ToString()) return;
+        if (state == EnumState.Normal) return "";
+        
+        if (stateMachine.CurrentState is not Normal) 
+            return $"El pokemon ya tiene el efecto {stateMachine.CurrentState.Name}, el efecto {state} no ha sido aplicado.";
 
         IPokemonState newState = state switch
         {
@@ -17,6 +19,6 @@ public abstract class StateApplier
         };
 
         stateMachine.CurrentState = newState;
-        Console.Write($"Se aplico el estado {stateMachine.CurrentState.Name}");
+        return "";
     }
 }

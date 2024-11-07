@@ -3,7 +3,7 @@ namespace Library;
 public class Game
 {
     public static int MaxPlayers { get; } = 2;
-    private List<Player> players = new List<Player>();
+    private List<Player> players = new();
     public Player PlayerInTurn { get; private set; }
 
     public Player PlayerNotInTurn
@@ -15,8 +15,6 @@ public class Game
                 : players[0];
         }
     }
-
-    private int roundCount;
     public bool HasStarted { get; private set; }
     public bool IsFullPlayers
     {
@@ -25,16 +23,15 @@ public class Game
 
     public void AddPlayer(string playerName)
     {
-        if (!IsFullPlayers)
-        {
-            players.Add(new Player(playerName));
-        }
+        if (!IsFullPlayers) players.Add(new Player(playerName));
+        if (IsFullPlayers) PlayerInTurn = GetRandomPlayer();
     }
 
     public void ToogleTurn()
     {
         PlayerInTurn = PlayerNotInTurn;
-        
+
+        PlayerInTurn.CurrentPokemon.UpdateCoolDownSpecialMove();
         PlayerInTurn.CurrentPokemon.StateMachine.ApplyEffect(PlayerInTurn.CurrentPokemon);
     }
 
@@ -42,7 +39,6 @@ public class Game
     {
         if (IsFullPlayers)
         {
-            PlayerInTurn = GetRandomPlayer();
             HasStarted = true;
         }
     }
@@ -52,7 +48,7 @@ public class Game
         return PlayerInTurn.Name == playerName;
     }
 
-    public void Reset()  // Nose si era esta la idea (REVISAR)
+    public void Reset()  // Era la idea si
     {
         HasStarted = false;
         foreach (var player in players)
@@ -70,7 +66,7 @@ public class Game
 
     public string ViewTurn()
     {
-        return $"Turno de {PlayerInTurn.Name}\n {PlayerInTurn.CurrentPokemon.ViewPokemon()}\n";
+        return $"Turno de **{PlayerInTurn.Name.ToUpper()}**\n{PlayerInTurn.CurrentPokemon.ViewPokemon()}\n";
     }
 
     public Player GetPlayerByName(string playerName)
@@ -92,14 +88,17 @@ public class Game
 
     public bool AllPlayersReady()
     {
+        return players.All(player => player.HasAllPokemnos());
+    }
+    
+    public string ViewAllPokemons()
+    {
+        string msg = "";
         foreach (var player in players)
         {
-            if (!player.HasAllPokemnos())
-            {
-                return false;
-            }
+            msg +=$"{player.Name.ToUpper()}:\n{player.ViewAllPokemons()}\n";
         }
 
-        return true;
+        return msg;
     }
 }

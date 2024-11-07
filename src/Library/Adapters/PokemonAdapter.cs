@@ -36,12 +36,12 @@ public class PokemonAdapter
             InitialHp = pokemonJson
                 .GetProperty("stats")[0]
                 .GetProperty("base_stat")
-                .GetInt32(),
+                .GetInt32() * 10,
 
             Hp = pokemonJson
                 .GetProperty("stats")[0]
                 .GetProperty("base_stat")
-                .GetInt32(),
+                .GetInt32() * 10,
 
             AttackPoints = pokemonJson
                 .GetProperty("stats")[1]
