@@ -21,20 +21,16 @@ public class Lobby
         return instance;
     }
     
-    public async Task AddWaitingPlayer(InteractionContext context)
+    public string AddWaitingPlayer(InteractionContext context)
     {
         DiscordMember member = context.Member;
         if (!IsWaitingPlayerByName(member.Username) && waitingPlayers.Count < Game.MaxPlayers)
         {
             waitingPlayers.Add(member);
-            Console.WriteLine(waitingPlayers.Count);
             
-            await context.Channel.SendMessageAsync($"{member.Username.ToUpper()} ha sido agregado a la lista de espera");
+            return $"**{member.Username.ToUpper()}** se ha agregado a la lista de espera.";
         }
-        else
-        {
-            await context.Channel.SendMessageAsync($"{member.Username.ToUpper()} ya se encuentra esperando rival");
-        }
+        return $"**{member.Username.ToUpper()}** ya se encuentra esperando rival.";
     }
     
     private bool IsWaitingPlayerByName(string name)
@@ -56,5 +52,19 @@ public class Lobby
 
             waitingPlayers.Clear();
         }
+    }
+
+    public async Task ClearLobby(InteractionContext context)
+    {
+        foreach (var room in rooms)
+        {
+            await room.DeleteRoom(context);
+        }
+        rooms.Clear();
+    }
+
+    public GameRoom GetGameRoomById(ulong id)
+    {
+        return rooms.Find(room => room.Id == id)!;
     }
 }

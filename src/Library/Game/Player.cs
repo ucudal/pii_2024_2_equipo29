@@ -3,7 +3,7 @@ namespace Library;
 public class Player : IPokemonManager
 {
     private List<Pokemon> pokemons = new();
-    private int maxPokemons = 6;
+    public const int MaxPokemons = 2;
     public int pokemonsCount => pokemons.Count;
   
     private string name;
@@ -11,7 +11,7 @@ public class Player : IPokemonManager
     {
         get => name;
     }
-    public List<IItem> Items = new List<IItem>();
+    public List<IItem> Items = new();
     
     public Pokemon CurrentPokemon { get; private set; }
 
@@ -23,7 +23,7 @@ public class Player : IPokemonManager
     
     public void AddPokemon(Pokemon pokemon)
     {
-        if (pokemons.Count >= maxPokemons || pokemons.Contains(pokemon)) return;
+        if (pokemons.Count >= MaxPokemons || pokemons.Contains(pokemon)) return;
         
         pokemons.Add(pokemon);
         CurrentPokemon ??= pokemon;
@@ -43,9 +43,12 @@ public class Player : IPokemonManager
         CurrentPokemon = null!;
     }
 
-    public void Attack(IPokemonManager enemyPlayer, int moveSlot)
+    public string Attack(IPokemonManager enemyPlayer, int moveSlot)
     {
-        CurrentPokemon.Attack(enemyPlayer.CurrentPokemon, moveSlot);
+        string msg = CurrentPokemon.Attack(enemyPlayer.CurrentPokemon, moveSlot);
+        if (enemyPlayer.CurrentPokemon.IsDead()) enemyPlayer.ChangePokemon(enemyPlayer.GetNextPokemon());
+        
+        return msg; 
     }
     
     public bool HasLost()
@@ -57,8 +60,7 @@ public class Player : IPokemonManager
     {
         if (pokemons.Count == 0) return null!;
         
-        int indexNextPokemon = pokemons.IndexOf(CurrentPokemon) + 1;
-        
+        int indexNextPokemon = GetPokemonIndex(CurrentPokemon) + 1;
         for (int i = indexNextPokemon; i < pokemons.Count; i++)
         {
             if (!pokemons[i].IsDead()) return pokemons[i];
@@ -72,10 +74,10 @@ public class Player : IPokemonManager
         return null!;
     }
 
-    public void UseItem(IItem item)
+    public string UseItem(IItem item)
     {
         Items.Remove(item);
-        string message = item.Use(CurrentPokemon);
+        return item.Use(CurrentPokemon);
     }
 
     private void AddBaseItems()
@@ -102,5 +104,26 @@ public class Player : IPokemonManager
         }
 
         return null!;
+    }
+    
+    public int GetPokemonIndex(Pokemon pokemon)
+    {
+        return pokemons.IndexOf(pokemon);
+    }
+
+    public bool HasAllPokemnos()
+    {
+        return pokemonsCount == MaxPokemons;
+    }
+    
+    public string ViewAllPokemons()
+    {
+        string msg = "";
+        foreach (var pokemon in pokemons)
+        {
+            msg += $"• {pokemon.ViewPokemonSimple()}\n";
+        }
+
+        return msg;
     }
 }

@@ -1,73 +1,181 @@
+using System.Reflection.Metadata.Ecma335;
 using DSharpPlus.CommandsNext;
+using Library.Adapters;
+using Library.Services;
 
 namespace Library;
 
 public class GameCommands
 {
-    public Game game;
+    private Game game;
 
     public GameCommands()
     {
         game = new Game();
     }
 
-    public void StartGame()
+    public Player GetPlayerInTurn()
     {
-        game.Start();
+        return game.PlayerInTurn;
     }
 
     public void AddPlayer(string playerName)
     {
         game.AddPlayer(playerName);
     }
-    public void ChoosePokemon(Player player, string pokemonName)
+
+    public async Task<string> ChoosePokemon(string playerName, string pokemonName)
     {
-        if (player.GetPokemonByName(pokemonName) == null)
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Player player = game.GetPlayerByName(playerName);
+        string msg = "";
+        if (player != null!)
         {
-            if (player.pokemonsCount < 6)
+            if (player.GetPokemonByName(pokemonName) == null!)
             {
-                /*Pokemon pokemon = getPokemonFromApi();
-                player.AddPokemon(pokemon);*/
+                if (player.pokemonsCount < Player.MaxPokemons)
+                {
+                    Pokemon pokemon = await pokemonAdapter.GetPokemonAsync(pokemonName);
+                    if (pokemon != null!)
+                    {
+                        player.AddPokemon(pokemon);
+                        msg += $"**{pokemonName.ToUpper()}** ha sido agregado al equipo de **{player.Name.ToUpper()}**  ***({player.pokemonsCount}/{Player.MaxPokemons})***";
+                        if (!game.HasStarted && game.AllPlayersReady())
+                        {
+                            msg += $"\n\n{StartBattle()}";
+                        }
+                    }
+                    else
+                    {
+                        msg += $"{pokemonName} no ha sido encontrado";
+                    }
+                }
+                else
+                {
+                    msg += $"{player.Name} ya ha alcanzado el maximo de pokemons en su equipo";
+                }
             }
             else
             {
-                // MSG sobre que ya tiene 6 pokemons 
+                msg += $"{pokemonName} ya se encuentra en el equipo de {player.Name}";
             }
         }
         else
         {
-            // Msg sobre que ya tiene el Pokemon
+            msg += $"{playerName} no ha sido encontrado";
         }
+
+        return msg;
     }
 
+    public string StartBattle()
+    {
+        string msg;
+        if (!game.HasStarted)
+        {
+            if (game.AllPlayersReady())
+            {
+                game.Start();
+                msg = game.ViewTurn();
+            }
+            else
+            {
+                msg = "Espera a que todos los jugadores esten listos.";
+            }
+        }
+        else
+        {
+            msg = "_La partida ya esta en curso._";
+        }
+
+        return msg;
+    }
 
     public static string ShowCatalogue()
     {
-        return "https://pokemon-blog-api.netlify.app/";
+        return "\ud83c\udf10 **CATÁLOGO DE POKEMONS** \u2192 https://pokemon-blog-api.netlify.app/";
     }
 
-    public void ShowTurn(Player playerInTurn, Player notInTurn)
+    public string NextTurn()
     {
-        string msg = $"Turno de: {playerInTurn.Name} \n" +
-                     playerInTurn.CurrentPokemon.ViewPokemon() + "\n" +
-                     playerInTurn.CurrentPokemon.ViewMoves() + "\n\n" +
-                     $"Recive: {playerInTurn.Name} \n" +
-                     notInTurn.CurrentPokemon.ViewPokemon();
-        
-        // falta mandar msg
+        game.ToogleTurn();
+        return game.ViewTurn();
     }
 
-    public void ChangePokemon(Player playerInTurn, string pokemonName)
+    public string ShowTurn()
+    {
+        return  $"Turno de: {game.PlayerInTurn.Name} \n" +
+                game.PlayerInTurn.CurrentPokemon.ViewPokemon() + "\n" +
+                $"Recive: {game.PlayerNotInTurn.Name} \n" +
+                game.PlayerNotInTurn.CurrentPokemon.ViewPokemonSimple();
+    }
+
+    public string Attack(int moveSlot, string playerNameAttacker)
+    {
+        Player winner = game.GetWinner();
+        if (winner != null)
+        {
+            return $"¡La partida ya ha finalizado, el jugador {winner.Name} ha ganado!";
+        }
+        
+        string playerNameInTurn = game.PlayerInTurn.Name;
+        if (!game.IsPlayerNameInTurn(playerNameAttacker))
+        {
+            return $"No puedes atacar, es el turno de {playerNameInTurn}";
+        }
+        
+        bool playerCanAttack = game.PlayerInTurn.CurrentPokemon.StateMachine.CanAttack();
+        string stateName = game.PlayerInTurn.CurrentPokemon.StateMachine.CurrentState.Name;
+        
+        if (!playerCanAttack)
+        {
+            return $"No puedes atacar, estás bajo el efecto {stateName}";
+        }
+
+        IPokemonManager enemyPlayer = game.PlayerNotInTurn;
+        string msg = game.PlayerInTurn.Attack(enemyPlayer, moveSlot);
+        
+        if (!msg.Contains("cooldown")) game.ToogleTurn();
+        
+        return $"{msg}\n{game.ViewTurn()}";
+    }
+
+    public string ChangePokemon(Player playerInTurn, string pokemonName)
     {
         Pokemon pokemon = playerInTurn.GetPokemonByName(pokemonName);
-        if (pokemon != null)
+        if (pokemon != null!)
         {
             playerInTurn.ChangePokemon(pokemon);
+            game.ToogleTurn();
+            return $"**{pokemon.Name.ToUpper()}** ha entrado en batalla \n \n {ShowTurn()}";
         }
+
+        return $"**{pokemonName.ToUpper()}** no se encuentra disponible para cambiar.";
     }
 
-    public void UseItem(Player inTurn, int itemSlot)
+    public string UseItem(Player inTurn, int itemSlot)
     {
-        inTurn.UseItem(inTurn.Items[itemSlot]);
+        string msg = inTurn.UseItem(inTurn.Items[itemSlot]) + "\n";
+        game.ToogleTurn();
+        msg += ShowTurn();
+        return msg;
+    }
+    
+    public string ViewPokemons()
+    {
+        if (game.HasStarted)
+        {
+            return game.ViewAllPokemons();
+        }
+
+        return "Espera a que empiece la batalla";
+    }
+
+    public string RestartGame()
+    {
+        if (game.GetWinner() == null) return "La partida no ha finalizado.";
+            
+        game.Reset();
+        return "La partida se ha reseteado. Puedes volver a elegir los pokemons.";
     }
 }
