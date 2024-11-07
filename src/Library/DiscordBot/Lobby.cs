@@ -67,4 +67,9 @@ public class Lobby
     {
         return rooms.Find(room => room.Id == id)!;
     }
+
+    public string GetWaitingPlayersName()
+    {
+        return string.Join("\n", waitingPlayers.Select(player => $"\ud83e\uddcc **{player.Username.ToUpper()}**"));
+    }
 }

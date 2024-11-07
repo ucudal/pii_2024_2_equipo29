@@ -19,6 +19,6 @@ public abstract class StateApplier
         };
 
         stateMachine.CurrentState = newState;
-        return "";
+        return $"Se ha aplicado el efecto {state}.";
     }
 }

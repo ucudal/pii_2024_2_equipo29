@@ -40,16 +40,27 @@ public class GameRoom
 
         // Crear el canal privado con las sobreescrituras de permisos
         string battle = $"**{Members[0].Username.ToUpper()}** vs **{Members[1].Username.ToUpper()}**";
-        var privateChannel = await context.Guild.CreateTextChannelAsync($"{battle}", overwrites: overwrites);
+        var privateChannel = await context.Guild.CreateTextChannelAsync($"\ud83e\udd3c{battle.Replace(" ", "_")}", overwrites: overwrites);
         
         Id = privateChannel.Id;
         await privateChannel.SendMessageAsync(GameCommands.ShowCatalogue());
-        await context.Channel.SendMessageAsync($"Se ha encontrado partida {battle}: {privateChannel.Mention}");
+        string alert = $"Se ha encontrado partida {battle}: {privateChannel.Mention}\n";
+        await context.Channel.SendMessageAsync(alert);
+        await AlertPlayersStartingGame(alert);
     }
 
     public async Task DeleteRoom(InteractionContext context)
     {
-        var guild = await context.Client.GetGuildAsync(Id);
-        await guild.DeleteAsync();
+        var channel = context.Guild.GetChannel(Id);
+        await channel.DeleteAsync();
+    }
+
+    public async Task AlertPlayersStartingGame(string alert)
+    {
+        foreach (var member in Members)
+        {
+            var dmChannel = await member.CreateDmChannelAsync();
+            await dmChannel.SendMessageAsync(alert);
+        }
     }
 }

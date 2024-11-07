@@ -12,7 +12,6 @@ public class Player : IPokemonManager
         get => name;
     }
     public List<IItem> Items = new();
-    
     public Pokemon CurrentPokemon { get; private set; }
 
     public Player(string name)
@@ -74,23 +73,16 @@ public class Player : IPokemonManager
         return null!;
     }
 
-    public string UseItem(IItem item)
+    public string UseItem(IItem item, string pokemonName)
     {
-        Items.Remove(item);
-        return item.Use(CurrentPokemon);
+        return item.Use(pokemonName, this);
     }
 
     private void AddBaseItems()
     {
         Items.Add(new Revive());
-        for (int i = 0; i < 4; i++)
-        {
-            Items.Add(new SuperPotion());
-        }
-        for (int i = 0; i < 2; i++)
-        {
-            Items.Add(new FullHeal());
-        }
+        Items.Add(new SuperPotion());
+        Items.Add(new FullHeal());
     }
 
     public Pokemon GetPokemonByName(string pokemonName)
@@ -114,6 +106,11 @@ public class Player : IPokemonManager
     public bool HasAllPokemnos()
     {
         return pokemonsCount == MaxPokemons;
+    }
+
+    public bool PlayersHavePokemons()
+    {
+        return pokemons.Count > 0;
     }
     
     public string ViewAllPokemons()

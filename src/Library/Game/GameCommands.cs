@@ -44,9 +44,9 @@ public class GameCommands
                         msg += $"**{pokemonName.ToUpper()}** ha sido agregado al equipo de **{player.Name.ToUpper()}**  ***({player.pokemonsCount}/{Player.MaxPokemons})***";
                         imgUrl = pokemon.ImgUrl;
                         
-                        if (!game.HasStarted && game.AllPlayersReady())
+                        if (!GameHasStarted() && game.AllPlayersReady())
                         {
-                            msg += $"\n\n{StartBattle()}";
+                            game.Start();
                         }
                     }
                     else
@@ -75,21 +75,18 @@ public class GameCommands
     public string StartBattle()
     {
         string msg;
-        if (!game.HasStarted)
+        
+        if (!GameHasStarted())
         {
-            if (game.AllPlayersReady())
-            {
-                game.Start();
-                msg = game.ViewTurn();
-            }
-            else
-            {
-                msg = "Espera a que todos los jugadores esten listos.";
-            }
+            if (game.AllPlayersHavePokemons())
+                return "Todos los jugadores deben tener al menos un pokemon para iniciar la partida.";
+                
+            game.Start();
+            msg = ShowTurn();
         }
         else
         {
-            msg = "_La partida ya esta en curso._";
+            msg = "\u26d4 **LA PARTIDA YA ESTÁ EN CURSO** \u26d4";
         }
 
         return msg;
@@ -108,9 +105,11 @@ public class GameCommands
 
     public string ShowTurn()
     {
-        return  $"Turno de: **{game.PlayerInTurn.Name}**\n" +
+        if (!GameHasStarted()) return "";
+        
+        return  $"Turno de: **{game.PlayerInTurn.Name.ToUpper()}**\n" +
                 game.PlayerInTurn.CurrentPokemon.ViewPokemon() + "\n" +
-                $"Recive: **{game.PlayerNotInTurn.Name}**\n" +
+                $"Recive: **{game.PlayerNotInTurn.Name.ToUpper()}**\n" +
                 game.PlayerNotInTurn.CurrentPokemon.ViewPokemonSimple();
     }
 
@@ -119,7 +118,7 @@ public class GameCommands
         Player winner = game.GetWinner();
         if (winner != null)
         {
-            return $"¡La partida ya ha finalizado, el jugador {winner.Name} ha ganado!";
+            return $"¡La partida ya ha finalizado, el jugador \ud83d\udc51 **_{winner.Name.ToUpper()}_** \ud83d\udc51 ha ganado!\nUtiliza el comando **`/restart`** para volver a jugar.";
         }
         
         string playerNameInTurn = game.PlayerInTurn.Name;
@@ -157,17 +156,21 @@ public class GameCommands
         return $"**{pokemonName.ToUpper()}** no se encuentra disponible para cambiar.";
     }
 
-    public string UseItem(Player inTurn, int itemSlot)
+    public string UseItem(Player playerInTurn, string pokemonName, int itemSlot)
     {
-        string msg = inTurn.UseItem(inTurn.Items[itemSlot]) + "\n";
-        game.ToogleTurn();
+        int startingItemCount = playerInTurn.Items[itemSlot].Amount;
+        string msg = playerInTurn.UseItem(playerInTurn.Items[itemSlot], pokemonName) + "\n";
+        int finallyItemCount = playerInTurn.Items[itemSlot].Amount;
+        
+        if (startingItemCount > finallyItemCount) game.ToogleTurn();
+        
         msg += ShowTurn();
         return msg;
     }
     
     public string ViewPokemons()
     {
-        if (game.HasStarted)
+        if (GameHasStarted())
         {
             return game.ViewAllPokemons();
         }
@@ -177,9 +180,14 @@ public class GameCommands
 
     public string RestartGame()
     {
-        if (game.GetWinner() == null) return "La partida no ha finalizado.";
+        if (game.GetWinner() == null!) return "**La partida no ha finalizado.**";
             
         game.Reset();
         return "La partida se ha reseteado. Puedes volver a elegir los pokemons.";
+    }
+
+    public bool GameHasStarted()
+    {
+        return game.HasStarted;
     }
 }
