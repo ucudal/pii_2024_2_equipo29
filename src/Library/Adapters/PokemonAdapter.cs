@@ -36,12 +36,12 @@ public class PokemonAdapter
             InitialHp = pokemonJson
                 .GetProperty("stats")[0]
                 .GetProperty("base_stat")
-                .GetInt32() * 10,
+                .GetInt32() * 7,
 
             Hp = pokemonJson
                 .GetProperty("stats")[0]
                 .GetProperty("base_stat")
-                .GetInt32() * 10,
+                .GetInt32() * 7,
 
             AttackPoints = pokemonJson
                 .GetProperty("stats")[1]
@@ -75,7 +75,14 @@ public class PokemonAdapter
                 })
                 .ToList(),
 
-            Moves = new List<Move>()
+            Moves = new List<Move>(),
+            
+            ImgUrl = pokemonJson
+                .GetProperty("sprites")
+                .GetProperty("other")
+                .GetProperty("official-artwork")
+                .GetProperty("front_default")
+                .GetString() ?? string.Empty
         };
 
         var moves = pokemonJson

@@ -91,6 +91,11 @@ public class Game
         return players.All(player => player.HasAllPokemnos());
     }
     
+    public bool AllPlayersHavePokemons()
+    {
+        return players.All(player => player.PlayersHavePokemons());
+    }
+    
     public string ViewAllPokemons()
     {
         string msg = "";

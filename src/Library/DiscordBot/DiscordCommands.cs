@@ -15,16 +15,16 @@ namespace Library.DiscordBot
         [SlashCommand("Play", "Permite jugar.")] 
         public async Task AddPlayer(InteractionContext context)
         {
-            await context.CreateResponseAsync("Iniciando partida...");
+            await context.CreateResponseAsync("**Iniciando partida...**");
             var builder = new DiscordWebhookBuilder().WithContent(Lobby.GetInstance().AddWaitingPlayer(context));
             await Lobby.GetInstance().TryToStartGame(context);
             
             await context.EditResponseAsync(builder);
         }
         
-        [SlashCommand("Choose", "Permite jugar.")] 
+        [SlashCommand("Choose", "Permite elegir un pokemon.")] 
         public async Task ChoosePokemon(InteractionContext context,
-            [Option("Pokemon", "Pokémon a elegir.")] string pokemonName)
+            [Option("Pokemon", "Pokemon a elegir.")] string pokemonName)
         {
             GameRoom room = Lobby.GetInstance().GetGameRoomById(context.Channel.Id);
             await context.CreateResponseAsync("Buscando Pokemon...");
@@ -32,15 +32,31 @@ namespace Library.DiscordBot
             
             if (room != null!)
             {
-                builder.WithContent(await room.Commands.ChoosePokemon(context.Member.Username, pokemonName.ToLower()));
+                var (message, imageUrl) = await room.Commands.ChoosePokemon(
+                    context.Member.Username, 
+                    pokemonName.ToLower());
+                
+                builder.WithContent(message);
+                
+                if (!string.IsNullOrEmpty(imageUrl))
+                {
+                    var embed = new DiscordEmbedBuilder()
+                        .WithImageUrl(imageUrl)
+                        .WithColor(DiscordColor.Red); 
+
+                    builder.AddEmbed(embed);
+                }
+
+                string turn = room.Commands.ShowTurn();
+                if (turn != "") await context.Channel.SendMessageAsync(turn);
             }
             else
             {
                 builder.WithContent("Debe elegir en el canal de batalla.");
             }
+            
             await context.EditResponseAsync(builder);
         }
-        
         
         [SlashCommand("ShowCatalogue", "Muestra un link al catálogo de los pokemons.")]
         public async Task ShowCatalogue(InteractionContext context)
@@ -63,7 +79,7 @@ namespace Library.DiscordBot
             }
             else
             {
-                builder.WithContent("Debe estar en el canal de batalla para iniciarla.");
+                builder.WithContent("\u26d4  **DEBES ESTAR EN EL CANAL DE BATALLA PARA INICIAR LA PARTIDA.**  \u26d4");
             }
             
             await context.EditResponseAsync(builder);
@@ -115,7 +131,7 @@ namespace Library.DiscordBot
         {
             Lobby lobby = Lobby.GetInstance();
             GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
-            await context.CreateResponseAsync("Buscando Pokemon...");
+            await context.CreateResponseAsync("\u23f3  **Buscando Pokemon...** \u23f3");
             var builder = new DiscordWebhookBuilder();
 
             if (room != null!)
@@ -129,39 +145,53 @@ namespace Library.DiscordBot
                 {
                     builder.WithContent("Espera a tu turno.");
                 }
-
             }
             else
             {
-                builder.WithContent("Debe elegir en el canal de batalla.");
+                builder.WithContent("\"\\u26d4  **DEBES ELEGIR EN EL CANAL DE BATALLA.**  \\u26d4\"");
             }
             await context.EditResponseAsync(builder);
         }
         
-        [SlashCommand("Item", "Utiliza un item pasandole un índice.")]
+        [SlashCommand("Item", "Utiliza un item pasandole un índice y el nombre del pokemon.")]
         public async Task UseItem(InteractionContext context,
-            [Option("ItemIndex", "Index del item a usar.")] string itemIndex)
+            [Option("ItemIndex", "Index del item a usar.")] string itemIndex,
+            [Option("PokemonName", "Nombre del pokemon que va a utilizar el item.")] string pokemonName)
         {
             Lobby lobby = Lobby.GetInstance();
             GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
-            await context.CreateResponseAsync("Buscando Pokemon...");
+            await context.CreateResponseAsync("\u23f3  **Buscando Pokemon...** \u23f3");
             var builder = new DiscordWebhookBuilder();
 
             if (room != null!)
             {
-                Player playerInTurn = room.Commands.GetPlayerInTurn();
-                if (context.Member.Username == playerInTurn.Name)
+                if (!room.Commands.GameHasStarted())
                 {
-                    builder.WithContent(room.Commands.UseItem(playerInTurn, Int32.Parse(itemIndex)));
+                    builder.WithContent("\u26d4  **EL JUEGO NO HA EMPEZADO**  \u26d4");
                 }
                 else
                 {
-                    builder.WithContent("Espera a tu turno.");
+                    Player playerInTurn = room.Commands.GetPlayerInTurn();
+                    if (context.Member.Username == playerInTurn.Name)
+                    {
+                        if (room.Commands.GetPlayerInTurn().GetPokemonByName(pokemonName) == null!)
+                        {
+                            builder.WithContent("\u26d4  **El pokemon no ha sido encontrado**  \u26d4");
+                        }
+                        else
+                        {
+                            builder.WithContent(room.Commands.UseItem(playerInTurn, pokemonName, Int32.Parse(itemIndex)-1));
+                        }
+                    }
+                    else
+                    {
+                        builder.WithContent("Espera a tu turno.");
+                    }
                 }
             }
             else
             {
-                builder.WithContent("Debe elegir en el canal de batalla.");
+                builder.WithContent("\u26d4  **DEBES ELEGIR EN EL CANAL DE BATALLA.**  \u26d4");
             }
             await context.EditResponseAsync(builder);
         }
@@ -169,7 +199,7 @@ namespace Library.DiscordBot
         [SlashCommand("ShowPokemons", "Muestra los pokemons aliados y rivales.")]
         public async Task ShowPokemons(InteractionContext context)
         {
-            await context.CreateResponseAsync("Iniciando juego, por favor espera...");
+            await context.CreateResponseAsync("\u231b **Iniciando juego, por favor espera...** \u23f3");
 
             Lobby lobby = Lobby.GetInstance();
             GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
@@ -190,7 +220,7 @@ namespace Library.DiscordBot
         [SlashCommand("Restart", "Resetea la partida.")]
         public async Task Restart(InteractionContext context)
         {
-            await context.CreateResponseAsync("Realizando comprobaciones para resetear...");
+            await context.CreateResponseAsync("\u231b **Realizando comprobaciones para resetear...** \u23f3");
 
             Lobby lobby = Lobby.GetInstance();
             GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
@@ -202,7 +232,28 @@ namespace Library.DiscordBot
             }
             else
             {
-                builder.WithContent("Debe estar en el canal de batalla para iniciarla.");
+                builder.WithContent("\u26d4  **DEBES ELEGIR EN EL CANAL DE BATALLA.**  \u26d4");
+            }
+            
+            await context.EditResponseAsync(builder);
+        }
+        
+        [SlashCommand("WaitList", "Muestra los jugadores esperando una partida.")]
+        public async Task WaitList(InteractionContext context)
+        {
+            await context.CreateResponseAsync("\u231b **Buscando jugadores...** \u23f3");
+            Lobby lobby = Lobby.GetInstance();
+
+            var builder = new DiscordWebhookBuilder();
+
+            string msgListPlayers = lobby.GetWaitingPlayersName();
+            if (msgListPlayers == "")
+            {
+                builder.WithContent("**NO SE HAN ENCONTRADO JUGADORES ESPERANDO PARTIDA** \ud83e\udd7a");
+            }
+            else
+            {
+                builder.WithContent($"**LISTA DE JUGADORES ESPERANDO PARTIDA:**\n{msgListPlayers}");
             }
             
             await context.EditResponseAsync(builder);

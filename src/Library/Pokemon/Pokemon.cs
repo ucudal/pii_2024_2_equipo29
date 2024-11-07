@@ -14,6 +14,7 @@ public class Pokemon
     public int SpecialDefensePoints { get; set; }
     public List<Move> Moves { get; set; }
     public List<Type> Types { get; set; }
+    public string ImgUrl { get; set; }
     public StateMachine StateMachine { get; }
 
     public Pokemon()
@@ -27,7 +28,7 @@ public class Pokemon
     {
         if (new Random().Next(0, 100) >= Moves[moveSlot].Accuracy)
         {
-            return "No tienes puntería, le erraste.";
+            return "\ud83c\udfaf  **No tienes puntería, le erraste**  \ud83c\udfaf\n\n";
         }
         
         Move move = Moves[moveSlot];
@@ -36,12 +37,13 @@ public class Pokemon
             if (move.RemainingTurnsInCoolDown > 0)
             {
                 string terminationLetter = move.RemainingTurnsInCoolDown == 1 ? "" : "s";
-                return $"La habilidad se encuentra en cooldown. Espera {move.RemainingTurnsInCoolDown} turno{terminationLetter}.";
+                return $"La habilidad **{move.Name.ToUpper()}** se encuentra en cooldown. Espera **{move.RemainingTurnsInCoolDown} turno{terminationLetter}.**\n\n";
             }
             
             move.RemainingTurnsInCoolDown = move.CoolDownSpecialMove;
         }
-        
+
+        string msg = "";
         ICalculate calculate = new Calculate();
         int dmg = calculate.CalculateDamage(this, pokemonEnemy, move);
     
@@ -49,7 +51,12 @@ public class Pokemon
             ? 0 
             : pokemonEnemy.Hp - dmg;
 
-        return StateApplier.ApplyStateEffect(pokemonEnemy.StateMachine, move.State);
+        msg += $"El move **{move.Name.ToUpper()}** ha realizado **{dmg}** de daño.\n";
+        if (pokemonEnemy.IsDead()) return msg;
+        
+        msg += StateApplier.ApplyStateEffect(pokemonEnemy.StateMachine, move.State) +"\n\n";
+        
+        return msg;
     }
 
     public void UpdateCoolDownSpecialMove()
