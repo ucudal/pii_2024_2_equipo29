@@ -22,9 +22,9 @@ namespace Library.DiscordBot
             await context.EditResponseAsync(builder);
         }
         
-        [SlashCommand("Choose", "Permite jugar.")] 
+        [SlashCommand("Choose", "Permite elegir un pokemon.")] 
         public async Task ChoosePokemon(InteractionContext context,
-            [Option("Pokemon", "Pokémon a elegir.")] string pokemonName)
+            [Option("Pokemon", "Pokemon a elegir.")] string pokemonName)
         {
             GameRoom room = Lobby.GetInstance().GetGameRoomById(context.Channel.Id);
             await context.CreateResponseAsync("Buscando Pokemon...");
@@ -32,7 +32,17 @@ namespace Library.DiscordBot
             
             if (room != null!)
             {
-                builder.WithContent(await room.Commands.ChoosePokemon(context.Member.Username, pokemonName.ToLower()));
+                var (message, imageUrl) = await room.Commands.ChoosePokemon(context.Member.Username, pokemonName.ToLower());
+                builder.WithContent(message);
+                
+                if (!string.IsNullOrEmpty(imageUrl))
+                {
+                    var embed = new DiscordEmbedBuilder()
+                        .WithImageUrl(imageUrl)
+                        .WithColor(DiscordColor.Red); 
+
+                    builder.AddEmbed(embed);
+                }
             }
             else
             {
@@ -40,7 +50,6 @@ namespace Library.DiscordBot
             }
             await context.EditResponseAsync(builder);
         }
-        
         
         [SlashCommand("ShowCatalogue", "Muestra un link al catálogo de los pokemons.")]
         public async Task ShowCatalogue(InteractionContext context)

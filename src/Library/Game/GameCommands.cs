@@ -24,11 +24,13 @@ public class GameCommands
         game.AddPlayer(playerName);
     }
 
-    public async Task<string> ChoosePokemon(string playerName, string pokemonName)
+    public async Task<(string message, string imgUrl)> ChoosePokemon(string playerName, string pokemonName)
     {
         PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Player player = game.GetPlayerByName(playerName);
         string msg = "";
+        string imgUrl = "";
+        
         if (player != null!)
         {
             if (player.GetPokemonByName(pokemonName) == null!)
@@ -40,6 +42,8 @@ public class GameCommands
                     {
                         player.AddPokemon(pokemon);
                         msg += $"**{pokemonName.ToUpper()}** ha sido agregado al equipo de **{player.Name.ToUpper()}**  ***({player.pokemonsCount}/{Player.MaxPokemons})***";
+                        imgUrl = pokemon.ImgUrl;
+                        
                         if (!game.HasStarted && game.AllPlayersReady())
                         {
                             msg += $"\n\n{StartBattle()}";
@@ -47,25 +51,25 @@ public class GameCommands
                     }
                     else
                     {
-                        msg += $"{pokemonName} no ha sido encontrado";
+                        msg += $"**{pokemonName.ToUpper()}** no ha sido encontrado.";
                     }
                 }
                 else
                 {
-                    msg += $"{player.Name} ya ha alcanzado el maximo de pokemons en su equipo";
+                    msg += $"**{player.Name.ToUpper()}** ya ha alcanzado el maximo de pokemons en su equipo.";
                 }
             }
             else
             {
-                msg += $"{pokemonName} ya se encuentra en el equipo de {player.Name}";
+                msg += $"**{pokemonName.ToUpper()}** ya se encuentra en el equipo de **{player.Name.ToUpper()}**.";
             }
         }
         else
         {
-            msg += $"{playerName} no ha sido encontrado";
+            msg += $"**{playerName}** no ha sido encontrado.";
         }
 
-        return msg;
+        return (msg, imgUrl);
     }
 
     public string StartBattle()
@@ -104,9 +108,9 @@ public class GameCommands
 
     public string ShowTurn()
     {
-        return  $"Turno de: {game.PlayerInTurn.Name} \n" +
+        return  $"Turno de: **{game.PlayerInTurn.Name}**\n" +
                 game.PlayerInTurn.CurrentPokemon.ViewPokemon() + "\n" +
-                $"Recive: {game.PlayerNotInTurn.Name} \n" +
+                $"Recive: **{game.PlayerNotInTurn.Name}**\n" +
                 game.PlayerNotInTurn.CurrentPokemon.ViewPokemonSimple();
     }
 

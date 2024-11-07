@@ -75,7 +75,14 @@ public class PokemonAdapter
                 })
                 .ToList(),
 
-            Moves = new List<Move>()
+            Moves = new List<Move>(),
+            
+            ImgUrl = pokemonJson
+                .GetProperty("sprites")
+                .GetProperty("other")
+                .GetProperty("official-artwork")
+                .GetProperty("front_default")
+                .GetString() ?? string.Empty
         };
 
         var moves = pokemonJson

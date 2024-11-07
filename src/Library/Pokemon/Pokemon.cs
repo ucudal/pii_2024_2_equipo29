@@ -14,6 +14,7 @@ public class Pokemon
     public int SpecialDefensePoints { get; set; }
     public List<Move> Moves { get; set; }
     public List<Type> Types { get; set; }
+    public string ImgUrl { get; set; }
     public StateMachine StateMachine { get; }
 
     public Pokemon()
