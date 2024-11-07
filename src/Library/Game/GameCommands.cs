@@ -116,7 +116,7 @@ public class GameCommands
     public string Attack(int moveSlot, string playerNameAttacker)
     {
         Player winner = game.GetWinner();
-        if (winner != null)
+        if (winner != null!)
         {
             return $"¡La partida ya ha finalizado, el jugador \ud83d\udc51 **_{winner.Name.ToUpper()}_** \ud83d\udc51 ha ganado!\nUtiliza el comando **`/restart`** para volver a jugar.";
         }
@@ -124,7 +124,7 @@ public class GameCommands
         string playerNameInTurn = game.PlayerInTurn.Name;
         if (!game.IsPlayerNameInTurn(playerNameAttacker))
         {
-            return $"No puedes atacar, es el turno de {playerNameInTurn}";
+            return $"No puedes atacar, es el turno de **{playerNameInTurn.ToUpper()}**.";
         }
         
         bool playerCanAttack = game.PlayerInTurn.CurrentPokemon.StateMachine.CanAttack();
@@ -132,7 +132,7 @@ public class GameCommands
         
         if (!playerCanAttack)
         {
-            return $"No puedes atacar, estás bajo el efecto {stateName}";
+            return $"No puedes atacar, estás bajo el efecto **{stateName.ToUpper()}**.";
         }
 
         IPokemonManager enemyPlayer = game.PlayerNotInTurn;
@@ -148,9 +148,13 @@ public class GameCommands
         Pokemon pokemon = playerInTurn.GetPokemonByName(pokemonName);
         if (pokemon != null!)
         {
+            if(playerInTurn.CurrentPokemon.Name == pokemonName) 
+                return $"**{pokemonName.ToUpper()}** ya se encuentra en batalla.";
+            
             playerInTurn.ChangePokemon(pokemon);
+            
             game.ToogleTurn();
-            return $"**{pokemon.Name.ToUpper()}** ha entrado en batalla \n \n {ShowTurn()}";
+            return $"**{pokemon.Name.ToUpper()}** ha entrado en batalla.\n\n{ShowTurn()}";
         }
 
         return $"**{pokemonName.ToUpper()}** no se encuentra disponible para cambiar.";
@@ -175,7 +179,7 @@ public class GameCommands
             return game.ViewAllPokemons();
         }
 
-        return "Espera a que empiece la batalla";
+        return "**Espera a que empiece la batalla.**";
     }
 
     public string RestartGame()

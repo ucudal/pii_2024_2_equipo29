@@ -1,3 +1,5 @@
+using DSharpPlus.SlashCommands;
+
 namespace Library.States;
 
 public abstract class StateApplier
@@ -6,8 +8,11 @@ public abstract class StateApplier
     {
         if (state == EnumState.Normal) return "";
         
+        if (stateMachine.CurrentState.Name.Equals(state.ToString())) 
+            return $"El pokemon ya tiene el efecto **{stateMachine.CurrentState.Name.ToUpper()}**.";
+        
         if (stateMachine.CurrentState is not Normal) 
-            return $"El pokemon ya tiene el efecto {stateMachine.CurrentState.Name}, el efecto {state} no ha sido aplicado.";
+            return $"El pokemon ya tiene el efecto **{stateMachine.CurrentState.Name.ToUpper()}**, el efecto **{state.ToString().ToUpper()}** no ha sido aplicado.";
 
         IPokemonState newState = state switch
         {
@@ -19,6 +24,6 @@ public abstract class StateApplier
         };
 
         stateMachine.CurrentState = newState;
-        return $"Se ha aplicado el efecto {state}.";
+        return $"Se ha aplicado el efecto **{state.ToString().ToUpper()}**.";
     }
 }

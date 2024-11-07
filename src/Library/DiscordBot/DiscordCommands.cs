@@ -1,4 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
 using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 
@@ -9,13 +8,13 @@ namespace Library.DiscordBot
         [SlashCommand("Test", "Verifica el estado del bot.")]
         public async Task Test(InteractionContext context)
         {
-            await context.CreateResponseAsync("Funciona");
+            await context.CreateResponseAsync("**Funciona** \u2705");
         }
         
         [SlashCommand("Play", "Permite jugar.")] 
         public async Task AddPlayer(InteractionContext context)
         {
-            await context.CreateResponseAsync("**Iniciando partida...**");
+            await context.CreateResponseAsync("\u231b **Iniciando partida...** \u23f3");
             var builder = new DiscordWebhookBuilder().WithContent(Lobby.GetInstance().AddWaitingPlayer(context));
             await Lobby.GetInstance().TryToStartGame(context);
             
@@ -27,7 +26,7 @@ namespace Library.DiscordBot
             [Option("Pokemon", "Pokemon a elegir.")] string pokemonName)
         {
             GameRoom room = Lobby.GetInstance().GetGameRoomById(context.Channel.Id);
-            await context.CreateResponseAsync("Buscando Pokemon...");
+            await context.CreateResponseAsync("**Buscando Pokemon...**");
             var builder = new DiscordWebhookBuilder();
             
             if (room != null!)
@@ -52,7 +51,7 @@ namespace Library.DiscordBot
             }
             else
             {
-                builder.WithContent("Debe elegir en el canal de batalla.");
+                builder.WithContent("\u26d4  **DEBES ESTAR EN EL CANAL DE BATALLA.**  \u26d4");
             }
             
             await context.EditResponseAsync(builder);
@@ -67,7 +66,7 @@ namespace Library.DiscordBot
         [SlashCommand("Start", "Iniciar nueva partida.")]
         public async Task StartGame(InteractionContext context)
         {
-            await context.CreateResponseAsync("Iniciando juego, por favor espera...");
+            await context.CreateResponseAsync("**Iniciando juego, por favor espera...**");
             
             Lobby lobby = Lobby.GetInstance();
             GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
@@ -91,9 +90,9 @@ namespace Library.DiscordBot
         {
             GameRoom room = Lobby.GetInstance().GetGameRoomById(context.Channel.Id);
             
-            if (room == null)
+            if (room == null!)
             {
-                await context.CreateResponseAsync("Debe estar en el canal de batalla para atacar un pokemon.");
+                await context.CreateResponseAsync("\u26d4  **DEBES ESTAR EN EL CANAL DE BATALLA PARA ATACAR UN POKEMON.**  \u26d4");
                 return;
             }
             
@@ -105,9 +104,9 @@ namespace Library.DiscordBot
         {
             GameRoom room = Lobby.GetInstance().GetGameRoomById(context.Channel.Id);
             
-            if (room == null)
+            if (room == null!)
             {
-                await context.CreateResponseAsync("Debe estar en el canal de batalla para atacar un pokemon.");
+                await context.CreateResponseAsync("\u26d4  **DEBES ESTAR EN EL CANAL DE BATALLA.**  \u26d4");
                 return;
             }
 
@@ -118,7 +117,7 @@ namespace Library.DiscordBot
         [SlashCommand("ClearRooms", "Iniciar nueva partida.")]
         public async Task ClearRooms(InteractionContext context)
         {
-            await context.CreateResponseAsync("Eliminando todas los servidores de batalla...");
+            await context.CreateResponseAsync("\u26d4  **Eliminando todas los servidores de batalla...**  \u26d4");
             await Lobby.GetInstance().ClearLobby(context);
             
             var builder = new DiscordWebhookBuilder().WithContent("Servidores de batalla eliminados correctamente.");
@@ -143,12 +142,12 @@ namespace Library.DiscordBot
                 }
                 else
                 {
-                    builder.WithContent("Espera a tu turno.");
+                    builder.WithContent("\u26d4  **DEBE ESPERAR TU TURNO.**  \u26d4");
                 }
             }
             else
             {
-                builder.WithContent("\"\\u26d4  **DEBES ELEGIR EN EL CANAL DE BATALLA.**  \\u26d4\"");
+                builder.WithContent("\u26d4  **DEBES ELEGIR EN EL CANAL DE BATALLA.**  \u26d4");
             }
             await context.EditResponseAsync(builder);
         }
@@ -185,7 +184,7 @@ namespace Library.DiscordBot
                     }
                     else
                     {
-                        builder.WithContent("Espera a tu turno.");
+                        builder.WithContent("Espera tu turno.");
                     }
                 }
             }
