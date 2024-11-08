@@ -54,7 +54,7 @@ public class GameRoom
         await channel.DeleteAsync();
     }
 
-    public async Task AlertPlayersStartingGame(string alert)
+    private async Task AlertPlayersStartingGame(string alert)
     {
         foreach (var member in Members)
         {

@@ -5,18 +5,13 @@ public class Player : IPokemonManager
     private List<Pokemon> pokemons = new();
     public const int MaxPokemons = 6;
     public int pokemonsCount => pokemons.Count;
-  
-    private string name;
-    public string Name
-    {
-        get => name;
-    }
+    public string Name { get; }
     public List<IItem> Items = new();
     public Pokemon CurrentPokemon { get; private set; }
 
     public Player(string name)
     {
-        this.name = name;
+        Name = name;
         AddBaseItems();
     }
     
@@ -98,12 +93,12 @@ public class Player : IPokemonManager
         return null!;
     }
     
-    public int GetPokemonIndex(Pokemon pokemon)
+    private int GetPokemonIndex(Pokemon pokemon)
     {
         return pokemons.IndexOf(pokemon);
     }
 
-    public bool HasAllPokemnos()
+    public bool HasAllPokemons()
     {
         return pokemonsCount == MaxPokemons;
     }
@@ -123,8 +118,7 @@ public class Player : IPokemonManager
 
         return msg;
     }
-
-
+    
     public string ViewItems()
     {
         string msg = "**ITEMS:**";

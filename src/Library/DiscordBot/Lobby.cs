@@ -1,4 +1,3 @@
-using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 
@@ -8,7 +7,7 @@ public class Lobby
 {
     private static Lobby instance;
     private List<DiscordMember> waitingPlayers = new();
-    public List<GameRoom> rooms { get; } = new();
+    private List<GameRoom> rooms = new();
 
     private Lobby() { }
     

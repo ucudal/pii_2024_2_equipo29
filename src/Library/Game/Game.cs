@@ -64,11 +64,6 @@ public class Game
         return null!;
     }
 
-    public string ViewTurn()
-    {
-        return $"Turno de **{PlayerInTurn.Name.ToUpper()}**\n{PlayerInTurn.CurrentPokemon.ViewPokemon()}\n";
-    }
-
     public Player GetPlayerByName(string playerName)
     {
         foreach (var player in players)
@@ -88,7 +83,7 @@ public class Game
 
     public bool AllPlayersReady()
     {
-        return players.All(player => player.HasAllPokemnos());
+        return players.All(player => player.HasAllPokemons());
     }
     
     public bool AllPlayersHavePokemons()

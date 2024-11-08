@@ -4,7 +4,6 @@ public class Sleep : IPokemonState
 {
     public EnumState Name { get; }
     public string Emoji { get; } = "\ud83d\ude34";
-    
     private int minSleepTurns = 1;
     private int maxSleepTurns = 4;
     private int remainingTurns;
