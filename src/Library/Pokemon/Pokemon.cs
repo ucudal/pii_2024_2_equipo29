@@ -89,10 +89,14 @@ public class Pokemon
             msg += $" (**TYPES:** {string.Join(", ", Types.Select(t => t.Name.ToUpper()))})\n";
         }
 
-        for (int i = 0; i < Moves.Count; i++)
+        if (StateMachine.CurrentState.Name != EnumState.Sleep)
         {
-            msg += $"**{i+1}) {Moves[i].ViewMove()}\n";
+            for (int i = 0; i < Moves.Count; i++)
+            {
+                msg += $"**{i+1}) {Moves[i].ViewMove()}\n";
+            }
         }
+        
         
         bool hasEffect = StateMachine.CurrentState.Name != EnumState.Normal;
         int remainingTurnsWithEffect = StateMachine.GetRemainingTurnsWithEffect();
