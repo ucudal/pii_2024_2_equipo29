@@ -1,11 +1,11 @@
 namespace Library.Tests.UserStoriesTests;
 
-public class UserStory1
+public class UserStory1Test
 {
-// 1. Como jugador, quiero elegir 6 Pokémons del catálogo disponible para comenzar la batalla.
-// Criterios de aceptación:
-// El jugador puede seleccionar 6 Pokémons de una lista o catálogo.
-// Los Pokémons seleccionados se muestran en la pantalla del jugador.
+    // 1. Como jugador, quiero elegir 6 Pokémons del catálogo disponible para comenzar la batalla.
+    // Criterios de aceptación:
+    // El jugador puede seleccionar 6 Pokémons de una lista o catálogo.
+    // Los Pokémons seleccionados se muestran en la pantalla del jugador.
 
     [SetUp]
     public void Setup()
