@@ -106,7 +106,7 @@ public class Pokemon
             : $"{remainingTurnsWithEffect} turno{terminationLetter}";
         
         msg += hasEffect && remainingTurnsWithEffect != 0
-            ? $"**El Pokemon está bajo el efecto {StateMachine.CurrentState.Name.ToString().ToUpper()} por {permanentEffect}.**" 
+            ? $"{StateMachine.CurrentState.Emoji}  **El Pokemon está bajo el efecto {StateMachine.CurrentState.Name.ToString().ToUpper()} por {permanentEffect}.**  {StateMachine.CurrentState.Emoji}" 
             : "";
         if (hasEffect)
         {

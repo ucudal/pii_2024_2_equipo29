@@ -7,7 +7,7 @@ namespace Library.DiscordBot;
 public class GameRoom
 {
     public ulong Id { get; private set; }
-    public List<DiscordMember> Members { get; } = new();
+    private List<DiscordMember> Members = new();
     public GameCommands Commands { get; } = new();
 
     public void AddMember(DiscordMember member)

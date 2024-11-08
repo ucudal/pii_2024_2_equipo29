@@ -97,7 +97,7 @@ public class GameCommands
     public string NextTurn()
     {
         game.ToogleTurn();
-        return game.ViewTurn();
+        return ShowTurn();
     }
 
     public string ShowTurn()
@@ -139,13 +139,12 @@ public class GameCommands
             
             IPokemonManager enemyPlayer = game.PlayerNotInTurn;
             msg = GetPlayerInTurn().Attack(enemyPlayer, moveSlot);
+            if (!msg.Contains("cooldown")) game.ToogleTurn();
         }
         else
         {
-            msg = $"**No puedes atacar**, estás bajo el efecto **{stateName.ToUpper()}**.\n";
+            msg = $"No puedes atacar, estás bajo el efecto **{stateName.ToUpper()}**.\n";
         }
-        
-        if (!msg.Contains("cooldown")) game.ToogleTurn();
         
         return $"{msg}\n{ShowTurn()}";
     }

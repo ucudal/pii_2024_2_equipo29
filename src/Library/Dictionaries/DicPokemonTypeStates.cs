@@ -4,7 +4,7 @@ public abstract class DicPokemonTypeStates
 {
     public static Dictionary<string, EnumState> States { get; } = new()
     {
-        { "normal", EnumState.Paralyze },
+        { "normal", EnumState.Sleep },
         { "fighting", EnumState.Sleep },
         { "flying", EnumState.Paralyze },
         { "poison", EnumState.Poison },
