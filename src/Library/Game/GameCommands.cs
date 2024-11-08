@@ -97,7 +97,7 @@ public class GameCommands
     public string NextTurn()
     {
         game.ToogleTurn();
-        return game.ViewTurn();
+        return ShowTurn();
     }
 
     public string ShowTurn()
