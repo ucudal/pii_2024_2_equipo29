@@ -7,45 +7,71 @@ public class UserStory1
 // El jugador puede seleccionar 6 Pokémons de una lista o catálogo.
 // Los Pokémons seleccionados se muestran en la pantalla del jugador.
 
-    private GameCommands commands = new GameCommands();
-
-    private string msgExpected =
-        "**PIKACHU** ha sido agregado al equipo de **JUGADOR1**  ***(1/6)***\n" +
-        "**MEW** ha sido agregado al equipo de **JUGADOR1**  ***(2/6)***\n" +
-        "**ONIX** ha sido agregado al equipo de **JUGADOR1**  ***(3/6)***\n" + 
-        "**MEWTWO** ha sido agregado al equipo de **JUGADOR1**  ***(4/6)***\n" + 
-        "**SNORLAX** ha sido agregado al equipo de **JUGADOR1**  ***(5/6)***\n" +
-        "**CHARMANDER** ha sido agregado al equipo de **JUGADOR1**  ***(6/6)***\n";
-    
     [SetUp]
     public void Setup()
     {
-        commands.AddPlayer("Jugador1");
-        commands.AddPlayer("Jugador2");
+        
     }
 
-    [Test]
-    public async Task ChoosePokemons()
+    [TestCase("pikachu", "mew", "onix", "mewtwo", "snorlax", "charmander")]
+    [TestCase("blastoise", "rattata", "pidgeot", "mewtwo", "snorlax", "ekans")]
+    [TestCase("raichu", "mew", "arcanine", "machamp", "geodude", "rapidash")]
+    [TestCase("electabuzz", "gyarados", "eevee", "dragonite", "flareon", "typhlosion")]
+    public async Task ChoosePokemons(params string[] pokemonsNames)
     {
+        GameCommands commands = new GameCommands();
+        commands.AddPlayer("Jugador1");
         string msg = "";
-        var (message, _) = await commands.ChoosePokemon("Jugador1", "pikachu");
-        msg += message +"\n";
+        string msgExpected = "";
+        int cont = 0;
+        foreach (string pokemonName in pokemonsNames)
+        {
+            var (message, _) = await commands.ChoosePokemon("Jugador1", pokemonName);
+            msg += message +"\n";
+
+            cont++;
+            msgExpected += $"**{pokemonName.ToUpper()}** ha sido agregado al equipo de **JUGADOR1**  ***({cont}/6)***\n";
+        }
         
-        var (message2, _) = await commands.ChoosePokemon("Jugador1", "mew");
-        msg += message2 +"\n";
+        Assert.That(msg, Is.EqualTo(msgExpected));
+    }
+
+    [TestCase("pika")]
+    [TestCase("sanlorenzo")]
+    [TestCase("catamarca")]
+    [TestCase("plopcr 23")]
+    public async Task ChooseNonExistentPokemon(string pokemonName)
+    {
+        string playerName = "Jugador1";
+        GameCommands commands = new GameCommands();
+        commands.AddPlayer(playerName);
+
+        var (msg, _) = await commands.ChoosePokemon(playerName, pokemonName);
+        string msgExpected = $"**{pokemonName.ToUpper()}** no ha sido encontrado.";
         
-        var (message3, _) = await commands.ChoosePokemon("Jugador1", "onix");
-        msg += message3 +"\n";
+        Assert.That(msg, Is.EqualTo(msgExpected));
+    }
+    
+    
+    [TestCase("pikachu")]
+    [TestCase("onix")]
+    [TestCase("dragonite")]
+    [TestCase("mewtwo")]
+    public async Task ChooseRepeatedPokemon(string pokemonName)
+    {
+        string playerName = "Jugador1";
+        GameCommands commands = new GameCommands();
+        commands.AddPlayer(playerName);
+        string msgExpected = "";
+        string msgResult = "";
+        var (msg, _) = await commands.ChoosePokemon(playerName, pokemonName);
+        msgResult += msg + "\n";
+        var (msg2, _) = await commands.ChoosePokemon(playerName, pokemonName);
+        msgResult += msg2;
         
-        var (message4, _) = await commands.ChoosePokemon("Jugador1", "mewtwo");
-        msg += message4 +"\n";
+        msgExpected += $"**{pokemonName.ToUpper()}** ha sido agregado al equipo de **{playerName.ToUpper()}**  ***(1/{Player.MaxPokemons})***\n" +
+                       $"**{pokemonName.ToUpper()}** ya se encuentra en el equipo de **{playerName.ToUpper()}**.";
         
-        var (message5, _) = await commands.ChoosePokemon("Jugador1", "snorlax");
-        msg += message5 +"\n";
-        
-        var (message6, _) = await commands.ChoosePokemon("Jugador1", "charmander");
-        msg += message6 +"\n";
-        
-        Assert.That(msgExpected, Is.EqualTo(msg));
+        Assert.That(msgResult, Is.EqualTo(msgExpected));
     }
 }
