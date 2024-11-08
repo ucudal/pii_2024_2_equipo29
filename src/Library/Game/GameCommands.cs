@@ -78,8 +78,7 @@ public class GameCommands
         
         if (!GameHasStarted())
         {
-            if (game.AllPlayersHavePokemons())
-                return "Todos los jugadores deben tener al menos un pokemon para iniciar la partida.";
+            if (!game.AllPlayersHavePokemons()) return "Todos los jugadores deben tener al menos un pokemon para iniciar la partida.";
                 
             game.Start();
             msg = ShowTurn();
@@ -108,7 +107,7 @@ public class GameCommands
         if (!GameHasStarted()) return "";
         
         return  $"Turno de: **{game.PlayerInTurn.Name.ToUpper()}**\n" +
-                game.PlayerInTurn.CurrentPokemon.ViewPokemon() + "\n" +
+                game.PlayerInTurn.CurrentPokemon.ViewPokemon() + $"{game.PlayerInTurn.ViewItems()}\n" +
                 $"Recive: **{game.PlayerNotInTurn.Name.ToUpper()}**\n" +
                 game.PlayerNotInTurn.CurrentPokemon.ViewPokemonSimple();
     }
@@ -193,5 +192,13 @@ public class GameCommands
     public bool GameHasStarted()
     {
         return game.HasStarted;
+    }
+
+    public static string ShowItemsDesc()
+    {
+        return "**ITEMS** \n" +
+               "1) **REVIVIR**: Revive a un Pokémon con el **50%** de su HP total.\n" +
+               "2) **SUPER POCION**: Cada una recupera 70 puntos de HP.\n" +
+               "3) **CURA TOTAL**: Cura a un Pokémon de efectos de ataques especiales, dormido, paralizado, envenenado, o quemado.\n";
     }
 }

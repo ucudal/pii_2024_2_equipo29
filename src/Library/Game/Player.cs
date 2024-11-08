@@ -123,4 +123,18 @@ public class Player : IPokemonManager
 
         return msg;
     }
+
+
+    public string ViewItems()
+    {
+        string msg = "**ITEMS:**";
+        int cont = 1;
+        foreach (var item in Items)
+        {
+            msg += $"   {cont}) **{item.GetType().Name.ToUpper()}** (Cantidad: **{item.Amount}**) ";
+            cont++;
+        }
+
+        return msg + "\n";
+    }
 }

@@ -31,23 +31,31 @@ namespace Library.DiscordBot
             
             if (room != null!)
             {
-                var (message, imageUrl) = await room.Commands.ChoosePokemon(
-                    context.Member.Username, 
-                    pokemonName.ToLower());
-                
-                builder.WithContent(message);
-                
-                if (!string.IsNullOrEmpty(imageUrl))
+                if (room.Commands.GameHasStarted())
                 {
-                    var embed = new DiscordEmbedBuilder()
-                        .WithImageUrl(imageUrl)
-                        .WithColor(DiscordColor.Red); 
-
-                    builder.AddEmbed(embed);
+                    builder.WithContent("\u26d4  **LA BATALLA YA HA COMENZADO**  \u26d4");
                 }
+                else
+                {
+                    var (message, imageUrl) = await room.Commands.ChoosePokemon(
+                        context.Member.Username, 
+                        pokemonName.ToLower());
+                
+                    builder.WithContent(message);
+                
+                    if (!string.IsNullOrEmpty(imageUrl))
+                    {
+                        var embed = new DiscordEmbedBuilder()
+                            .WithImageUrl(imageUrl)
+                            .WithColor(DiscordColor.Red); 
 
-                string turn = room.Commands.ShowTurn();
-                if (turn != "") await context.Channel.SendMessageAsync(turn);
+                        builder.AddEmbed(embed);
+                    }
+
+                    string turn = room.Commands.ShowTurn();
+                    if (turn != "") await context.Channel.SendMessageAsync(turn);
+                }
+               
             }
             else
             {
@@ -256,6 +264,12 @@ namespace Library.DiscordBot
             }
             
             await context.EditResponseAsync(builder);
+        }
+        
+        [SlashCommand("ShowItems", "Muestra los pokemons aliados y rivales.")]
+        public async Task ShowItems(InteractionContext context)
+        {
+            await context.CreateResponseAsync(GameCommands.ShowItemsDesc());
         }
     }
 }
