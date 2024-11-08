@@ -1,4 +1,5 @@
-﻿using Library.DiscordBot;
+﻿using Library;
+using Library.DiscordBot;
 
 namespace Program;
 

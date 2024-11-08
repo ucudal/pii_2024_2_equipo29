@@ -5,12 +5,7 @@ namespace Library;
 
 public class GameCommands
 {
-    private Game game;
-
-    public GameCommands()
-    {
-        game = new Game();
-    }
+    private Game game = new();
 
     public Player GetPlayerInTurn()
     {
@@ -19,7 +14,10 @@ public class GameCommands
 
     public void AddPlayer(string playerName)
     {
-        game.AddPlayer(playerName);
+        if (game.GetPlayerByName(playerName) == null!)
+        {
+            game.AddPlayer(new Player(playerName));
+        }
     }
 
     public async Task<(string message, string imgUrl)> ChoosePokemon(string playerName, string pokemonName)
@@ -31,7 +29,7 @@ public class GameCommands
         
         if (player != null!)
         {
-            if (player.GetPokemonByName(pokemonName) == null!)
+            if (player.GetPokemonByName(pokemonName.ToLower()) == null!)
             {
                 if (player.pokemonsCount < Player.MaxPokemons)
                 {

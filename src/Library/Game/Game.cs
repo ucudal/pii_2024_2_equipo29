@@ -21,9 +21,9 @@ public class Game
         get => players.Count == MaxPlayers;
     }
 
-    public void AddPlayer(string playerName)
+    public void AddPlayer(Player player)
     {
-        if (!IsFullPlayers) players.Add(new Player(playerName));
+        if (!IsFullPlayers) players.Add(player);
         if (IsFullPlayers) PlayerInTurn = GetRandomPlayer();
     }
 
