@@ -8,6 +8,14 @@ public class UserStory1
 // Los Pokémons seleccionados se muestran en la pantalla del jugador.
 
     private GameCommands commands = new GameCommands();
+
+    private string msgExpected =
+        "**PIKACHU** ha sido agregado al equipo de **JUGADOR1**  ***(1/6)***\n" +
+        "**MEW** ha sido agregado al equipo de **JUGADOR1**  ***(2/6)***\n" +
+        "**ONIX** ha sido agregado al equipo de **JUGADOR1**  ***(3/6)***\n" + 
+        "**MEWTWO** ha sido agregado al equipo de **JUGADOR1**  ***(4/6)***\n" + 
+        "**SNORLAX** ha sido agregado al equipo de **JUGADOR1**  ***(5/6)***\n" +
+        "**CHARMANDER** ha sido agregado al equipo de **JUGADOR1**  ***(6/6)***\n";
     
     [SetUp]
     public void Setup()
@@ -38,8 +46,6 @@ public class UserStory1
         var (message6, _) = await commands.ChoosePokemon("Jugador1", "charmander");
         msg += message6 +"\n";
         
-        File.WriteAllText("../../../UserStoriesTests/userstory1Result.txt", msg);
-        
-        FileAssert.AreEqual("../../../UserStoriesTests/userstory1Expected.txt", "../../../UserStoriesTests/userstory1Result.txt");
+        Assert.That(msgExpected, Is.EqualTo(msg));
     }
 }

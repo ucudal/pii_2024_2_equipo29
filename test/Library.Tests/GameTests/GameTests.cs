@@ -135,7 +135,7 @@ public class GameTests
         game.Start();
 
         game.PlayerInTurn.Attack(player2, 1);
-        Assert.That(game.GetWinner(), Is.EqualTo(game.PlayerInTurn));
+        Assert.That(game.GetWinner(), Is.EqualTo(game.PlayerNotInTurn));
     }
     
     [Test]

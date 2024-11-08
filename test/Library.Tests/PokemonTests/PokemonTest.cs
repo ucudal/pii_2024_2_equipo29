@@ -6,68 +6,73 @@ namespace Library.Tests.PokemonTest;
 
 public class PokemonTest
 {
-    
-    private Pokemon defender;
-    private Pokemon attacker;
-    [SetUp]
-    public async Task Setup()
-    {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
-        
-        attacker = await pokemonAdapter.GetPokemonAsync("pikachu");
-        defender = await pokemonAdapter.GetPokemonAsync("pikachu");
-    }
-    
-    
     [Test]
     public void ConstructorTest()
     {
         Pokemon pokemon = new Pokemon();
         Assert.That(pokemon.Moves != null && pokemon.Types != null && pokemon.StateMachine != null);
     }
-
-    private void AttackTillHit(int moveSlot)  // METODO CREADO DEBIDO A QUE *EL ATAQUE PUEDE FALLAR* 
-    {
-        int initialHp;
-        int finalHp;
-        do
-        {
-            initialHp = defender.Hp;
-            attacker.Attack(defender, moveSlot);
-            finalHp = defender.Hp;
-        } while (initialHp > finalHp);
-    }
     
-    [Test]
-    public void AttackTest()
+    [TestCase("pikachu", "pikachu")]
+    [TestCase("charizard", "pikachu")]
+    [TestCase("mew", "charmander")]
+    [TestCase("eevee", "pikachu")]
+    public async Task AttackTest(string pokemonAttackerName, string pokemonDefenderName)
     {
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
+        Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
+        int moveSlot = 1;
+
+        attacker.Moves[moveSlot].Accuracy = 100;
+        
         int initialHp = defender.Hp;
-        AttackTillHit(2);
+        attacker.Attack(defender, moveSlot);
         int finalHp = defender.Hp;
         
         Assert.That(finalHp, Is.Not.EqualTo(initialHp));
     }
     
-    [Test]
-    public void SpecialAttackTest()
+    [TestCase("pikachu", "pikachu")]
+    [TestCase("charizard", "pikachu")]
+    [TestCase("mew", "charmander")]
+    [TestCase("eevee", "pikachu")]
+    public async Task SpecialAttackTest(string pokemonAttackerName, string pokemonDefenderName)
     {
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
+        Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
+        int moveSlot = 3;
+        
+        attacker.Moves[moveSlot].Accuracy = 100;
+        
         defender.Hp = defender.InitialHp;
         IPokemonState initialState = defender.StateMachine.CurrentState;
-        AttackTillHit(3);
+        attacker.Attack(defender, moveSlot);
         IPokemonState finalState =  defender.StateMachine.CurrentState;
         Assert.That(finalState, Is.Not.EqualTo(initialState));
     }
     
-    [Test]
-    public void MissAttackTest()
+    [TestCase("pikachu", "pikachu")]
+    [TestCase("charizard", "pikachu")]
+    [TestCase("mew", "charmander")]
+    [TestCase("eevee", "pikachu")]
+    public async Task MissAttackTest(string pokemonAttackerName, string pokemonDefenderName)
     {
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
+        Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
+        int moveSlot = 1;
+        
+        attacker.Moves[moveSlot].Accuracy = 50;
+        
         int initialHp;
         int finalHp;
         do
         {
             defender.Hp = defender.InitialHp;
             initialHp = defender.Hp;
-            attacker.Attack(defender, 0);
+            attacker.Attack(defender, moveSlot);
             finalHp = defender.Hp;
         } while (initialHp != finalHp);    // ATACAR HASTA QUE FALLE (DEBIDOA A QUE ES ALEATORIO)
         
@@ -75,45 +80,84 @@ public class PokemonTest
         Assert.That(finalHp, Is.EqualTo(initialHp));
     }
     
-    [Test]
-    public void UpdateCoolDownSpecialMoveTest()
+    [TestCase("pikachu", "pikachu")]
+    [TestCase("charizard", "pikachu")]
+    [TestCase("mew", "charmander")]
+    [TestCase("eevee", "pikachu")]
+    public async Task UpdateCoolDownSpecialMoveTest(string pokemonAttackerName, string pokemonDefenderName)
     {
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
+        Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
+        int moveSlot = 3;
+        attacker.Moves[moveSlot].Accuracy = 100;
+        
         defender.Hp = defender.InitialHp;
-        AttackTillHit(3);
-        int initialCd = attacker.Moves[3].RemainingTurnsInCoolDown;
+        attacker.Attack(defender, moveSlot);
+        int initialCd = attacker.Moves[moveSlot].RemainingTurnsInCoolDown;
         
         attacker.UpdateCoolDownSpecialMove();
-        int finalCd = attacker.Moves[3].RemainingTurnsInCoolDown;
+        int finalCd = attacker.Moves[moveSlot].RemainingTurnsInCoolDown;
         
         Assert.That(initialCd, Is.Not.EqualTo(finalCd));
     }
 
-    [Test]
-    public void IsDeadTest()
+    [TestCase("pikachu", "pikachu")]
+    [TestCase("charizard", "pikachu")]
+    [TestCase("mew", "charmander")]
+    [TestCase("eevee", "pikachu")]
+    public async Task IsDeadTest(string pokemonAttackerName, string pokemonDefenderName)
     {
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
+        Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
+        int moveSlot = 1;
+        attacker.Moves[moveSlot].Accuracy = 100;
+        
         defender.Hp = 1;
-        AttackTillHit(2);
+        attacker.Attack(defender, moveSlot);
         Assert.IsTrue(defender.IsDead());
     }
-    [Test]
-    public void IsNotDeadTest()
+    
+    [TestCase("pikachu", "pikachu")]
+    [TestCase("charizard", "pikachu")]
+    [TestCase("mew", "charmander")]
+    [TestCase("eevee", "pikachu")]
+    public async Task IsNotDeadTest(string pokemonAttackerName, string pokemonDefenderName)
     {
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
+        Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
+        int moveSlot = 1;
+        
         defender.Hp = defender.InitialHp;
-        attacker.Attack(defender, 1);
+        attacker.Attack(defender, moveSlot);
         Assert.IsFalse(defender.IsDead());
     }
     
     
-    [Test]
-    public void ViewPokemonTest()
+    [TestCase("pikachu")]
+    [TestCase("charizard")]
+    [TestCase("mew")]
+    [TestCase("eevee")]
+    public async Task ViewPokemonTest(string pokemonName)
     {
-        Assert.IsNotNull(attacker.ViewPokemon());
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Pokemon pokemon = await pokemonAdapter.GetPokemonAsync(pokemonName);
+        
+        Assert.IsNotNull(pokemon.ViewPokemon());
     }
 
-    [Test]
-    public void ViewPokemonSimpleTest()
+    [TestCase("pikachu")]
+    [TestCase("charizard")]
+    [TestCase("mew")]
+    [TestCase("eevee")]
+    public async Task ViewPokemonSimpleTest(string pokemonName)
     {
-        Assert.IsNotNull(attacker.ViewPokemonSimple());
+        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        Pokemon pokemon = await pokemonAdapter.GetPokemonAsync(pokemonName);
+        
+        Assert.IsNotNull(pokemon.ViewPokemonSimple());
     }
     
 }
