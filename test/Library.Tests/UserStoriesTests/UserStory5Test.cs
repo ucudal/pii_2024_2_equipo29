@@ -32,7 +32,7 @@ public class UserStory5Test
     }
     
     [Test]
-    public async Task ShowTurnWithChangingTurnTest()              
+    public async Task ShowTurnWithChangingTurnTest()
     {
         string pokemonName = "pikachu";
         string player1Name = "Jugador1";
