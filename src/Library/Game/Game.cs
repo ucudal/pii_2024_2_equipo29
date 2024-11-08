@@ -31,6 +31,7 @@ public class Game
     {
         PlayerInTurn = PlayerNotInTurn;
 
+        if (!PlayerInTurn.PlayersHavePokemons()) return;
         PlayerInTurn.CurrentPokemon.UpdateCoolDownSpecialMove();
         PlayerInTurn.CurrentPokemon.StateMachine.ApplyEffect(PlayerInTurn.CurrentPokemon);
     }
