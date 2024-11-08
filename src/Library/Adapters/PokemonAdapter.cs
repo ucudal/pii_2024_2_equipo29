@@ -4,15 +4,30 @@ using Library.States;
 
 namespace Library.Adapters;
 
+/// <summary>
+/// Clase para adaptar datos obtenidos de la PokeAPI y convertirlos en instancias de <c>Pokemon</c>.
+/// Se utiliza el patrón <b>Adapter</b>.
+/// </summary>
 public class PokemonAdapter
 {
     private PokeApiService pokeApiService;
 
+    /// <summary>
+    /// Constructor para inicializar el servicio de la PokeAPI.
+    /// </summary>
+    /// <param name="pokeApiService">Servicio de la PokeAPI utilizado para obtener datos de los pokemon.</param>
     public PokemonAdapter(PokeApiService pokeApiService)
     {
         this.pokeApiService = pokeApiService;
     }
 
+    /// <summary>
+    /// Obtiene los datos de un pokemon por su nombre utilizando <c>PokeApiService</c> y los adapta a un objeto <c>Pokemon</c>.
+    /// </summary>
+    /// <param name="pokemonName">Nombre del Pokémon a buscar en la API.</param>
+    /// <returns>Una instancia de <c>Pokemon</c> con los datos obtenidos, <c>null</c> en caso de error o si el pokemon no tiene al menos 4 moves con un valor .</returns>
+    /// <exception cref="HttpRequestException">Se lanza si hay problemas al hacer la solicitud HTTP a la API.</exception>
+    /// <remarks>Este método usa propiedades JSON para extraer información sobre los datos necesarios para crear un objeto <c>Pokemon</c>.</remarks>
     public async Task<Pokemon> GetPokemonAsync(string pokemonName)
     {
         JsonDocument apiResponse;
