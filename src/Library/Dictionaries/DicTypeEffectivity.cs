@@ -1,7 +1,21 @@
 namespace Library;
  
+/// <summary>
+/// Clase abstracta que contiene un diccionario de diccionarios con
+/// las efectividades de los ataques para cada pokemon.
+/// </summary>
  public abstract class DicTypeEffectivity
  {
+     /// <summary>
+     /// Diccionarios con las efectividades de los ataques para cada pokemon.
+     /// <para>Se utiliza en <c>Calculate</c> como parte de la formula de ataque de los pokemons.</para>
+     /// </summary>
+     /// <remarks>
+     /// Diccionario estático de estados donde cada <i><b>CLAVE</b></i> representa
+     /// el nombre del <c>Move</c> de un pokemon y cada <i><b>VALOR</b></i> es otro diccionario
+     /// donde cada <i><b>CLAVE</b></i> representa el nombre del <c>Type</c> del pokemon atacado
+     /// y cada <i><b>VALOR</b></i> es la efectividad del ataque.
+     /// </remarks>
      public static Dictionary<string, Dictionary<string, float>> Effectivity { get; } = new()
      {
         { "normal", new Dictionary<string, float>
