@@ -69,7 +69,7 @@ public class UserStory3Test
         int hp = 0;
         int initialHp = 0;
         
-        var regex = new Regex(@"\(\*\*HP:\*\* (\d{1,3})/(\d{1,3})\)");          // El formato mostrado seria (**HP:** {Hp}/{InitialHp})  si el test pasa quiere decir que se encuentra en ese formato, porque es como busco los valores
+        var regex = new Regex(@"\(\*\*HP:\*\* (\d{1,4})/(\d{1,4})\)");          // El formato mostrado seria (**HP:** {Hp}/{InitialHp})  si el test pasa quiere decir que se encuentra en ese formato, porque es como busco los valores
         var match = regex.Match(msg);
         
         if (match.Success)
