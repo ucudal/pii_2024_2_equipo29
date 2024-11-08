@@ -14,7 +14,7 @@ public class Lobby
     
     public static Lobby GetInstance()
     {
-        if (instance == null)
+        if (instance == null!)
         {
             instance = new Lobby();
         }

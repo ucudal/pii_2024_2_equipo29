@@ -122,7 +122,7 @@ namespace Library.DiscordBot
             await context.CreateResponseAsync(room.Commands.NextTurn());
         }
 
-        [SlashCommand("ClearRooms", "Iniciar nueva partida.")]
+        [SlashCommand("ClearRooms", "Elimina las salas de las partidas en curso.")]
         public async Task ClearRooms(InteractionContext context)
         {
             await context.CreateResponseAsync("\u26d4  **Eliminando todas los servidores de batalla...**  \u26d4");
@@ -266,7 +266,7 @@ namespace Library.DiscordBot
             await context.EditResponseAsync(builder);
         }
         
-        [SlashCommand("ShowItems", "Muestra los pokemons aliados y rivales.")]
+        [SlashCommand("ShowItems", "Muestra la descripición de los items.")]
         public async Task ShowItems(InteractionContext context)
         {
             await context.CreateResponseAsync(GameCommands.ShowItemsDesc());

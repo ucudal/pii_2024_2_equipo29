@@ -7,12 +7,13 @@ public abstract class StateApplier
     public static string ApplyStateEffect(StateMachine stateMachine, EnumState state)
     {
         if (state == EnumState.Normal) return "";
+        string stateName = stateMachine.CurrentState.Name.ToString();
         
-        if (stateMachine.CurrentState.Name.Equals(state.ToString())) 
-            return $"El pokemon ya tiene el efecto **{stateMachine.CurrentState.Name.ToUpper()}**.";
+        if (stateName.Equals(state.ToString())) 
+            return $"El pokemon ya tiene el efecto **{stateName.ToUpper()}**.";
         
         if (stateMachine.CurrentState is not Normal) 
-            return $"El pokemon ya tiene el efecto **{stateMachine.CurrentState.Name.ToUpper()}**, el efecto **{state.ToString().ToUpper()}** no ha sido aplicado.";
+            return $"El pokemon ya tiene el efecto **{stateName.ToUpper()}**, el efecto **{state.ToString().ToUpper()}** no ha sido aplicado.";
 
         IPokemonState newState = state switch
         {

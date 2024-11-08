@@ -2,14 +2,14 @@ namespace Library.States;
 
 public class Paralyze : IPokemonState
 {
-    public string Name { get; }
+    public EnumState Name { get; }
     
     public Paralyze()
     {
-        Name = EnumState.Paralyze.ToString();
+        Name = EnumState.Paralyze;
     }
 
-    public bool CanAttack()
+    public bool HasLostTurn()
     {
         return new Random().Next(2) == 0;
     }

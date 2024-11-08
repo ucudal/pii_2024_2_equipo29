@@ -2,11 +2,11 @@ namespace Library.States;
 
 public class Burn : IPokemonState
 {
-    public string Name { get; }
+    public EnumState Name { get; }
     
     public Burn()
     {
-        Name = EnumState.Burn.ToString();
+        Name = EnumState.Burn;
     }
     
     public void ApplyEffect(Pokemon pokemon)

@@ -1,5 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
-using DSharpPlus.CommandsNext;
 using Library.Adapters;
 using Library.Services;
 
@@ -106,8 +104,8 @@ public class GameCommands
     {
         if (!GameHasStarted()) return "";
         
-        return  $"Turno de: **{game.PlayerInTurn.Name.ToUpper()}**\n" +
-                game.PlayerInTurn.CurrentPokemon.ViewPokemon() + $"{game.PlayerInTurn.ViewItems()}\n" +
+        return  $"Turno de: **{GetPlayerInTurn().Name.ToUpper()}**\n" +
+                GetPlayerInTurn().CurrentPokemon.ViewPokemon() + $"{GetPlayerInTurn().ViewItems()}\n" +
                 $"Recive: **{game.PlayerNotInTurn.Name.ToUpper()}**\n" +
                 game.PlayerNotInTurn.CurrentPokemon.ViewPokemonSimple();
     }
@@ -120,25 +118,32 @@ public class GameCommands
             return $"¡La partida ya ha finalizado, el jugador \ud83d\udc51 **_{winner.Name.ToUpper()}_** \ud83d\udc51 ha ganado!\nUtiliza el comando **`/restart`** para volver a jugar.";
         }
         
-        string playerNameInTurn = game.PlayerInTurn.Name;
+        string playerNameInTurn = GetPlayerInTurn().Name;
         if (!game.IsPlayerNameInTurn(playerNameAttacker))
         {
             return $"No puedes atacar, es el turno de **{playerNameInTurn.ToUpper()}**.";
         }
-        
-        bool playerCanAttack = game.PlayerInTurn.CurrentPokemon.StateMachine.CanAttack();
-        string stateName = game.PlayerInTurn.CurrentPokemon.StateMachine.CurrentState.Name;
+
+        var pokemonStateMachine = GetPlayerInTurn().CurrentPokemon.StateMachine;
+        bool playerCanAttack = pokemonStateMachine.CanAttack();
+        string stateName = pokemonStateMachine.CurrentState.Name.ToString();
         string msg;
-        if (!playerCanAttack)
+        
+        if (playerCanAttack)
         {
-            msg = $"**No puedes atacar**, estás bajo el efecto **{stateName.ToUpper()}**.\n";
+            if (pokemonStateMachine.HasLostTurn())
+            {
+                game.ToogleTurn();
+                return $"El ataque no se ha aplicado. Has perdido el turno a causa del efecto **{stateName.ToUpper()}**.\n{ShowTurn()}";
+            }
+            
+            IPokemonManager enemyPlayer = game.PlayerNotInTurn;
+            msg = GetPlayerInTurn().Attack(enemyPlayer, moveSlot);
         }
         else
         {
-            IPokemonManager enemyPlayer = game.PlayerNotInTurn;
-            msg = game.PlayerInTurn.Attack(enemyPlayer, moveSlot);
+            msg = $"**No puedes atacar**, estás bajo el efecto **{stateName.ToUpper()}**.\n";
         }
-        
         
         if (!msg.Contains("cooldown")) game.ToogleTurn();
         
@@ -189,7 +194,7 @@ public class GameCommands
         if (game.GetWinner() == null!) return "**La partida no ha finalizado.**";
             
         game.Reset();
-        return $"La partida se ha reseteado. Puedes volver a elegir los pokemons. \n{GameCommands.ShowCatalogue()}";
+        return $"La partida se ha reseteado. Puedes volver a elegir pokemons. \n{ShowCatalogue()}";
     }
 
     public bool GameHasStarted()

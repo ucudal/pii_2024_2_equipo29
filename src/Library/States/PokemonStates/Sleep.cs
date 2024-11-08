@@ -2,14 +2,14 @@ namespace Library.States;
 
 public class Sleep : IPokemonState
 {
-    public string Name { get; }
+    public EnumState Name { get; }
     private int minSleepTurns = 1;
     private int maxSleepTurns = 4;
     private int remainingTurns;
 
     public Sleep()
     {
-        Name = EnumState.Sleep.ToString();
+        Name = EnumState.Sleep;
         SetRandomSleepTurns(minSleepTurns + 1, maxSleepTurns + 1);
     }
 
