@@ -49,7 +49,7 @@ public class Pokemon
         int dmg;
         if (calculate.CalculateDamage(this, pokemonEnemy, move, out dmg))
         {
-            msg += "\ud83d\udca2**GOLPE CRITICO** ";
+            msg += "\ud83d\udca2 **GOLPE CRITICO** ";
         }
     
         pokemonEnemy.Hp = dmg > pokemonEnemy.Hp 
@@ -62,9 +62,10 @@ public class Pokemon
             pokemonEnemy.StateMachine.CurrentState = new Normal();
             return msg;
         }
+
+        if (move.State == EnumState.Normal) return msg;
         
         msg += StateApplier.ApplyStateEffect(pokemonEnemy.StateMachine, move.State) +"\n";
-        
         return msg;
     }
 
@@ -77,16 +78,6 @@ public class Pokemon
     public bool IsDead()
     {
         return Hp == 0;
-    }
-    
-    public string ViewMoves()
-    {
-        string movesMsg = "";
-        foreach (var move in Moves)
-        {
-            movesMsg += move.ViewMove() + "\n";
-        }
-        return movesMsg;
     }
 
     public string ViewPokemon()
@@ -103,7 +94,7 @@ public class Pokemon
             msg += $"**{i+1}) {Moves[i].ViewMove()}\n";
         }
         
-        bool hasEffect = StateMachine.CurrentState is not Normal;
+        bool hasEffect = StateMachine.CurrentState.Name != EnumState.Normal;
         int remainingTurnsWithEffect = StateMachine.GetRemainingTurnsWithEffect();
         string terminationLetter = remainingTurnsWithEffect == 1 ? "" : "s";
         string permanentEffect = remainingTurnsWithEffect == -1
@@ -111,20 +102,20 @@ public class Pokemon
             : $"{remainingTurnsWithEffect} turno{terminationLetter}";
         
         msg += hasEffect && remainingTurnsWithEffect != 0
-            ? $"**El Pokemon está bajo el efecto {StateMachine.CurrentState.Name} por {permanentEffect}**" 
+            ? $"**El Pokemon está bajo el efecto {StateMachine.CurrentState.Name.ToString().ToUpper()} por {permanentEffect}.**" 
             : "";
         if (hasEffect)
         {
             switch (StateMachine.CurrentState.Name)
             {
-                case "Burn":
-                    msg += $"(-10% HP cada turno)  [**-{InitialHp/10}**] ";
+                case EnumState.Burn:
+                    msg += $" (-10% HP cada turno)  [**-{InitialHp/10} HP**]\n";
                     break;
-                case "Poison":
-                    msg += $"(-5% HP cada turno)  [**-{InitialHp/20}**] ";
+                case EnumState.Poison:
+                    msg += $" (-5% HP cada turno)  [**-{InitialHp/20} HP**]\n";
                     break;
                 default:
-                    msg += ".\n";
+                    msg += "\n";
                     break;
             }
         }

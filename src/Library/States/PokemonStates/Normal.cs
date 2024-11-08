@@ -2,10 +2,10 @@ namespace Library.States;
 
 public class Normal : IPokemonState
 {
-    public string Name { get; }
+    public EnumState Name { get; }
     
     public Normal()
     {
-        Name = EnumState.Normal.ToString();
+        Name = EnumState.Normal;
     }
 }

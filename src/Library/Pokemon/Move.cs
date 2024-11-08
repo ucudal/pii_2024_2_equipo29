@@ -12,8 +12,7 @@ public class Move
     public int RemainingTurnsInCoolDown = 0;
     public bool IsSpecialMove { get; set; }
     public EnumState State { get; set; } = EnumState.Normal;
-
-
+    
     public string ViewMove()
     {
         string msg = $"{(IsSpecialMove ? "Special move" : "Move")}:** {Name.ToUpper()} Power: {Power} / Accuracy: {Accuracy}";

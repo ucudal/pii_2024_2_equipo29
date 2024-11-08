@@ -2,11 +2,11 @@ namespace Library.States;
 
 public class Poison : IPokemonState
 {
-    public string Name { get; }
+    public EnumState Name { get; }
     
     public Poison()
     {
-        Name = EnumState.Poison.ToString();
+        Name = EnumState.Poison;
     }
     
     public void ApplyEffect(Pokemon pokemon)

@@ -23,4 +23,9 @@ public class StateMachine
     {
         return CurrentState.CanAttack();
     }
+    
+    public bool HasLostTurn()
+    {
+        return CurrentState.HasLostTurn();
+    }
 }
