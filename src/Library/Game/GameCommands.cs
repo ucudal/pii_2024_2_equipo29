@@ -112,7 +112,7 @@ public class GameCommands
 
     public string Attack(int moveSlot, string playerNameAttacker)
     {
-        Player winner = game.GetWinner();
+        IPokemonManager winner = game.GetWinner();
         if (winner != null!)
         {
             return $"¡La partida ya ha finalizado, el jugador \ud83d\udc51 **_{winner.Name.ToUpper()}_** \ud83d\udc51 ha ganado!\nUtiliza el comando **`/restart`** para volver a jugar.";

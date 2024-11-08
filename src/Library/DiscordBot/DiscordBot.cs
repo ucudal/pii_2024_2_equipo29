@@ -5,8 +5,8 @@ namespace Library.DiscordBot
 {
     public class DiscordBot
     {
-        private static DiscordClient Client { get; set; }
-        private static SlashCommandsExtension SlashCommands { get; set; }
+        private DiscordClient Client;
+        private SlashCommandsExtension SlashCommands;
 
         public async Task Iniciate()
         {
@@ -26,14 +26,8 @@ namespace Library.DiscordBot
             SlashCommands = Client.UseSlashCommands();
             SlashCommands.RegisterCommands<DiscordCommands>();
             
-            Client.Ready += Client_Ready;
             await Client.ConnectAsync();
             await Task.Delay(-1);
-        }
-
-        private static Task Client_Ready(DiscordClient sender, DSharpPlus.EventArgs.ReadyEventArgs args)
-        {
-            return Task.CompletedTask;
         }
     }
 }
