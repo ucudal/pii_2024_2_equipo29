@@ -15,7 +15,6 @@ public class FullHeal: IItem
         if (currentPokemon.StateMachine.CurrentState.Name == EnumState.Normal.ToString()) return $"El pokemon **{currentPokemon.Name.ToUpper()}** no tiene efectos de ataques especiales.";
         if (Amount == 0) return "No te quedan super pociones para curar.";
         
-        currentPokemon.Hp = currentPokemon.InitialHp;
         string negativeEffect = currentPokemon.StateMachine.CurrentState.Name;
         currentPokemon.StateMachine.CurrentState = new Normal();
         Amount -= 1;

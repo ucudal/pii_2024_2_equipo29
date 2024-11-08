@@ -235,7 +235,7 @@ namespace Library.DiscordBot
             
             if (room != null!)
             {
-                builder.WithContent($"{room.Commands.RestartGame()}\n{GameCommands.ShowCatalogue()}");
+                builder.WithContent($"{room.Commands.RestartGame()}");
             }
             else
             {

@@ -1,4 +1,5 @@
 using System.Transactions;
+using DSharpPlus.SlashCommands;
 using Library.States;
 
 namespace Library;
@@ -45,16 +46,24 @@ public class Pokemon
 
         string msg = "";
         ICalculate calculate = new Calculate();
-        int dmg = calculate.CalculateDamage(this, pokemonEnemy, move);
+        int dmg;
+        if (calculate.CalculateDamage(this, pokemonEnemy, move, out dmg))
+        {
+            msg += "\ud83d\udca2**GOLPE CRITICO** ";
+        }
     
         pokemonEnemy.Hp = dmg > pokemonEnemy.Hp 
             ? 0 
             : pokemonEnemy.Hp - dmg;
 
         msg += $"El move **{move.Name.ToUpper()}** ha realizado **{dmg}** de daño.\n";
-        if (pokemonEnemy.IsDead()) return msg;
+        if (pokemonEnemy.IsDead())
+        {
+            pokemonEnemy.StateMachine.CurrentState = new Normal();
+            return msg;
+        }
         
-        msg += StateApplier.ApplyStateEffect(pokemonEnemy.StateMachine, move.State) +"\n\n";
+        msg += StateApplier.ApplyStateEffect(pokemonEnemy.StateMachine, move.State) +"\n";
         
         return msg;
     }
@@ -102,9 +111,23 @@ public class Pokemon
             : $"{remainingTurnsWithEffect} turno{terminationLetter}";
         
         msg += hasEffect && remainingTurnsWithEffect != 0
-            ? $"**El Pokemon está bajo el efecto {StateMachine.CurrentState.Name} por {permanentEffect}.**\n" 
+            ? $"**El Pokemon está bajo el efecto {StateMachine.CurrentState.Name} por {permanentEffect}**" 
             : "";
-        
+        if (hasEffect)
+        {
+            switch (StateMachine.CurrentState.Name)
+            {
+                case "Burn":
+                    msg += $"(-10% HP cada turno)  [**-{InitialHp/10}**] ";
+                    break;
+                case "Poison":
+                    msg += $"(-5% HP cada turno)  [**-{InitialHp/20}**] ";
+                    break;
+                default:
+                    msg += ".\n";
+                    break;
+            }
+        }
         return msg;
     }
     

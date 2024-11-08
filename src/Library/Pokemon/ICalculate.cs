@@ -2,5 +2,5 @@
 
 public interface ICalculate
 { 
-    int CalculateDamage(Pokemon attacker, Pokemon defender, Move move);
+    bool CalculateDamage(Pokemon attacker, Pokemon defender, Move move, out int damage);
 }

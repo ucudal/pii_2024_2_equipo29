@@ -5,7 +5,7 @@ public class Calculate: ICalculate
     private int critChancePercentage = 10;
     private int critDamagePercentage = 20;
     
-    public int CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
+    public bool CalculateDamage(Pokemon attacker, Pokemon defender, Move move, out int damage)
     {
         float bonus = CalculateBonus(attacker.Types, move.Type);
         float effectivity = CalculateEffectivity(defender.Types, move.Type);
@@ -21,9 +21,10 @@ public class Calculate: ICalculate
         }
         
         double dmg = 0.1 * bonus * effectivity * variation * (((1.2 * attackPoints * power) / (25 * defensePoints)) + 2);
+        double preCrit = dmg;
         dmg = ApplyCrit(dmg);
-        
-        return (int)Math.Round(dmg);
+        damage = (int)Math.Round(dmg);
+        return dmg > preCrit;
     }
 
     private double ApplyCrit(double dmg)

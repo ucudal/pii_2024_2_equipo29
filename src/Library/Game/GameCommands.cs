@@ -78,7 +78,7 @@ public class GameCommands
         
         if (!GameHasStarted())
         {
-            if (!game.AllPlayersHavePokemons()) return "Todos los jugadores deben tener al menos un pokemon para iniciar la partida.";
+            if (!game.AllPlayersHavePokemons()) return "\u26d4 TODOS LOS JUGADORES DEBEN TENER AL MENOS 1 POKEMON PARA INICIAR LA PARTIDA \u26d4";
                 
             game.Start();
             msg = ShowTurn();
@@ -128,18 +128,21 @@ public class GameCommands
         
         bool playerCanAttack = game.PlayerInTurn.CurrentPokemon.StateMachine.CanAttack();
         string stateName = game.PlayerInTurn.CurrentPokemon.StateMachine.CurrentState.Name;
-        
+        string msg;
         if (!playerCanAttack)
         {
-            return $"No puedes atacar, estás bajo el efecto **{stateName.ToUpper()}**.";
+            msg = $"**No puedes atacar**, estás bajo el efecto **{stateName.ToUpper()}**.\n";
         }
-
-        IPokemonManager enemyPlayer = game.PlayerNotInTurn;
-        string msg = game.PlayerInTurn.Attack(enemyPlayer, moveSlot);
+        else
+        {
+            IPokemonManager enemyPlayer = game.PlayerNotInTurn;
+            msg = game.PlayerInTurn.Attack(enemyPlayer, moveSlot);
+        }
+        
         
         if (!msg.Contains("cooldown")) game.ToogleTurn();
         
-        return $"{msg}\n{game.ViewTurn()}";
+        return $"{msg}\n{ShowTurn()}";
     }
 
     public string ChangePokemon(Player playerInTurn, string pokemonName)
@@ -162,7 +165,7 @@ public class GameCommands
     public string UseItem(Player playerInTurn, string pokemonName, int itemSlot)
     {
         int startingItemCount = playerInTurn.Items[itemSlot].Amount;
-        string msg = playerInTurn.UseItem(playerInTurn.Items[itemSlot], pokemonName) + "\n";
+        string msg = playerInTurn.UseItem(playerInTurn.Items[itemSlot], pokemonName) + "\n\n";
         int finallyItemCount = playerInTurn.Items[itemSlot].Amount;
         
         if (startingItemCount > finallyItemCount) game.ToogleTurn();
@@ -186,7 +189,7 @@ public class GameCommands
         if (game.GetWinner() == null!) return "**La partida no ha finalizado.**";
             
         game.Reset();
-        return "La partida se ha reseteado. Puedes volver a elegir los pokemons.";
+        return $"La partida se ha reseteado. Puedes volver a elegir los pokemons. \n{GameCommands.ShowCatalogue()}";
     }
 
     public bool GameHasStarted()
