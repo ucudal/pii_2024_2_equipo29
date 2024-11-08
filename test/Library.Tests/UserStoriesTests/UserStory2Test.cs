@@ -64,7 +64,7 @@ public class UserStory2Test
         
         commands.NextTurn();    // Cambio el turno manualmente para que vuela al que tiro el special Attack y baja el cooldown
         
-        commands.Attack(moveSlot, commands.GetPlayerInTurn().Name);    // Al realizar esto no cambia de turno ya que la habilidad esta en cooldown
+        commands.Attack(moveSlot, commands.GetPlayerInTurn().Name);    // Al realizar esto no cambia de turno ya que la habilidad esta en cooldown  (Si llega a cambiar el turno quiere decir que la habilidad fue lanzada y el cooldown esta mal aplicado)
         commands.NextTurn();                            // Cambio manualmente
         commands.NextTurn();                            // Cambio manualmente y baja el cooldown y ahora deberia estar disponible el Special Attack
 
@@ -73,7 +73,7 @@ public class UserStory2Test
         
         bool turnChanged = commands.GetPlayerInTurn().Name != firstplayerName; 
         
-        Assert.IsTrue(attackFirstPlayer && turnChanged);
+        Assert.IsTrue(attackFirstPlayer && turnChanged);      
     }
     
 }
