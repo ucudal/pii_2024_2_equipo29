@@ -1,10 +1,23 @@
 namespace Library;
-
+/// <summary>
+/// Clase que implementa la lógica para calcular el daño en un combate entre Pokémon.
+/// </summary>
+/// <remarks>
+/// Esta clase utiliza la interfaz <see cref="ICalculate"/> para calcular el daño que un Pokémon atacante inflige a un Pokémon defensor utilizando un movimiento específico.
+/// </remarks>
 public class Calculate: ICalculate
 {
     private int critChancePercentage = 10;
     private int critDamagePercentage = 20;
     
+    /// <summary>
+    /// Calcula el daño infligido por un Pokémon atacante a un Pokémon defensor.
+    /// </summary>
+    /// <param name="attacker">El Pokémon que realiza el ataque.</param>
+    /// <param name="defender">El Pokémon que recibe el ataque.</param>
+    /// <param name="move">El movimiento utilizado para el ataque.</param>
+    /// <param name="damage">El daño calculado que se infligirá al defensor (salida).</param>
+    /// <returns>True si se ha realizado un golpe crítico; de lo contrario, false.</returns>
     public bool CalculateDamage(Pokemon attacker, Pokemon defender, Move move, out int damage)
     {
         float bonus = CalculateBonus(attacker.Types, move.Type);
@@ -27,6 +40,11 @@ public class Calculate: ICalculate
         return dmg > preCrit;
     }
 
+    /// <summary>
+    /// Aplica el daño crítico al daño calculado.
+    /// </summary>
+    /// <param name="dmg">El daño calculado antes de aplicar el golpe crítico.</param>
+    /// <returns>El daño ajustado después de aplicar el golpe crítico.</returns>
     private double ApplyCrit(double dmg)
     {
         int randomValue = new Random().Next(0, 100);
@@ -36,6 +54,12 @@ public class Calculate: ICalculate
         return dmg;
     }
     
+    /// <summary>
+    /// Calcula el bono de daño basado en los tipos del Pokémon atacante y el tipo del movimiento.
+    /// </summary>
+    /// <param name="pokemonTypes">Lista de tipos del Pokémon atacante.</param>
+    /// <param name="moveType">Tipo del movimiento utilizado.</param>
+    /// <returns>El bono de daño (1.5 si hay coincidencia de tipo, 1 en caso contrario).</returns>
     private float CalculateBonus(List<Type> pokemonTypes, Type moveType)
     {
         return pokemonTypes.Any(pokemonType => pokemonType == moveType) 
@@ -43,6 +67,12 @@ public class Calculate: ICalculate
             : 1;
     }
     
+    /// <summary>
+    /// Calcula la efectividad del movimiento contra los tipos del Pokémon defensor.
+    /// </summary>
+    /// <param name="enemyTypes">Lista de tipos del Pokémon defensor.</param>
+    /// <param name="moveType">Tipo del movimiento utilizado.</param>
+    /// <returns>El multiplicador de efectividad del movimiento.</returns>
     private float CalculateEffectivity(List<Type> enemyTypes, Type moveType)
     {
         float effectivity = 1;
@@ -54,6 +84,12 @@ public class Calculate: ICalculate
         return effectivity;
     }
 
+    /// <summary>
+    /// Calcula la efectividad del movimiento contra los tipos del Pokémon defensor.
+    /// </summary>
+    /// <param name="enemyTypes">Lista de tipos del Pokémon defensor.</param>
+    /// <param name="moveType">Tipo del movimiento utilizado.</param>
+    /// <returns>El multiplicador de efectividad del movimiento.</returns>
     private int CalculateVariation(int min, int max)
     {
         return new Random().Next(min, max);
