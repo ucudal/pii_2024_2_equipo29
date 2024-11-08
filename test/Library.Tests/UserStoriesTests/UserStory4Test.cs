@@ -67,7 +67,7 @@ public class UserStory4Test
 
         commands.StartBattle();
         
-        string msg = commands.Attack(2, commands.GetPlayerInTurn().Name);                  // Ataca y por la relacion de Typos el daño debe ser reducido a la mitad
+        string msg = commands.Attack(2, commands.GetPlayerInTurn().Name);               // Ataca y por la relacion de Typos el daño debe ser reducido a la mitad
         
         var regex = new Regex(@"\(\*\*HP:\*\* (\d{1,4})/(\d{1,4})\)"); 
         var match = regex.Match(msg);
