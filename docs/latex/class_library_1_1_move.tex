@@ -1,0 +1,66 @@
+\doxysection{Library.\+Move Class Reference}
+\hypertarget{class_library_1_1_move}{}\label{class_library_1_1_move}\index{Library.Move@{Library.Move}}
+
+
+Representa un movimiento que un pokemon puede realizar. Esta clase contiene información sobre el nombre, precisión, tipo, poder y efectos de un movimiento.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_library_1_1_move_a8e3ad689280ae173f189b1f56590a699}{View\+Move}} ()
+\begin{DoxyCompactList}\small\item\em Muestra la información del movimiento en formato de cadena. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_move_a997e7e69f79de5a031f7434585424ca1}\label{class_library_1_1_move_a997e7e69f79de5a031f7434585424ca1} 
+int {\bfseries Remaining\+Turns\+In\+Cool\+Down} = 0
+\begin{DoxyCompactList}\small\item\em Obtiene o establece lso turnos restantes en enfriamiento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_move_a6711551d805dce4c140de556ae5022f0}\label{class_library_1_1_move_a6711551d805dce4c140de556ae5022f0} 
+string {\bfseries Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el nombre del movimiento. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_move_a0f88fd1ef12c99e34c797afa39b0fb93}\label{class_library_1_1_move_a0f88fd1ef12c99e34c797afa39b0fb93} 
+int {\bfseries Accuracy}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece la precisión del movimiento (0-\/100). \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_move_a469dc7a6cde2d1b0240c4c07b201372d}\label{class_library_1_1_move_a469dc7a6cde2d1b0240c4c07b201372d} 
+\mbox{\hyperlink{class_library_1_1_type}{Type}} {\bfseries Type}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el tipo del movimiento. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_move_af707ea0cfe4db81993a89302f3e0cc32}\label{class_library_1_1_move_af707ea0cfe4db81993a89302f3e0cc32} 
+int {\bfseries Power}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el poder del movimiento. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_move_a1f8890cd1357468a07d4489beab932d3}\label{class_library_1_1_move_a1f8890cd1357468a07d4489beab932d3} 
+int {\bfseries Cool\+Down\+Special\+Move} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el tiempo de enfriamiento del movimiento especial. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_move_af3eb9fee79b86034fe02ddebdf24fe47}\label{class_library_1_1_move_af3eb9fee79b86034fe02ddebdf24fe47} 
+bool {\bfseries Is\+Special\+Move}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece un valor que indica si el movimiento es especial. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_move_aae0ba3e08dc7ddee4ce182126d61494e}\label{class_library_1_1_move_aae0ba3e08dc7ddee4ce182126d61494e} 
+\mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Enum\+State}} {\bfseries State} = Enum\+State.\+Normal\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el estado del movimiento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un movimiento que un pokemon puede realizar. Esta clase contiene información sobre el nombre, precisión, tipo, poder y efectos de un movimiento. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_move_a8e3ad689280ae173f189b1f56590a699}\index{Library.Move@{Library.Move}!ViewMove@{ViewMove}}
+\index{ViewMove@{ViewMove}!Library.Move@{Library.Move}}
+\doxysubsubsection{\texorpdfstring{ViewMove()}{ViewMove()}}
+{\footnotesize\ttfamily \label{class_library_1_1_move_a8e3ad689280ae173f189b1f56590a699} 
+string Library.\+Move.\+View\+Move (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra la información del movimiento en formato de cadena. 
+
+\begin{DoxyReturn}{Returns}
+Una cadena que representa la información del movimiento.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Pokemon/Move.\+cs\end{DoxyCompactItemize}

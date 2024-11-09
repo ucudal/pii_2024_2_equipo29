@@ -1,0 +1,60 @@
+\doxysection{Library.\+Calculate Class Reference}
+\hypertarget{class_library_1_1_calculate}{}\label{class_library_1_1_calculate}\index{Library.Calculate@{Library.Calculate}}
+
+
+Clase que implementa la lógica para calcular el daño en un combate entre pokemon.  
+
+
+Inheritance diagram for Library.\+Calculate\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_calculate}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_library_1_1_calculate_a19eb9d985d25db6d474b443346ab3272}{Calculate\+Damage}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} attacker, \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} defender, \mbox{\hyperlink{class_library_1_1_move}{Move}} move, out int damage)
+\begin{DoxyCompactList}\small\item\em Calcula el daño infligido por un pokemon atacante a un pokemon defensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_library_1_1_i_calculate}{Library.\+ICalculate}}}
+
+
+\doxysubsection{Detailed Description}
+Clase que implementa la lógica para calcular el daño en un combate entre pokemon. 
+
+Esta clase utiliza la interfaz \doxylink{interface_library_1_1_i_calculate}{ICalculate} para calcular el daño que un pokemon atacante inflige a un pokemon defensor utilizando un movimiento específico. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_calculate_a19eb9d985d25db6d474b443346ab3272}\index{Library.Calculate@{Library.Calculate}!CalculateDamage@{CalculateDamage}}
+\index{CalculateDamage@{CalculateDamage}!Library.Calculate@{Library.Calculate}}
+\doxysubsubsection{\texorpdfstring{CalculateDamage()}{CalculateDamage()}}
+{\footnotesize\ttfamily \label{class_library_1_1_calculate_a19eb9d985d25db6d474b443346ab3272} 
+bool Library.\+Calculate.\+Calculate\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{attacker}{, }\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{defender}{, }\item[{\mbox{\hyperlink{class_library_1_1_move}{Move}}}]{move}{, }\item[{out int}]{damage}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calcula el daño infligido por un pokemon atacante a un pokemon defensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attacker} & El pokemon que realiza el ataque.\\
+\hline
+{\em defender} & El pokemon que recibe el ataque.\\
+\hline
+{\em move} & El movimiento utilizado para el ataque.\\
+\hline
+{\em damage} & El daño calculado que se infligirá al defensor (salida).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True si se ha realizado un golpe crítico; de lo contrario, false.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_calculate_a6e99e6d9e9282965e23b5e9831cf8396}{Library.\+ICalculate}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Pokemon/Calculate.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,79 @@
+\doxysection{Library.\+Super\+Potion Class Reference}
+\hypertarget{class_library_1_1_super_potion}{}\label{class_library_1_1_super_potion}\index{Library.SuperPotion@{Library.SuperPotion}}
+
+
+Clase que representa una Super Poción, un ítem que puede curar a un pokemon.  
+
+
+Inheritance diagram for Library.\+Super\+Potion\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_super_potion}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_library_1_1_super_potion_a0e3d69c19bb34b07b6cbc1a55eb9a25a}{Use}} (string pokemon\+Name, \mbox{\hyperlink{class_library_1_1_player}{Player}} player)
+\begin{DoxyCompactList}\small\item\em Utiliza la Super poción en un pokemon específico. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_library_1_1_i_item}{Library.\+IItem}}}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_library_1_1_super_potion_aa56e944e299c87a58296a708f3c55a83}{Amount}} = 4\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene la cantidad de ítems disponibles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{interface_library_1_1_i_item}{Library.\+IItem}}}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa una Super Poción, un ítem que puede curar a un pokemon. 
+
+Esta clase implementa la interfaz \doxylink{interface_library_1_1_i_item}{IItem} y permite curar a un pokemon restaurando una cantidad específica de puntos de salud (HP). 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_super_potion_a0e3d69c19bb34b07b6cbc1a55eb9a25a}\index{Library.SuperPotion@{Library.SuperPotion}!Use@{Use}}
+\index{Use@{Use}!Library.SuperPotion@{Library.SuperPotion}}
+\doxysubsubsection{\texorpdfstring{Use()}{Use()}}
+{\footnotesize\ttfamily \label{class_library_1_1_super_potion_a0e3d69c19bb34b07b6cbc1a55eb9a25a} 
+string Library.\+Super\+Potion.\+Use (\begin{DoxyParamCaption}\item[{string}]{pokemon\+Name}{, }\item[{\mbox{\hyperlink{class_library_1_1_player}{Player}}}]{player}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Utiliza la Super poción en un pokemon específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon\+Name} & El nombre del pokemon al que se le aplicará la Super Poción.\\
+\hline
+{\em player} & El jugador que posee la Super poción.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje que indica el resultado de la acción.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_item_aedb199aa3a4098669b337ae9e02b4683}{Library.\+IItem}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_library_1_1_super_potion_aa56e944e299c87a58296a708f3c55a83}\index{Library.SuperPotion@{Library.SuperPotion}!Amount@{Amount}}
+\index{Amount@{Amount}!Library.SuperPotion@{Library.SuperPotion}}
+\doxysubsubsection{\texorpdfstring{Amount}{Amount}}
+{\footnotesize\ttfamily \label{class_library_1_1_super_potion_aa56e944e299c87a58296a708f3c55a83} 
+int Library.\+Super\+Potion.\+Amount = 4\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene la cantidad de ítems disponibles. 
+
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_item_ab94e0e6039de047a2b9ed9bf544953e8}{Library.\+IItem}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Items/Super\+Potion.\+cs\end{DoxyCompactItemize}

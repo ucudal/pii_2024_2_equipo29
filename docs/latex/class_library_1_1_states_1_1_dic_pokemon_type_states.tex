@@ -1,0 +1,58 @@
+\doxysection{Library.\+States.\+Dic\+Pokemon\+Type\+States Class Reference}
+\hypertarget{class_library_1_1_states_1_1_dic_pokemon_type_states}{}\label{class_library_1_1_states_1_1_dic_pokemon_type_states}\index{Library.States.DicPokemonTypeStates@{Library.States.DicPokemonTypeStates}}
+
+
+Clase abstracta que contiene un diccionario de estados de los tipos de pokemon.  
+
+
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static Dictionary$<$ string, \mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Enum\+State}} $>$ \mbox{\hyperlink{class_library_1_1_states_1_1_dic_pokemon_type_states_ab2183035cf4e355de2d7ffdb14157551}{States}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Diccionario estático de estados donde cada {\itshape {\bfseries{CLAVE}}} representa el nombre del tipo de un pokemon y cada {\itshape {\bfseries{VALOR}}} es un {\ttfamily Enum\+State}. Dependiendo del tipo de pokemon se le asigna un estado por defecto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase abstracta que contiene un diccionario de estados de los tipos de pokemon. 
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_library_1_1_states_1_1_dic_pokemon_type_states_ab2183035cf4e355de2d7ffdb14157551}\index{Library.States.DicPokemonTypeStates@{Library.States.DicPokemonTypeStates}!States@{States}}
+\index{States@{States}!Library.States.DicPokemonTypeStates@{Library.States.DicPokemonTypeStates}}
+\doxysubsubsection{\texorpdfstring{States}{States}}
+{\footnotesize\ttfamily \label{class_library_1_1_states_1_1_dic_pokemon_type_states_ab2183035cf4e355de2d7ffdb14157551} 
+Dictionary$<$string, \mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Enum\+State}}$>$ Library.\+States.\+Dic\+Pokemon\+Type\+States.\+States\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}()}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}normal"{}},\ EnumState.Sleep\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fighting"{}},\ EnumState.Sleep\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}flying"{}},\ EnumState.Paralyze\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}poison"{}},\ EnumState.Poison\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ground"{}},\ EnumState.Sleep\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}rock"{}},\ EnumState.Paralyze\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}bug"{}},\ EnumState.Poison\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ghost"{}},\ EnumState.Paralyze\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}steel"{}},\ EnumState.Sleep\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fire"{}},\ EnumState.Burn\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}water"{}},\ EnumState.Burn\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}grass"{}},\ EnumState.Poison\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}electric"{}},\ EnumState.Burn\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}psychic"{}},\ EnumState.Paralyze\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}ice"{}},\ EnumState.Sleep\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dragon"{}},\ EnumState.Burn\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}dark"{}},\ EnumState.Poison\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \textcolor{stringliteral}{"{}fairy"{}},\ EnumState.Paralyze\ \},}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Diccionario estático de estados donde cada {\itshape {\bfseries{CLAVE}}} representa el nombre del tipo de un pokemon y cada {\itshape {\bfseries{VALOR}}} es un {\ttfamily Enum\+State}. Dependiendo del tipo de pokemon se le asigna un estado por defecto. 
+
+Se utiliza en {\ttfamily Pokemon\+Adapter} para asignarle un efecto de estado al movimiento especial.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Dictionaries/Dic\+Pokemon\+Type\+States.\+cs\end{DoxyCompactItemize}
