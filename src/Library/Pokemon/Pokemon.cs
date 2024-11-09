@@ -5,80 +5,67 @@ using Library.States;
 namespace Library;
 
 /// <summary>
-/// Representa un Pokémon en el juego.
+/// Representa un pokemon en el juego.
 /// </summary>
 /// <remarks>
-/// Esta clase contiene información sobre el Pokémon, incluyendo sus estadísticas, movimientos y estado.
+/// Esta clase contiene información sobre el pokemon, incluyendo sus estadísticas, movimientos y estado.
 /// </remarks>
-
 public class Pokemon
 {
-    
     /// <summary>
-    /// Obtiene o establece el nombre del Pokémon.
+    /// Obtiene o establece el nombre del pokemon.
     /// </summary>
     public string Name { get; set; }
     
-    
     /// <summary>
-    /// Obtiene o establece los puntos de vida iniciales del Pokémon.
+    /// Obtiene o establece los puntos de vida iniciales del pokemon.
     /// </summary>
     public int InitialHp { get; set; }
     
-    
     /// <summary>
-    /// Obtiene o establece los puntos de vida actuales del Pokémon.
+    /// Obtiene o establece los puntos de vida actuales del pokemon.
     /// </summary>
     public int Hp { get; set; }
     
-    
     /// <summary>
-    /// Obtiene o establece los puntos de ataque del Pokémon.
+    /// Obtiene o establece los puntos de ataque del pokemon.
     /// </summary>
     public int AttackPoints { get; set; }
     
-    
     /// <summary>
-    /// Obtiene o establece los puntos de ataque especial del Pokémon.
+    /// Obtiene o establece los puntos de ataque especial del pokemon.
     /// </summary>
     public int SpecialAttackPoints { get; set; }
     
-    
     /// <summary>
-    /// Obtiene o establece los puntos de defensa del Pokémon.
+    /// Obtiene o establece los puntos de defensa del pokemon.
     /// </summary>
     public int DefensePoints { get; set; }
     
-    
     /// <summary>
-    /// Obtiene o establece los puntos de defensa especial del Pokémon.
+    /// Obtiene o establece los puntos de defensa especial del pokemon.
     /// </summary>
     public int SpecialDefensePoints { get; set; }
     
-    
     /// <summary>
-    /// Obtiene o establece la lista de movimientos del Pokémon.
+    /// Obtiene o establece la lista de movimientos del pokemon.
     /// </summary>
     public List<Move> Moves { get; set; }
     
-    
     /// <summary>
-    /// Obtiene o establece la lista de tipos del Pokémon.
+    /// Obtiene o establece la lista de tipos del pokemon.
     /// </summary>
     public List<Type> Types { get; set; }
     
-    
     /// <summary>
-    /// Obtiene o establece la URL de la imagen del Pokémon.
+    /// Obtiene o establece la URL de la imagen del pokemon.
     /// </summary>
     public string ImgUrl { get; set; }
     
-    
     /// <summary>
-    /// Obtiene la máquina de estados del Pokémon.
+    /// Obtiene la máquina de estados del pokemon.
     /// </summary>
     public StateMachine StateMachine { get; }
-    
     
     /// <summary>
     /// Inicializa una nueva instancia de la clase <see cref="Pokemon"/>.
@@ -90,11 +77,10 @@ public class Pokemon
         StateMachine = new StateMachine(new Normal());
     }
     
-    
     /// <summary>
-    /// Realiza un ataque a otro Pokémon.
+    /// Realiza un ataque a otro pokemon.
     /// </summary>
-    /// <param name="pokemonEnemy">El Pokémon enemigo al que se le realizará el ataque.</param>
+    /// <param name="pokemonEnemy">El pokemon enemigo al que se le realizará el ataque.</param>
     /// <param name="moveSlot">El índice del movimiento a utilizar.</param>
     /// <returns>Un mensaje que describe el resultado del ataque.</returns>
     public string Attack(Pokemon pokemonEnemy, int moveSlot)
@@ -141,7 +127,6 @@ public class Pokemon
         return msg;
     }
     
-    
     /// <summary>
     /// Actualiza el tiempo de enfriamiento del movimiento especial.
     /// </summary>
@@ -151,21 +136,19 @@ public class Pokemon
         if (specialMove.RemainingTurnsInCoolDown > 0) specialMove.RemainingTurnsInCoolDown -= 1;
     }
     
-    
     /// <summary>
-    /// Determina si el Pokémon está muerto.
+    /// Determina si el pokemon está muerto.
     /// </summary>
-    /// <returns>True si el Pokémon está muerto; de lo contrario, false.</returns>
+    /// <returns>True si el pokemon está muerto; de lo contrario, false.</returns>
     public bool IsDead()
     {
         return Hp == 0;
     }
     
-    
     /// <summary>
-    /// Muestra la información del Pokémon.
+    /// Muestra la información del pokemon.
     /// </summary>
-    /// <returns>Una cadena que representa la información del Pokémon.</returns>
+    /// <returns>Una cadena que representa la información del pokemon.</returns>
     public string ViewPokemon()
     {
         string msg = $"**{Name.ToUpper()}**   (**HP:** {Hp}/{InitialHp}) ";
@@ -212,11 +195,10 @@ public class Pokemon
         return msg;
     }
     
-    
     /// <summary>
-    /// Muestra información simple del Pokémon.
+    /// Muestra información simple del pokemon.
     /// </summary>
-    /// <returns>Una cadena que representa la información simple del Pokémon.</returns>
+    /// <returns>Una cadena que representa la información simple del pokemon.</returns>
     public string ViewPokemonSimple()
     {
         string msg = $"**{Name.ToUpper()}**   (**HP:** {Hp}/{InitialHp})";

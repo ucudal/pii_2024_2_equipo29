@@ -3,15 +3,29 @@ using Library.Services;
 
 namespace Library;
 
+/// <summary>
+/// Proporciona comandos para gestionar el juego, los jugadores, y las acciones de los <c>Pokemon</c>.
+/// </summary>
 public class GameCommands
 {
+    /// <summary>
+    /// Atributo que contiene la instancia de <c>Game</c>.
+    /// </summary>
     private Game game = new();
 
+    
+    /// <summary>
+    /// Obtiene el <c>Player</c> en turno.
+    /// </summary>
     public Player GetPlayerInTurn()
     {
         return game.PlayerInTurn;
     }
 
+    /// <summary>
+    /// Agrega un nuevo <c>Player</c> al juego si no fue agregado anteriormente.
+    /// </summary>
+    /// <param name="playerName">Nombre del jugador a agregar.</param>
     public void AddPlayer(string playerName)
     {
         if (game.GetPlayerByName(playerName) == null!)
@@ -20,6 +34,12 @@ public class GameCommands
         }
     }
 
+    /// <summary>
+    /// Permite que un jugador elija un <c>Pokemon</c> y lo añade a su equipo.
+    /// </summary>
+    /// <param name="playerName">Nombre del jugador.</param>
+    /// <param name="pokemonName">Nombre del pokemon.</param>
+    /// <returns>Un mensaje mostrando el resultado de cambiar el <c>Pokemon</c> y una URL con de la imagen del <c>Pokemon</c>.</returns>
     public async Task<(string message, string imgUrl)> ChoosePokemon(string playerName, string pokemonName)
     {
         PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
@@ -68,6 +88,10 @@ public class GameCommands
         return (msg, imgUrl);
     }
 
+    /// <summary>
+    /// Inicia la batalla si todos los jugadores cumplen los requisitos.
+    /// </summary>
+    /// <returns>Un mensaje indicando el resultado de iniciar la batalla.</returns>
     public string StartBattle()
     {
         string msg;
@@ -86,18 +110,28 @@ public class GameCommands
 
         return msg;
     }
-
+    
+    /// <summary>
+    /// Método estático que muestra un enlace al catálogo de pokemons.
+    /// </summary>
     public static string ShowCatalogue()
     {
         return "\ud83c\udf10 **CATÁLOGO DE POKEMONS** \u2192 https://pokemon-blog-api.netlify.app/";
     }
 
+    /// <summary>
+    /// Cambia el turno al siguiente jugador.
+    /// </summary>
+    /// <returns>Un mensaje mostrando el turno del jugador actual.</returns>
     public string NextTurn()
     {
         game.ToogleTurn();
         return ShowTurn();
     }
 
+    /// <summary>
+    /// Muestra el turno actual y el estado de los <c>Pokemon</c> solo si, el juego ha empezado.
+    /// </summary>
     public string ShowTurn()
     {
         if (!GameHasStarted()) return "";
@@ -108,6 +142,13 @@ public class GameCommands
                 game.PlayerNotInTurn.CurrentPokemon.ViewPokemonSimple();
     }
 
+    /// <summary>
+    /// Permite que el jugador en turno ataque al oponente.
+    /// Si el jugador enemigo fue atacado correctamente cambia de turno.
+    /// </summary>
+    /// <param name="moveSlot">Slot del movimiento de ataque.</param>
+    /// <param name="playerNameAttacker">Nombre del jugador que ataca.</param>
+    /// <returns>Un mensaje con el resultado del ataque.</returns>
     public string Attack(int moveSlot, string playerNameAttacker)
     {
         IPokemonManager winner = game.GetWinner();
@@ -146,7 +187,13 @@ public class GameCommands
         
         return $"{msg}\n{ShowTurn()}";
     }
-
+    
+    /// <summary>
+    /// Cambia el <c>Pokemon</c> activo del jugador en turno por otro de su lista de pokemons.
+    /// Si el pokemon fue cambiado correctamente cambia de turno.
+    /// </summary>
+    /// <param name="playerInTurn">Jugador en turno.</param>
+    /// <param name="pokemonName">Nombre del Pokémon a cambiar.</param>
     public string ChangePokemon(Player playerInTurn, string pokemonName)
     {
         Pokemon pokemon = playerInTurn.GetPokemonByName(pokemonName);
@@ -164,6 +211,14 @@ public class GameCommands
         return $"**{pokemonName.ToUpper()}** no se encuentra disponible para cambiar.";
     }
 
+    /// <summary>
+    /// Usa un ítem del jugador en turno sobre un <c>Pokemon</c> específico de su lista de pokemons.
+    /// Si el item fue usado correctamente cambia de turno.
+    /// </summary>
+    /// <param name="playerInTurn">Jugador en turno.</param>
+    /// <param name="pokemonName">Nombre del <c>pokemon</c> que recibe el ítem.</param>
+    /// <param name="itemSlot">Slot del ítem a usar.</param>
+    /// <returns><c>string</c> con el resultado de usar el item.</returns>
     public string UseItem(Player playerInTurn, string pokemonName, int itemSlot)
     {
         int startingItemCount = playerInTurn.Items[itemSlot].Amount;
@@ -176,6 +231,10 @@ public class GameCommands
         return msg;
     }
     
+    /// <summary>
+    /// Muestra cada <c>Pokemon</c> de los jugadores en el juego, solo si ha empezado la batalla.
+    /// </summary>
+    /// <returns><c>string</c> con el resultado de mostrar los pokemons.</returns>
     public string ViewPokemons()
     {
         if (GameHasStarted())
@@ -186,6 +245,10 @@ public class GameCommands
         return "**Espera a que empiece la batalla.**";
     }
 
+    /// <summary>
+    /// Reinicia el juego para empezar una nueva partida.
+    /// </summary>
+    /// <returns><c>string</c> con el resultado de reiniciar el juego.</returns>
     public string RestartGame()
     {
         if (game.GetWinner() == null!) return "**La partida no ha finalizado.**";
@@ -194,11 +257,19 @@ public class GameCommands
         return $"La partida se ha reseteado. Puedes volver a elegir pokemons. \n{ShowCatalogue()}";
     }
 
+    /// <summary>
+    /// Verifica si el juego ha comenzado.
+    /// </summary>
+    /// <returns><c>true</c> si el juego a comenzado. De lo contrario, <c>false</c></returns>
     public bool GameHasStarted()
     {
         return game.HasStarted;
     }
-
+    
+    /// <summary>
+    /// Método estático que muestra la descripción de los ítems disponibles en el juego.
+    /// </summary>
+    /// /// <returns><c>string</c> con el resultado de reiniciar el juego.</returns>
     public static string ShowItemsDesc()
     {
         return "**ITEMS** \n" +
