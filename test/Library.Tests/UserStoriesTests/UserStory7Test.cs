@@ -39,4 +39,35 @@ public class UserStory7Test
         
         Assert.IsTrue(initialMsg != finalMsg);   // Si son distintos, y ya verificamos que cambia de turno, significa que el msg es diferente debido al cambio de pokemon
     }
+
+
+
+    [TestCase("kartana", "shedinja")]
+    [TestCase("kartana", "abra")]
+    [TestCase("dragonite", "pichu")]
+    [TestCase("dragonite", "shedinja")]
+    public async Task ChangeToSamePokemonTest(string pokemonName1, string pokemonName2)
+    {
+        string player1Name = "Jugador1";
+        string player2Name = "Jugador2";
+        GameCommands commands = new GameCommands();
+        commands.AddPlayer(player1Name);
+        commands.AddPlayer(player2Name);
+
+        await commands.ChoosePokemon(player1Name, pokemonName1);
+        await commands.ChoosePokemon(player1Name, pokemonName2);
+        await commands.ChoosePokemon(player2Name, pokemonName1);
+        await commands.ChoosePokemon(player2Name, pokemonName2);
+
+        commands.StartBattle();
+        
+
+        string initialPlayerName = commands.GetPlayerInTurn().Name;  // lo inicializo igual para verificar el cambio de turno
+
+        string msg = commands.ChangePokemon(commands.GetPlayerInTurn(), pokemonName1);
+        if (initialPlayerName != commands.GetPlayerInTurn().Name) Assert.Fail();
+        
+        Assert.That(msg.Contains($"**{pokemonName1.ToUpper()}** ya se encuentra en batalla"));
+    }
 }
+
