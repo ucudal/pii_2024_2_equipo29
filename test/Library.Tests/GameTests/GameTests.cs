@@ -134,8 +134,9 @@ public class GameTests
         game.AddPlayer(player2);
         game.Start();
 
-        game.PlayerInTurn.Attack(player2, 1);
-        Assert.That(game.GetWinner(), Is.EqualTo(game.PlayerNotInTurn));
+        string winnerName = game.PlayerInTurn.Name;
+        game.PlayerInTurn.Attack(game.PlayerNotInTurn, 1);
+        Assert.That(game.GetWinner().Name, Is.EqualTo(winnerName));
     }
     
     [Test]
