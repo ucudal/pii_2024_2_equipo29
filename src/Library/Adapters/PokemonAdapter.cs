@@ -10,6 +10,9 @@ namespace Library.Adapters;
 /// </summary>
 public class PokemonAdapter
 {
+    /// <summary>
+    /// Atributo utilizado para el servicio de la PokeAPI.
+    /// </summary>
     private PokeApiService pokeApiService;
 
     /// <summary>
@@ -25,9 +28,19 @@ public class PokemonAdapter
     /// Obtiene los datos de un pokemon por su nombre utilizando <c>PokeApiService</c> y los adapta a un objeto <c>Pokemon</c>.
     /// </summary>
     /// <param name="pokemonName">Nombre del Pokémon a buscar en la API.</param>
-    /// <returns>Una instancia de <c>Pokemon</c> con los datos obtenidos, <c>null</c> en caso de error o si el pokemon no tiene al menos 4 moves con un valor .</returns>
-    /// <exception cref="HttpRequestException">Se lanza si hay problemas al hacer la solicitud HTTP a la API.</exception>
-    /// <remarks>Este método usa propiedades JSON para extraer información sobre los datos necesarios para crear un objeto <c>Pokemon</c>.</remarks>
+    /// <returns>
+    /// Una instancia de <c>Pokemon</c> con los datos obtenidos,
+    /// <c>null</c> en caso de error o si el pokemon no tiene al menos cuatro <c>Move</c>.
+    /// </returns>
+    /// <exception cref="HttpRequestException">Se lanza si hay problemas al hacer la solicitud HTTP a la PokeAPI.</exception>
+    /// <remarks>
+    /// <para>
+    ///   Este método usa propiedades JSON para extraer información sobre los datos necesarios para crear un objeto <c>Pokemon</c>.
+    /// </para>
+    /// <para>
+    ///   Los <c>Move</c> son agregados al pokemon solo si tienen un power y accuary mayor a cero.
+    /// </para>
+    /// </remarks>
     public async Task<Pokemon> GetPokemonAsync(string pokemonName)
     {
         JsonDocument apiResponse;
@@ -115,23 +128,28 @@ public class PokemonAdapter
             var moveJson = moveData.RootElement;
 
             int power;
+            int accuary;
             try
             {
-                power = moveJson.GetProperty("power").GetInt32();
+                power = moveJson
+                    .GetProperty("power")
+                    .GetInt32();
+                accuary = moveJson
+                    .GetProperty("accuracy")
+                    .GetInt32();
             }
             catch
             {
                 power = 0;
+                accuary = 0;
             }
 
-            if (power <= 0) continue;
+            if (power <= 0 || accuary <= 0) continue;
             
             Move move = new Move
             {
                 Name = moveName,
-                Accuracy = moveJson
-                    .GetProperty("accuracy")
-                    .GetInt32(),
+                Accuracy = accuary,
                 Type = new Type
                 {
                     Name = moveJson
@@ -152,6 +170,8 @@ public class PokemonAdapter
             pokemon.Moves.Add(move);
             if (pokemon.Moves.Count == 4) break;
         }
+        
+        if (pokemon.Moves.Count < 4) return null!;
 
         return pokemon;
     }
