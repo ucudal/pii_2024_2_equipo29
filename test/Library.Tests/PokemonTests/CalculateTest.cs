@@ -8,6 +8,7 @@ public class CalculateTest
     private ICalculate calculate;
     private Pokemon defender;
     private Pokemon attacker;
+    
     [SetUp]
     public async Task Setup()
     {
