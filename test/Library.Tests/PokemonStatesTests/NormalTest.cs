@@ -5,6 +5,7 @@ namespace Library.Tests.PokemonStatesTests;
 public class NormalTest
 {
     private Normal normal;
+    
     [SetUp]
     public void Setup()
     {

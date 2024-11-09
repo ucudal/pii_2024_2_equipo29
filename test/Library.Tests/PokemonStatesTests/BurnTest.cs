@@ -23,8 +23,9 @@ public class BurnTest
     [Test]
     public void BurnNameAreEqualEnumState()
     {
-        Assert.AreEqual(burn.Name,EnumState.Burn);
+        Assert.AreEqual(burn.Name, EnumState.Burn);
     }
+    
     [Test]
     public void BurrAreApplyed()
     {

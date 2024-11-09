@@ -7,7 +7,6 @@ public class UserStory2Test
     // Se muestran los ataques disponibles para el turno actual.                                                                    
     // Los ataques especiales solo pueden seleccionarse cada dos turnos.
     
-    
     [TestCase("pikachu")]
     [TestCase("onix")]
     [TestCase("dragonite")]
@@ -39,9 +38,7 @@ public class UserStory2Test
         
         Assert.That(msg.Contains(msgExpected) && msg.Contains(msgExpected2));
     }
-
-
-
+    
     [TestCase("articuno")]
     [TestCase("snorlax")]
     [TestCase("gyarados")]
@@ -75,5 +72,4 @@ public class UserStory2Test
         
         Assert.IsTrue(attackFirstPlayer && turnChanged);      
     }
-    
 }

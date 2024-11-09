@@ -7,12 +7,6 @@ public class UserStory1Test
     // El jugador puede seleccionar 6 Pokémons de una lista o catálogo.
     // Los Pokémons seleccionados se muestran en la pantalla del jugador.
 
-    [SetUp]
-    public void Setup()
-    {
-        
-    }
-
     [TestCase("pikachu", "mew", "onix", "mewtwo", "snorlax", "charmander")]
     [TestCase("blastoise", "rattata", "pidgeot", "mewtwo", "snorlax", "ekans")]
     [TestCase("raichu", "mew", "arcanine", "machamp", "geodude", "rapidash")]
@@ -51,7 +45,6 @@ public class UserStory1Test
         
         Assert.That(msg, Is.EqualTo(msgExpected));
     }
-    
     
     [TestCase("pikachu")]
     [TestCase("onix")]

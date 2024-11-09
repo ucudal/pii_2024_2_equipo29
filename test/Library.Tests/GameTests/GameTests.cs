@@ -3,16 +3,9 @@ using Library.Services;
 
 namespace Library.Tests.Game;
 using Library;
+
 public class GameTests
 {
-    
-    [SetUp]
-    public void Setup()
-    {  
-       
-    }
-    
-    
     [Test]
     public void AddPlayerTest()
     {
@@ -156,7 +149,6 @@ public class GameTests
         game.AddPlayer(player2);
         game.Start();
         
-        
         Assert.That(game.ViewAllPokemons(), Is.Not.Null);
     }
     
@@ -197,8 +189,6 @@ public class GameTests
         Game game = new();
         game.AddPlayer(player1);
         game.AddPlayer(player2);
-       
-        
         
         Assert.That(game.AllPlayersReady(), Is.True);
     }
@@ -219,8 +209,6 @@ public class GameTests
         game.AddPlayer(player1);
         game.AddPlayer(player2);
         
-        
-        
         Assert.That(game.AllPlayersReady(), Is.False);
     }
     
@@ -240,8 +228,6 @@ public class GameTests
         game.AddPlayer(player1);
         game.AddPlayer(player2);
         
-        
-        
         Assert.That(game.AllPlayersHavePokemons(), Is.True);
     }
     
@@ -254,13 +240,10 @@ public class GameTests
         Player player1 = new("player1");
         player1.AddPokemon(pokemon1);
         Player player2 = new("player2");
-       
         
         Game game = new();
         game.AddPlayer(player1);
         game.AddPlayer(player2);
-        
-        
         
         Assert.That(game.AllPlayersHavePokemons(), Is.False);
     }

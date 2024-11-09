@@ -7,6 +7,7 @@ public class MoveTest
 {
     private Move move;
     private Move specialMove;
+    
     [SetUp]
     public async Task Setup()
     {

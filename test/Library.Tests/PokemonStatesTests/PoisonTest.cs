@@ -6,6 +6,7 @@ public class PoisonTest
 {
     private Poison poison;
     private Pokemon pokemon;
+    
     [SetUp]
     public void Setup()
     {
@@ -22,6 +23,7 @@ public class PoisonTest
     {
         Assert.AreEqual(poison.Name,EnumState.Poison);
     }
+    
     [Test]
     public void BurnNameAreEqualEnumState()
     {
