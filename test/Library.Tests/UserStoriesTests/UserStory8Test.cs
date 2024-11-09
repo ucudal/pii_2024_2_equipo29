@@ -1,6 +1,6 @@
 namespace Library.Tests.UserStoriesTests;
 
-public class UnitTest8Test
+public class UserStory8Test
 {
     // 8. Como entrenador, quiero poder usar un ítem durante una batalla.
     // Criterios de aceptación:
