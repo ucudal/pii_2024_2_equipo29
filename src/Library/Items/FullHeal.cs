@@ -16,9 +16,9 @@ public class FullHeal: IItem
     public int Amount { get; private set; } = 2;
     
     /// <summary>
-    /// Utiliza el objeto Full Heal en un Pokémon específico.
+    /// Utiliza el objeto Full Heal en un pokemon específico.
     /// </summary>
-    /// <param name="pokemonName">El nombre del Pokémon al que se le aplicará el Full Heal.</param>
+    /// <param name="pokemonName">El nombre del pokemon al que se le aplicará el Full Heal.</param>
     /// <param name="player">El jugador que posee el objeto Full Heal.</param>
     /// <returns>Un mensaje que indica el resultado de la acción.</returns>
     public string Use(string pokemonName, Player player)

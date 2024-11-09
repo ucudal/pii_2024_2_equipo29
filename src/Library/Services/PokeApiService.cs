@@ -1,8 +1,9 @@
 using System.Text.Json;
 
 namespace Library.Services;
+
 /// <summary>
-/// Proporciona servicios para interactuar con la PokeAPI, permitiendo la obtención de datos de Pokémon y movimientos.
+/// Proporciona servicios para interactuar con la PokeAPI, permitiendo la obtención de datos de pokemon y movimientos.
 /// </summary>
 public class PokeApiService
 {
@@ -16,11 +17,11 @@ public class PokeApiService
         httpClient = new HttpClient();
     }
     /// <summary>
-    /// Obtiene los datos de un Pokémon específico a partir de su nombre.
+    /// Obtiene los datos de un pokemon específico a partir de su nombre.
     /// </summary>
-    /// <param name="pokemonName">El nombre del Pokémon del cual se desean obtener los datos.</param>
+    /// <param name="pokemonName">El nombre del pokemon del cual se desean obtener los datos.</param>
     /// <returns>
-    /// Una tarea que representa la operación asincrónica. El valor de retorno contiene un <see cref="JsonDocument"/> con los datos del Pokémon.
+    /// Una tarea que representa la operación asincrónica. El valor de retorno contiene un <see cref="JsonDocument"/> con los datos del pokemon.
     /// </returns>
     /// <exception cref="HttpRequestException">
     /// Se lanza si no se pueden obtener datos de la PokeAPI.

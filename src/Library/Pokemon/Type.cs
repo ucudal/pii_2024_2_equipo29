@@ -1,10 +1,8 @@
 namespace Library;
+
 /// <summary>
-/// Representa un tipo en la biblioteca.
+/// Representa un tipo de un <c>Pokemon</c>.
 /// </summary>
-/// <remarks>
-/// Esta clase contiene información sobre el nombre de un tipo.
-/// </remarks>
 public class Type
 {
     /// <summary>

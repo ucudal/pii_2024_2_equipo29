@@ -1,10 +1,10 @@
 namespace Library;
 
 /// <summary>
-/// Clase que representa una Super Poción, un ítem que puede curar a un Pokémon.
+/// Clase que representa una Super Poción, un ítem que puede curar a un pokemon.
 /// </summary>
 /// <remarks>
-/// Esta clase implementa la interfaz <see cref="IItem"/> y permite curar a un Pokémon 
+/// Esta clase implementa la interfaz <see cref="IItem"/> y permite curar a un pokemon 
 /// restaurando una cantidad específica de puntos de salud (HP).
 /// </remarks>
 public class SuperPotion: IItem
@@ -13,9 +13,9 @@ public class SuperPotion: IItem
     public int Amount { get; private set; } = 4;
     
     /// <summary>
-    /// Utiliza la Super poción en un Pokémon específico.
+    /// Utiliza la Super poción en un pokemon específico.
     /// </summary>
-    /// <param name="pokemonName">El nombre del Pokémon al que se le aplicará la Super Poción.</param>
+    /// <param name="pokemonName">El nombre del pokemon al que se le aplicará la Super Poción.</param>
     /// <param name="player">El jugador que posee la Super poción.</param>
     /// <returns>Un mensaje que indica el resultado de la acción.</returns>
     public string Use(string pokemonName, Player player)

@@ -1,39 +1,39 @@
 namespace Library;
 
 /// <summary>
-/// Define la interfaz para gestionar Pokémon.
+/// Define la interfaz para gestionar pokemon.
 /// </summary>
 /// <remarks>
-/// Esta interfaz proporciona métodos para agregar, cambiar y obtener Pokémon.
+/// Esta interfaz proporciona métodos para agregar, cambiar y obtener pokemon.
 /// </remarks>
 public interface IPokemonManager
 {
     /// <summary>
-    /// Obtiene el nombre del gestor de Pokémon.
+    /// Obtiene el nombre del gestor de pokemon.
     /// </summary>
     string Name { get; }
     
     /// <summary>
-    /// Obtiene el Pokémon actual que está siendo gestionado.
+    /// Obtiene el pokemon actual que está siendo gestionado.
     /// </summary>
     Pokemon CurrentPokemon { get; }
     
     /// <summary>
-    /// Agrega un nuevo Pokémon al gestor.
+    /// Agrega un nuevo pokemon al gestor.
     /// </summary>
-    /// <param name="pokemon">El Pokémon que se va a agregar.</param>
+    /// <param name="pokemon">El pokemon que se va a agregar.</param>
     void AddPokemon(Pokemon pokemon);
     
     /// <summary>
-    /// Cambia el Pokémon actual por uno nuevo.
+    /// Cambia el pokemon actual por uno nuevo.
     /// </summary>
-    /// <param name="pokemon">El nuevo Pokémon que se va a establecer como actual.</param>
+    /// <param name="pokemon">El nuevo pokemon que se va a establecer como actual.</param>
     void ChangePokemon(Pokemon pokemon);
     
     
     /// <summary>
-    /// Obtiene el siguiente Pokémon en la lista de Pokémon.
+    /// Obtiene el siguiente pokemon en la lista de pokemon.
     /// </summary>
-    /// <returns>El siguiente Pokémon disponible.</returns>
+    /// <returns>El siguiente pokemon disponible.</returns>
     Pokemon GetNextPokemon();
 }

@@ -2,7 +2,7 @@ using Library.States;
 
 namespace Library;
 /// <summary>
-/// Representa un movimiento que un Pokémon puede realizar.
+/// Representa un movimiento que un pokemon puede realizar.
 /// Esta clase contiene información sobre el nombre, precisión, tipo, poder y efectos de un movimiento.
 /// </summary>
 public class Move
