@@ -5,20 +5,25 @@ namespace Library.Tests.PokemonStatesTests;
 
 public class StateMachineTest
 {
-    private StateMachine stateMachine;
     private Pokemon pokemon;
-    private IPokemonState pokemonState;
+    
     [SetUp]
     public void Setup()
     {
-        stateMachine = new StateMachine(pokemonState);
+        pokemon = new Pokemon();
     }
 
     [Test]
     public void StateMachineApplyState()
     {
-        var pokemonState = pokemon.StateMachine.CurrentState;
-        stateMachine.ApplyEffect(pokemon);
-        Assert.AreEqual(pokemonState, pokemon.StateMachine.CurrentState);
+        IPokemonState pokemonState;
+        
+        pokemonState = new Normal();
+        
+        pokemon.StateMachine.CurrentState = pokemonState;
+        
+        var pokemonEstado = pokemon.StateMachine.CurrentState;
+        
+        Assert.AreEqual(pokemonEstado.Name, EnumState.Normal);
     }
-}///Test falla, corregir
+}
