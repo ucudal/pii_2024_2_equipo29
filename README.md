@@ -29,9 +29,23 @@ Se deberá encender el servidor ejecutando el código para que el bot empiece a 
 ## 4) ¡Ya puedes jugar!
 Para empezar a jugar utiliza el comando `/Play`. Esto empezará a buscar partida contra otro jugador.
 
+## Comandos del bot
+- `/play`: Entrar en lista de espera.
+- `/choose`: Elegir pokemon para tu equipo. Se necesita enviar el nombre de pokemon.
+- `/start`: Permite comenzar una partida antes de alcanzar el máximo de pokemon por jugador. En caso de no usar el comando, comienza automáticamente al llegar al máximo de pokemons.
+- `/showcatalogue`: Envia el link del catálogo web.
+- `/attack`: Ataca al pokemon del jugador rival. Se necesita enviar el indice del movimiento (debe ser 1, 2, 3 o 4).
+- `/nextturn`: Cambia de turno.
+- `/change`: Cambia el pokemon actual por el enviado como parametro. Se necesita enviar el nombre de pokemon.
+- `/item`: Utiliza el item correspondiente en ese índice en el pokemon deseado. Se necesita enviar el índice del item y el nombre del pokemon donde se va a utilizar el item.
+- `/waitlist`: Muestra la lista de jugadores esperando.
+- `/showitems`: Muestra una descripción de los items.
+- `/restart`:  Resetea la partida en el canal de batalla.
+
 ## Notas del bot
 - Para ver la lista de comandos disponibles escribe `\` y se debería mostrar una lista con los comandos disponibles.
 - En caso de que no se muestren los comandos deberás reiniciar discord o utilizar la combinación de teclas `Ctrl + R`.
+- Los comandos del bot están explicados a detalle en la documentación.
 
 # Formula de ataque de un Pokemon
 Se estudió la manera en como implementar los ataques de los pokemons, para lo cual se encontró la siguiente fórmula:
