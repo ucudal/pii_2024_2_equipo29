@@ -1,0 +1,307 @@
+\doxysection{Library.\+Player Class Reference}
+\hypertarget{class_library_1_1_player}{}\label{class_library_1_1_player}\index{Library.Player@{Library.Player}}
+
+
+Clase que representa a un jugador en el juego, que puede manejar un equipo de pokemon.  
+
+
+Inheritance diagram for Library.\+Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_library_1_1_player_a52100c57bcecb1bf8044a0489dcc6575}{Player}} (string name)
+\begin{DoxyCompactList}\small\item\em Inicializa una nueva instancia de la clase \doxylink{class_library_1_1_player}{Player} con un nombre específico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_library_1_1_player_a695ff4be5d6caa7f583d971732ab6912}{Add\+Pokemon}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Agrega un pokemon al equipo del jugador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_library_1_1_player_a95a1c86533839ad9d02d9d59d76121d9}{Change\+Pokemon}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Cambia el pokemon actual por otro del equipo solo si se encuentra en la lista de {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} del jugador. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_player_a7ae401329fb8fe1ad97ae7a1697edac4}\label{class_library_1_1_player_a7ae401329fb8fe1ad97ae7a1697edac4} 
+void {\bfseries Clear\+Pokemons} ()
+\begin{DoxyCompactList}\small\item\em Limpia la lista de pokemons y el {\ttfamily Current\+Pokemon} del jugador. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_player_a1c399f4ac14fc01b6b655d1622b32453}{Attack}} (\mbox{\hyperlink{interface_library_1_1_i_pokemon_manager}{IPokemon\+Manager}} enemy\+Player, int move\+Slot)
+\begin{DoxyCompactList}\small\item\em Realiza un ataque al pokemon del jugador enemigo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_player_a0557cd033fd432fc20a6d5262b9c70bb}{Has\+Lost}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si el jugador ha perdido todos sus pokemon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} \mbox{\hyperlink{class_library_1_1_player_ab0616576b4cc680dd72c415a48b7fe4a}{Get\+Next\+Pokemon}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el siguiente pokemon disponible que no esté muerto. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_player_aa96782716752a5879a62f2648001705e}{Use\+Item}} (\mbox{\hyperlink{interface_library_1_1_i_item}{IItem}} item, string pokemon\+Name)
+\begin{DoxyCompactList}\small\item\em Utiliza un ítem en un pokemon específico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} \mbox{\hyperlink{class_library_1_1_player_a62a2eade37c9155636616a8b85aa82d7}{Get\+Pokemon\+By\+Name}} (string pokemon\+Name)
+\begin{DoxyCompactList}\small\item\em Obtiene un pokemon del equipo del jugador por su nombre. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_player_ac4863da9e0240ad48ce724033a04bd95}{Has\+All\+Pokemons}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si el jugador tiene el número máximo de pokemon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_player_ac7da26abcfb75a07d99d8ea12eb3e493}{Players\+Have\+Pokemons}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si el jugador tiene algún pokemon en su equipo. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_player_a65fa8332031012e7aafc199efec1af02}{View\+All\+Pokemons}} ()
+\begin{DoxyCompactList}\small\item\em Muestra todos los pokemon del equipo del jugador. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_player_ac9079306c8497da028784465c09a2d19}{View\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Muestra todos los ítems que el jugador posee. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager}{Library.\+IPokemon\+Manager}}}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_player_a6e4a61a087913f88b6cd6d957343eb7d}\label{class_library_1_1_player_a6e4a61a087913f88b6cd6d957343eb7d} 
+List$<$ \mbox{\hyperlink{interface_library_1_1_i_item}{IItem}} $>$ {\bfseries Items} = new()
+\begin{DoxyCompactList}\small\item\em Lista de ítems que el jugador posee. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_player_a73d9bc788648cc1e04060adf60234b10}\label{class_library_1_1_player_a73d9bc788648cc1e04060adf60234b10} 
+const int {\bfseries Max\+Pokemons} = 6
+\begin{DoxyCompactList}\small\item\em Cantidad máxima de pokemons que puede tener un jugador. Por defecto, {\ttfamily 6}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_player_a68007ebf06dbe67ca692e5821f57ef1d}\label{class_library_1_1_player_a68007ebf06dbe67ca692e5821f57ef1d} 
+int {\bfseries pokemons\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene la cantidad de pokemon que el jugador tiene. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_player_aecafe46b465d7340dbcd7a4c31f44f88}{Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el nombre del jugador. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} \mbox{\hyperlink{class_library_1_1_player_a1425a329445fd9b8b8acbd6b25198c0f}{Current\+Pokemon}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene el pokemon actual que el jugador está utilizando. Permite setear otro de forma privada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager}{Library.\+IPokemon\+Manager}}}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa a un jugador en el juego, que puede manejar un equipo de pokemon. 
+
+Esta clase implementa la interfaz \doxylink{interface_library_1_1_i_pokemon_manager}{IPokemon\+Manager} y permite al jugador gestionar sus pokemon, realizar ataques y utilizar ítems. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_library_1_1_player_a52100c57bcecb1bf8044a0489dcc6575}\index{Library.Player@{Library.Player}!Player@{Player}}
+\index{Player@{Player}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_a52100c57bcecb1bf8044a0489dcc6575} 
+Library.\+Player.\+Player (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa una nueva instancia de la clase \doxylink{class_library_1_1_player}{Player} con un nombre específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & El nombre del jugador.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_player_a695ff4be5d6caa7f583d971732ab6912}\index{Library.Player@{Library.Player}!AddPokemon@{AddPokemon}}
+\index{AddPokemon@{AddPokemon}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{AddPokemon()}{AddPokemon()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_a695ff4be5d6caa7f583d971732ab6912} 
+void Library.\+Player.\+Add\+Pokemon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Agrega un pokemon al equipo del jugador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El pokemon que se desea agregar.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_ad3e1c1aa7d6dffb946906210da62fdae}{Library.\+IPokemon\+Manager}}.
+
+\Hypertarget{class_library_1_1_player_a1c399f4ac14fc01b6b655d1622b32453}\index{Library.Player@{Library.Player}!Attack@{Attack}}
+\index{Attack@{Attack}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{Attack()}{Attack()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_a1c399f4ac14fc01b6b655d1622b32453} 
+string Library.\+Player.\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_library_1_1_i_pokemon_manager}{IPokemon\+Manager}}}]{enemy\+Player}{, }\item[{int}]{move\+Slot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Realiza un ataque al pokemon del jugador enemigo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy\+Player} & El jugador enemigo al que se le atacará.\\
+\hline
+{\em move\+Slot} & El slot del movimiento que se utilizará para atacar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje que indica el resultado del ataque.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_player_a95a1c86533839ad9d02d9d59d76121d9}\index{Library.Player@{Library.Player}!ChangePokemon@{ChangePokemon}}
+\index{ChangePokemon@{ChangePokemon}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{ChangePokemon()}{ChangePokemon()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_a95a1c86533839ad9d02d9d59d76121d9} 
+void Library.\+Player.\+Change\+Pokemon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Cambia el pokemon actual por otro del equipo solo si se encuentra en la lista de {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} del jugador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El nuevo pokemon que se desea utilizar.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_a5191ef2796c0d16390c7bec328d64c58}{Library.\+IPokemon\+Manager}}.
+
+\Hypertarget{class_library_1_1_player_ab0616576b4cc680dd72c415a48b7fe4a}\index{Library.Player@{Library.Player}!GetNextPokemon@{GetNextPokemon}}
+\index{GetNextPokemon@{GetNextPokemon}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{GetNextPokemon()}{GetNextPokemon()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_ab0616576b4cc680dd72c415a48b7fe4a} 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} Library.\+Player.\+Get\+Next\+Pokemon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el siguiente pokemon disponible que no esté muerto. 
+
+\begin{DoxyReturn}{Returns}
+El siguiente pokemon disponible o null si no hay ninguno.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_ac4d9d7c0b32b13db5c4487cce393595f}{Library.\+IPokemon\+Manager}}.
+
+\Hypertarget{class_library_1_1_player_a62a2eade37c9155636616a8b85aa82d7}\index{Library.Player@{Library.Player}!GetPokemonByName@{GetPokemonByName}}
+\index{GetPokemonByName@{GetPokemonByName}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{GetPokemonByName()}{GetPokemonByName()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_a62a2eade37c9155636616a8b85aa82d7} 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} Library.\+Player.\+Get\+Pokemon\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{pokemon\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene un pokemon del equipo del jugador por su nombre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon\+Name} & El nombre del pokemon que se desea buscar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El pokemon encontrado o null si no existe.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_player_ac4863da9e0240ad48ce724033a04bd95}\index{Library.Player@{Library.Player}!HasAllPokemons@{HasAllPokemons}}
+\index{HasAllPokemons@{HasAllPokemons}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{HasAllPokemons()}{HasAllPokemons()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_ac4863da9e0240ad48ce724033a04bd95} 
+bool Library.\+Player.\+Has\+All\+Pokemons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si el jugador tiene el número máximo de pokemon. 
+
+\begin{DoxyReturn}{Returns}
+True si el jugador tiene todos los pokemon, de lo contrario, false.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_player_a0557cd033fd432fc20a6d5262b9c70bb}\index{Library.Player@{Library.Player}!HasLost@{HasLost}}
+\index{HasLost@{HasLost}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{HasLost()}{HasLost()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_a0557cd033fd432fc20a6d5262b9c70bb} 
+bool Library.\+Player.\+Has\+Lost (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si el jugador ha perdido todos sus pokemon. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el jugador ha perdido, de lo contrario, {\ttfamily false}.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_player_ac7da26abcfb75a07d99d8ea12eb3e493}\index{Library.Player@{Library.Player}!PlayersHavePokemons@{PlayersHavePokemons}}
+\index{PlayersHavePokemons@{PlayersHavePokemons}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{PlayersHavePokemons()}{PlayersHavePokemons()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_ac7da26abcfb75a07d99d8ea12eb3e493} 
+bool Library.\+Player.\+Players\+Have\+Pokemons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si el jugador tiene algún pokemon en su equipo. 
+
+\begin{DoxyReturn}{Returns}
+True si el jugador tiene pokemon, de lo contrario, false.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_player_aa96782716752a5879a62f2648001705e}\index{Library.Player@{Library.Player}!UseItem@{UseItem}}
+\index{UseItem@{UseItem}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{UseItem()}{UseItem()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_aa96782716752a5879a62f2648001705e} 
+string Library.\+Player.\+Use\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_library_1_1_i_item}{IItem}}}]{item}{, }\item[{string}]{pokemon\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Utiliza un ítem en un pokemon específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & El ítem que se desea utilizar.\\
+\hline
+{\em pokemon\+Name} & El nombre del pokemon al que se le aplicará el ítem.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje que indica el resultado de la acción.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_player_a65fa8332031012e7aafc199efec1af02}\index{Library.Player@{Library.Player}!ViewAllPokemons@{ViewAllPokemons}}
+\index{ViewAllPokemons@{ViewAllPokemons}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{ViewAllPokemons()}{ViewAllPokemons()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_a65fa8332031012e7aafc199efec1af02} 
+string Library.\+Player.\+View\+All\+Pokemons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra todos los pokemon del equipo del jugador. 
+
+\begin{DoxyReturn}{Returns}
+Una cadena que representa todos los pokemon del jugador.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_player_ac9079306c8497da028784465c09a2d19}\index{Library.Player@{Library.Player}!ViewItems@{ViewItems}}
+\index{ViewItems@{ViewItems}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{ViewItems()}{ViewItems()}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_ac9079306c8497da028784465c09a2d19} 
+string Library.\+Player.\+View\+Items (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra todos los ítems que el jugador posee. 
+
+\begin{DoxyReturn}{Returns}
+Una cadena que representa todos los ítems del jugador.
+\end{DoxyReturn}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_library_1_1_player_a1425a329445fd9b8b8acbd6b25198c0f}\index{Library.Player@{Library.Player}!CurrentPokemon@{CurrentPokemon}}
+\index{CurrentPokemon@{CurrentPokemon}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{CurrentPokemon}{CurrentPokemon}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_a1425a329445fd9b8b8acbd6b25198c0f} 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} Library.\+Player.\+Current\+Pokemon\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene el pokemon actual que el jugador está utilizando. Permite setear otro de forma privada. 
+
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_a010b0e30a4cbaa364317c0c97c7925f5}{Library.\+IPokemon\+Manager}}.
+
+\Hypertarget{class_library_1_1_player_aecafe46b465d7340dbcd7a4c31f44f88}\index{Library.Player@{Library.Player}!Name@{Name}}
+\index{Name@{Name}!Library.Player@{Library.Player}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily \label{class_library_1_1_player_aecafe46b465d7340dbcd7a4c31f44f88} 
+string Library.\+Player.\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene el nombre del jugador. 
+
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_a2719d88762c867eb0e5cdefe93549a99}{Library.\+IPokemon\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Game/Player.\+cs\end{DoxyCompactItemize}

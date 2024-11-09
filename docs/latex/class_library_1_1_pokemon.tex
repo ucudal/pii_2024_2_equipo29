@@ -1,0 +1,132 @@
+\doxysection{Library.\+Pokemon Class Reference}
+\hypertarget{class_library_1_1_pokemon}{}\label{class_library_1_1_pokemon}\index{Library.Pokemon@{Library.Pokemon}}
+
+
+Representa un pokemon en el juego.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_pokemon_a1d8901ffecfc24e589f21eaeea0deac8}\label{class_library_1_1_pokemon_a1d8901ffecfc24e589f21eaeea0deac8} 
+{\bfseries Pokemon} ()
+\begin{DoxyCompactList}\small\item\em Inicializa una nueva instancia de la clase \doxylink{class_library_1_1_pokemon}{Pokemon}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_pokemon_a079a95abd0e5c922c699ae7ba71f7d8f}{Attack}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon\+Enemy, int move\+Slot)
+\begin{DoxyCompactList}\small\item\em Realiza un ataque a otro pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_ab3baedbe8c7be0eada9708b5f081027c}\label{class_library_1_1_pokemon_ab3baedbe8c7be0eada9708b5f081027c} 
+void {\bfseries Update\+Cool\+Down\+Special\+Move} ()
+\begin{DoxyCompactList}\small\item\em Actualiza el tiempo de enfriamiento del movimiento especial. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_pokemon_a39ed33521a459373308e8b37b009be63}{Is\+Dead}} ()
+\begin{DoxyCompactList}\small\item\em Determina si el pokemon está muerto. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_pokemon_aaeb15fcf64f7c44059eb5a4341344ca5}{View\+Pokemon}} ()
+\begin{DoxyCompactList}\small\item\em Muestra la información del pokemon. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_pokemon_a7b106c4d356f1d955823a65f3fd90479}{View\+Pokemon\+Simple}} ()
+\begin{DoxyCompactList}\small\item\em Muestra información simple del pokemon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_pokemon_a68c19b133602cf71110cb160e443aa15}\label{class_library_1_1_pokemon_a68c19b133602cf71110cb160e443aa15} 
+string {\bfseries Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el nombre del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_aff6fa5d88d5e1375e38b69101ebf79af}\label{class_library_1_1_pokemon_aff6fa5d88d5e1375e38b69101ebf79af} 
+int {\bfseries Initial\+Hp}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece los puntos de vida iniciales del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_a41239c19d60b8c252bc0054d5505ea67}\label{class_library_1_1_pokemon_a41239c19d60b8c252bc0054d5505ea67} 
+int {\bfseries Hp}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece los puntos de vida actuales del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_a672e637e40f1d74ea0d79a45ff195420}\label{class_library_1_1_pokemon_a672e637e40f1d74ea0d79a45ff195420} 
+int {\bfseries Attack\+Points}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece los puntos de ataque del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_a151c3062ee36d9f835d97bf21c05b294}\label{class_library_1_1_pokemon_a151c3062ee36d9f835d97bf21c05b294} 
+int {\bfseries Special\+Attack\+Points}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece los puntos de ataque especial del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_a730c3b3b94c4d2e9d1e84a2dfa4f5042}\label{class_library_1_1_pokemon_a730c3b3b94c4d2e9d1e84a2dfa4f5042} 
+int {\bfseries Defense\+Points}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece los puntos de defensa del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_a0a76c624d3f8fb06c77de4af89340591}\label{class_library_1_1_pokemon_a0a76c624d3f8fb06c77de4af89340591} 
+int {\bfseries Special\+Defense\+Points}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece los puntos de defensa especial del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_a9256bbb100c34e69e9f44b3523b85f81}\label{class_library_1_1_pokemon_a9256bbb100c34e69e9f44b3523b85f81} 
+List$<$ \mbox{\hyperlink{class_library_1_1_move}{Move}} $>$ {\bfseries Moves}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece la lista de movimientos del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_ab1ffac72b02bd6e2228c585852f9a542}\label{class_library_1_1_pokemon_ab1ffac72b02bd6e2228c585852f9a542} 
+List$<$ \mbox{\hyperlink{class_library_1_1_type}{Type}} $>$ {\bfseries Types}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece la lista de tipos del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_aa2be54866e5edf8133e7847d24dac131}\label{class_library_1_1_pokemon_aa2be54866e5edf8133e7847d24dac131} 
+string {\bfseries Img\+Url}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece la URL de la imagen del pokemon. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_pokemon_ae592f0eac3800885f2a184a9280a7063}\label{class_library_1_1_pokemon_ae592f0eac3800885f2a184a9280a7063} 
+\mbox{\hyperlink{class_library_1_1_states_1_1_state_machine}{State\+Machine}} {\bfseries State\+Machine}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene la máquina de estados del pokemon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un pokemon en el juego. 
+
+Esta clase contiene información sobre el pokemon, incluyendo sus estadísticas, movimientos y estado. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_pokemon_a079a95abd0e5c922c699ae7ba71f7d8f}\index{Library.Pokemon@{Library.Pokemon}!Attack@{Attack}}
+\index{Attack@{Attack}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{Attack()}{Attack()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_a079a95abd0e5c922c699ae7ba71f7d8f} 
+string Library.\+Pokemon.\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon\+Enemy}{, }\item[{int}]{move\+Slot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Realiza un ataque a otro pokemon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon\+Enemy} & El pokemon enemigo al que se le realizará el ataque.\\
+\hline
+{\em move\+Slot} & El índice del movimiento a utilizar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje que describe el resultado del ataque.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_pokemon_a39ed33521a459373308e8b37b009be63}\index{Library.Pokemon@{Library.Pokemon}!IsDead@{IsDead}}
+\index{IsDead@{IsDead}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{IsDead()}{IsDead()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_a39ed33521a459373308e8b37b009be63} 
+bool Library.\+Pokemon.\+Is\+Dead (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Determina si el pokemon está muerto. 
+
+\begin{DoxyReturn}{Returns}
+True si el pokemon está muerto; de lo contrario, false.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_pokemon_aaeb15fcf64f7c44059eb5a4341344ca5}\index{Library.Pokemon@{Library.Pokemon}!ViewPokemon@{ViewPokemon}}
+\index{ViewPokemon@{ViewPokemon}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{ViewPokemon()}{ViewPokemon()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_aaeb15fcf64f7c44059eb5a4341344ca5} 
+string Library.\+Pokemon.\+View\+Pokemon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra la información del pokemon. 
+
+\begin{DoxyReturn}{Returns}
+Una cadena que representa la información del pokemon.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_pokemon_a7b106c4d356f1d955823a65f3fd90479}\index{Library.Pokemon@{Library.Pokemon}!ViewPokemonSimple@{ViewPokemonSimple}}
+\index{ViewPokemonSimple@{ViewPokemonSimple}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{ViewPokemonSimple()}{ViewPokemonSimple()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_a7b106c4d356f1d955823a65f3fd90479} 
+string Library.\+Pokemon.\+View\+Pokemon\+Simple (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra información simple del pokemon. 
+
+\begin{DoxyReturn}{Returns}
+Una cadena que representa la información simple del pokemon.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Pokemon/Pokemon.\+cs\end{DoxyCompactItemize}

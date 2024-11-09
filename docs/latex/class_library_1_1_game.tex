@@ -1,0 +1,165 @@
+\doxysection{Library.\+Game Class Reference}
+\hypertarget{class_library_1_1_game}{}\label{class_library_1_1_game}\index{Library.Game@{Library.Game}}
+
+
+Clase principal que administra el flujo del juego, la gestión de jugadores, turnos y las reglas de finalización de la partida. Implementa el patrón de diseño {\ttfamily Facade} para simplificar la interacción con las funcionalidades del juego.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_library_1_1_game_a1a4681ffb91ec96e0dea7bf374600f3d}{Add\+Player}} (\mbox{\hyperlink{class_library_1_1_player}{Player}} player)
+\begin{DoxyCompactList}\small\item\em Agrega un jugador al juego. Si se alcanza el máximo de jugadores, se establece de forma aleatoria el jugador que comienza la batalla. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_game_a7d49e773cf01a22ab5c758fc7762dee2}\label{class_library_1_1_game_a7d49e773cf01a22ab5c758fc7762dee2} 
+void {\bfseries Toogle\+Turn} ()
+\begin{DoxyCompactList}\small\item\em Cambia el turno al otro jugador. Posteriormente, actualiza el estado del pokemon actual del jugador en turno solo si tiene pokemons. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_game_adea98ac9f2ac988f3b5369e9dcc351f4}\label{class_library_1_1_game_adea98ac9f2ac988f3b5369e9dcc351f4} 
+void {\bfseries Start} ()
+\begin{DoxyCompactList}\small\item\em Establece el atributo {\ttfamily Has\+Started} en {\ttfamily true} si el número máximo de jugadores ha sido alcanzado. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_game_a6d2393ad57fb8114f5556aa3934b0aad}{Is\+Player\+Name\+In\+Turn}} (string player\+Name)
+\begin{DoxyCompactList}\small\item\em Verifica si el nombre del jugador coincide con el jugador que está en turno. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_game_ad4442af04837ef1a334eb3a22c1ac491}\label{class_library_1_1_game_ad4442af04837ef1a334eb3a22c1ac491} 
+void {\bfseries Reset} ()
+\begin{DoxyCompactList}\small\item\em Reinicia el juego, eliminando los {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} de todos los jugadores y estableciendo {\ttfamily Has\+Started} en {\ttfamily false}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_library_1_1_player}{Player}} \mbox{\hyperlink{class_library_1_1_game_a70bdda9e97a6af204bc03215cbeadde6}{Get\+Winner}} ()
+\begin{DoxyCompactList}\small\item\em Determina el ganador del juego basado en el estado de los jugadores. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_library_1_1_player}{Player}} \mbox{\hyperlink{class_library_1_1_game_aca0a6d807ac51a382e34961a3e03ea47}{Get\+Player\+By\+Name}} (string player\+Name)
+\begin{DoxyCompactList}\small\item\em Obtiene un jugador por su nombre. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_game_a6b5c3bbdf5920cb20b0ef084ecd1d6f5}{All\+Players\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si todos los jugadores están listos para comenzar el juego. Un jugador está listo si alcanzó el máximo de pokemons. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_game_a065957f845c6e824e8b8f3358e26a290}{All\+Players\+Have\+Pokemons}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si todos los jugadores tienen al menos un {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} disponibles. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_game_a1e4bdb567aa5490dbc21eb66916986d4}{View\+All\+Pokemons}} ()
+\begin{DoxyCompactList}\small\item\em Muestra una vista de todos los {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} de cada jugador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_game_a2ce9c2297ee87609d702cd444907cde0}\label{class_library_1_1_game_a2ce9c2297ee87609d702cd444907cde0} 
+static int {\bfseries Max\+Players} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Atributo estático que permite obtener el número máximo de jugadores permitidos en el juego. Por defecto, {\ttfamily 2}. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_game_a645ac497a3bc45ebe61007876e804a46}\label{class_library_1_1_game_a645ac497a3bc45ebe61007876e804a46} 
+\mbox{\hyperlink{class_library_1_1_player}{Player}} {\bfseries Player\+In\+Turn}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Permite obtener el {\ttfamily \doxylink{class_library_1_1_player}{Player}} que actualmente tiene el turno o setear uno nuevo de forma privada. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_game_a5f37d9c7daa36f8821bab2e5c1aeaa2e}\label{class_library_1_1_game_a5f37d9c7daa36f8821bab2e5c1aeaa2e} 
+\mbox{\hyperlink{class_library_1_1_player}{Player}} {\bfseries Player\+Not\+In\+Turn}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Permite obtener el {\ttfamily \doxylink{class_library_1_1_player}{Player}} que actualmente {\bfseries{NO}} tiene el turno. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_game_a6d67e09662219f8e0198baaa9e2be1f1}\label{class_library_1_1_game_a6d67e09662219f8e0198baaa9e2be1f1} 
+bool {\bfseries Has\+Started}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Indica si el juego ha comenzado. Permite modifcar su valor de forma privada. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_game_aa7e8a357fc10f852ece64ef55687a13d}\label{class_library_1_1_game_aa7e8a357fc10f852ece64ef55687a13d} 
+bool {\bfseries Is\+Full\+Players}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Indica si el juego alcanz+o el maximo de jugadores-\/. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase principal que administra el flujo del juego, la gestión de jugadores, turnos y las reglas de finalización de la partida. Implementa el patrón de diseño {\ttfamily Facade} para simplificar la interacción con las funcionalidades del juego. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_game_a1a4681ffb91ec96e0dea7bf374600f3d}\index{Library.Game@{Library.Game}!AddPlayer@{AddPlayer}}
+\index{AddPlayer@{AddPlayer}!Library.Game@{Library.Game}}
+\doxysubsubsection{\texorpdfstring{AddPlayer()}{AddPlayer()}}
+{\footnotesize\ttfamily \label{class_library_1_1_game_a1a4681ffb91ec96e0dea7bf374600f3d} 
+void Library.\+Game.\+Add\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_player}{Player}}}]{player}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Agrega un jugador al juego. Si se alcanza el máximo de jugadores, se establece de forma aleatoria el jugador que comienza la batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & El jugador a agregar.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_library_1_1_game_a065957f845c6e824e8b8f3358e26a290}\index{Library.Game@{Library.Game}!AllPlayersHavePokemons@{AllPlayersHavePokemons}}
+\index{AllPlayersHavePokemons@{AllPlayersHavePokemons}!Library.Game@{Library.Game}}
+\doxysubsubsection{\texorpdfstring{AllPlayersHavePokemons()}{AllPlayersHavePokemons()}}
+{\footnotesize\ttfamily \label{class_library_1_1_game_a065957f845c6e824e8b8f3358e26a290} 
+bool Library.\+Game.\+All\+Players\+Have\+Pokemons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si todos los jugadores tienen al menos un {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} disponibles. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si todos los jugadores tienen al menos un {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. De lo contrario, {\ttfamily false}.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_game_a6b5c3bbdf5920cb20b0ef084ecd1d6f5}\index{Library.Game@{Library.Game}!AllPlayersReady@{AllPlayersReady}}
+\index{AllPlayersReady@{AllPlayersReady}!Library.Game@{Library.Game}}
+\doxysubsubsection{\texorpdfstring{AllPlayersReady()}{AllPlayersReady()}}
+{\footnotesize\ttfamily \label{class_library_1_1_game_a6b5c3bbdf5920cb20b0ef084ecd1d6f5} 
+bool Library.\+Game.\+All\+Players\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si todos los jugadores están listos para comenzar el juego. Un jugador está listo si alcanzó el máximo de pokemons. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si todos los jugadores están listos. De lo contrario, {\ttfamily false}. 
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_game_aca0a6d807ac51a382e34961a3e03ea47}\index{Library.Game@{Library.Game}!GetPlayerByName@{GetPlayerByName}}
+\index{GetPlayerByName@{GetPlayerByName}!Library.Game@{Library.Game}}
+\doxysubsubsection{\texorpdfstring{GetPlayerByName()}{GetPlayerByName()}}
+{\footnotesize\ttfamily \label{class_library_1_1_game_aca0a6d807ac51a382e34961a3e03ea47} 
+\mbox{\hyperlink{class_library_1_1_player}{Player}} Library.\+Game.\+Get\+Player\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{player\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene un jugador por su nombre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Name} & Nombre del jugador.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El {\ttfamily \doxylink{class_library_1_1_player}{Player}} que coincide con el nombre, o {\ttfamily null} si no se encuentra.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_game_a70bdda9e97a6af204bc03215cbeadde6}\index{Library.Game@{Library.Game}!GetWinner@{GetWinner}}
+\index{GetWinner@{GetWinner}!Library.Game@{Library.Game}}
+\doxysubsubsection{\texorpdfstring{GetWinner()}{GetWinner()}}
+{\footnotesize\ttfamily \label{class_library_1_1_game_a70bdda9e97a6af204bc03215cbeadde6} 
+\mbox{\hyperlink{class_library_1_1_player}{Player}} Library.\+Game.\+Get\+Winner (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Determina el ganador del juego basado en el estado de los jugadores. 
+
+\begin{DoxyReturn}{Returns}
+El {\ttfamily \doxylink{class_library_1_1_player}{Player}} ganador o {\ttfamily null} si no hay un ganador.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_game_a6d2393ad57fb8114f5556aa3934b0aad}\index{Library.Game@{Library.Game}!IsPlayerNameInTurn@{IsPlayerNameInTurn}}
+\index{IsPlayerNameInTurn@{IsPlayerNameInTurn}!Library.Game@{Library.Game}}
+\doxysubsubsection{\texorpdfstring{IsPlayerNameInTurn()}{IsPlayerNameInTurn()}}
+{\footnotesize\ttfamily \label{class_library_1_1_game_a6d2393ad57fb8114f5556aa3934b0aad} 
+bool Library.\+Game.\+Is\+Player\+Name\+In\+Turn (\begin{DoxyParamCaption}\item[{string}]{player\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si el nombre del jugador coincide con el jugador que está en turno. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Name} & Nombre del jugador.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el nombre coincide. De lo contrario, {\ttfamily false}.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_game_a1e4bdb567aa5490dbc21eb66916986d4}\index{Library.Game@{Library.Game}!ViewAllPokemons@{ViewAllPokemons}}
+\index{ViewAllPokemons@{ViewAllPokemons}!Library.Game@{Library.Game}}
+\doxysubsubsection{\texorpdfstring{ViewAllPokemons()}{ViewAllPokemons()}}
+{\footnotesize\ttfamily \label{class_library_1_1_game_a1e4bdb567aa5490dbc21eb66916986d4} 
+string Library.\+Game.\+View\+All\+Pokemons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra una vista de todos los {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} de cada jugador. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily string} con información de los {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} de cada jugador.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Game/Game.\+cs\end{DoxyCompactItemize}

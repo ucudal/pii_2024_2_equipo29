@@ -1,0 +1,394 @@
+\doxysection{Library.\+Discord\+Bot.\+Discord\+Commands Class Reference}
+\hypertarget{class_library_1_1_discord_bot_1_1_discord_commands}{}\label{class_library_1_1_discord_bot_1_1_discord_commands}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+
+
+Clase para la creación de comandos del bot de discord utilizada en {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_discord_bot}{Discord\+Bot}}.  
+
+
+Inheritance diagram for Library.\+Discord\+Bot.\+Discord\+Commands\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_discord_bot_1_1_discord_commands}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a92c2a12d5c64d861f2f9187b88f577b2}{Test}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Comando de prueba para verificar si el bot está activo. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a66a806e5fe7cde1089743633a2c734ce}{Add\+Player}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Comando que permite agregar jugadores a la sala de espera utilizando {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}}. Intenta iniciar una partida cada vez que es ejecutado. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_aa430d96059f50c7b6969685b07e9f006}{Choose\+Pokemon}} (Interaction\+Context context, \mbox{[}Option("{}Pokemon"{}, "{}Pokemon a elegir."{})\mbox{]} string pokemon\+Name)
+\begin{DoxyCompactList}\small\item\em Comando para elegir un pokemon en la sala de batalla. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_af7a2323067d1c69460e152dfef79bd6b}{Show\+Catalogue}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Muestra un link al catálogo de pokemons permitidos en el juego. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a558541335c631fdc36cfac5fd23369fc}{Start\+Game}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Comando para iniciar la partida en una sala de batalla. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a9832cad511d0c1e0d36c185aa3c6a079}{Attack}} (Interaction\+Context context, \mbox{[}Option("{}Move\+Slot"{}, "{}Movimiento a utilizar."{})\mbox{]} string move\+Slot)
+\begin{DoxyCompactList}\small\item\em Comando para atacar a un pokemon enemigo durante una batalla. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_adfd4d25f337e6129398e66ac3feff44c}{Next\+Turn}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Comando para cambiar el turno de la partida. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a6c660ef45c4fa62372a0bcc3d2022ef8}{Clear\+Rooms}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Comando para eliminar todas las salas de las partidas en curso. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_ab67ebbc9555f635ceb7cfacd35dd8268}{Change\+Pokemon}} (Interaction\+Context context, \mbox{[}Option("{}Pokemon"{}, "{}Pokemon a cambiar"{})\mbox{]} string pokemon\+Name)
+\begin{DoxyCompactList}\small\item\em Comando para cambiar el pokemon seleccionado durante la batalla. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a76ecac4b063f29886e58e5d5d3765d07}{Use\+Item}} (Interaction\+Context context, \mbox{[}Option("{}Item\+Index"{}, "{}Index del item a usar."{})\mbox{]} string item\+Index, \mbox{[}Option("{}Pokemon\+Name"{}, "{}Nombre del pokemon que va a utilizar el item."{})\mbox{]} string pokemon\+Name)
+\begin{DoxyCompactList}\small\item\em Comando para usar un item sobre un pokemon en una sala de batalla. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_ab9f4ba9d64e3a8e187c9d142fc95a92a}{Show\+Pokemons}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Comando para mostrar los pokemons aliados y rivales en una sala de batalla. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a4355065dd26b75c39e926018bd6fba7a}{Restart}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Comando para resetear la partida en una sala de batalla. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a4057d0037317f2d4966e54ce3d0635d6}{Wait\+List}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Comando para mostrar la lista de jugadores que están esperando una partida. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a05e77185f939fdc135f83d966b78a2aa}{Show\+Items}} (Interaction\+Context context)
+\begin{DoxyCompactList}\small\item\em Muestra una descripición de la utilidad de cada item. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase para la creación de comandos del bot de discord utilizada en {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_discord_bot}{Discord\+Bot}}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a66a806e5fe7cde1089743633a2c734ce}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!AddPlayer@{AddPlayer}}
+\index{AddPlayer@{AddPlayer}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{AddPlayer()}{AddPlayer()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_a66a806e5fe7cde1089743633a2c734ce} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Add\+Player (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando que permite agregar jugadores a la sala de espera utilizando {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}}. Intenta iniciar una partida cada vez que es ejecutado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+\end{DoxyParams}
+
+
+El jugador que ejecuta el comando se agrega a la sala de espera para participar en la partida. Tras agregar al jugador a la sala de espera, se intenta iniciar la partida si hay suficientes jugadores. Si el intento de iniciar la partida tiene éxito, se enviará una respuesta por DM de discord y en el canal donde se ejecutó el comando mencionando el canal de batalla y los nombre de los jugadores emparejados. El sistema empareja jugadores en salas de batalla privadas, para evitar el desbordamiento de mensajes en un canal público. Si no hay suficientes jugadores para iniciar la partida, el sistema continuará esperando más jugadores. \Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a9832cad511d0c1e0d36c185aa3c6a079}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!Attack@{Attack}}
+\index{Attack@{Attack}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{Attack()}{Attack()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_a9832cad511d0c1e0d36c185aa3c6a079} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Attack (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{, }\item[{\mbox{[}\+Option("{}\+Move\+Slot"{}, "{}\+Movimiento a utilizar."{})\mbox{]} string}]{move\+Slot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para atacar a un pokemon enemigo durante una batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+{\em move\+Slot} & Número que indica el movimiento a utilizar. Se debe enviar el valor 1, 2, 3 o 4. 
+\begin{DoxyItemize}
+\item El valor debe ser un número entero entre 1 y 4, donde cada número corresponde a un movimiento específico. 
+\item Si el número no está dentro de este rango, se envía un mensaje de error. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+
+Requisitos para la ejecución exitosa del comando\+: 
+\begin{DoxyItemize}
+\item El usuario debe estar en un canal de batalla. De lo contrario, se envía un mensaje de error indicando que el usuario debe estar en un canal de batalla.  
+\item El juego debe estar en curso. Si la batalla no está en progreso, se envía un mensaje de error.  
+\item Si el comando se ejecuta correctamente, se cambia el turno y se muestra un mensaje de confirmación.  
+\end{DoxyItemize}\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_ab67ebbc9555f635ceb7cfacd35dd8268}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!ChangePokemon@{ChangePokemon}}
+\index{ChangePokemon@{ChangePokemon}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{ChangePokemon()}{ChangePokemon()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_ab67ebbc9555f635ceb7cfacd35dd8268} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Change\+Pokemon (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{, }\item[{\mbox{[}\+Option("{}\+Pokemon"{}, "{}\+Pokemon a cambiar"{})\mbox{]} string}]{pokemon\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para cambiar el pokemon seleccionado durante la batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+{\em pokemon\+Name} & Nombre del pokemon a cambiar\+: 
+\begin{DoxyItemize}
+\item Debe existir en la lista de pokemons elegidos por el jugador al inicio de la batallao. En caso contrario, no se encontrará el pokemon y se enviará un mensaje de error.  
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+
+Requisitos para la ejecución exitosa del comando\+: 
+\begin{DoxyItemize}
+\item La sala de juego debe existir en el canal donde se ejecutó el comando; de lo contrario, se enviará un mensaje indicando que el usuario debe estar en un canal de batalla.  
+\item Solo el jugador en turno puede ejecutar el comando; si no es su turno, se enviará un mensaje indicando que debe esperar su turno.  
+\item Si los parámetros son correctos y es el turno del jugador, el pokemon será cambiado exitosamente y se enviará una confirmación.  
+\end{DoxyItemize}\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_aa430d96059f50c7b6969685b07e9f006}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!ChoosePokemon@{ChoosePokemon}}
+\index{ChoosePokemon@{ChoosePokemon}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{ChoosePokemon()}{ChoosePokemon()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_aa430d96059f50c7b6969685b07e9f006} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Choose\+Pokemon (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{, }\item[{\mbox{[}\+Option("{}\+Pokemon"{}, "{}\+Pokemon a elegir."{})\mbox{]} string}]{pokemon\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para elegir un pokemon en la sala de batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+{\em pokemon\+Name} & Nombre del pokemon a elegir. 
+\begin{DoxyItemize}
+\item El nombre del pokemon debe estar disponible en el catálogo y no debe estar baneado (en el catálogo aparece si fue baneado). En caso de no estar disponible o estar baneado, se envía un mensaje diciendo que el pokemon no fue encontrado.  
+\item Si el nombre del Pokémon no es válido o no está disponible, se enviará un mensaje de error.  
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+
+Un pokemon es baneado cuando se cumple la siguiente condición\+: 
+\begin{DoxyItemize}
+\item Cuando no tiene al menos cuatro movimientos. Esto se debe a que tres movimientos se toman como {\ttfamily \doxylink{class_library_1_1_move}{Move}} del tipo normal y uno para {\ttfamily \doxylink{class_library_1_1_move}{Move}} del tipo especial.  
+\end{DoxyItemize}
+
+Requisitos para la ejecución exitosa del comando\+: 
+\begin{DoxyItemize}
+\item El usuario debe estar en un canal de batalla donde haya una sala activa. Si no se encuentra en un canal adecuado, se enviará un mensaje de error indicando que debe estar en un canal de batalla.  
+\item El juego no debe haber comenzado aún. Si la batalla ya ha iniciado, se enviará un mensaje de error.  
+\item Si el Pokémon elegido es válido y la batalla no ha comenzado, se confirma la elección del Pokémon y, si aplica, se muestra una imagen relacionada con el Pokémon elegido.  
+\item Se muestra el turno actual de la partida, si está disponible.  
+\end{DoxyItemize}\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a6c660ef45c4fa62372a0bcc3d2022ef8}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!ClearRooms@{ClearRooms}}
+\index{ClearRooms@{ClearRooms}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{ClearRooms()}{ClearRooms()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_a6c660ef45c4fa62372a0bcc3d2022ef8} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Clear\+Rooms (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para eliminar todas las salas de las partidas en curso. 
+
+-\/-\/-\/\texorpdfstring{$>$}{>} ESTO SERÁ AUTOMATIZADO PARA LA PROXIMA ENTREGA.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+\end{DoxyParams}
+
+
+Una vez ejecutado el comando, se eliminarán todas las salas de batalla activas en {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}} y se enviará un mensaje confirmando que los canales de batalla fueron eliminados. 
+
+En caso de error durante el proceso, se enviará un mensaje notificando al usuario.\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_adfd4d25f337e6129398e66ac3feff44c}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!NextTurn@{NextTurn}}
+\index{NextTurn@{NextTurn}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{NextTurn()}{NextTurn()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_adfd4d25f337e6129398e66ac3feff44c} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Next\+Turn (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para cambiar el turno de la partida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+\end{DoxyParams}
+
+
+El juego cambiará de turno automáticamente si ocurre una de las siguientes acciones\+: 
+\begin{DoxyItemize}
+\item Se ejecuta el comando {\ttfamily /\+Change} de forma exitosa.  
+\item Se ejecuta el comando {\ttfamily /\+Attack} de forma exitosa.  
+\item Se ejecuta el comando {\ttfamily /\+Item} de forma exitosa.  
+\end{DoxyItemize}
+
+Este comando fue creado a causa del siguiente problema, cuando un pokemon de un jugador se encuentra afectado por {\ttfamily Sleep}, se quedó sin pociones y a su vez es el único pokemon que tiene disponible el juego no cambiará el turno de forma automática, porque no se cumplen ningunas de las 3 condiciones presentadas en la lista de forma exitosa. 
+
+Requisitos para la ejecución exitosa del comando\+:
+
+
+\begin{DoxyItemize}
+\item El usuario debe estar en un canal de batalla. De lo contrario, se envía un mensaje de error indicando que el usuario debe estar en un canal de batalla.  
+\item El juego debe estar en curso para que el turno pueda ser cambiado. Si la partida no está iniciada, no se podrá realizar la acción.  
+\item Si el comando se ejecuta correctamente, se cambia el turno y se muestra un mensaje de confirmación.  
+\end{DoxyItemize}\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a4355065dd26b75c39e926018bd6fba7a}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!Restart@{Restart}}
+\index{Restart@{Restart}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{Restart()}{Restart()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_a4355065dd26b75c39e926018bd6fba7a} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Restart (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para resetear la partida en una sala de batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+\end{DoxyParams}
+
+
+Requisitos para la ejecución exitosa del comando\+: 
+\begin{DoxyItemize}
+\item La sala de juego debe existir en el canal donde se ejecutó el comando, de lo contrario, se envía un mensaje de error indicando que el usuario debe estar en un canal de batalla.  
+\item El juego debe estar haber finalizado para permitir el reinicio, de lo contrario, el reinicio no se ejecutará.  
+\item Si la sala de juego es correcta y las condiciones de reinicio se cumplen, el juego se reinicia y se envía un mensaje de confirmación.  
+\end{DoxyItemize}\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_af7a2323067d1c69460e152dfef79bd6b}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!ShowCatalogue@{ShowCatalogue}}
+\index{ShowCatalogue@{ShowCatalogue}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{ShowCatalogue()}{ShowCatalogue()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_af7a2323067d1c69460e152dfef79bd6b} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Show\+Catalogue (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra un link al catálogo de pokemons permitidos en el juego. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a05e77185f939fdc135f83d966b78a2aa}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!ShowItems@{ShowItems}}
+\index{ShowItems@{ShowItems}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{ShowItems()}{ShowItems()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_a05e77185f939fdc135f83d966b78a2aa} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Show\+Items (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra una descripición de la utilidad de cada item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_ab9f4ba9d64e3a8e187c9d142fc95a92a}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!ShowPokemons@{ShowPokemons}}
+\index{ShowPokemons@{ShowPokemons}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{ShowPokemons()}{ShowPokemons()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_ab9f4ba9d64e3a8e187c9d142fc95a92a} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Show\+Pokemons (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para mostrar los pokemons aliados y rivales en una sala de batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+\end{DoxyParams}
+
+
+Requisitos para la ejecución exitosa del comando\+: 
+\begin{DoxyItemize}
+\item La sala de juego debe existir en el canal donde se ejecutó el comando, de lo contrario, se envía un mensaje de error indicando que el usuario debe estar en un canal de batalla.  
+\item El juego debe estar en curso, de lo contrario, se envía un mensaje de error indicando que el usuario debe esperar a que empiece la batalla.  
+\item Si la sala de juego es la correcta y se ha iniciado la batalla, se envía una lista de los pokemons aliados y rivales.  
+\end{DoxyItemize}\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a558541335c631fdc36cfac5fd23369fc}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!StartGame@{StartGame}}
+\index{StartGame@{StartGame}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{StartGame()}{StartGame()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_a558541335c631fdc36cfac5fd23369fc} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Start\+Game (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para iniciar la partida en una sala de batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+\end{DoxyParams}
+
+
+El juego iniciará automáticamente si\+: 
+\begin{DoxyItemize}
+\item Todos los jugadores tienen la cantidad de Max\+Pokemons establecida en {\ttfamily \doxylink{class_library_1_1_player}{Player}}. Por defecto, 6.  
+\end{DoxyItemize}
+
+Este comando fue creado con la finalidad de permitir a los jugadores realizar batallas con menos pokemon. Por ejemplo, en el caso de que uno de los jugadores quiera jugar con un pokemon y otro jugador con tres pokemons podrán hacerlo gracias a este comando. 
+
+Requisitos para la ejecución exitosa del comando\+: 
+
+
+\begin{DoxyItemize}
+\item El usuario debe estar en un canal de batalla. De lo contrario, se envía un mensaje de error indicando que el usuario debe estar en un canal de batalla.  
+\item Los jugadores deben elegir al menos un pokemon cada uno. De lo contrario, se enviara un mensaje de error.  
+\item Si la sala de juego no está activa, se notifica que el usuario debe estar en un canal de batalla para poder iniciar el juego.  
+\end{DoxyItemize}\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a92c2a12d5c64d861f2f9187b88f577b2}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!Test@{Test}}
+\index{Test@{Test}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_a92c2a12d5c64d861f2f9187b88f577b2} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Test (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando de prueba para verificar si el bot está activo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a76ecac4b063f29886e58e5d5d3765d07}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!UseItem@{UseItem}}
+\index{UseItem@{UseItem}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{UseItem()}{UseItem()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_a76ecac4b063f29886e58e5d5d3765d07} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Use\+Item (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{, }\item[{\mbox{[}\+Option("{}\+Item\+Index"{}, "{}\+Index del item a usar."{})\mbox{]} string}]{item\+Index}{, }\item[{\mbox{[}\+Option("{}\+Pokemon\+Name"{}, "{}\+Nombre del pokemon que va a utilizar el item."{})\mbox{]} string}]{pokemon\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para usar un item sobre un pokemon en una sala de batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+{\em item\+Index} & El índice del item que se va a utilizar\+: 
+\begin{DoxyItemize}
+\item Debe ser un índice válido en la lista de items del jugador en turno. 
+\item El item no debe estar agotado. 
+\item Debe tomar valores de 1, 2 o 3. 
+\item En caso de no encontrar la poción o que se halla agotado, envía un mensaje del error. 
+\end{DoxyItemize}\\
+\hline
+{\em pokemon\+Name} & El nombre del pokemon en el cual se utilizará el item\+: 
+\begin{DoxyItemize}
+\item Debe ser uno de los pokemons seleccionados por el jugador al inicio de la batalla. 
+\item El pokemon debe estar vivo para usar las pociones de \doxylink{class_library_1_1_full_heal}{Full\+Heal} y \doxylink{class_library_1_1_super_potion}{Super\+Potion}. En el caso de \doxylink{class_library_1_1_revive}{Revive} debe estar muerto. 
+\item En caso de no encontrar el pokemon, envía un mensaje del error. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+
+Requisitos para la ejecución exitosa del comando\+: 
+\begin{DoxyItemize}
+\item La sala de juego debe existir en el canal donde se ejecutó el comando. 
+\item El juego debe estar en curso, de lo contrario, se notifica que no ha empezado. 
+\item Solo el jugador en turno puede ejecutar el comando, si no es su turno, se le indica que espere. 
+\item Si los parámetros son correctos, el item se aplica al pokemon y se emvía un mensaje de confirmación. 
+\end{DoxyItemize}\Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a4057d0037317f2d4966e54ce3d0635d6}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!WaitList@{WaitList}}
+\index{WaitList@{WaitList}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
+\doxysubsubsection{\texorpdfstring{WaitList()}{WaitList()}}
+{\footnotesize\ttfamily \label{class_library_1_1_discord_bot_1_1_discord_commands_a4057d0037317f2d4966e54ce3d0635d6} 
+async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Wait\+List (\begin{DoxyParamCaption}\item[{Interaction\+Context}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comando para mostrar la lista de jugadores que están esperando una partida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
+\hline
+\end{DoxyParams}
+
+
+Requisitos para la ejecución exitosa del comando\+: 
+\begin{DoxyItemize}
+\item Si existen jugadores en la lista de espera, se envía un mensaje con sus nombres.  
+\item Si no se encuentran jugadores en espera, se envía un mensaje indicando que no hay jugadores esperando una partida.  
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Discord\+Bot/Discord\+Commands.\+cs\end{DoxyCompactItemize}

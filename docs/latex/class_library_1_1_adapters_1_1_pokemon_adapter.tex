@@ -1,0 +1,70 @@
+\doxysection{Library.\+Adapters.\+Pokemon\+Adapter Class Reference}
+\hypertarget{class_library_1_1_adapters_1_1_pokemon_adapter}{}\label{class_library_1_1_adapters_1_1_pokemon_adapter}\index{Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}}
+
+
+Clase para adaptar datos obtenidos de la Poke\+API y convertirlos en instancias de {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. Se utiliza el patrón {\bfseries{Adapter}}.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_library_1_1_adapters_1_1_pokemon_adapter_a530082e4ff7d98c65fa7d0b14539830b}{Pokemon\+Adapter}} (\mbox{\hyperlink{class_library_1_1_services_1_1_poke_api_service}{Poke\+Api\+Service}} poke\+Api\+Service)
+\begin{DoxyCompactList}\small\item\em Constructor para inicializar el servicio de la Poke\+API. \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} $>$ \mbox{\hyperlink{class_library_1_1_adapters_1_1_pokemon_adapter_a9df6df13c5d2b2ad7d8945ff0491df26}{Get\+Pokemon\+Async}} (string pokemon\+Name)
+\begin{DoxyCompactList}\small\item\em Obtiene los datos de un pokemon por su nombre utilizando {\ttfamily Poke\+Api\+Service} y los adapta a un objeto {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase para adaptar datos obtenidos de la Poke\+API y convertirlos en instancias de {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. Se utiliza el patrón {\bfseries{Adapter}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_library_1_1_adapters_1_1_pokemon_adapter_a530082e4ff7d98c65fa7d0b14539830b}\index{Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}!PokemonAdapter@{PokemonAdapter}}
+\index{PokemonAdapter@{PokemonAdapter}!Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}}
+\doxysubsubsection{\texorpdfstring{PokemonAdapter()}{PokemonAdapter()}}
+{\footnotesize\ttfamily \label{class_library_1_1_adapters_1_1_pokemon_adapter_a530082e4ff7d98c65fa7d0b14539830b} 
+Library.\+Adapters.\+Pokemon\+Adapter.\+Pokemon\+Adapter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_services_1_1_poke_api_service}{Poke\+Api\+Service}}}]{poke\+Api\+Service}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor para inicializar el servicio de la Poke\+API. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poke\+Api\+Service} & Servicio de la Poke\+API utilizado para obtener datos de los pokemon.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_adapters_1_1_pokemon_adapter_a9df6df13c5d2b2ad7d8945ff0491df26}\index{Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}!GetPokemonAsync@{GetPokemonAsync}}
+\index{GetPokemonAsync@{GetPokemonAsync}!Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}}
+\doxysubsubsection{\texorpdfstring{GetPokemonAsync()}{GetPokemonAsync()}}
+{\footnotesize\ttfamily \label{class_library_1_1_adapters_1_1_pokemon_adapter_a9df6df13c5d2b2ad7d8945ff0491df26} 
+async Task$<$ \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} $>$ Library.\+Adapters.\+Pokemon\+Adapter.\+Get\+Pokemon\+Async (\begin{DoxyParamCaption}\item[{string}]{pokemon\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene los datos de un pokemon por su nombre utilizando {\ttfamily Poke\+Api\+Service} y los adapta a un objeto {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon\+Name} & Nombre del Pokémon a buscar en la API.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una instancia de {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} con los datos obtenidos, {\ttfamily null} en caso de error o si el pokemon no tiene al menos cuatro {\ttfamily \doxylink{class_library_1_1_move}{Move}}. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Http\+Request\+Exception} & Se lanza si hay problemas al hacer la solicitud HTTP a la Poke\+API.\\
+\hline
+\end{DoxyExceptions}
+
+
+Este método usa propiedades JSON para extraer información sobre los datos necesarios para crear un objeto {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. 
+
+Los {\ttfamily \doxylink{class_library_1_1_move}{Move}} son agregados al pokemon solo si tienen un power y accuary mayor a cero. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Adapters/Pokemon\+Adapter.\+cs\end{DoxyCompactItemize}

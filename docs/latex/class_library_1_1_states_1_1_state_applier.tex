@@ -1,0 +1,43 @@
+\doxysection{Library.\+States.\+State\+Applier Class Reference}
+\hypertarget{class_library_1_1_states_1_1_state_applier}{}\label{class_library_1_1_states_1_1_state_applier}\index{Library.States.StateApplier@{Library.States.StateApplier}}
+
+
+Clase abstracta que aplica efectos de estado a un pokemon a través de la máquina de estados.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_library_1_1_states_1_1_state_applier_abd42a780b57494a118775a6232a211ec}{Apply\+State\+Effect}} (\mbox{\hyperlink{class_library_1_1_states_1_1_state_machine}{State\+Machine}} state\+Machine, \mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Enum\+State}} state)
+\begin{DoxyCompactList}\small\item\em Método estático que aplica un efecto de estado a la máquina de estados de un pokemon según el estado especificado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase abstracta que aplica efectos de estado a un pokemon a través de la máquina de estados. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_states_1_1_state_applier_abd42a780b57494a118775a6232a211ec}\index{Library.States.StateApplier@{Library.States.StateApplier}!ApplyStateEffect@{ApplyStateEffect}}
+\index{ApplyStateEffect@{ApplyStateEffect}!Library.States.StateApplier@{Library.States.StateApplier}}
+\doxysubsubsection{\texorpdfstring{ApplyStateEffect()}{ApplyStateEffect()}}
+{\footnotesize\ttfamily \label{class_library_1_1_states_1_1_state_applier_abd42a780b57494a118775a6232a211ec} 
+static string Library.\+States.\+State\+Applier.\+Apply\+State\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_states_1_1_state_machine}{State\+Machine}}}]{state\+Machine}{, }\item[{\mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Enum\+State}}}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Método estático que aplica un efecto de estado a la máquina de estados de un pokemon según el estado especificado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+Machine} & La máquina de estados que gestiona el estado actual del pokemon.\\
+\hline
+{\em state} & El estado que se desea aplicar al pokemon.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily string} Un mensaje indicando si el estado fue aplicado o si ya existe un estado conflictivo. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+States/State\+Applier.\+cs\end{DoxyCompactItemize}

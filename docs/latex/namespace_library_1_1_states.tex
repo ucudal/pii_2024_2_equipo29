@@ -1,0 +1,70 @@
+\doxysection{Library.\+States Namespace Reference}
+\hypertarget{namespace_library_1_1_states}{}\label{namespace_library_1_1_states}\index{Library.States@{Library.States}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_library_1_1_states_1_1_burn}{Burn}}
+\begin{DoxyCompactList}\small\item\em Clase que representa el estado {\ttfamily \doxylink{class_library_1_1_states_1_1_burn}{Burn}} de un pokemon. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_library_1_1_states_1_1_dic_pokemon_type_states}{Dic\+Pokemon\+Type\+States}}
+\begin{DoxyCompactList}\small\item\em Clase abstracta que contiene un diccionario de estados de los tipos de pokemon. \end{DoxyCompactList}\item 
+interface \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state}{IPokemon\+State}}
+\begin{DoxyCompactList}\small\item\em Define la interfaz para los estados de un Pokémon, especificando los métodos y propiedades comunes para aplicar efectos de estado. Algunos métodos tiene valores por defecto. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_library_1_1_states_1_1_normal}{Normal}}
+\begin{DoxyCompactList}\small\item\em Clase que representa el estado {\ttfamily \doxylink{class_library_1_1_states_1_1_normal}{Normal}} de un pokemon. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze}{Paralyze}}
+\begin{DoxyCompactList}\small\item\em Clase que representa el estado {\ttfamily \doxylink{class_library_1_1_states_1_1_paralyze}{Paralyze}} de un pokemon. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_library_1_1_states_1_1_poison}{Poison}}
+\begin{DoxyCompactList}\small\item\em Clase que representa el estado {\ttfamily \doxylink{class_library_1_1_states_1_1_poison}{Poison}} de un pokemon. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_library_1_1_states_1_1_sleep}{Sleep}}
+\begin{DoxyCompactList}\small\item\em Clase que representa el estado {\ttfamily \doxylink{class_library_1_1_states_1_1_sleep}{Sleep}} de un pokemon. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_library_1_1_states_1_1_state_applier}{State\+Applier}}
+\begin{DoxyCompactList}\small\item\em Clase abstracta que aplica efectos de estado a un pokemon a través de la máquina de estados. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_library_1_1_states_1_1_state_machine}{State\+Machine}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Enum\+State}} \{ \newline
+\mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca960b44c579bc2f6818d2daaf9e4c16f0}{Normal}}
+, \mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca243924bfd56a682be235638b53961e09}{Sleep}}
+, \mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca3a9d1818d0d7f5646e63465baf7d366f}{Poison}}
+, \mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca076b6b639e6ba240307e64a035b8cc18}{Paralyze}}
+, \newline
+\mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca11635778f116ce6922f6068638a39028}{Burn}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum que contiene los posibles estados de un pokemon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}\index{Library.States@{Library.States}!EnumState@{EnumState}}
+\index{EnumState@{EnumState}!Library.States@{Library.States}}
+\doxysubsubsection{\texorpdfstring{EnumState}{EnumState}}
+{\footnotesize\ttfamily \label{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c} 
+enum \mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Library.\+States.\+Enum\+State}}}
+
+
+
+Enum que contiene los posibles estados de un pokemon. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Normal@{Normal}!Library.States@{Library.States}}\index{Library.States@{Library.States}!Normal@{Normal}}}\Hypertarget{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca960b44c579bc2f6818d2daaf9e4c16f0}\label{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c} 
+Normal&Estado normal, sin efectos especiales. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Sleep@{Sleep}!Library.States@{Library.States}}\index{Library.States@{Library.States}!Sleep@{Sleep}}}\Hypertarget{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca243924bfd56a682be235638b53961e09}\label{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c} 
+Sleep&Estado de sueño, el pokemon no puede atacar por cierta cantidad de rondas. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Poison@{Poison}!Library.States@{Library.States}}\index{Library.States@{Library.States}!Poison@{Poison}}}\Hypertarget{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca3a9d1818d0d7f5646e63465baf7d366f}\label{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c} 
+Poison&Estado de envenenamiento, el pokemon pierde 5\% del HP inicial en cada turno. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Paralyze@{Paralyze}!Library.States@{Library.States}}\index{Library.States@{Library.States}!Paralyze@{Paralyze}}}\Hypertarget{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca076b6b639e6ba240307e64a035b8cc18}\label{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c} 
+Paralyze&Estado de parálisis, el pokemon tiene una probabilidad del 50\% de perder su turno. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Burn@{Burn}!Library.States@{Library.States}}\index{Library.States@{Library.States}!Burn@{Burn}}}\Hypertarget{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca11635778f116ce6922f6068638a39028}\label{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c} 
+Burn&Estado de quemadura, el pokemon pierde 10\% del HP inicial en cada turno. \\
+\hline
+
+\end{DoxyEnumFields}

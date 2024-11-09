@@ -1,0 +1,103 @@
+\doxysection{Library.\+States.\+Paralyze Class Reference}
+\hypertarget{class_library_1_1_states_1_1_paralyze}{}\label{class_library_1_1_states_1_1_paralyze}\index{Library.States.Paralyze@{Library.States.Paralyze}}
+
+
+Clase que representa el estado {\ttfamily \doxylink{class_library_1_1_states_1_1_paralyze}{Paralyze}} de un pokemon.  
+
+
+Inheritance diagram for Library.\+States.\+Paralyze\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_states_1_1_paralyze}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_states_1_1_paralyze_a9f4b4daef857eca0ff5df092076f9bfc}\label{class_library_1_1_states_1_1_paralyze_a9f4b4daef857eca0ff5df092076f9bfc} 
+{\bfseries Paralyze} ()
+\begin{DoxyCompactList}\small\item\em Constructor de la clase {\ttfamily \doxylink{class_library_1_1_states_1_1_paralyze}{Paralyze}} que inicializa el nombre del estado como {\ttfamily \doxylink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77ca076b6b639e6ba240307e64a035b8cc18}{Enum\+State.\+Paralyze}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze_a1d309e76f5b3ce56e30b0b87f8188ab6}{Has\+Lost\+Turn}} ()
+\begin{DoxyCompactList}\small\item\em Método que permite saber si se ha perdido un turno de forma aleatoria con un 50\% de probabilidad. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state}{Library.\+States.\+IPokemon\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_adcb14f5df994f3a9ccaf88599ba0377f}{Apply\+Effect}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} current\+Pokemon)
+\begin{DoxyCompactList}\small\item\em Aplica el efecto dependiendo de la clase que se haya aplicado la interfaz. Por defecto, no aplica ningun efecto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_a4cbf654ef9acd429610ad2a78e1c2937}{Get\+Remaining\+Turns\+With\+Effect}} ()
+\begin{DoxyCompactList}\small\item\em Método que devuelve los turnos restantes que estará bajo el efecto el pokemon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_a19ba9aadd3e7ca26f7d3cf0e84fbe8a3}{Can\+Attack}} ()
+\begin{DoxyCompactList}\small\item\em Método que sirve para verificar si el pokemon puede atacar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Enum\+State}} \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze_a9622bc42ecf394cd6c19ead6bd2c1a48}{Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Permite obtener el nombre del estado. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze_a71b8f7baf3ae0b6d3074e33efd8bd32a}{Emoji}} = "{}\textbackslash{}u26a1"{}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un string con un emoji relacionado al estado {\ttfamily \doxylink{class_library_1_1_states_1_1_paralyze}{Paralyze}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state}{Library.\+States.\+IPokemon\+State}}}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa el estado {\ttfamily \doxylink{class_library_1_1_states_1_1_paralyze}{Paralyze}} de un pokemon. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_states_1_1_paralyze_a1d309e76f5b3ce56e30b0b87f8188ab6}\index{Library.States.Paralyze@{Library.States.Paralyze}!HasLostTurn@{HasLostTurn}}
+\index{HasLostTurn@{HasLostTurn}!Library.States.Paralyze@{Library.States.Paralyze}}
+\doxysubsubsection{\texorpdfstring{HasLostTurn()}{HasLostTurn()}}
+{\footnotesize\ttfamily \label{class_library_1_1_states_1_1_paralyze_a1d309e76f5b3ce56e30b0b87f8188ab6} 
+bool Library.\+States.\+Paralyze.\+Has\+Lost\+Turn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Método que permite saber si se ha perdido un turno de forma aleatoria con un 50\% de probabilidad. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily bool} que indica si se perdió el turno. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_a36d3a60e7a7b88abb1191304604fa1ec}{Library.\+States.\+IPokemon\+State}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_library_1_1_states_1_1_paralyze_a71b8f7baf3ae0b6d3074e33efd8bd32a}\index{Library.States.Paralyze@{Library.States.Paralyze}!Emoji@{Emoji}}
+\index{Emoji@{Emoji}!Library.States.Paralyze@{Library.States.Paralyze}}
+\doxysubsubsection{\texorpdfstring{Emoji}{Emoji}}
+{\footnotesize\ttfamily \label{class_library_1_1_states_1_1_paralyze_a71b8f7baf3ae0b6d3074e33efd8bd32a} 
+string Library.\+States.\+Paralyze.\+Emoji = "{}\textbackslash{}u26a1"{}\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Obtiene un string con un emoji relacionado al estado {\ttfamily \doxylink{class_library_1_1_states_1_1_paralyze}{Paralyze}}. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily string} que incluye un emoji relacionado al estado. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_abc00f4aad56756d1d8167a09995590ca}{Library.\+States.\+IPokemon\+State}}.
+
+\Hypertarget{class_library_1_1_states_1_1_paralyze_a9622bc42ecf394cd6c19ead6bd2c1a48}\index{Library.States.Paralyze@{Library.States.Paralyze}!Name@{Name}}
+\index{Name@{Name}!Library.States.Paralyze@{Library.States.Paralyze}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily \label{class_library_1_1_states_1_1_paralyze_a9622bc42ecf394cd6c19ead6bd2c1a48} 
+\mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Enum\+State}} Library.\+States.\+Paralyze.\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Permite obtener el nombre del estado. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily Enum\+State} con el nombre del estado. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_aa00af7bc839753a1dcb53a5a1619143c}{Library.\+States.\+IPokemon\+State}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+States/\+Pokemon\+States/Paralyze.\+cs\end{DoxyCompactItemize}
