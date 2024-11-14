@@ -5,7 +5,7 @@ namespace Library.Services;
 /// <summary>
 /// Proporciona servicios para interactuar con la PokeAPI, permitiendo la obtención de datos de pokemon y movimientos.
 /// </summary>
-public class PokeApiService
+public class PokeApiService : IPokeApiService
 {
     private HttpClient httpClient;
     /// <summary>

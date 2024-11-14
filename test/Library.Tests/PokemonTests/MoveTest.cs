@@ -11,7 +11,7 @@ public class MoveTest
     [SetUp]
     public async Task Setup()
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         
         Pokemon pokemon = await pokemonAdapter.GetPokemonAsync("pikachu");
         move = pokemon.Moves[1];
