@@ -1,16 +1,6 @@
 var searchData=
 [
-  ['accuracy_0',['Accuracy',['../class_library_1_1_move.html#a0f88fd1ef12c99e34c797afa39b0fb93',1,'Library::Move']]],
-  ['addmember_1',['AddMember',['../class_library_1_1_discord_bot_1_1_game_room.html#ad5f81630ffb834381c707147ca01dba0',1,'Library::DiscordBot::GameRoom']]],
-  ['addplayer_2',['AddPlayer',['../class_library_1_1_discord_bot_1_1_discord_commands.html#a66a806e5fe7cde1089743633a2c734ce',1,'Library.DiscordBot.DiscordCommands.AddPlayer()'],['../class_library_1_1_game.html#a1a4681ffb91ec96e0dea7bf374600f3d',1,'Library.Game.AddPlayer()'],['../class_library_1_1_game_commands.html#a856e3820f57f8d02a2c887fb7e68fbba',1,'Library.GameCommands.AddPlayer()']]],
-  ['addpokemon_3',['AddPokemon',['../class_library_1_1_player.html#a695ff4be5d6caa7f583d971732ab6912',1,'Library.Player.AddPokemon()'],['../interface_library_1_1_i_pokemon_manager.html#ad3e1c1aa7d6dffb946906210da62fdae',1,'Library.IPokemonManager.AddPokemon()']]],
-  ['addwaitingplayer_4',['AddWaitingPlayer',['../class_library_1_1_discord_bot_1_1_lobby.html#a3d277b26e0faa04612ae2ec077804903',1,'Library::DiscordBot::Lobby']]],
-  ['allplayershavepokemons_5',['AllPlayersHavePokemons',['../class_library_1_1_game.html#a065957f845c6e824e8b8f3358e26a290',1,'Library::Game']]],
-  ['allplayersready_6',['AllPlayersReady',['../class_library_1_1_game.html#a6b5c3bbdf5920cb20b0ef084ecd1d6f5',1,'Library::Game']]],
-  ['amount_7',['Amount',['../class_library_1_1_full_heal.html#a876c82164cb6a6efca6f7bdc4039f533',1,'Library.FullHeal.Amount'],['../interface_library_1_1_i_item.html#ab94e0e6039de047a2b9ed9bf544953e8',1,'Library.IItem.Amount'],['../class_library_1_1_revive.html#a3e90f0e92674cf80bdf833f88e1f7b15',1,'Library.Revive.Amount'],['../class_library_1_1_super_potion.html#aa56e944e299c87a58296a708f3c55a83',1,'Library.SuperPotion.Amount']]],
-  ['applyeffect_8',['ApplyEffect',['../class_library_1_1_states_1_1_burn.html#a0c34bb9bae3e5fd3a1d0e5d55c20c473',1,'Library.States.Burn.ApplyEffect()'],['../interface_library_1_1_states_1_1_i_pokemon_state.html#adcb14f5df994f3a9ccaf88599ba0377f',1,'Library.States.IPokemonState.ApplyEffect()'],['../class_library_1_1_states_1_1_poison.html#ac8c0f104fb348c16cc629347cbdf3f76',1,'Library.States.Poison.ApplyEffect()'],['../class_library_1_1_states_1_1_sleep.html#a714f899e001149f92ada21e8fd90e91e',1,'Library.States.Sleep.ApplyEffect()'],['../class_library_1_1_states_1_1_state_machine.html#ae0ed8d6f9609910b9712c4849c99967b',1,'Library.States.StateMachine.ApplyEffect()']]],
-  ['applystateeffect_9',['ApplyStateEffect',['../class_library_1_1_states_1_1_state_applier.html#abd42a780b57494a118775a6232a211ec',1,'Library::States::StateApplier']]],
-  ['ataque_20de_20un_20pokémon_10',['Formula de ataque de un Pokémon',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
-  ['attack_11',['Attack',['../class_library_1_1_discord_bot_1_1_discord_commands.html#a9832cad511d0c1e0d36c185aa3c6a079',1,'Library.DiscordBot.DiscordCommands.Attack()'],['../class_library_1_1_game_commands.html#a1cbda79f7568addba07b546eda4334fe',1,'Library.GameCommands.Attack()'],['../class_library_1_1_player.html#a1c399f4ac14fc01b6b655d1622b32453',1,'Library.Player.Attack()'],['../class_library_1_1_pokemon.html#a079a95abd0e5c922c699ae7ba71f7d8f',1,'Library.Pokemon.Attack(Pokemon pokemonEnemy, int moveSlot)']]],
-  ['attackpoints_12',['AttackPoints',['../class_library_1_1_pokemon.html#a672e637e40f1d74ea0d79a45ff195420',1,'Library::Pokemon']]]
+  ['2_20invitar_20el_20bot_20a_20un_20servidor_20de_20discord_0',['2) Invitar el bot a un servidor de discord',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
+  ['2024_20equipo_2029_1',['PII 2024 - Equipo 29',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['29_2',['PII 2024 - Equipo 29',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

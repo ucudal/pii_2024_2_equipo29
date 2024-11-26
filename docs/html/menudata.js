@@ -23,19 +23,19 @@
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
 var menudata={children:[
-{text:"Main Page",url:"index.html"},
-{text:"Related Pages",url:"pages.html"},
-{text:"Namespaces",url:"namespaces.html",children:[
-{text:"Namespace List",url:"namespaces.html"},
-{text:"Namespace Members",url:"namespacemembers.html",children:[
-{text:"All",url:"namespacemembers.html"},
-{text:"Enumerations",url:"namespacemembers_enum.html"}]}]},
-{text:"Classes",url:"annotated.html",children:[
-{text:"Class List",url:"annotated.html"},
-{text:"Class Index",url:"classes.html"},
-{text:"Class Hierarchy",url:"hierarchy.html"},
-{text:"Class Members",url:"functions.html",children:[
-{text:"All",url:"functions.html",children:[
+{text:"Página principal",url:"index.html"},
+{text:"Páginas relacionadas",url:"pages.html"},
+{text:"Espacios de nombres",url:"namespaces.html",children:[
+{text:"Lista de espacios de nombres",url:"namespaces.html"},
+{text:"Miembros del espacio de nombres ",url:"namespacemembers.html",children:[
+{text:"Todos",url:"namespacemembers.html"},
+{text:"Enumeraciones",url:"namespacemembers_enum.html"}]}]},
+{text:"Clases",url:"annotated.html",children:[
+{text:"Lista de clases",url:"annotated.html"},
+{text:"Índice de clases",url:"classes.html"},
+{text:"Jerarquía de clases",url:"hierarchy.html"},
+{text:"Miembros de clases",url:"functions.html",children:[
+{text:"Todos",url:"functions.html",children:[
 {text:"a",url:"functions.html#index_a"},
 {text:"b",url:"functions.html#index_b"},
 {text:"c",url:"functions.html#index_c"},
@@ -53,7 +53,7 @@ var menudata={children:[
 {text:"u",url:"functions.html#index_u"},
 {text:"v",url:"functions.html#index_v"},
 {text:"w",url:"functions.html#index_w"}]},
-{text:"Functions",url:"functions_func.html",children:[
+{text:"Funciones",url:"functions_func.html",children:[
 {text:"a",url:"functions_func.html#index_a"},
 {text:"b",url:"functions_func.html#index_b"},
 {text:"c",url:"functions_func.html#index_c"},
@@ -70,7 +70,7 @@ var menudata={children:[
 {text:"v",url:"functions_func.html#index_v"},
 {text:"w",url:"functions_func.html#index_w"}]},
 {text:"Variables",url:"functions_vars.html"},
-{text:"Properties",url:"functions_prop.html",children:[
+{text:"Propiedades",url:"functions_prop.html",children:[
 {text:"a",url:"functions_prop.html#index_a"},
 {text:"c",url:"functions_prop.html#index_c"},
 {text:"d",url:"functions_prop.html#index_d"},

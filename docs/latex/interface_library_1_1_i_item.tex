@@ -1,34 +1,34 @@
-\doxysection{Library.\+IItem Interface Reference}
+\doxysection{Referencia de la interface Library.\+IItem}
 \hypertarget{interface_library_1_1_i_item}{}\label{interface_library_1_1_i_item}\index{Library.IItem@{Library.IItem}}
 
 
 Interfaz que representa un ítem que puede ser utilizado en un Pokémon.  
 
 
-Inheritance diagram for Library.\+IItem\+:\begin{figure}[H]
+Diagrama de herencia de Library.\+IItem\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{interface_library_1_1_i_item}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 string \mbox{\hyperlink{interface_library_1_1_i_item_aedb199aa3a4098669b337ae9e02b4683}{Use}} (string pokemon\+Name, \mbox{\hyperlink{class_library_1_1_player}{Player}} player)
 \begin{DoxyCompactList}\small\item\em Utiliza el ítem en un pokemon específico. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Properties}
+\doxysubsubsection*{Propiedades}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{interface_library_1_1_i_item_ab94e0e6039de047a2b9ed9bf544953e8}{Amount}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \begin{DoxyCompactList}\small\item\em Obtiene la cantidad de ítems disponibles. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Interfaz que representa un ítem que puede ser utilizado en un Pokémon. 
 
 Esta interfaz define las propiedades y métodos que deben implementar todos los ítems que se pueden usar en el contexto de un juego de Pokémon. 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{interface_library_1_1_i_item_aedb199aa3a4098669b337ae9e02b4683}\index{Library.IItem@{Library.IItem}!Use@{Use}}
 \index{Use@{Use}!Library.IItem@{Library.IItem}}
 \doxysubsubsection{\texorpdfstring{Use()}{Use()}}
@@ -40,22 +40,22 @@ string Library.\+IItem.\+Use (\begin{DoxyParamCaption}\item[{string}]{pokemon\+N
 Utiliza el ítem en un pokemon específico. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em pokemon\+Name} & El nombre del pokemon al que se le aplicará el ítem.\\
 \hline
 {\em player} & El jugador que posee el ítem.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 Un mensaje que indica el resultado de la acción.
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_full_heal_aefffd7f6c132d254fb7466b8d6b3b5c1}{Library.\+Full\+Heal}}, \mbox{\hyperlink{class_library_1_1_revive_a4d19351b099464d14b4994d0d7843731}{Library.\+Revive}}, and \mbox{\hyperlink{class_library_1_1_super_potion_a0e3d69c19bb34b07b6cbc1a55eb9a25a}{Library.\+Super\+Potion}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_full_heal_aefffd7f6c132d254fb7466b8d6b3b5c1}{Library.\+Full\+Heal}}, \mbox{\hyperlink{class_library_1_1_revive_a4d19351b099464d14b4994d0d7843731}{Library.\+Revive}} y \mbox{\hyperlink{class_library_1_1_super_potion_a0e3d69c19bb34b07b6cbc1a55eb9a25a}{Library.\+Super\+Potion}}.
 
 
 
-\doxysubsection{Property Documentation}
+\doxysubsection{Documentación de propiedades}
 \Hypertarget{interface_library_1_1_i_item_ab94e0e6039de047a2b9ed9bf544953e8}\index{Library.IItem@{Library.IItem}!Amount@{Amount}}
 \index{Amount@{Amount}!Library.IItem@{Library.IItem}}
 \doxysubsubsection{\texorpdfstring{Amount}{Amount}}
@@ -68,10 +68,10 @@ Obtiene la cantidad de ítems disponibles.
 
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_full_heal_a876c82164cb6a6efca6f7bdc4039f533}{Library.\+Full\+Heal}}, \mbox{\hyperlink{class_library_1_1_revive_a3e90f0e92674cf80bdf833f88e1f7b15}{Library.\+Revive}}, and \mbox{\hyperlink{class_library_1_1_super_potion_aa56e944e299c87a58296a708f3c55a83}{Library.\+Super\+Potion}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_full_heal_a876c82164cb6a6efca6f7bdc4039f533}{Library.\+Full\+Heal}}, \mbox{\hyperlink{class_library_1_1_revive_a3e90f0e92674cf80bdf833f88e1f7b15}{Library.\+Revive}} y \mbox{\hyperlink{class_library_1_1_super_potion_aa56e944e299c87a58296a708f3c55a83}{Library.\+Super\+Potion}}.
 
 
 
-The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación de esta interface está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+Items/IItem.\+cs\end{DoxyCompactItemize}

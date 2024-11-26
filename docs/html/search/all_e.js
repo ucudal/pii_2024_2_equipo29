@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['realizadas_0',['Consultas realizadas',['../md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
-  ['realizadas_20para_20futuras_20entregas_20no_20está_20el_20código_20en_20github_1',['Pruebas realizadas para futuras entregas (no está el código en github)',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
-  ['remainingturnsincooldown_2',['RemainingTurnsInCoolDown',['../class_library_1_1_move.html#a997e7e69f79de5a031f7434585424ca1',1,'Library::Move']]],
-  ['reset_3',['Reset',['../class_library_1_1_game.html#ad4442af04837ef1a334eb3a22c1ac491',1,'Library::Game']]],
-  ['restart_4',['Restart',['../class_library_1_1_discord_bot_1_1_discord_commands.html#a4355065dd26b75c39e926018bd6fba7a',1,'Library::DiscordBot::DiscordCommands']]],
-  ['restartgame_5',['RestartGame',['../class_library_1_1_game_commands.html#ab19c715865c702a727d5be57ff0ef808',1,'Library::GameCommands']]],
-  ['revive_6',['Revive',['../class_library_1_1_revive.html',1,'Library']]]
+  ['la_20búsqueda_20de_20pokemons_0',['Implementación de una pokédex para la búsqueda de pokemons',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
+  ['library_1',['Library',['../namespace_library.html',1,'']]],
+  ['library_3a_3aadapters_2',['Adapters',['../namespace_library_1_1_adapters.html',1,'Library']]],
+  ['library_3a_3adiscordbot_3',['DiscordBot',['../namespace_library_1_1_discord_bot.html',1,'Library']]],
+  ['library_3a_3aservices_4',['Services',['../namespace_library_1_1_services.html',1,'Library']]],
+  ['library_3a_3astates_5',['States',['../namespace_library_1_1_states.html',1,'Library']]],
+  ['library_3a_3atests_6',['Tests',['../namespace_library_1_1_tests.html',1,'Library']]],
+  ['library_3a_3atests_3a_3agame_7',['Game',['../namespace_library_1_1_tests_1_1_game.html',1,'Library::Tests']]],
+  ['library_3a_3atests_3a_3apokemonstatestests_8',['PokemonStatesTests',['../namespace_library_1_1_tests_1_1_pokemon_states_tests.html',1,'Library::Tests']]],
+  ['library_3a_3atests_3a_3apokemontest_9',['PokemonTest',['../namespace_library_1_1_tests_1_1_pokemon_test.html',1,'Library::Tests']]],
+  ['library_3a_3atests_3a_3auserstoriestests_10',['UserStoriesTests',['../namespace_library_1_1_tests_1_1_user_stories_tests.html',1,'Library::Tests']]],
+  ['lobby_11',['Lobby',['../class_library_1_1_discord_bot_1_1_lobby.html',1,'Library::DiscordBot']]]
 ];

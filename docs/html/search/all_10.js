@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['test_0',['Test',['../class_library_1_1_discord_bot_1_1_discord_commands.html#a92c2a12d5c64d861f2f9187b88f577b2',1,'Library::DiscordBot::DiscordCommands']]],
-  ['tests_1',['Tests',['../class_library_1_1_tests_1_1_tests.html',1,'Library::Tests']]],
-  ['token_20para_20el_20bot_20de_20discord_2',['Token para el bot de discord',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]],
-  ['toogleturn_3',['ToogleTurn',['../class_library_1_1_game.html#a7d49e773cf01a22ab5c758fc7762dee2',1,'Library::Game']]],
-  ['trytostartgame_4',['TryToStartGame',['../class_library_1_1_discord_bot_1_1_lobby.html#ab703ab8659cfe6d64152620b6b001c22',1,'Library::DiscordBot::Lobby']]],
-  ['type_5',['Type',['../class_library_1_1_type.html',1,'Library.Type'],['../class_library_1_1_move.html#a469dc7a6cde2d1b0240c4c07b201372d',1,'Library.Move.Type']]],
-  ['types_6',['Types',['../class_library_1_1_pokemon.html#ab1ffac72b02bd6e2228c585852f9a542',1,'Library::Pokemon']]]
+  ['name_0',['Name',['../class_library_1_1_player.html#aecafe46b465d7340dbcd7a4c31f44f88',1,'Library.Player.Name'],['../interface_library_1_1_i_pokemon_manager.html#a2719d88762c867eb0e5cdefe93549a99',1,'Library.IPokemonManager.Name'],['../class_library_1_1_move.html#a6711551d805dce4c140de556ae5022f0',1,'Library.Move.Name'],['../class_library_1_1_pokemon.html#a68c19b133602cf71110cb160e443aa15',1,'Library.Pokemon.Name'],['../class_library_1_1_type.html#a15c5b8e04fa6f9280da19cb78b7bff5a',1,'Library.Type.Name'],['../class_library_1_1_states_1_1_burn.html#ace37d068f80a4df9419582d7f7f9387a',1,'Library.States.Burn.Name'],['../interface_library_1_1_states_1_1_i_pokemon_state.html#aa00af7bc839753a1dcb53a5a1619143c',1,'Library.States.IPokemonState.Name'],['../class_library_1_1_states_1_1_normal.html#a3786e7679191058315f1eb2ac51bf4cb',1,'Library.States.Normal.Name'],['../class_library_1_1_states_1_1_paralyze.html#a9622bc42ecf394cd6c19ead6bd2c1a48',1,'Library.States.Paralyze.Name'],['../class_library_1_1_states_1_1_poison.html#afb82d53694696a13e5a47d3e9d7b9686',1,'Library.States.Poison.Name'],['../class_library_1_1_states_1_1_sleep.html#ac0e3efb54a7c3c0728681911fd14f191',1,'Library.States.Sleep.Name']]],
+  ['nextturn_1',['NextTurn',['../class_library_1_1_discord_bot_1_1_discord_commands.html#adfd4d25f337e6129398e66ac3feff44c',1,'Library.DiscordBot.DiscordCommands.NextTurn()'],['../class_library_1_1_game_commands.html#ae39bdbdefb1fdeb5b6e61f96ffec7947',1,'Library.GameCommands.NextTurn()']]],
+  ['normal_2',['Normal',['../class_library_1_1_states_1_1_normal.html',1,'Library.States.Normal'],['../class_library_1_1_states_1_1_normal.html#adde730002cf75e161b3bdb903378ec7f',1,'Library.States.Normal.Normal()'],['../namespace_library_1_1_states.html#af6dc85f954b7dacd8ee74f6cd6ede77ca960b44c579bc2f6818d2daaf9e4c16f0',1,'Library.States.Normal']]],
+  ['normaltest_3',['NormalTest',['../class_library_1_1_tests_1_1_pokemon_states_tests_1_1_normal_test.html',1,'Library::Tests::PokemonStatesTests']]],
+  ['notas_4',['Notas',['../md__r_e_a_d_m_e.html#autotoc_md15',1,'']]],
+  ['notas_20del_20bot_5',['Notas del bot',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]]
 ];

@@ -1,29 +1,29 @@
-\doxysection{Library.\+ICalculate Interface Reference}
+\doxysection{Referencia de la interface Library.\+ICalculate}
 \hypertarget{interface_library_1_1_i_calculate}{}\label{interface_library_1_1_i_calculate}\index{Library.ICalculate@{Library.ICalculate}}
 
 
 Define la interfaz para calcular el daño en un combate entre pokemon.  
 
 
-Inheritance diagram for Library.\+ICalculate\+:\begin{figure}[H]
+Diagrama de herencia de Library.\+ICalculate\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{interface_library_1_1_i_calculate}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{interface_library_1_1_i_calculate_a6e99e6d9e9282965e23b5e9831cf8396}{Calculate\+Damage}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} attacker, \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} defender, \mbox{\hyperlink{class_library_1_1_move}{Move}} move, out int damage)
 \begin{DoxyCompactList}\small\item\em Calcula el daño infligido por un pokemon atacante a un pokemon defensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Define la interfaz para calcular el daño en un combate entre pokemon. 
 
 Esta interfaz proporciona un método para calcular el daño que un pokemon atacante inflige a un pokemon defensor utilizando un movimiento específico. 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{interface_library_1_1_i_calculate_a6e99e6d9e9282965e23b5e9831cf8396}\index{Library.ICalculate@{Library.ICalculate}!CalculateDamage@{CalculateDamage}}
 \index{CalculateDamage@{CalculateDamage}!Library.ICalculate@{Library.ICalculate}}
 \doxysubsubsection{\texorpdfstring{CalculateDamage()}{CalculateDamage()}}
@@ -35,7 +35,7 @@ bool Library.\+ICalculate.\+Calculate\+Damage (\begin{DoxyParamCaption}\item[{\m
 Calcula el daño infligido por un pokemon atacante a un pokemon defensor. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em attacker} & El pokemon que realiza el ataque.\\
 \hline
 {\em defender} & El pokemon que recibe el ataque.\\
@@ -45,15 +45,15 @@ Calcula el daño infligido por un pokemon atacante a un pokemon defensor.
 {\em damage} & El daño calculado que se infligirá al defensor (salida).\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 True si se ha realizado un golpe crítico; de lo contrario, false.
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_calculate_a19eb9d985d25db6d474b443346ab3272}{Library.\+Calculate}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_calculate_a19eb9d985d25db6d474b443346ab3272}{Library.\+Calculate}}.
 
 
 
-The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación de esta interface está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+Pokemon/ICalculate.\+cs\end{DoxyCompactItemize}

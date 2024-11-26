@@ -1,17 +1,17 @@
-\doxysection{Library.\+IPokemon\+Manager Interface Reference}
+\doxysection{Referencia de la interface Library.\+IPokemon\+Manager}
 \hypertarget{interface_library_1_1_i_pokemon_manager}{}\label{interface_library_1_1_i_pokemon_manager}\index{Library.IPokemonManager@{Library.IPokemonManager}}
 
 
 Define la interfaz para gestionar pokemon.  
 
 
-Inheritance diagram for Library.\+IPokemon\+Manager\+:\begin{figure}[H]
+Diagrama de herencia de Library.\+IPokemon\+Manager\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{interface_library_1_1_i_pokemon_manager}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_ad3e1c1aa7d6dffb946906210da62fdae}{Add\+Pokemon}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
@@ -20,7 +20,7 @@ void \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_a5191ef2796c0d1639
 \begin{DoxyCompactList}\small\item\em Cambia el pokemon actual por uno nuevo. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_ac4d9d7c0b32b13db5c4487cce393595f}{Get\+Next\+Pokemon}} ()
 \begin{DoxyCompactList}\small\item\em Obtiene el siguiente pokemon en la lista de pokemon. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Properties}
+\doxysubsubsection*{Propiedades}
 \begin{DoxyCompactItemize}
 \item 
 string \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_a2719d88762c867eb0e5cdefe93549a99}{Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
@@ -29,12 +29,12 @@ string \mbox{\hyperlink{interface_library_1_1_i_pokemon_manager_a2719d88762c867e
 \begin{DoxyCompactList}\small\item\em Obtiene el pokemon actual que está siendo gestionado. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Define la interfaz para gestionar pokemon. 
 
 Esta interfaz proporciona métodos para agregar, cambiar y obtener pokemon. 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{interface_library_1_1_i_pokemon_manager_ad3e1c1aa7d6dffb946906210da62fdae}\index{Library.IPokemonManager@{Library.IPokemonManager}!AddPokemon@{AddPokemon}}
 \index{AddPokemon@{AddPokemon}!Library.IPokemonManager@{Library.IPokemonManager}}
 \doxysubsubsection{\texorpdfstring{AddPokemon()}{AddPokemon()}}
@@ -46,13 +46,13 @@ void Library.\+IPokemon\+Manager.\+Add\+Pokemon (\begin{DoxyParamCaption}\item[{
 Agrega un nuevo pokemon al gestor. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em pokemon} & El pokemon que se va a agregar.\\
 \hline
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_player_a695ff4be5d6caa7f583d971732ab6912}{Library.\+Player}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_player_a695ff4be5d6caa7f583d971732ab6912}{Library.\+Player}}.
 
 \Hypertarget{interface_library_1_1_i_pokemon_manager_a5191ef2796c0d16390c7bec328d64c58}\index{Library.IPokemonManager@{Library.IPokemonManager}!ChangePokemon@{ChangePokemon}}
 \index{ChangePokemon@{ChangePokemon}!Library.IPokemonManager@{Library.IPokemonManager}}
@@ -65,13 +65,13 @@ void Library.\+IPokemon\+Manager.\+Change\+Pokemon (\begin{DoxyParamCaption}\ite
 Cambia el pokemon actual por uno nuevo. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em pokemon} & El nuevo pokemon que se va a establecer como actual.\\
 \hline
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_player_a95a1c86533839ad9d02d9d59d76121d9}{Library.\+Player}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_player_a95a1c86533839ad9d02d9d59d76121d9}{Library.\+Player}}.
 
 \Hypertarget{interface_library_1_1_i_pokemon_manager_ac4d9d7c0b32b13db5c4487cce393595f}\index{Library.IPokemonManager@{Library.IPokemonManager}!GetNextPokemon@{GetNextPokemon}}
 \index{GetNextPokemon@{GetNextPokemon}!Library.IPokemonManager@{Library.IPokemonManager}}
@@ -83,16 +83,16 @@ Implemented in \mbox{\hyperlink{class_library_1_1_player_a95a1c86533839ad9d02d9d
 
 Obtiene el siguiente pokemon en la lista de pokemon. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 El siguiente pokemon disponible.
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_player_ab0616576b4cc680dd72c415a48b7fe4a}{Library.\+Player}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_player_ab0616576b4cc680dd72c415a48b7fe4a}{Library.\+Player}}.
 
 
 
-\doxysubsection{Property Documentation}
+\doxysubsection{Documentación de propiedades}
 \Hypertarget{interface_library_1_1_i_pokemon_manager_a010b0e30a4cbaa364317c0c97c7925f5}\index{Library.IPokemonManager@{Library.IPokemonManager}!CurrentPokemon@{CurrentPokemon}}
 \index{CurrentPokemon@{CurrentPokemon}!Library.IPokemonManager@{Library.IPokemonManager}}
 \doxysubsubsection{\texorpdfstring{CurrentPokemon}{CurrentPokemon}}
@@ -105,7 +105,7 @@ Obtiene el pokemon actual que está siendo gestionado.
 
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_player_a1425a329445fd9b8b8acbd6b25198c0f}{Library.\+Player}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_player_a1425a329445fd9b8b8acbd6b25198c0f}{Library.\+Player}}.
 
 \Hypertarget{interface_library_1_1_i_pokemon_manager_a2719d88762c867eb0e5cdefe93549a99}\index{Library.IPokemonManager@{Library.IPokemonManager}!Name@{Name}}
 \index{Name@{Name}!Library.IPokemonManager@{Library.IPokemonManager}}
@@ -119,10 +119,10 @@ Obtiene el nombre del gestor de pokemon.
 
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_player_aecafe46b465d7340dbcd7a4c31f44f88}{Library.\+Player}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_player_aecafe46b465d7340dbcd7a4c31f44f88}{Library.\+Player}}.
 
 
 
-The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación de esta interface está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+Pokemon/IPokemon\+Manager.\+cs\end{DoxyCompactItemize}

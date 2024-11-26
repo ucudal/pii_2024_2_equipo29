@@ -1,19 +1,17 @@
 var searchData=
 [
-  ['de_20ataque_20de_20un_20pokémon_0',['Formula de ataque de un Pokémon',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
-  ['de_20discord_1',['Token para el bot de discord',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]],
-  ['de_20diseño_20utilizados_2',['Patrones de diseño utilizados',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]],
-  ['de_20pokemons_3',['Implementación de una pokédex para la búsqueda de pokemons',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
-  ['de_20un_20pokémon_4',['Formula de ataque de un Pokémon',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
-  ['de_20una_20pokédex_20para_20la_20búsqueda_20de_20pokemons_5',['Implementación de una pokédex para la búsqueda de pokemons',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
-  ['defensepoints_6',['DefensePoints',['../class_library_1_1_pokemon.html#a730c3b3b94c4d2e9d1e84a2dfa4f5042',1,'Library::Pokemon']]],
-  ['del_20equipo_7',['Integrantes del equipo',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
-  ['del_20uruguay_8',['Universidad Católica del Uruguay',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
-  ['deleteroom_9',['DeleteRoom',['../class_library_1_1_discord_bot_1_1_game_room.html#a5feca4bd4734222678029f74cc778221',1,'Library::DiscordBot::GameRoom']]],
-  ['dicpokemontypestates_10',['DicPokemonTypeStates',['../class_library_1_1_states_1_1_dic_pokemon_type_states.html',1,'Library::States']]],
-  ['dictypeeffectivity_11',['DicTypeEffectivity',['../class_library_1_1_dic_type_effectivity.html',1,'Library']]],
-  ['discord_12',['Token para el bot de discord',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]],
-  ['discordbot_13',['DiscordBot',['../class_library_1_1_discord_bot_1_1_discord_bot.html',1,'Library::DiscordBot']]],
-  ['discordcommands_14',['DiscordCommands',['../class_library_1_1_discord_bot_1_1_discord_commands.html',1,'Library::DiscordBot']]],
-  ['diseño_20utilizados_15',['Patrones de diseño utilizados',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]]
+  ['a_20un_20servidor_20de_20discord_0',['2) Invitar el bot a un servidor de discord',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
+  ['accuracy_1',['Accuracy',['../class_library_1_1_move.html#a0f88fd1ef12c99e34c797afa39b0fb93',1,'Library::Move']]],
+  ['addmember_2',['AddMember',['../class_library_1_1_discord_bot_1_1_game_room.html#ad5f81630ffb834381c707147ca01dba0',1,'Library::DiscordBot::GameRoom']]],
+  ['addplayer_3',['AddPlayer',['../class_library_1_1_discord_bot_1_1_discord_commands.html#a66a806e5fe7cde1089743633a2c734ce',1,'Library.DiscordBot.DiscordCommands.AddPlayer()'],['../class_library_1_1_game.html#a1a4681ffb91ec96e0dea7bf374600f3d',1,'Library.Game.AddPlayer()'],['../class_library_1_1_game_commands.html#a856e3820f57f8d02a2c887fb7e68fbba',1,'Library.GameCommands.AddPlayer()']]],
+  ['addpokemon_4',['AddPokemon',['../class_library_1_1_player.html#a695ff4be5d6caa7f583d971732ab6912',1,'Library.Player.AddPokemon()'],['../interface_library_1_1_i_pokemon_manager.html#ad3e1c1aa7d6dffb946906210da62fdae',1,'Library.IPokemonManager.AddPokemon()']]],
+  ['addwaitingplayer_5',['AddWaitingPlayer',['../class_library_1_1_discord_bot_1_1_lobby.html#a3d277b26e0faa04612ae2ec077804903',1,'Library::DiscordBot::Lobby']]],
+  ['allplayershavepokemons_6',['AllPlayersHavePokemons',['../class_library_1_1_game.html#a065957f845c6e824e8b8f3358e26a290',1,'Library::Game']]],
+  ['allplayersready_7',['AllPlayersReady',['../class_library_1_1_game.html#a6b5c3bbdf5920cb20b0ef084ecd1d6f5',1,'Library::Game']]],
+  ['amount_8',['Amount',['../class_library_1_1_full_heal.html#a876c82164cb6a6efca6f7bdc4039f533',1,'Library.FullHeal.Amount'],['../interface_library_1_1_i_item.html#ab94e0e6039de047a2b9ed9bf544953e8',1,'Library.IItem.Amount'],['../class_library_1_1_revive.html#a3e90f0e92674cf80bdf833f88e1f7b15',1,'Library.Revive.Amount'],['../class_library_1_1_super_potion.html#aa56e944e299c87a58296a708f3c55a83',1,'Library.SuperPotion.Amount']]],
+  ['applyeffect_9',['ApplyEffect',['../class_library_1_1_states_1_1_burn.html#a0c34bb9bae3e5fd3a1d0e5d55c20c473',1,'Library.States.Burn.ApplyEffect()'],['../interface_library_1_1_states_1_1_i_pokemon_state.html#adcb14f5df994f3a9ccaf88599ba0377f',1,'Library.States.IPokemonState.ApplyEffect()'],['../class_library_1_1_states_1_1_poison.html#ac8c0f104fb348c16cc629347cbdf3f76',1,'Library.States.Poison.ApplyEffect()'],['../class_library_1_1_states_1_1_sleep.html#a714f899e001149f92ada21e8fd90e91e',1,'Library.States.Sleep.ApplyEffect()'],['../class_library_1_1_states_1_1_state_machine.html#ae0ed8d6f9609910b9712c4849c99967b',1,'Library.States.StateMachine.ApplyEffect()']]],
+  ['applystateeffect_10',['ApplyStateEffect',['../class_library_1_1_states_1_1_state_applier.html#abd42a780b57494a118775a6232a211ec',1,'Library::States::StateApplier']]],
+  ['ataque_20de_20un_20pokemon_11',['Formula de ataque de un Pokemon',['../md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
+  ['attack_12',['Attack',['../class_library_1_1_discord_bot_1_1_discord_commands.html#a9832cad511d0c1e0d36c185aa3c6a079',1,'Library.DiscordBot.DiscordCommands.Attack()'],['../class_library_1_1_game_commands.html#a1cbda79f7568addba07b546eda4334fe',1,'Library.GameCommands.Attack()'],['../class_library_1_1_player.html#a1c399f4ac14fc01b6b655d1622b32453',1,'Library.Player.Attack()'],['../class_library_1_1_pokemon.html#a079a95abd0e5c922c699ae7ba71f7d8f',1,'Library.Pokemon.Attack(Pokemon pokemonEnemy, int moveSlot)']]],
+  ['attackpoints_13',['AttackPoints',['../class_library_1_1_pokemon.html#a672e637e40f1d74ea0d79a45ff195420',1,'Library::Pokemon']]]
 ];

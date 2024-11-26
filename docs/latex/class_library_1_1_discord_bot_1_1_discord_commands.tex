@@ -1,17 +1,17 @@
-\doxysection{Library.\+Discord\+Bot.\+Discord\+Commands Class Reference}
+\doxysection{Referencia de la clase Library.\+Discord\+Bot.\+Discord\+Commands}
 \hypertarget{class_library_1_1_discord_bot_1_1_discord_commands}{}\label{class_library_1_1_discord_bot_1_1_discord_commands}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
 
 
 Clase para la creación de comandos del bot de discord utilizada en {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_discord_bot}{Discord\+Bot}}.  
 
 
-Inheritance diagram for Library.\+Discord\+Bot.\+Discord\+Commands\+:\begin{figure}[H]
+Diagrama de herencia de Library.\+Discord\+Bot.\+Discord\+Commands\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_library_1_1_discord_bot_1_1_discord_commands}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a92c2a12d5c64d861f2f9187b88f577b2}{Test}} (Interaction\+Context context)
@@ -44,10 +44,10 @@ async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_discord_commands_a
 \begin{DoxyCompactList}\small\item\em Muestra una descripición de la utilidad de cada item. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Clase para la creación de comandos del bot de discord utilizada en {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_discord_bot}{Discord\+Bot}}. 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{class_library_1_1_discord_bot_1_1_discord_commands_a66a806e5fe7cde1089743633a2c734ce}\index{Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}!AddPlayer@{AddPlayer}}
 \index{AddPlayer@{AddPlayer}!Library.DiscordBot.DiscordCommands@{Library.DiscordBot.DiscordCommands}}
 \doxysubsubsection{\texorpdfstring{AddPlayer()}{AddPlayer()}}
@@ -59,7 +59,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Add\+Player (\begin{Doxy
 Comando que permite agregar jugadores a la sala de espera utilizando {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}}. Intenta iniciar una partida cada vez que es ejecutado. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 \end{DoxyParams}
@@ -76,7 +76,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Attack (\begin{DoxyParam
 Comando para atacar a un pokemon enemigo durante una batalla. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 {\em move\+Slot} & Número que indica el movimiento a utilizar. Se debe enviar el valor 1, 2, 3 o 4. 
@@ -104,7 +104,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Change\+Pokemon (\begin{
 Comando para cambiar el pokemon seleccionado durante la batalla. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 {\em pokemon\+Name} & Nombre del pokemon a cambiar\+: 
@@ -131,7 +131,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Choose\+Pokemon (\begin{
 Comando para elegir un pokemon en la sala de batalla. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 {\em pokemon\+Name} & Nombre del pokemon a elegir. 
@@ -167,7 +167,7 @@ Comando para eliminar todas las salas de las partidas en curso.
 -\/-\/-\/\texorpdfstring{$>$}{>} ESTO SERÁ AUTOMATIZADO PARA LA PROXIMA ENTREGA.
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 \end{DoxyParams}
@@ -186,7 +186,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Next\+Turn (\begin{DoxyP
 Comando para cambiar el turno de la partida. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 \end{DoxyParams}
@@ -219,7 +219,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Restart (\begin{DoxyPara
 Comando para resetear la partida en una sala de batalla. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 \end{DoxyParams}
@@ -241,7 +241,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Show\+Catalogue (\begin{
 Muestra un link al catálogo de pokemons permitidos en el juego. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando.\\
 \hline
 \end{DoxyParams}
@@ -256,7 +256,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Show\+Items (\begin{Doxy
 Muestra una descripición de la utilidad de cada item. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 \end{DoxyParams}
@@ -271,7 +271,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Show\+Pokemons (\begin{D
 Comando para mostrar los pokemons aliados y rivales en una sala de batalla. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 \end{DoxyParams}
@@ -293,7 +293,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Start\+Game (\begin{Doxy
 Comando para iniciar la partida en una sala de batalla. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 \end{DoxyParams}
@@ -324,7 +324,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Test (\begin{DoxyParamCa
 Comando de prueba para verificar si el bot está activo. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando.\\
 \hline
 \end{DoxyParams}
@@ -339,7 +339,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Use\+Item (\begin{DoxyPa
 Comando para usar un item sobre un pokemon en una sala de batalla. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 {\em item\+Index} & El índice del item que se va a utilizar\+: 
@@ -377,7 +377,7 @@ async Task Library.\+Discord\+Bot.\+Discord\+Commands.\+Wait\+List (\begin{DoxyP
 Comando para mostrar la lista de jugadores que están esperando una partida. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto del usuario y el lugar donde fue utilizado el comando. \\
 \hline
 \end{DoxyParams}
@@ -389,6 +389,6 @@ Requisitos para la ejecución exitosa del comando\+:
 \item Si no se encuentran jugadores en espera, se envía un mensaje indicando que no hay jugadores esperando una partida.  
 \end{DoxyItemize}
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+Discord\+Bot/Discord\+Commands.\+cs\end{DoxyCompactItemize}

@@ -1,8 +1,21 @@
 var searchData=
 [
-  ['name_0',['Name',['../class_library_1_1_player.html#aecafe46b465d7340dbcd7a4c31f44f88',1,'Library.Player.Name'],['../interface_library_1_1_i_pokemon_manager.html#a2719d88762c867eb0e5cdefe93549a99',1,'Library.IPokemonManager.Name'],['../class_library_1_1_move.html#a6711551d805dce4c140de556ae5022f0',1,'Library.Move.Name'],['../class_library_1_1_pokemon.html#a68c19b133602cf71110cb160e443aa15',1,'Library.Pokemon.Name'],['../class_library_1_1_type.html#a15c5b8e04fa6f9280da19cb78b7bff5a',1,'Library.Type.Name'],['../class_library_1_1_states_1_1_burn.html#ace37d068f80a4df9419582d7f7f9387a',1,'Library.States.Burn.Name'],['../interface_library_1_1_states_1_1_i_pokemon_state.html#aa00af7bc839753a1dcb53a5a1619143c',1,'Library.States.IPokemonState.Name'],['../class_library_1_1_states_1_1_normal.html#a3786e7679191058315f1eb2ac51bf4cb',1,'Library.States.Normal.Name'],['../class_library_1_1_states_1_1_paralyze.html#a9622bc42ecf394cd6c19ead6bd2c1a48',1,'Library.States.Paralyze.Name'],['../class_library_1_1_states_1_1_poison.html#afb82d53694696a13e5a47d3e9d7b9686',1,'Library.States.Poison.Name'],['../class_library_1_1_states_1_1_sleep.html#ac0e3efb54a7c3c0728681911fd14f191',1,'Library.States.Sleep.Name']]],
-  ['nextturn_1',['NextTurn',['../class_library_1_1_discord_bot_1_1_discord_commands.html#adfd4d25f337e6129398e66ac3feff44c',1,'Library.DiscordBot.DiscordCommands.NextTurn()'],['../class_library_1_1_game_commands.html#ae39bdbdefb1fdeb5b6e61f96ffec7947',1,'Library.GameCommands.NextTurn()']]],
-  ['no_20está_20el_20código_20en_20github_2',['Pruebas realizadas para futuras entregas (no está el código en github)',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
-  ['normal_3',['Normal',['../class_library_1_1_states_1_1_normal.html',1,'Library.States.Normal'],['../class_library_1_1_states_1_1_normal.html#adde730002cf75e161b3bdb903378ec7f',1,'Library.States.Normal.Normal()'],['../namespace_library_1_1_states.html#af6dc85f954b7dacd8ee74f6cd6ede77ca960b44c579bc2f6818d2daaf9e4c16f0',1,'Library.States.Normal']]],
-  ['notas_4',['Notas',['../md__r_e_a_d_m_e.html#autotoc_md12',1,'']]]
+  ['icalculate_0',['ICalculate',['../interface_library_1_1_i_calculate.html',1,'Library']]],
+  ['id_1',['Id',['../class_library_1_1_discord_bot_1_1_game_room.html#a822f95b233996497daf1a8a70a060c7d',1,'Library::DiscordBot::GameRoom']]],
+  ['iitem_2',['IItem',['../interface_library_1_1_i_item.html',1,'Library']]],
+  ['imgurl_3',['ImgUrl',['../class_library_1_1_pokemon.html#aa2be54866e5edf8133e7847d24dac131',1,'Library::Pokemon']]],
+  ['implementación_20de_20una_20pokédex_20para_20la_20búsqueda_20de_20pokemons_4',['Implementación de una pokédex para la búsqueda de pokemons',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
+  ['iniciate_5',['Iniciate',['../class_library_1_1_discord_bot_1_1_discord_bot.html#a339bbac804f4abdf4fc9518d7435df1c',1,'Library::DiscordBot::DiscordBot']]],
+  ['initialhp_6',['InitialHp',['../class_library_1_1_pokemon.html#aff6fa5d88d5e1375e38b69101ebf79af',1,'Library::Pokemon']]],
+  ['integrantes_20del_20equipo_7',['Integrantes del equipo',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
+  ['invitar_20el_20bot_20a_20un_20servidor_20de_20discord_8',['2) Invitar el bot a un servidor de discord',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
+  ['ipokeapiservice_9',['IPokeApiService',['../interface_library_1_1_services_1_1_i_poke_api_service.html',1,'Library::Services']]],
+  ['ipokemonadapter_10',['IPokemonAdapter',['../interface_library_1_1_adapters_1_1_i_pokemon_adapter.html',1,'Library::Adapters']]],
+  ['ipokemonmanager_11',['IPokemonManager',['../interface_library_1_1_i_pokemon_manager.html',1,'Library']]],
+  ['ipokemonstate_12',['IPokemonState',['../interface_library_1_1_states_1_1_i_pokemon_state.html',1,'Library::States']]],
+  ['isdead_13',['IsDead',['../class_library_1_1_pokemon.html#a39ed33521a459373308e8b37b009be63',1,'Library::Pokemon']]],
+  ['isfullplayers_14',['IsFullPlayers',['../class_library_1_1_game.html#aa7e8a357fc10f852ece64ef55687a13d',1,'Library::Game']]],
+  ['isplayernameinturn_15',['IsPlayerNameInTurn',['../class_library_1_1_game.html#a6d2393ad57fb8114f5556aa3934b0aad',1,'Library::Game']]],
+  ['isspecialmove_16',['IsSpecialMove',['../class_library_1_1_move.html#af3eb9fee79b86034fe02ddebdf24fe47',1,'Library::Move']]],
+  ['items_17',['Items',['../class_library_1_1_player.html#a6e4a61a087913f88b6cd6d957343eb7d',1,'Library::Player']]]
 ];
