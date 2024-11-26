@@ -57,7 +57,7 @@ public class GameCommands
                     if (pokemon != null!)
                     {
                         player.AddPokemon(pokemon);
-                        msg += $"**{pokemonName.ToUpper()}** ha sido agregado al equipo de **{player.Name.ToUpper()}**  ***({player.pokemonsCount}/{Player.MaxPokemons})***";
+                        msg += $"**{pokemon.Name.ToUpper()}** ha sido agregado al equipo de **{player.Name.ToUpper()}**  ***({player.pokemonsCount}/{Player.MaxPokemons})***";
                         imgUrl = pokemon.ImgUrl;
                         
                         if (!GameHasStarted() && game.AllPlayersReady())
