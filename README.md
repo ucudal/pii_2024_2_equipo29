@@ -95,4 +95,4 @@ Dependiendo del estado que tenga el `Pokemon` va actuar de forma distinta al lla
 
 # Notas
 - EL diagrama **UML**, las tarjetas **CRC** y la documentación generada por doxygen están dentro de la carpeta **Docs**.
-- El UML fue creado utilizando código mermaid. Para la última entrega se va a tratar de mejorar la disposición de elementos.
+- El UML fue creado utilizando código mermaid.
