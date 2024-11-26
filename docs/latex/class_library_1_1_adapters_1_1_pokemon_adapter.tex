@@ -1,41 +1,48 @@
-\doxysection{Library.\+Adapters.\+Pokemon\+Adapter Class Reference}
+\doxysection{Referencia de la clase Library.\+Adapters.\+Pokemon\+Adapter}
 \hypertarget{class_library_1_1_adapters_1_1_pokemon_adapter}{}\label{class_library_1_1_adapters_1_1_pokemon_adapter}\index{Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}}
 
 
 Clase para adaptar datos obtenidos de la Poke\+API y convertirlos en instancias de {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. Se utiliza el patrón {\bfseries{Adapter}}.  
 
 
-\doxysubsubsection*{Public Member Functions}
+Diagrama de herencia de Library.\+Adapters.\+Pokemon\+Adapter\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_adapters_1_1_pokemon_adapter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_library_1_1_adapters_1_1_pokemon_adapter_a530082e4ff7d98c65fa7d0b14539830b}{Pokemon\+Adapter}} (\mbox{\hyperlink{class_library_1_1_services_1_1_poke_api_service}{Poke\+Api\+Service}} poke\+Api\+Service)
+\mbox{\hyperlink{class_library_1_1_adapters_1_1_pokemon_adapter_abb45700741dd37b389a61d9aae2835a8}{Pokemon\+Adapter}} (\mbox{\hyperlink{interface_library_1_1_services_1_1_i_poke_api_service}{IPoke\+Api\+Service}} poke\+Api\+Service)
 \begin{DoxyCompactList}\small\item\em Constructor para inicializar el servicio de la Poke\+API. \end{DoxyCompactList}\item 
 async Task$<$ \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} $>$ \mbox{\hyperlink{class_library_1_1_adapters_1_1_pokemon_adapter_a9df6df13c5d2b2ad7d8945ff0491df26}{Get\+Pokemon\+Async}} (string pokemon\+Name)
 \begin{DoxyCompactList}\small\item\em Obtiene los datos de un pokemon por su nombre utilizando {\ttfamily Poke\+Api\+Service} y los adapta a un objeto {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos heredados de \mbox{\hyperlink{interface_library_1_1_adapters_1_1_i_pokemon_adapter}{Library.\+Adapters.\+IPokemon\+Adapter}}}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Clase para adaptar datos obtenidos de la Poke\+API y convertirlos en instancias de {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. Se utiliza el patrón {\bfseries{Adapter}}. 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_library_1_1_adapters_1_1_pokemon_adapter_a530082e4ff7d98c65fa7d0b14539830b}\index{Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}!PokemonAdapter@{PokemonAdapter}}
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_library_1_1_adapters_1_1_pokemon_adapter_abb45700741dd37b389a61d9aae2835a8}\index{Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}!PokemonAdapter@{PokemonAdapter}}
 \index{PokemonAdapter@{PokemonAdapter}!Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}}
 \doxysubsubsection{\texorpdfstring{PokemonAdapter()}{PokemonAdapter()}}
-{\footnotesize\ttfamily \label{class_library_1_1_adapters_1_1_pokemon_adapter_a530082e4ff7d98c65fa7d0b14539830b} 
-Library.\+Adapters.\+Pokemon\+Adapter.\+Pokemon\+Adapter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_services_1_1_poke_api_service}{Poke\+Api\+Service}}}]{poke\+Api\+Service}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{class_library_1_1_adapters_1_1_pokemon_adapter_abb45700741dd37b389a61d9aae2835a8} 
+Library.\+Adapters.\+Pokemon\+Adapter.\+Pokemon\+Adapter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_library_1_1_services_1_1_i_poke_api_service}{IPoke\+Api\+Service}}}]{poke\+Api\+Service}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Constructor para inicializar el servicio de la Poke\+API. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em poke\+Api\+Service} & Servicio de la Poke\+API utilizado para obtener datos de los pokemon.\\
 \hline
 \end{DoxyParams}
 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{class_library_1_1_adapters_1_1_pokemon_adapter_a9df6df13c5d2b2ad7d8945ff0491df26}\index{Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}!GetPokemonAsync@{GetPokemonAsync}}
 \index{GetPokemonAsync@{GetPokemonAsync}!Library.Adapters.PokemonAdapter@{Library.Adapters.PokemonAdapter}}
 \doxysubsubsection{\texorpdfstring{GetPokemonAsync()}{GetPokemonAsync()}}
@@ -47,15 +54,15 @@ async Task$<$ \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} $>$ Library.
 Obtiene los datos de un pokemon por su nombre utilizando {\ttfamily Poke\+Api\+Service} y los adapta a un objeto {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em pokemon\+Name} & Nombre del Pokémon a buscar en la API.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 Una instancia de {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} con los datos obtenidos, {\ttfamily null} en caso de error o si el pokemon no tiene al menos cuatro {\ttfamily \doxylink{class_library_1_1_move}{Move}}. 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Excepciones}
 {\em Http\+Request\+Exception} & Se lanza si hay problemas al hacer la solicitud HTTP a la Poke\+API.\\
 \hline
 \end{DoxyExceptions}
@@ -65,6 +72,10 @@ Este método usa propiedades JSON para extraer información sobre los datos nece
 
 Los {\ttfamily \doxylink{class_library_1_1_move}{Move}} son agregados al pokemon solo si tienen un power y accuary mayor a cero. 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Implementa \mbox{\hyperlink{interface_library_1_1_adapters_1_1_i_pokemon_adapter_a50444a9781badb9e71d81a9a5ff96ca7}{Library.\+Adapters.\+IPokemon\+Adapter}}.
+
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+Adapters/Pokemon\+Adapter.\+cs\end{DoxyCompactItemize}

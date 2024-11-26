@@ -1,11 +1,11 @@
-\doxysection{Library.\+Game\+Commands Class Reference}
+\doxysection{Referencia de la clase Library.\+Game\+Commands}
 \hypertarget{class_library_1_1_game_commands}{}\label{class_library_1_1_game_commands}\index{Library.GameCommands@{Library.GameCommands}}
 
 
 Proporciona comandos para gestionar el juego, los jugadores, y las acciones de los {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}.  
 
 
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_library_1_1_game_commands_a6fbd89adcd408e43223ef44ce33f686b}\label{class_library_1_1_game_commands_a6fbd89adcd408e43223ef44ce33f686b} 
@@ -34,7 +34,7 @@ string \mbox{\hyperlink{class_library_1_1_game_commands_ab19c715865c702a727d5be5
 \begin{DoxyCompactList}\small\item\em Reinicia el juego para empezar una nueva partida. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_library_1_1_game_commands_a00f858faa545c229c892c6e6ee9f428a}{Game\+Has\+Started}} ()
 \begin{DoxyCompactList}\small\item\em Verifica si el juego ha comenzado. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Static Public Member Functions}
+\doxysubsubsection*{Métodos públicos estáticos}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_library_1_1_game_commands_a5cc1bcc1617fb9ef94da7c4f51e2370d}\label{class_library_1_1_game_commands_a5cc1bcc1617fb9ef94da7c4f51e2370d} 
@@ -44,10 +44,10 @@ static string \mbox{\hyperlink{class_library_1_1_game_commands_a3b2a98109b65722e
 \begin{DoxyCompactList}\small\item\em Método estático que muestra la descripción de los ítems disponibles en el juego. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Proporciona comandos para gestionar el juego, los jugadores, y las acciones de los {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{class_library_1_1_game_commands_a856e3820f57f8d02a2c887fb7e68fbba}\index{Library.GameCommands@{Library.GameCommands}!AddPlayer@{AddPlayer}}
 \index{AddPlayer@{AddPlayer}!Library.GameCommands@{Library.GameCommands}}
 \doxysubsubsection{\texorpdfstring{AddPlayer()}{AddPlayer()}}
@@ -59,7 +59,7 @@ void Library.\+Game\+Commands.\+Add\+Player (\begin{DoxyParamCaption}\item[{stri
 Agrega un nuevo {\ttfamily \doxylink{class_library_1_1_player}{Player}} al juego si no fue agregado anteriormente. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em player\+Name} & Nombre del jugador a agregar.\\
 \hline
 \end{DoxyParams}
@@ -74,13 +74,13 @@ string Library.\+Game\+Commands.\+Attack (\begin{DoxyParamCaption}\item[{int}]{m
 Permite que el jugador en turno ataque al oponente. Si el jugador enemigo fue atacado correctamente cambia de turno. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em move\+Slot} & Slot del movimiento de ataque.\\
 \hline
 {\em player\+Name\+Attacker} & Nombre del jugador que ataca.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 Un mensaje con el resultado del ataque.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_commands_ac8ee5005897e2e7eba68b90f0415ed1d}\index{Library.GameCommands@{Library.GameCommands}!ChangePokemon@{ChangePokemon}}
@@ -94,7 +94,7 @@ string Library.\+Game\+Commands.\+Change\+Pokemon (\begin{DoxyParamCaption}\item
 Cambia el {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} activo del jugador en turno por otro de su lista de pokemons. Si el pokemon fue cambiado correctamente cambia de turno. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em player\+In\+Turn} & Jugador en turno.\\
 \hline
 {\em pokemon\+Name} & Nombre del Pokémon a cambiar.\\
@@ -111,13 +111,13 @@ async Task$<$(string message, string img\+Url)$>$ Library.\+Game\+Commands.\+Cho
 Permite que un jugador elija un {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} y lo añade a su equipo. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em player\+Name} & Nombre del jugador.\\
 \hline
 {\em pokemon\+Name} & Nombre del pokemon.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 Un mensaje mostrando el resultado de cambiar el {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} y una URL con de la imagen del {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_commands_a00f858faa545c229c892c6e6ee9f428a}\index{Library.GameCommands@{Library.GameCommands}!GameHasStarted@{GameHasStarted}}
@@ -130,7 +130,7 @@ bool Library.\+Game\+Commands.\+Game\+Has\+Started (\begin{DoxyParamCaption}{}{}
 
 Verifica si el juego ha comenzado. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily true} si el juego a comenzado. De lo contrario, {\ttfamily false}
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_commands_ae39bdbdefb1fdeb5b6e61f96ffec7947}\index{Library.GameCommands@{Library.GameCommands}!NextTurn@{NextTurn}}
@@ -143,7 +143,7 @@ string Library.\+Game\+Commands.\+Next\+Turn (\begin{DoxyParamCaption}{}{}\end{D
 
 Cambia el turno al siguiente jugador. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 Un mensaje mostrando el turno del jugador actual.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_commands_ab19c715865c702a727d5be57ff0ef808}\index{Library.GameCommands@{Library.GameCommands}!RestartGame@{RestartGame}}
@@ -156,7 +156,7 @@ string Library.\+Game\+Commands.\+Restart\+Game (\begin{DoxyParamCaption}{}{}\en
 
 Reinicia el juego para empezar una nueva partida. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily string} con el resultado de reiniciar el juego.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_commands_a3b2a98109b65722e46532508d9391842}\index{Library.GameCommands@{Library.GameCommands}!ShowItemsDesc@{ShowItemsDesc}}
@@ -169,7 +169,7 @@ static string Library.\+Game\+Commands.\+Show\+Items\+Desc (\begin{DoxyParamCapt
 
 Método estático que muestra la descripción de los ítems disponibles en el juego. 
 
-/// \begin{DoxyReturn}{Returns}
+/// \begin{DoxyReturn}{Devuelve}
 {\ttfamily string} con el resultado de reiniciar el juego.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_commands_a7a35ea7d0e670a4bf36ebeb7fee85b58}\index{Library.GameCommands@{Library.GameCommands}!StartBattle@{StartBattle}}
@@ -182,7 +182,7 @@ string Library.\+Game\+Commands.\+Start\+Battle (\begin{DoxyParamCaption}{}{}\en
 
 Inicia la batalla si todos los jugadores cumplen los requisitos. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 Un mensaje indicando el resultado de iniciar la batalla.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_commands_a780c5f81eeb1179c5d8e8ca8315eced4}\index{Library.GameCommands@{Library.GameCommands}!UseItem@{UseItem}}
@@ -196,7 +196,7 @@ string Library.\+Game\+Commands.\+Use\+Item (\begin{DoxyParamCaption}\item[{\mbo
 Usa un ítem del jugador en turno sobre un {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} específico de su lista de pokemons. Si el item fue usado correctamente cambia de turno. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em player\+In\+Turn} & Jugador en turno.\\
 \hline
 {\em pokemon\+Name} & Nombre del {\ttfamily pokemon} que recibe el ítem.\\
@@ -204,7 +204,7 @@ Usa un ítem del jugador en turno sobre un {\ttfamily \doxylink{class_library_1_
 {\em item\+Slot} & Slot del ítem a usar.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily string} con el resultado de usar el item.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_commands_a337fb36f0d85a0654777562be6b50dbc}\index{Library.GameCommands@{Library.GameCommands}!ViewPokemons@{ViewPokemons}}
@@ -217,11 +217,11 @@ string Library.\+Game\+Commands.\+View\+Pokemons (\begin{DoxyParamCaption}{}{}\e
 
 Muestra cada {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} de los jugadores en el juego, solo si ha empezado la batalla. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily string} con el resultado de mostrar los pokemons.
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+Game/Game\+Commands.\+cs\end{DoxyCompactItemize}

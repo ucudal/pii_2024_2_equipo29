@@ -1,6 +1,6 @@
-\doxysection{Library.\+States.\+State\+Machine Class Reference}
+\doxysection{Referencia de la clase Library.\+States.\+State\+Machine}
 \hypertarget{class_library_1_1_states_1_1_state_machine}{}\label{class_library_1_1_states_1_1_state_machine}\index{Library.States.StateMachine@{Library.States.StateMachine}}
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_library_1_1_states_1_1_state_machine_a6633481b1c3fdffe315963826aea4bb0}{State\+Machine}} (\mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state}{IPokemon\+State}} initial\+State)
@@ -13,7 +13,7 @@ bool \mbox{\hyperlink{class_library_1_1_states_1_1_state_machine_a65aec42611d258
 \begin{DoxyCompactList}\small\item\em Determina si el pokemon puede atacar dependiendo de su estado actual. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_library_1_1_states_1_1_state_machine_ad5c172a3f3500aa3adb3a0d314585042}{Has\+Lost\+Turn}} ()
 \begin{DoxyCompactList}\small\item\em Indica si el pokemon ha perdido su turno debido al estado actual. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Properties}
+\doxysubsubsection*{Propiedades}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_library_1_1_states_1_1_state_machine_ac1e2d1eed52ebead25df46b132e599f1}\label{class_library_1_1_states_1_1_state_machine_ac1e2d1eed52ebead25df46b132e599f1} 
@@ -21,7 +21,7 @@ bool \mbox{\hyperlink{class_library_1_1_states_1_1_state_machine_ad5c172a3f3500a
 \begin{DoxyCompactList}\small\item\em Obtiene o establece el estado {\ttfamily \doxylink{interface_library_1_1_states_1_1_i_pokemon_state}{IPokemon\+State}} actual del pokemon. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Representa la máquina de estados que gestiona el estado actual de un pokemon.
 
 Se utiliza el patrón de diseño {\ttfamily State}, la maquina de estados maneja el estado actual de cada {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}.
@@ -32,7 +32,7 @@ Dependiendo del estado que tenga el {\ttfamily \doxylink{class_library_1_1_pokem
 
 Además aplica el principio OCP de SOLID, ya que en caso de querer agregar un nuevo estado, se debería crear una nueva clase que implemente {\ttfamily \doxylink{interface_library_1_1_states_1_1_i_pokemon_state}{IPokemon\+State}}, agregar el nombre del estado en el {\ttfamily Enum\+State} y extender la clase {\ttfamily \doxylink{class_library_1_1_states_1_1_state_applier}{State\+Applier}} donde se agregan los estados a los pokemon. Esto permitiría agregar un efecto con un nuevo comportamiento sin modificar las clases pertinentes, extendiendo a las mismas. Esto permite que el código sea más mantenible y extensible a futuro.
 
-\doxysubsection{Constructor \& Destructor Documentation}
+\doxysubsection{Documentación de constructores y destructores}
 \Hypertarget{class_library_1_1_states_1_1_state_machine_a6633481b1c3fdffe315963826aea4bb0}\index{Library.States.StateMachine@{Library.States.StateMachine}!StateMachine@{StateMachine}}
 \index{StateMachine@{StateMachine}!Library.States.StateMachine@{Library.States.StateMachine}}
 \doxysubsubsection{\texorpdfstring{StateMachine()}{StateMachine()}}
@@ -44,13 +44,13 @@ Library.\+States.\+State\+Machine.\+State\+Machine (\begin{DoxyParamCaption}\ite
 Constructor que inicializa una nueva instancia de la clase {\ttfamily \doxylink{class_library_1_1_states_1_1_state_machine}{State\+Machine}} con un estado inicial. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em initial\+State} & El estado inicial del pokemon.\\
 \hline
 \end{DoxyParams}
 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{class_library_1_1_states_1_1_state_machine_ae0ed8d6f9609910b9712c4849c99967b}\index{Library.States.StateMachine@{Library.States.StateMachine}!ApplyEffect@{ApplyEffect}}
 \index{ApplyEffect@{ApplyEffect}!Library.States.StateMachine@{Library.States.StateMachine}}
 \doxysubsubsection{\texorpdfstring{ApplyEffect()}{ApplyEffect()}}
@@ -62,7 +62,7 @@ void Library.\+States.\+State\+Machine.\+Apply\+Effect (\begin{DoxyParamCaption}
 Aplica el efecto del estado actual al pokemon. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em pokemon} & El {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} al que se le aplicará el efecto del estado.\\
 \hline
 \end{DoxyParams}
@@ -76,7 +76,7 @@ bool Library.\+States.\+State\+Machine.\+Can\+Attack (\begin{DoxyParamCaption}{}
 
 Determina si el pokemon puede atacar dependiendo de su estado actual. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily true} si el pokemon puede atacar.
 \end{DoxyReturn}
 
@@ -91,7 +91,7 @@ int Library.\+States.\+State\+Machine.\+Get\+Remaining\+Turns\+With\+Effect (\be
 
 Obtiene el número de turnos restantes en los que el efecto de estado seguirá activo. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily int} que contiene la cantidad de turnos restantes con el efecto activo.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_states_1_1_state_machine_ad5c172a3f3500aa3adb3a0d314585042}\index{Library.States.StateMachine@{Library.States.StateMachine}!HasLostTurn@{HasLostTurn}}
@@ -104,13 +104,13 @@ bool Library.\+States.\+State\+Machine.\+Has\+Lost\+Turn (\begin{DoxyParamCaptio
 
 Indica si el pokemon ha perdido su turno debido al estado actual. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily true} si el pokemon ha perdido el turno.
 \end{DoxyReturn}
 
 
 De lo contrario, {\ttfamily false}.
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+States/State\+Machine.\+cs\end{DoxyCompactItemize}

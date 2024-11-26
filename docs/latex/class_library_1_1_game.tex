@@ -1,11 +1,11 @@
-\doxysection{Library.\+Game Class Reference}
+\doxysection{Referencia de la clase Library.\+Game}
 \hypertarget{class_library_1_1_game}{}\label{class_library_1_1_game}\index{Library.Game@{Library.Game}}
 
 
 Clase principal que administra el flujo del juego, la gestión de jugadores, turnos y las reglas de finalización de la partida. Implementa el patrón de diseño {\ttfamily Facade} para simplificar la interacción con las funcionalidades del juego.  
 
 
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_library_1_1_game_a1a4681ffb91ec96e0dea7bf374600f3d}{Add\+Player}} (\mbox{\hyperlink{class_library_1_1_player}{Player}} player)
@@ -31,7 +31,7 @@ bool \mbox{\hyperlink{class_library_1_1_game_a065957f845c6e824e8b8f3358e26a290}{
 \begin{DoxyCompactList}\small\item\em Verifica si todos los jugadores tienen al menos un {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} disponibles. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_library_1_1_game_a1e4bdb567aa5490dbc21eb66916986d4}{View\+All\+Pokemons}} ()
 \begin{DoxyCompactList}\small\item\em Muestra una vista de todos los {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} de cada jugador. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Properties}
+\doxysubsubsection*{Propiedades}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_library_1_1_game_a2ce9c2297ee87609d702cd444907cde0}\label{class_library_1_1_game_a2ce9c2297ee87609d702cd444907cde0} 
@@ -51,10 +51,10 @@ bool {\bfseries Is\+Full\+Players}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \begin{DoxyCompactList}\small\item\em Indica si el juego alcanz+o el maximo de jugadores-\/. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Clase principal que administra el flujo del juego, la gestión de jugadores, turnos y las reglas de finalización de la partida. Implementa el patrón de diseño {\ttfamily Facade} para simplificar la interacción con las funcionalidades del juego. 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{class_library_1_1_game_a1a4681ffb91ec96e0dea7bf374600f3d}\index{Library.Game@{Library.Game}!AddPlayer@{AddPlayer}}
 \index{AddPlayer@{AddPlayer}!Library.Game@{Library.Game}}
 \doxysubsubsection{\texorpdfstring{AddPlayer()}{AddPlayer()}}
@@ -66,7 +66,7 @@ void Library.\+Game.\+Add\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperli
 Agrega un jugador al juego. Si se alcanza el máximo de jugadores, se establece de forma aleatoria el jugador que comienza la batalla. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em player} & El jugador a agregar.\\
 \hline
 \end{DoxyParams}
@@ -80,7 +80,7 @@ bool Library.\+Game.\+All\+Players\+Have\+Pokemons (\begin{DoxyParamCaption}{}{}
 
 Verifica si todos los jugadores tienen al menos un {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} disponibles. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily true} si todos los jugadores tienen al menos un {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}}. De lo contrario, {\ttfamily false}.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_a6b5c3bbdf5920cb20b0ef084ecd1d6f5}\index{Library.Game@{Library.Game}!AllPlayersReady@{AllPlayersReady}}
@@ -93,7 +93,7 @@ bool Library.\+Game.\+All\+Players\+Ready (\begin{DoxyParamCaption}{}{}\end{Doxy
 
 Verifica si todos los jugadores están listos para comenzar el juego. Un jugador está listo si alcanzó el máximo de pokemons. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily true} si todos los jugadores están listos. De lo contrario, {\ttfamily false}. 
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_aca0a6d807ac51a382e34961a3e03ea47}\index{Library.Game@{Library.Game}!GetPlayerByName@{GetPlayerByName}}
@@ -107,11 +107,11 @@ Verifica si todos los jugadores están listos para comenzar el juego. Un jugador
 Obtiene un jugador por su nombre. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em player\+Name} & Nombre del jugador.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 El {\ttfamily \doxylink{class_library_1_1_player}{Player}} que coincide con el nombre, o {\ttfamily null} si no se encuentra.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_a70bdda9e97a6af204bc03215cbeadde6}\index{Library.Game@{Library.Game}!GetWinner@{GetWinner}}
@@ -124,7 +124,7 @@ El {\ttfamily \doxylink{class_library_1_1_player}{Player}} que coincide con el n
 
 Determina el ganador del juego basado en el estado de los jugadores. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 El {\ttfamily \doxylink{class_library_1_1_player}{Player}} ganador o {\ttfamily null} si no hay un ganador.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_a6d2393ad57fb8114f5556aa3934b0aad}\index{Library.Game@{Library.Game}!IsPlayerNameInTurn@{IsPlayerNameInTurn}}
@@ -138,11 +138,11 @@ bool Library.\+Game.\+Is\+Player\+Name\+In\+Turn (\begin{DoxyParamCaption}\item[
 Verifica si el nombre del jugador coincide con el jugador que está en turno. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em player\+Name} & Nombre del jugador.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily true} si el nombre coincide. De lo contrario, {\ttfamily false}.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_game_a1e4bdb567aa5490dbc21eb66916986d4}\index{Library.Game@{Library.Game}!ViewAllPokemons@{ViewAllPokemons}}
@@ -155,11 +155,11 @@ string Library.\+Game.\+View\+All\+Pokemons (\begin{DoxyParamCaption}{}{}\end{Do
 
 Muestra una vista de todos los {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} de cada jugador. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily string} con información de los {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} de cada jugador.
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+Game/Game.\+cs\end{DoxyCompactItemize}

@@ -1,6 +1,6 @@
 var indexSectionsWithContent =
 {
-  0: "2abcdefghilmnprstuvw",
+  0: "1234abcdefghijlmnprstuvw¡",
   1: "bcdfgilmnprstu",
   2: "lp",
   3: "abcdghinprstuvw",
@@ -26,14 +26,14 @@ var indexSectionNames =
 
 var indexSectionLabels =
 {
-  0: "All",
-  1: "Classes",
-  2: "Namespaces",
-  3: "Functions",
+  0: "Todos",
+  1: "Clases",
+  2: "Espacios de nombres",
+  3: "Funciones",
   4: "Variables",
-  5: "Enumerations",
-  6: "Enumerator",
-  7: "Properties",
-  8: "Pages"
+  5: "Enumeraciones",
+  6: "Valores de enumeraciones",
+  7: "Propiedades",
+  8: "Páginas"
 };
 

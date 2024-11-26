@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['maxplayers_0',['MaxPlayers',['../class_library_1_1_game.html#a2ce9c2297ee87609d702cd444907cde0',1,'Library::Game']]],
-  ['maxpokemons_1',['MaxPokemons',['../class_library_1_1_player.html#a73d9bc788648cc1e04060adf60234b10',1,'Library::Player']]],
-  ['move_2',['Move',['../class_library_1_1_move.html',1,'Library']]],
-  ['moves_3',['Moves',['../class_library_1_1_pokemon.html#a9256bbb100c34e69e9f44b3523b85f81',1,'Library::Pokemon']]],
-  ['movetest_4',['MoveTest',['../class_library_1_1_tests_1_1_pokemon_test_1_1_move_test.html',1,'Library::Tests::PokemonTest']]]
+  ['hasallpokemons_0',['HasAllPokemons',['../class_library_1_1_player.html#ac4863da9e0240ad48ce724033a04bd95',1,'Library::Player']]],
+  ['haslost_1',['HasLost',['../class_library_1_1_player.html#a0557cd033fd432fc20a6d5262b9c70bb',1,'Library::Player']]],
+  ['haslostturn_2',['HasLostTurn',['../interface_library_1_1_states_1_1_i_pokemon_state.html#a36d3a60e7a7b88abb1191304604fa1ec',1,'Library.States.IPokemonState.HasLostTurn()'],['../class_library_1_1_states_1_1_paralyze.html#a1d309e76f5b3ce56e30b0b87f8188ab6',1,'Library.States.Paralyze.HasLostTurn()'],['../class_library_1_1_states_1_1_state_machine.html#ad5c172a3f3500aa3adb3a0d314585042',1,'Library.States.StateMachine.HasLostTurn()']]],
+  ['hasstarted_3',['HasStarted',['../class_library_1_1_game.html#a6d67e09662219f8e0198baaa9e2be1f1',1,'Library::Game']]],
+  ['hp_4',['Hp',['../class_library_1_1_pokemon.html#a41239c19d60b8c252bc0054d5505ea67',1,'Library::Pokemon']]]
 ];

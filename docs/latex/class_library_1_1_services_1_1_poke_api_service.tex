@@ -1,11 +1,17 @@
-\doxysection{Library.\+Services.\+Poke\+Api\+Service Class Reference}
+\doxysection{Referencia de la clase Library.\+Services.\+Poke\+Api\+Service}
 \hypertarget{class_library_1_1_services_1_1_poke_api_service}{}\label{class_library_1_1_services_1_1_poke_api_service}\index{Library.Services.PokeApiService@{Library.Services.PokeApiService}}
 
 
 Proporciona servicios para interactuar con la Poke\+API, permitiendo la obtención de datos de pokemon y movimientos.  
 
 
-\doxysubsubsection*{Public Member Functions}
+Diagrama de herencia de Library.\+Services.\+Poke\+Api\+Service\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_services_1_1_poke_api_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_library_1_1_services_1_1_poke_api_service_a5e4e13e28b9ea5fd3ce41bf81ee088f4}\label{class_library_1_1_services_1_1_poke_api_service_a5e4e13e28b9ea5fd3ce41bf81ee088f4} 
@@ -15,12 +21,13 @@ async Task$<$ Json\+Document $>$ \mbox{\hyperlink{class_library_1_1_services_1_1
 \begin{DoxyCompactList}\small\item\em Obtiene los datos de un pokemon específico a partir de su nombre. \end{DoxyCompactList}\item 
 async Task$<$ Json\+Document $>$ \mbox{\hyperlink{class_library_1_1_services_1_1_poke_api_service_a21a29946a917ffa398ed30ebeebd99ac}{Get\+Move\+Data\+Async}} (string move\+Name)
 \begin{DoxyCompactList}\small\item\em Obtiene los datos de un movimiento específico a partir de su nombre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos heredados de \mbox{\hyperlink{interface_library_1_1_services_1_1_i_poke_api_service}{Library.\+Services.\+IPoke\+Api\+Service}}}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Proporciona servicios para interactuar con la Poke\+API, permitiendo la obtención de datos de pokemon y movimientos. 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{class_library_1_1_services_1_1_poke_api_service_a21a29946a917ffa398ed30ebeebd99ac}\index{Library.Services.PokeApiService@{Library.Services.PokeApiService}!GetMoveDataAsync@{GetMoveDataAsync}}
 \index{GetMoveDataAsync@{GetMoveDataAsync}!Library.Services.PokeApiService@{Library.Services.PokeApiService}}
 \doxysubsubsection{\texorpdfstring{GetMoveDataAsync()}{GetMoveDataAsync()}}
@@ -32,18 +39,22 @@ async Task$<$ Json\+Document $>$ Library.\+Services.\+Poke\+Api\+Service.\+Get\+
 Obtiene los datos de un movimiento específico a partir de su nombre. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em move\+Name} & El nombre del movimiento del cual se desean obtener los datos.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 Una tarea que representa la operación asincrónica. El valor de retorno contiene un Json\+Document con los datos del movimiento. 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Excepciones}
 {\em Http\+Request\+Exception} & Se lanza si no se pueden obtener datos de la Poke\+API. \\
 \hline
 \end{DoxyExceptions}
+
+
+Implementa \mbox{\hyperlink{interface_library_1_1_services_1_1_i_poke_api_service_a5c3f09a2e799fa68f7504879c7de799e}{Library.\+Services.\+IPoke\+Api\+Service}}.
+
 \Hypertarget{class_library_1_1_services_1_1_poke_api_service_a50216af38534583f6a207f0eeb6ef4d4}\index{Library.Services.PokeApiService@{Library.Services.PokeApiService}!GetPokemonDataAsync@{GetPokemonDataAsync}}
 \index{GetPokemonDataAsync@{GetPokemonDataAsync}!Library.Services.PokeApiService@{Library.Services.PokeApiService}}
 \doxysubsubsection{\texorpdfstring{GetPokemonDataAsync()}{GetPokemonDataAsync()}}
@@ -55,20 +66,24 @@ async Task$<$ Json\+Document $>$ Library.\+Services.\+Poke\+Api\+Service.\+Get\+
 Obtiene los datos de un pokemon específico a partir de su nombre. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em pokemon\+Name} & El nombre del pokemon del cual se desean obtener los datos.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 Una tarea que representa la operación asincrónica. El valor de retorno contiene un Json\+Document con los datos del pokemon. 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Excepciones}
 {\em Http\+Request\+Exception} & Se lanza si no se pueden obtener datos de la Poke\+API. \\
 \hline
 \end{DoxyExceptions}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Implementa \mbox{\hyperlink{interface_library_1_1_services_1_1_i_poke_api_service_a7812083c65be4e027a54341b0bcb5082}{Library.\+Services.\+IPoke\+Api\+Service}}.
+
+
+
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+Services/Poke\+Api\+Service.\+cs\end{DoxyCompactItemize}

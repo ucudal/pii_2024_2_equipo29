@@ -1,17 +1,17 @@
-\doxysection{Library.\+States.\+IPokemon\+State Interface Reference}
+\doxysection{Referencia de la interface Library.\+States.\+IPokemon\+State}
 \hypertarget{interface_library_1_1_states_1_1_i_pokemon_state}{}\label{interface_library_1_1_states_1_1_i_pokemon_state}\index{Library.States.IPokemonState@{Library.States.IPokemonState}}
 
 
 Define la interfaz para los estados de un Pokémon, especificando los métodos y propiedades comunes para aplicar efectos de estado. Algunos métodos tiene valores por defecto.  
 
 
-Inheritance diagram for Library.\+States.\+IPokemon\+State\+:\begin{figure}[H]
+Diagrama de herencia de Library.\+States.\+IPokemon\+State\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=1.210811cm]{interface_library_1_1_states_1_1_i_pokemon_state}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_adcb14f5df994f3a9ccaf88599ba0377f}{Apply\+Effect}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} current\+Pokemon)
@@ -22,7 +22,7 @@ bool \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_a19ba9aad
 \begin{DoxyCompactList}\small\item\em Método que sirve para verificar si el pokemon puede atacar. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_a36d3a60e7a7b88abb1191304604fa1ec}{Has\+Lost\+Turn}} ()
 \begin{DoxyCompactList}\small\item\em Método que sirve para verificar si el pokemon puede atacar. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Properties}
+\doxysubsubsection*{Propiedades}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespace_library_1_1_states_af6dc85f954b7dacd8ee74f6cd6ede77c}{Enum\+State}} \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_aa00af7bc839753a1dcb53a5a1619143c}{Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
@@ -31,10 +31,10 @@ string \mbox{\hyperlink{interface_library_1_1_states_1_1_i_pokemon_state_abc00f4
 \begin{DoxyCompactList}\small\item\em Obtiene el emoji que representa el estado del pokemon. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Define la interfaz para los estados de un Pokémon, especificando los métodos y propiedades comunes para aplicar efectos de estado. Algunos métodos tiene valores por defecto. 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{interface_library_1_1_states_1_1_i_pokemon_state_adcb14f5df994f3a9ccaf88599ba0377f}\index{Library.States.IPokemonState@{Library.States.IPokemonState}!ApplyEffect@{ApplyEffect}}
 \index{ApplyEffect@{ApplyEffect}!Library.States.IPokemonState@{Library.States.IPokemonState}}
 \doxysubsubsection{\texorpdfstring{ApplyEffect()}{ApplyEffect()}}
@@ -46,13 +46,13 @@ void Library.\+States.\+IPokemon\+State.\+Apply\+Effect (\begin{DoxyParamCaption
 Aplica el efecto dependiendo de la clase que se haya aplicado la interfaz. Por defecto, no aplica ningun efecto. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em current\+Pokemon} & {\ttfamily \doxylink{class_library_1_1_pokemon}{Pokemon}} al que se le aplica el efecto.\\
 \hline
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_states_1_1_burn_a0c34bb9bae3e5fd3a1d0e5d55c20c473}{Library.\+States.\+Burn}}, \mbox{\hyperlink{class_library_1_1_states_1_1_poison_ac8c0f104fb348c16cc629347cbdf3f76}{Library.\+States.\+Poison}}, and \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_a714f899e001149f92ada21e8fd90e91e}{Library.\+States.\+Sleep}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_states_1_1_burn_a0c34bb9bae3e5fd3a1d0e5d55c20c473}{Library.\+States.\+Burn}}, \mbox{\hyperlink{class_library_1_1_states_1_1_poison_ac8c0f104fb348c16cc629347cbdf3f76}{Library.\+States.\+Poison}} y \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_a714f899e001149f92ada21e8fd90e91e}{Library.\+States.\+Sleep}}.
 
 \Hypertarget{interface_library_1_1_states_1_1_i_pokemon_state_a19ba9aadd3e7ca26f7d3cf0e84fbe8a3}\index{Library.States.IPokemonState@{Library.States.IPokemonState}!CanAttack@{CanAttack}}
 \index{CanAttack@{CanAttack}!Library.States.IPokemonState@{Library.States.IPokemonState}}
@@ -64,7 +64,7 @@ bool Library.\+States.\+IPokemon\+State.\+Can\+Attack (\begin{DoxyParamCaption}{
 
 Método que sirve para verificar si el pokemon puede atacar. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily true} si puede atacar.
 \end{DoxyReturn}
 
@@ -73,7 +73,7 @@ Método que sirve para verificar si el pokemon puede atacar.
 
 Por defecto, {\ttfamily true}.
 
-Implemented in \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_a5ebf83221716fd734c6e4882c5be08cb}{Library.\+States.\+Sleep}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_a5ebf83221716fd734c6e4882c5be08cb}{Library.\+States.\+Sleep}}.
 
 \Hypertarget{interface_library_1_1_states_1_1_i_pokemon_state_a4cbf654ef9acd429610ad2a78e1c2937}\index{Library.States.IPokemonState@{Library.States.IPokemonState}!GetRemainingTurnsWithEffect@{GetRemainingTurnsWithEffect}}
 \index{GetRemainingTurnsWithEffect@{GetRemainingTurnsWithEffect}!Library.States.IPokemonState@{Library.States.IPokemonState}}
@@ -85,12 +85,12 @@ int Library.\+States.\+IPokemon\+State.\+Get\+Remaining\+Turns\+With\+Effect (\b
 
 Método que devuelve los turnos restantes que estará bajo el efecto el pokemon. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily int} turnos restantes que estará bajo el efecto. Por defecto, {\ttfamily -\/1}. Si el valor es {\ttfamily -\/1} representa que el estado es permanente. 
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_abbc81790a301b606a581ddc2aa948279}{Library.\+States.\+Sleep}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_abbc81790a301b606a581ddc2aa948279}{Library.\+States.\+Sleep}}.
 
 \Hypertarget{interface_library_1_1_states_1_1_i_pokemon_state_a36d3a60e7a7b88abb1191304604fa1ec}\index{Library.States.IPokemonState@{Library.States.IPokemonState}!HasLostTurn@{HasLostTurn}}
 \index{HasLostTurn@{HasLostTurn}!Library.States.IPokemonState@{Library.States.IPokemonState}}
@@ -102,7 +102,7 @@ bool Library.\+States.\+IPokemon\+State.\+Has\+Lost\+Turn (\begin{DoxyParamCapti
 
 Método que sirve para verificar si el pokemon puede atacar. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily true} si ha perdido el turno.
 \end{DoxyReturn}
 
@@ -111,11 +111,11 @@ Método que sirve para verificar si el pokemon puede atacar.
 
 Por defecto, {\ttfamily false}.
 
-Implemented in \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze_a1d309e76f5b3ce56e30b0b87f8188ab6}{Library.\+States.\+Paralyze}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze_a1d309e76f5b3ce56e30b0b87f8188ab6}{Library.\+States.\+Paralyze}}.
 
 
 
-\doxysubsection{Property Documentation}
+\doxysubsection{Documentación de propiedades}
 \Hypertarget{interface_library_1_1_states_1_1_i_pokemon_state_abc00f4aad56756d1d8167a09995590ca}\index{Library.States.IPokemonState@{Library.States.IPokemonState}!Emoji@{Emoji}}
 \index{Emoji@{Emoji}!Library.States.IPokemonState@{Library.States.IPokemonState}}
 \doxysubsubsection{\texorpdfstring{Emoji}{Emoji}}
@@ -126,12 +126,12 @@ string Library.\+States.\+IPokemon\+State.\+Emoji\hspace{0.3cm}{\ttfamily [get]}
 
 Obtiene el emoji que representa el estado del pokemon. 
 
-/\begin{DoxyReturn}{Returns}
+/\begin{DoxyReturn}{Devuelve}
 {\ttfamily string} que contiene un emoji que representa el estado del pokemon. 
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_states_1_1_burn_aea1a2e223673d0fa03871121d88de015}{Library.\+States.\+Burn}}, \mbox{\hyperlink{class_library_1_1_states_1_1_normal_a9f1a72b96f9e2e48e851230617a797ba}{Library.\+States.\+Normal}}, \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze_a71b8f7baf3ae0b6d3074e33efd8bd32a}{Library.\+States.\+Paralyze}}, \mbox{\hyperlink{class_library_1_1_states_1_1_poison_afcb376656583e253b1cd181fd7695612}{Library.\+States.\+Poison}}, and \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_afd89d460bad98c672bc21ff3edfdae5d}{Library.\+States.\+Sleep}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_states_1_1_burn_aea1a2e223673d0fa03871121d88de015}{Library.\+States.\+Burn}}, \mbox{\hyperlink{class_library_1_1_states_1_1_normal_a9f1a72b96f9e2e48e851230617a797ba}{Library.\+States.\+Normal}}, \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze_a71b8f7baf3ae0b6d3074e33efd8bd32a}{Library.\+States.\+Paralyze}}, \mbox{\hyperlink{class_library_1_1_states_1_1_poison_afcb376656583e253b1cd181fd7695612}{Library.\+States.\+Poison}} y \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_afd89d460bad98c672bc21ff3edfdae5d}{Library.\+States.\+Sleep}}.
 
 \Hypertarget{interface_library_1_1_states_1_1_i_pokemon_state_aa00af7bc839753a1dcb53a5a1619143c}\index{Library.States.IPokemonState@{Library.States.IPokemonState}!Name@{Name}}
 \index{Name@{Name}!Library.States.IPokemonState@{Library.States.IPokemonState}}
@@ -143,15 +143,15 @@ Implemented in \mbox{\hyperlink{class_library_1_1_states_1_1_burn_aea1a2e223673d
 
 Obtiene el nombre del estado de pokemon. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily Enum\+State} con el nombre del estado. 
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_library_1_1_states_1_1_burn_ace37d068f80a4df9419582d7f7f9387a}{Library.\+States.\+Burn}}, \mbox{\hyperlink{class_library_1_1_states_1_1_normal_a3786e7679191058315f1eb2ac51bf4cb}{Library.\+States.\+Normal}}, \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze_a9622bc42ecf394cd6c19ead6bd2c1a48}{Library.\+States.\+Paralyze}}, \mbox{\hyperlink{class_library_1_1_states_1_1_poison_afb82d53694696a13e5a47d3e9d7b9686}{Library.\+States.\+Poison}}, and \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_ac0e3efb54a7c3c0728681911fd14f191}{Library.\+States.\+Sleep}}.
+Implementado en \mbox{\hyperlink{class_library_1_1_states_1_1_burn_ace37d068f80a4df9419582d7f7f9387a}{Library.\+States.\+Burn}}, \mbox{\hyperlink{class_library_1_1_states_1_1_normal_a3786e7679191058315f1eb2ac51bf4cb}{Library.\+States.\+Normal}}, \mbox{\hyperlink{class_library_1_1_states_1_1_paralyze_a9622bc42ecf394cd6c19ead6bd2c1a48}{Library.\+States.\+Paralyze}}, \mbox{\hyperlink{class_library_1_1_states_1_1_poison_afb82d53694696a13e5a47d3e9d7b9686}{Library.\+States.\+Poison}} y \mbox{\hyperlink{class_library_1_1_states_1_1_sleep_ac0e3efb54a7c3c0728681911fd14f191}{Library.\+States.\+Sleep}}.
 
 
 
-The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación de esta interface está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+States/\+Pokemon\+States/IPokemon\+State.\+cs\end{DoxyCompactItemize}

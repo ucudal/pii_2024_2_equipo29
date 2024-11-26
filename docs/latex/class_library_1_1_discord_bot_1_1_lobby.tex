@@ -1,11 +1,11 @@
-\doxysection{Library.\+Discord\+Bot.\+Lobby Class Reference}
+\doxysection{Referencia de la clase Library.\+Discord\+Bot.\+Lobby}
 \hypertarget{class_library_1_1_discord_bot_1_1_lobby}{}\label{class_library_1_1_discord_bot_1_1_lobby}\index{Library.DiscordBot.Lobby@{Library.DiscordBot.Lobby}}
 
 
 Representa un lobby para gestionar jugadores en espera y salas de juego. Implementa el patrón Singleton. Esto es util para tener una única instancia de la clase {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}} en todo el programa, por lo que nos permite evitar problemas en el emparejamiento de jugadores.  
 
 
-\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
 string \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_lobby_a3d277b26e0faa04612ae2ec077804903}{Add\+Waiting\+Player}} (Interaction\+Context context)
@@ -18,17 +18,17 @@ async Task \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_lobby_af53848d0350
 \begin{DoxyCompactList}\small\item\em Obtiene una sala de juego por su ID. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_lobby_a03fd78733031ffa1bdf073f7a0ecc206}{Get\+Waiting\+Players\+Name}} ()
 \begin{DoxyCompactList}\small\item\em Obtiene los nombres de los jugadores en la lista de espera. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Static Public Member Functions}
+\doxysubsubsection*{Métodos públicos estáticos}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}} \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_lobby_affa9420862950dfee217e5abce49e0a4}{Get\+Instance}} ()
 \begin{DoxyCompactList}\small\item\em Método estático que obtiene la instancia única de la clase \doxylink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Descripción detallada}
 Representa un lobby para gestionar jugadores en espera y salas de juego. Implementa el patrón Singleton. Esto es util para tener una única instancia de la clase {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}} en todo el programa, por lo que nos permite evitar problemas en el emparejamiento de jugadores. 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Documentación de funciones miembro}
 \Hypertarget{class_library_1_1_discord_bot_1_1_lobby_a3d277b26e0faa04612ae2ec077804903}\index{Library.DiscordBot.Lobby@{Library.DiscordBot.Lobby}!AddWaitingPlayer@{AddWaitingPlayer}}
 \index{AddWaitingPlayer@{AddWaitingPlayer}!Library.DiscordBot.Lobby@{Library.DiscordBot.Lobby}}
 \doxysubsubsection{\texorpdfstring{AddWaitingPlayer()}{AddWaitingPlayer()}}
@@ -40,11 +40,11 @@ string Library.\+Discord\+Bot.\+Lobby.\+Add\+Waiting\+Player (\begin{DoxyParamCa
 Agrega un jugador a la lista de espera si aún no está en ella. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto de la interacción de Discord.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily string} Un mensaje indicando si el jugador fue agregado o si ya estaba en la lista. 
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_discord_bot_1_1_lobby_af53848d0350a024d85d5a393e3265855}\index{Library.DiscordBot.Lobby@{Library.DiscordBot.Lobby}!ClearLobby@{ClearLobby}}
@@ -58,7 +58,7 @@ async Task Library.\+Discord\+Bot.\+Lobby.\+Clear\+Lobby (\begin{DoxyParamCaptio
 Elimina todas las salas de batalla activas. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto de la interacción de Discord.\\
 \hline
 \end{DoxyParams}
@@ -73,11 +73,11 @@ Elimina todas las salas de batalla activas.
 Obtiene una sala de juego por su ID. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em id} & Id de la sala de juego.\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_game_room}{Game\+Room}} Sala de juego correspondiente al ID proporcionado. Si no lo encuentra {\ttfamily null}.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_discord_bot_1_1_lobby_affa9420862950dfee217e5abce49e0a4}\index{Library.DiscordBot.Lobby@{Library.DiscordBot.Lobby}!GetInstance@{GetInstance}}
@@ -90,7 +90,7 @@ static \mbox{\hyperlink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}} Library
 
 Método estático que obtiene la instancia única de la clase \doxylink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 La instancia de {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_lobby}{Lobby}}.
 \end{DoxyReturn}
 
@@ -105,7 +105,7 @@ string Library.\+Discord\+Bot.\+Lobby.\+Get\+Waiting\+Players\+Name (\begin{Doxy
 
 Obtiene los nombres de los jugadores en la lista de espera. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Devuelve}
 {\ttfamily string} Cadena que contiene los nombres de los jugadores en la lista de espera.
 \end{DoxyReturn}
 \Hypertarget{class_library_1_1_discord_bot_1_1_lobby_ab703ab8659cfe6d64152620b6b001c22}\index{Library.DiscordBot.Lobby@{Library.DiscordBot.Lobby}!TryToStartGame@{TryToStartGame}}
@@ -119,7 +119,7 @@ async Task Library.\+Discord\+Bot.\+Lobby.\+Try\+To\+Start\+Game (\begin{DoxyPar
 Intenta iniciar una partida si hay suficientes jugadores en la lista de espera. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parámetros}
 {\em context} & El contexto de la interacción de Discord.\\
 \hline
 \end{DoxyParams}
@@ -129,6 +129,6 @@ Para iniciar la partida. Se necesita que la cantidad de jugadores esperando en e
 
 Si la partida es iniciada se crea una {\ttfamily \doxylink{class_library_1_1_discord_bot_1_1_game_room}{Game\+Room}} y agrega a los jugadores emparejados a la misma. Además, se vacía la lista {\ttfamily waiting\+Players} para que otros jugadores puedan buscar partida. 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+La documentación de esta clase está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
 \item 
 src/\+Library/\+Discord\+Bot/Lobby.\+cs\end{DoxyCompactItemize}

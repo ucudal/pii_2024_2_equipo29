@@ -1,4 +1,25 @@
 var searchData=
 [
-  ['waitlist_0',['WaitList',['../class_library_1_1_discord_bot_1_1_discord_commands.html#a4057d0037317f2d4966e54ce3d0635d6',1,'Library::DiscordBot::DiscordCommands']]]
+  ['servidor_0',['3) Encender el servidor',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
+  ['servidor_20de_20discord_1',['2) Invitar el bot a un servidor de discord',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
+  ['showcatalogue_2',['ShowCatalogue',['../class_library_1_1_discord_bot_1_1_discord_commands.html#af7a2323067d1c69460e152dfef79bd6b',1,'Library.DiscordBot.DiscordCommands.ShowCatalogue()'],['../class_library_1_1_game_commands.html#a5cc1bcc1617fb9ef94da7c4f51e2370d',1,'Library.GameCommands.ShowCatalogue()']]],
+  ['showitems_3',['ShowItems',['../class_library_1_1_discord_bot_1_1_discord_commands.html#a05e77185f939fdc135f83d966b78a2aa',1,'Library::DiscordBot::DiscordCommands']]],
+  ['showitemsdesc_4',['ShowItemsDesc',['../class_library_1_1_game_commands.html#a3b2a98109b65722e46532508d9391842',1,'Library::GameCommands']]],
+  ['showpokemons_5',['ShowPokemons',['../class_library_1_1_discord_bot_1_1_discord_commands.html#ab9f4ba9d64e3a8e187c9d142fc95a92a',1,'Library::DiscordBot::DiscordCommands']]],
+  ['showturn_6',['ShowTurn',['../class_library_1_1_game_commands.html#a0ccebb91c74f07bb94aabac94d374a40',1,'Library::GameCommands']]],
+  ['sleep_7',['Sleep',['../class_library_1_1_states_1_1_sleep.html',1,'Library.States.Sleep'],['../class_library_1_1_states_1_1_sleep.html#a7d3ce05035f90155652d891aafedc1f0',1,'Library.States.Sleep.Sleep()'],['../namespace_library_1_1_states.html#af6dc85f954b7dacd8ee74f6cd6ede77ca243924bfd56a682be235638b53961e09',1,'Library.States.Sleep']]],
+  ['sleeptest_8',['SleepTest',['../class_library_1_1_tests_1_1_pokemon_states_tests_1_1_sleep_test.html',1,'Library::Tests::PokemonStatesTests']]],
+  ['solid_20utilizados_9',['Principios SOLID utilizados',['../md__r_e_a_d_m_e.html#autotoc_md13',1,'']]],
+  ['specialattackpoints_10',['SpecialAttackPoints',['../class_library_1_1_pokemon.html#a151c3062ee36d9f835d97bf21c05b294',1,'Library::Pokemon']]],
+  ['specialdefensepoints_11',['SpecialDefensePoints',['../class_library_1_1_pokemon.html#a0a76c624d3f8fb06c77de4af89340591',1,'Library::Pokemon']]],
+  ['start_12',['Start',['../class_library_1_1_game.html#adea98ac9f2ac988f3b5369e9dcc351f4',1,'Library::Game']]],
+  ['startbattle_13',['StartBattle',['../class_library_1_1_game_commands.html#a7a35ea7d0e670a4bf36ebeb7fee85b58',1,'Library::GameCommands']]],
+  ['startgame_14',['StartGame',['../class_library_1_1_discord_bot_1_1_discord_commands.html#a558541335c631fdc36cfac5fd23369fc',1,'Library::DiscordBot::DiscordCommands']]],
+  ['state_15',['State',['../class_library_1_1_move.html#aae0ba3e08dc7ddee4ce182126d61494e',1,'Library::Move']]],
+  ['stateapplier_16',['StateApplier',['../class_library_1_1_states_1_1_state_applier.html',1,'Library::States']]],
+  ['stateappliertest_17',['StateApplierTest',['../class_library_1_1_tests_1_1_pokemon_states_tests_1_1_state_applier_test.html',1,'Library::Tests::PokemonStatesTests']]],
+  ['statemachine_18',['StateMachine',['../class_library_1_1_states_1_1_state_machine.html',1,'Library.States.StateMachine'],['../class_library_1_1_pokemon.html#ae592f0eac3800885f2a184a9280a7063',1,'Library.Pokemon.StateMachine'],['../class_library_1_1_states_1_1_state_machine.html#a6633481b1c3fdffe315963826aea4bb0',1,'Library.States.StateMachine.StateMachine()']]],
+  ['statemachinetest_19',['StateMachineTest',['../class_library_1_1_tests_1_1_pokemon_states_tests_1_1_state_machine_test.html',1,'Library::Tests::PokemonStatesTests']]],
+  ['states_20',['States',['../class_library_1_1_states_1_1_dic_pokemon_type_states.html#ab2183035cf4e355de2d7ffdb14157551',1,'Library::States::DicPokemonTypeStates']]],
+  ['superpotion_21',['SuperPotion',['../class_library_1_1_super_potion.html',1,'Library']]]
 ];

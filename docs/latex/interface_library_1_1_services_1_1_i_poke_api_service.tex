@@ -1,0 +1,71 @@
+\doxysection{Referencia de la interface Library.\+Services.\+IPoke\+Api\+Service}
+\hypertarget{interface_library_1_1_services_1_1_i_poke_api_service}{}\label{interface_library_1_1_services_1_1_i_poke_api_service}\index{Library.Services.IPokeApiService@{Library.Services.IPokeApiService}}
+
+
+Define la interfaz para el servicio de la Poke\+API.  
+
+
+Diagrama de herencia de Library.\+Services.\+IPoke\+Api\+Service\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_library_1_1_services_1_1_i_poke_api_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ Json\+Document $>$ \mbox{\hyperlink{interface_library_1_1_services_1_1_i_poke_api_service_a7812083c65be4e027a54341b0bcb5082}{Get\+Pokemon\+Data\+Async}} (string pokemon\+Name)
+\begin{DoxyCompactList}\small\item\em Obtiene un pokemon de la API por su nombre. \end{DoxyCompactList}\item 
+Task$<$ Json\+Document $>$ \mbox{\hyperlink{interface_library_1_1_services_1_1_i_poke_api_service_a5c3f09a2e799fa68f7504879c7de799e}{Get\+Move\+Data\+Async}} (string move\+Name)
+\begin{DoxyCompactList}\small\item\em Obtiene un movimiento de la API por su nombre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Define la interfaz para el servicio de la Poke\+API. 
+
+Esta interfaz proporciona métodos para obtener pokemon y sus movimientos. 
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{interface_library_1_1_services_1_1_i_poke_api_service_a5c3f09a2e799fa68f7504879c7de799e}\index{Library.Services.IPokeApiService@{Library.Services.IPokeApiService}!GetMoveDataAsync@{GetMoveDataAsync}}
+\index{GetMoveDataAsync@{GetMoveDataAsync}!Library.Services.IPokeApiService@{Library.Services.IPokeApiService}}
+\doxysubsubsection{\texorpdfstring{GetMoveDataAsync()}{GetMoveDataAsync()}}
+{\footnotesize\ttfamily \label{interface_library_1_1_services_1_1_i_poke_api_service_a5c3f09a2e799fa68f7504879c7de799e} 
+Task$<$ Json\+Document $>$ Library.\+Services.\+IPoke\+Api\+Service.\+Get\+Move\+Data\+Async (\begin{DoxyParamCaption}\item[{string}]{move\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene un movimiento de la API por su nombre. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pokemon} & El nombre del movimiento a obtener.\\
+\hline
+\end{DoxyParams}
+
+
+Implementado en \mbox{\hyperlink{class_library_1_1_services_1_1_poke_api_service_a21a29946a917ffa398ed30ebeebd99ac}{Library.\+Services.\+Poke\+Api\+Service}}.
+
+\Hypertarget{interface_library_1_1_services_1_1_i_poke_api_service_a7812083c65be4e027a54341b0bcb5082}\index{Library.Services.IPokeApiService@{Library.Services.IPokeApiService}!GetPokemonDataAsync@{GetPokemonDataAsync}}
+\index{GetPokemonDataAsync@{GetPokemonDataAsync}!Library.Services.IPokeApiService@{Library.Services.IPokeApiService}}
+\doxysubsubsection{\texorpdfstring{GetPokemonDataAsync()}{GetPokemonDataAsync()}}
+{\footnotesize\ttfamily \label{interface_library_1_1_services_1_1_i_poke_api_service_a7812083c65be4e027a54341b0bcb5082} 
+Task$<$ Json\+Document $>$ Library.\+Services.\+IPoke\+Api\+Service.\+Get\+Pokemon\+Data\+Async (\begin{DoxyParamCaption}\item[{string}]{pokemon\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene un pokemon de la API por su nombre. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pokemon\+Name} & El nombre del pokemon a obtener.\\
+\hline
+\end{DoxyParams}
+
+
+Implementado en \mbox{\hyperlink{class_library_1_1_services_1_1_poke_api_service_a50216af38534583f6a207f0eeb6ef4d4}{Library.\+Services.\+Poke\+Api\+Service}}.
+
+
+
+La documentación de esta interface está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Library/\+Services/IPoke\+Api\+Service.\+cs\end{DoxyCompactItemize}
