@@ -8,14 +8,15 @@ namespace Library.Services;
 public class PokeApiService : IPokeApiService
 {
     private HttpClient httpClient;
+    
     /// <summary>
     /// Inicializa una nueva instancia de la clase <see cref="PokeApiService"/>.
     /// </summary>
-
     public PokeApiService()
     {
         httpClient = new HttpClient();
     }
+    
     /// <summary>
     /// Obtiene los datos de un pokemon específico a partir de su nombre.
     /// </summary>
@@ -26,8 +27,6 @@ public class PokeApiService : IPokeApiService
     /// <exception cref="HttpRequestException">
     /// Se lanza si no se pueden obtener datos de la PokeAPI.
     /// </exception>
-
-
     public async Task<JsonDocument> GetPokemonDataAsync(string pokemonName)
     {
         HttpResponseMessage response = await httpClient.GetAsync($"https://pokeapi.co/api/v2/pokemon/{pokemonName}");
@@ -36,6 +35,7 @@ public class PokeApiService : IPokeApiService
         string jsonResponse = await response.Content.ReadAsStringAsync();
         return JsonDocument.Parse(jsonResponse);
     }
+    
     /// <summary>
     /// Obtiene los datos de un movimiento específico a partir de su nombre.
     /// </summary>
@@ -46,7 +46,6 @@ public class PokeApiService : IPokeApiService
     /// <exception cref="HttpRequestException">
     /// Se lanza si no se pueden obtener datos de la PokeAPI.
     /// </exception>
-
     public async Task<JsonDocument> GetMoveDataAsync(string moveName)
     {
         HttpResponseMessage response = await httpClient.GetAsync($"https://pokeapi.co/api/v2/move/{moveName}");
