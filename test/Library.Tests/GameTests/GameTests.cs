@@ -90,7 +90,7 @@ public class GameTests
     [Test]
     public async Task ResetTest()
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         
         Pokemon pokemon1 = await pokemonAdapter.GetPokemonAsync("pikachu");
         Pokemon pokemon2 = await pokemonAdapter.GetPokemonAsync("pikachu");
@@ -111,7 +111,7 @@ public class GameTests
     [Test]
     public async Task GetWinnerTest()
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
 
         Pokemon pokemon1 = await pokemonAdapter.GetPokemonAsync("pikachu");
         Pokemon pokemon2 = await pokemonAdapter.GetPokemonAsync("pikachu");
@@ -135,7 +135,7 @@ public class GameTests
     [Test]
     public async Task ShowTurnTest()
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
 
         Pokemon pokemon1 = await pokemonAdapter.GetPokemonAsync("pikachu");
         Pokemon pokemon2 = await pokemonAdapter.GetPokemonAsync("pikachu");
@@ -155,7 +155,7 @@ public class GameTests
     [Test]
     public async Task AllPlayersReadyTest()  // 7:21 am pido perdon por este codigo
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
 
         Pokemon pokemon1 = await pokemonAdapter.GetPokemonAsync("pikachu");
         Pokemon pokemon2 = await pokemonAdapter.GetPokemonAsync("mew");
@@ -196,7 +196,7 @@ public class GameTests
     [Test]
     public async Task NotAllPlayersReadyTest()
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
 
         Pokemon pokemon1 = await pokemonAdapter.GetPokemonAsync("pikachu");
         Pokemon pokemon2 = await pokemonAdapter.GetPokemonAsync("pikachu");
@@ -215,7 +215,7 @@ public class GameTests
     [Test]
     public async Task AllPlayersHavePokemonsTest()
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
 
         Pokemon pokemon1 = await pokemonAdapter.GetPokemonAsync("pikachu");
         Pokemon pokemon2 = await pokemonAdapter.GetPokemonAsync("pikachu");
@@ -234,7 +234,7 @@ public class GameTests
     [Test]
     public async Task NotAllPlayersHavePokemonsTest()
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
 
         Pokemon pokemon1 = await pokemonAdapter.GetPokemonAsync("pikachu");
         Player player1 = new("player1");

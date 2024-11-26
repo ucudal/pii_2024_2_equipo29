@@ -42,7 +42,7 @@ public class GameCommands
     /// <returns>Un mensaje mostrando el resultado de cambiar el <c>Pokemon</c> y una URL con de la imagen del <c>Pokemon</c>.</returns>
     public async Task<(string message, string imgUrl)> ChoosePokemon(string playerName, string pokemonName)
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Player player = game.GetPlayerByName(playerName);
         string msg = "";
         string imgUrl = "";

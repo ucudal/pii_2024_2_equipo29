@@ -8,18 +8,18 @@ namespace Library.Adapters;
 /// Clase para adaptar datos obtenidos de la PokeAPI y convertirlos en instancias de <c>Pokemon</c>.
 /// Se utiliza el patrón <b>Adapter</b>.
 /// </summary>
-public class PokemonAdapter
+public class PokemonAdapter : IPokemonAdapter
 {
     /// <summary>
     /// Atributo utilizado para el servicio de la PokeAPI.
     /// </summary>
-    private PokeApiService pokeApiService;
+    private IPokeApiService pokeApiService;
 
     /// <summary>
     /// Constructor para inicializar el servicio de la PokeAPI.
     /// </summary>
     /// <param name="pokeApiService">Servicio de la PokeAPI utilizado para obtener datos de los pokemon.</param>
-    public PokemonAdapter(PokeApiService pokeApiService)
+    public PokemonAdapter(IPokeApiService pokeApiService)
     {
         this.pokeApiService = pokeApiService;
     }

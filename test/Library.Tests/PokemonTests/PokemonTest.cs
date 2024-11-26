@@ -19,7 +19,7 @@ public class PokemonTest
     [TestCase("eevee", "pikachu")]
     public async Task AttackTest(string pokemonAttackerName, string pokemonDefenderName)
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
         Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
         int moveSlot = 1;
@@ -39,7 +39,7 @@ public class PokemonTest
     [TestCase("eevee", "pikachu")]
     public async Task SpecialAttackTest(string pokemonAttackerName, string pokemonDefenderName)
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
         Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
         int moveSlot = 3;
@@ -59,7 +59,7 @@ public class PokemonTest
     [TestCase("eevee", "pikachu")]
     public async Task MissAttackTest(string pokemonAttackerName, string pokemonDefenderName)
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
         Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
         int moveSlot = 1;
@@ -86,7 +86,7 @@ public class PokemonTest
     [TestCase("eevee", "pikachu")]
     public async Task UpdateCoolDownSpecialMoveTest(string pokemonAttackerName, string pokemonDefenderName)
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
         Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
         int moveSlot = 3;
@@ -108,7 +108,7 @@ public class PokemonTest
     [TestCase("eevee", "pikachu")]
     public async Task IsDeadTest(string pokemonAttackerName, string pokemonDefenderName)
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
         Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
         int moveSlot = 1;
@@ -125,7 +125,7 @@ public class PokemonTest
     [TestCase("eevee", "pikachu")]
     public async Task IsNotDeadTest(string pokemonAttackerName, string pokemonDefenderName)
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Pokemon attacker = await pokemonAdapter.GetPokemonAsync(pokemonAttackerName);
         Pokemon defender = await pokemonAdapter.GetPokemonAsync(pokemonDefenderName);
         int moveSlot = 1;
@@ -135,14 +135,13 @@ public class PokemonTest
         Assert.IsFalse(defender.IsDead());
     }
     
-    
     [TestCase("pikachu")]
     [TestCase("charizard")]
     [TestCase("mew")]
     [TestCase("eevee")]
     public async Task ViewPokemonTest(string pokemonName)
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Pokemon pokemon = await pokemonAdapter.GetPokemonAsync(pokemonName);
         
         Assert.IsNotNull(pokemon.ViewPokemon());
@@ -154,10 +153,9 @@ public class PokemonTest
     [TestCase("eevee")]
     public async Task ViewPokemonSimpleTest(string pokemonName)
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         Pokemon pokemon = await pokemonAdapter.GetPokemonAsync(pokemonName);
         
         Assert.IsNotNull(pokemon.ViewPokemonSimple());
     }
-    
 }

@@ -12,7 +12,7 @@ public class CalculateTest
     [SetUp]
     public async Task Setup()
     {
-        PokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
+        IPokemonAdapter pokemonAdapter = new PokemonAdapter(new PokeApiService());
         
         attacker = await pokemonAdapter.GetPokemonAsync("pikachu");
         defender = await pokemonAdapter.GetPokemonAsync("pikachu");
