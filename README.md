@@ -91,6 +91,7 @@ Enlace: [PokeAPI](https://pokeapi.co).
 - **State**: Se implementó una maquina de estados que maneja el estado actual de cada `Pokemon`. Dentro de la máquina de estados se encuentra un atributo 
 que contiene el estado actual `CurrentState` donde guarda una instancia de una clase que implemente la interfaz `IPokemonState`. 
 Dependiendo del estado que tenga el `Pokemon` va actuar de forma distinta al llamar a cualquier método de `StateMachine`.
+- **Singleton**: Se implementó el patrón Singleton para tener una única instancia de la clase `Lobby` en todo el programa, por lo que nos permite evitar problemas en el emparejamiento de jugadores.
 
 # Notas
 - EL diagrama **UML**, las tarjetas **CRC** y la documentación generada por doxygen están dentro de la carpeta **Docs**.
