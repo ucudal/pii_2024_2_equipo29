@@ -19,6 +19,6 @@ public interface IPokeApiService
     /// <summary>
     /// Obtiene un movimiento de la API por su nombre.
     /// </summary>
-    /// <param name="moveName">El nombre del movimiento a obtener.</param>
+    /// <param name="pokemon">El nombre del movimiento a obtener.</param>
     Task<JsonDocument> GetMoveDataAsync(string moveName);
 }
