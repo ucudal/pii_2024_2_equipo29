@@ -228,4 +228,34 @@ public class Player : IPokemonManager
 
         return msg + "\n";
     }
+    
+    /// <summary>
+    /// Obtiene el mejor pokemon para pelear contra el pokemon enemigo basándose en la efectividad de sus ataques.
+    /// </summary>
+    /// <param name="pokemonEnemy">Pokemon enemigo.</param>
+    /// <returns>El mejor <c>Pokemon</c> para pelear contra el pokemon enemigo. <c>Null</c> si no hay pokemons disponibles.</returns>
+    public Pokemon GetBestPokemonToFight(Pokemon pokemonEnemy)
+    {
+        ICalculate calculate = new Calculate();
+        float bestPokemonEffectivity = 0;
+        Pokemon bestPokemonToFight = null!;
+        
+        foreach (var pokemon in pokemons)
+        {
+            if(pokemon.IsDead()) continue;
+            
+            float pokemonEffectivity = 0;
+            foreach (var move in pokemon.Moves)
+            {
+                pokemonEffectivity += calculate.CalculateEffectivity(pokemonEnemy.Types, move.Type);
+            }
+            
+            if (pokemonEffectivity >= bestPokemonEffectivity)
+            {
+                bestPokemonToFight = pokemon;
+            }
+        }
+
+        return bestPokemonToFight!;
+    }
 }

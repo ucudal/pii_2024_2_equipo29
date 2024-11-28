@@ -12,7 +12,6 @@ public class GameCommands
     /// Atributo que contiene la instancia de <c>Game</c>.
     /// </summary>
     private Game game = new();
-
     
     /// <summary>
     /// Obtiene el <c>Player</c> en turno.
@@ -276,5 +275,18 @@ public class GameCommands
                "1) **REVIVIR**: Revive a un Pokémon con el **50%** de su HP total.\n" +
                "2) **SUPER POCION**: Cada una recupera 70 puntos de HP.\n" +
                "3) **CURA TOTAL**: Cura a un Pokémon de efectos de ataques especiales, dormido, paralizado, envenenado, o quemado.\n";
+    }
+    
+    /// <summary>
+    /// Muestra el mejor <c>Pokemon</c> para pelear contra el pokemon enemigo actual.
+    /// </summary>
+    /// <returns><c>string</c> con el nombre del mejor <c>Pokemon</c> para atacar al pokemon enemigo actual.</returns>
+    public string ViewBestPokemonToFight()
+    {
+        Pokemon bestPokemon = game.GetBestPokemonToFight();
+
+        if (bestPokemon == null!) return "No tienes pokemons disponibles.";
+        
+        return $"El mejor pokemon para pelear es **{bestPokemon.Name.ToUpper()}**.";
     }
 }

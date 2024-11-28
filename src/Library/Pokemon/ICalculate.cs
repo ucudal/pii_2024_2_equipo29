@@ -16,4 +16,12 @@ public interface ICalculate
     /// <param name="damage">El daño calculado que se infligirá al defensor (salida).</param>
     /// <returns>True si se ha realizado un golpe crítico; de lo contrario, false.</returns>
     bool CalculateDamage(Pokemon attacker, Pokemon defender, Move move, out int damage);
+
+    /// <summary>
+    /// Calcula la efectividad del ataque de un pokemon atacante a un pokemon defensor.
+    /// </summary>
+    /// <param name="enemyTypes">Lista con los tipos del pokemon defensor.</param>
+    /// <param name="moveType">El movimiento utilizado del pokemon atacante.</param>
+    /// <returns>El multiplicador de efectividad del movimiento.</returns>
+    float CalculateEffectivity(List<Type> enemyTypes, Type moveType);
 }

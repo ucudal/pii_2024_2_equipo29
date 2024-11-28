@@ -180,4 +180,13 @@ public class Game
 
         return msg;
     }
+
+    /// <summary>
+    /// Obtiene el mejor pokemon para pelear contra el pokemon enemigo basándose en la efectividad de sus ataques.
+    /// </summary>
+    /// <returns>El mejor <c>Pokemon</c> para pelear contra el pokemon enemigo. <c>Null</c> si no hay pokemons disponibles.</returns>
+    public Pokemon GetBestPokemonToFight()
+    {
+        return PlayerInTurn.GetBestPokemonToFight(PlayerNotInTurn.CurrentPokemon);
+    }
 }

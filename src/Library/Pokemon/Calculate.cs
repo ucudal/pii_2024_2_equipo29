@@ -73,7 +73,7 @@ public class Calculate: ICalculate
     /// <param name="enemyTypes">Lista de tipos del pokemon defensor.</param>
     /// <param name="moveType">Tipo del movimiento utilizado.</param>
     /// <returns>El multiplicador de efectividad del movimiento.</returns>
-    private float CalculateEffectivity(List<Type> enemyTypes, Type moveType)
+    public float CalculateEffectivity(List<Type> enemyTypes, Type moveType)
     {
         float effectivity = 1;
         foreach (Type enemyType in enemyTypes)

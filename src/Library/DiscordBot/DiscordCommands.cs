@@ -585,5 +585,32 @@ namespace Library.DiscordBot
         {
             await context.CreateResponseAsync(GameCommands.ShowItemsDesc());
         }
+        
+        /// <summary>
+        /// Muestra el mejor pokemon para pelear contra el pokemon enemigo basándose en la efectividad de sus ataques.
+        /// </summary>
+        /// <param name="context">
+        /// El contexto del usuario y el lugar donde fue utilizado el comando.
+        /// </param>
+        [SlashCommand("GetBestPokemonToFight", "Muestra el mejor pokemon para pelear contra el pokemon enemigo basándose en la efectividad de sus ataques.")]
+        public async Task GetBestPokemonToFight(InteractionContext context)
+        {
+            Lobby lobby = Lobby.GetInstance();
+            GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
+            var builder = new DiscordWebhookBuilder();
+
+            if (room != null!)
+            {
+                builder.WithContent(room.Commands.ViewBestPokemonToFight());
+            }
+            else
+            {
+                builder.WithContent("\u26d4  **DEBES ESTAR EN EL CANAL DE BATALLA.**  \u26d4");
+            }
+
+            await context.EditResponseAsync(builder);
+            
+            await context.CreateResponseAsync(GameCommands.ShowItemsDesc());
+        }
     }
 }
