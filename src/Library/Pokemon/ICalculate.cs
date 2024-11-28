@@ -15,5 +15,5 @@ public interface ICalculate
     /// <param name="move">El movimiento utilizado para el ataque.</param>
     /// <param name="damage">El daño calculado que se infligirá al defensor (salida).</param>
     /// <returns>True si se ha realizado un golpe crítico; de lo contrario, false.</returns>
-    bool CalculateDamage(Pokemon attacker, Pokemon defender, Move move, out int damage);
+    bool CalculateDamage(Pokemon attacker, Pokemon defender, Move move, out int damage, out bool isEffective);
 }

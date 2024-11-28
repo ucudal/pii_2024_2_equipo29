@@ -277,4 +277,17 @@ public class GameCommands
                "2) **SUPER POCION**: Cada una recupera 70 puntos de HP.\n" +
                "3) **CURA TOTAL**: Cura a un Pokémon de efectos de ataques especiales, dormido, paralizado, envenenado, o quemado.\n";
     }
+
+
+    public string BestPokemonForCombat(string playerName)
+    {
+        if (!GameHasStarted()) return "Espera a que comience la batalla";
+        
+        if (playerName.ToLower() == GetPlayerInTurn().Name.ToLower())
+        {
+            return game.GetBestPokemonForCombat(game.GetPlayerByName(playerName));
+        }
+        
+        return "Espera a tu turno";
+    }
 }

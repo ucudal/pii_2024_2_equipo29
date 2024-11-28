@@ -180,4 +180,16 @@ public class Game
 
         return msg;
     }
+
+
+    ///////////////////////////////////////
+    /// CODIGO AGREGADO PARA LA DEFENSA ///
+    ///////////////////////////////////////
+
+    public string GetBestPokemonForCombat(Player player)
+    {
+        if (player.Name == PlayerInTurn.Name) return player.BestPokemonForCombat(PlayerNotInTurn.CurrentPokemon);
+        
+        return player.BestPokemonForCombat(PlayerInTurn.CurrentPokemon);
+    }
 }

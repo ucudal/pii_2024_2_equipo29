@@ -12,7 +12,7 @@ public class Player : IPokemonManager
     /// <summary>
     /// Atributo que contiene la lista de pokemons que tiene el jugador.
     /// </summary>
-    private List<Pokemon> pokemons = new();
+    public List<Pokemon> Pokemons { get; } = new();
     
     /// <summary>
     /// Cantidad máxima de pokemons que puede tener un jugador.
@@ -23,7 +23,7 @@ public class Player : IPokemonManager
     /// <summary>
     /// Obtiene la cantidad de pokemon que el jugador tiene.
     /// </summary>
-    public int pokemonsCount => pokemons.Count;
+    public int pokemonsCount => Pokemons.Count;
     
     /// <summary>
     /// Obtiene el nombre del jugador.
@@ -57,9 +57,9 @@ public class Player : IPokemonManager
     /// <param name="pokemon">El pokemon que se desea agregar.</param>
     public void AddPokemon(Pokemon pokemon)
     {
-        if (pokemons.Count >= MaxPokemons || pokemons.Contains(pokemon)) return;
+        if (Pokemons.Count >= MaxPokemons || Pokemons.Contains(pokemon)) return;
         
-        pokemons.Add(pokemon);
+        Pokemons.Add(pokemon);
         CurrentPokemon ??= pokemon;
     }
 
@@ -69,7 +69,7 @@ public class Player : IPokemonManager
     /// <param name="pokemon">El nuevo pokemon que se desea utilizar.</param>
     public void ChangePokemon(Pokemon pokemon)
     {
-        if (pokemons.Contains(pokemon))
+        if (Pokemons.Contains(pokemon))
         {
             CurrentPokemon = pokemon;
         }
@@ -80,7 +80,7 @@ public class Player : IPokemonManager
     /// </summary>
     public void ClearPokemons()
     {
-        pokemons.Clear();
+        Pokemons.Clear();
         CurrentPokemon = null!;
     }
 
@@ -104,7 +104,7 @@ public class Player : IPokemonManager
     /// <returns><c>true</c> si el jugador ha perdido, de lo contrario, <c>false</c>.</returns>
     public bool HasLost()
     {
-        return pokemons.All(pokemon => pokemon.IsDead());
+        return Pokemons.All(pokemon => pokemon.IsDead());
     }
 
     /// <summary>
@@ -113,17 +113,17 @@ public class Player : IPokemonManager
     /// <returns>El siguiente pokemon disponible o null si no hay ninguno.</returns>
     public Pokemon GetNextPokemon()
     {
-        if (pokemons.Count == 0) return null!;
+        if (Pokemons.Count == 0) return null!;
         
         int indexNextPokemon = GetPokemonIndex(CurrentPokemon) + 1;
-        for (int i = indexNextPokemon; i < pokemons.Count; i++)
+        for (int i = indexNextPokemon; i < Pokemons.Count; i++)
         {
-            if (!pokemons[i].IsDead()) return pokemons[i];
+            if (!Pokemons[i].IsDead()) return Pokemons[i];
         }
         
         for (int i = 0; i < indexNextPokemon; i++)
         {
-            if (!pokemons[i].IsDead()) return pokemons[i];
+            if (!Pokemons[i].IsDead()) return Pokemons[i];
         }
         
         return null!;
@@ -158,7 +158,7 @@ public class Player : IPokemonManager
     /// <returns>El pokemon encontrado o null si no existe.</returns>
     public Pokemon GetPokemonByName(string pokemonName)
     {
-        foreach (var pokemon in pokemons)
+        foreach (var pokemon in Pokemons)
         {
             if (pokemon.Name == pokemonName)
             {
@@ -176,7 +176,7 @@ public class Player : IPokemonManager
     /// <returns>El índice del pokemon en la lista o -1 si no se encuentra.</returns>
     private int GetPokemonIndex(Pokemon pokemon)
     {
-        return pokemons.IndexOf(pokemon);
+        return Pokemons.IndexOf(pokemon);
     }
 
     /// <summary>
@@ -194,7 +194,7 @@ public class Player : IPokemonManager
     /// <returns>True si el jugador tiene pokemon, de lo contrario, false.</returns>
     public bool PlayersHavePokemons()
     {
-        return pokemons.Count > 0;
+        return Pokemons.Count > 0;
     }
     
     /// <summary>
@@ -204,7 +204,7 @@ public class Player : IPokemonManager
     public string ViewAllPokemons()
     {
         string msg = "";
-        foreach (var pokemon in pokemons)
+        foreach (var pokemon in Pokemons)
         {
             msg += $"• {pokemon.ViewPokemonSimple()}\n";
         }
@@ -227,5 +227,66 @@ public class Player : IPokemonManager
         }
 
         return msg + "\n";
+    }
+    
+    
+    
+    ///////////////////////////////////////
+    /// CODIGO AGREGADO PARA LA DEFENSA ///
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// LA IDEA DE EL CODIGO ES VER QUE POKEMON HARIA MAS DAÑO PARA VER QUIEN TIENE MAS POSIBILIDADES        ///
+    /// PARA ESTO CALCULO CUANTO DAÑO REALIZAN TODOS LOS ATAQUES SUMADOS Y LOS COMPARO, ESTO YA REALIZA      ///
+    /// LA EFECTIVIDAD DE TIPOS ENTRE EL ATAQUE Y EL ATACADO, SUMADO A QUE TAMBIEN TOMA EN CUENTA EL         ///
+    /// DAÑO BASE DEL ATACANTE, YA QUE SI UN POKEMON TIENE MUCHO MAS DAÑO BASE QUE OTRO QUIZAS AUNQUE EL     ///
+    /// OTRO SEA MAS "EFECTIVO" EN CONTRA, EL QUE TIENE MAS DAÑO SEGUIRA TENIENDO MAS POSIBILIDADES DE GANAR ///
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    public string BestPokemonForCombat(Pokemon enemy)
+    {
+        Pokemon bestPokemon = null!;
+        Pokemon mostEffective = null!;
+        ICalculate dmgCalculator = new Calculate();
+        int bestDmg = -1;
+        int mostMovesEffective = -1;
+        foreach (var pokemon in Pokemons)
+        {
+            if (!pokemon.IsDead())
+            {
+                int pokemonDmg = 0;
+                int movesEffective = 0;
+                foreach (var move in pokemon.Moves)
+                {
+                    if (dmgCalculator.CalculateDamage(pokemon, enemy, move, out int dmg, out bool isEffective))  // EVALUO SI EL ATAQUE FUE CRITICO PARA GUARDAR SOLO EL DAÑO BASE
+                    {
+                        pokemonDmg += (int)Math.Round(dmg * 0.830);  // Elimino el daño critico
+                    }
+                    else
+                    {
+                        pokemonDmg += dmg;
+                    }
+
+                    if (isEffective) movesEffective++;
+                }
+
+                if (pokemonDmg > bestDmg)
+                {
+                    bestDmg = pokemonDmg;
+                    bestPokemon = pokemon;
+                }
+
+                if (movesEffective > mostMovesEffective)
+                {
+                    mostMovesEffective = movesEffective;
+                    mostEffective = pokemon;
+                }
+            }
+        }
+
+        if (bestPokemon != mostEffective)
+        {
+            return
+                $"{bestPokemon.Name.ToUpper()} es la mejor opcion porque puede realizar mas daño, pero {mostEffective.Name.ToUpper()} tiene {mostMovesEffective} ataque/s efectivos.";
+        }
+        return $"{bestPokemon.Name.ToUpper()} es la mejor opcion. Tiene {mostMovesEffective} ataque/s efectivos.";
     }
 }

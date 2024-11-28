@@ -105,7 +105,7 @@ public class Pokemon
         string msg = "";
         ICalculate calculate = new Calculate();
         int dmg;
-        if (calculate.CalculateDamage(this, pokemonEnemy, move, out dmg))
+        if (calculate.CalculateDamage(this, pokemonEnemy, move, out dmg, out bool isEffective))
         {
             msg += "\ud83d\udca2 **GOLPE CRITICO** ";
         }

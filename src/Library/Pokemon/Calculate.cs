@@ -18,10 +18,10 @@ public class Calculate: ICalculate
     /// <param name="move">El movimiento utilizado para el ataque.</param>
     /// <param name="damage">El daño calculado que se infligirá al defensor (salida).</param>
     /// <returns>True si se ha realizado un golpe crítico; de lo contrario, false.</returns>
-    public bool CalculateDamage(Pokemon attacker, Pokemon defender, Move move, out int damage)
+    public bool CalculateDamage(Pokemon attacker, Pokemon defender, Move move, out int damage, out bool isEffective)    // isEffective Agregado para la defensa
     {
         float bonus = CalculateBonus(attacker.Types, move.Type);
-        float effectivity = CalculateEffectivity(defender.Types, move.Type);
+        float effectivity = CalculateEffectivity(defender.Types, move.Type, out isEffective);
         int variation = CalculateVariation(85, 100);
         int power = move.Power;
         int attackPoints = attacker.AttackPoints;
@@ -73,12 +73,16 @@ public class Calculate: ICalculate
     /// <param name="enemyTypes">Lista de tipos del pokemon defensor.</param>
     /// <param name="moveType">Tipo del movimiento utilizado.</param>
     /// <returns>El multiplicador de efectividad del movimiento.</returns>
-    private float CalculateEffectivity(List<Type> enemyTypes, Type moveType)
+    private float CalculateEffectivity(List<Type> enemyTypes, Type moveType, out bool isEffective)  // isEffective Agregado para la defensa
     {
+        isEffective = false;    // isEffective Agregado para la defensa
+        
         float effectivity = 1;
         foreach (Type enemyType in enemyTypes)
         {
             effectivity *= DicTypeEffectivity.Effectivity[moveType.Name][enemyType.Name];
+            if (DicTypeEffectivity.Effectivity[moveType.Name][enemyType.Name] > 1) isEffective = true;   // isEffective Agregado para la defensa
+
         }
         
         return effectivity;
@@ -94,4 +98,6 @@ public class Calculate: ICalculate
     {
         return new Random().Next(min, max);
     }
+    
+    
 }

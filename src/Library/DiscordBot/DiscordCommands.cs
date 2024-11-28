@@ -585,5 +585,36 @@ namespace Library.DiscordBot
         {
             await context.CreateResponseAsync(GameCommands.ShowItemsDesc());
         }
+        
+        
+        
+        
+        ///////////////////////////////////////
+        /// CODIGO AGREGADO PARA LA DEFENSA ///
+        ///////////////////////////////////////
+        
+        // Deberia andar pero no pude realizar ninguna prueba //
+        
+        [SlashCommand("BestForCombar", "Te devuelve el nombre del mejor pokemon posible para esta batalla")]
+        public async Task BestForCombat(InteractionContext context)
+        {
+            await context.CreateResponseAsync("\u231b **Iniciando juego, por favor espera...** \u23f3");
+
+            Lobby lobby = Lobby.GetInstance();
+            GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
+            var builder = new DiscordWebhookBuilder();
+
+            if (room != null!)
+            {
+                builder.WithContent($"{context.Member.Username.ToUpper()} " + room.Commands.BestPokemonForCombat(context.Member.Username));
+            }
+            else
+            {
+                builder.WithContent("\u26d4  **DEBES ESTAR EN EL CANAL DE BATALLA.**  \u26d4");
+            }
+
+            await context.EditResponseAsync(builder);
+            
+        }
     }
 }
