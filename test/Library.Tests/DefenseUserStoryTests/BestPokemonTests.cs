@@ -5,7 +5,7 @@ public class BestPokemonTests
     /*
         A continuación se muestran a detalle todos los casos presentados en los TestCase, 
         los datos fueron extraidos utilizando Console.WriteLine en el método GetBestPokemonToFight
-        de la clase Player. Actualmente, se encuntran comentados para evitar su ejecución. 
+        de la clase Player. Actualmente, se encuentran comentados para evitar su ejecución. 
         En caso de querer probar con distintos pokemons, se deberá agregar un nuevo TestCase
         al test GetBestPokemonToFightTest y descomentar los Console.WriteLine.
         
