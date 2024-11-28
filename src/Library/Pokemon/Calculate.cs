@@ -67,6 +67,15 @@ public class Calculate: ICalculate
             : 1;
     }
     
+    /*
+     * ---------------------- DESICIÓN DE DISEÑO ----------------------
+     * Se cambió el método CalculateEffectivity de privado a público
+     * para que pueda ser utilizado dentro del método CalculateEffectivity
+     * de la clase Player. Esto permite que el método pueda ser usado fuera
+     * de la clase, favoreciendo la reutilización de código.
+     * ----------------------------------------------------------------
+     */
+    
     /// <summary>
     /// Calcula la efectividad del movimiento contra los tipos del pokemon defensor.
     /// </summary>
