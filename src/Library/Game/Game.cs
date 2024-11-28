@@ -11,7 +11,7 @@ public class Game
     /// Atributo estático que permite obtener el número máximo de jugadores permitidos en el juego.
     /// Por defecto, <c>2</c>.
     /// </summary>
-    public static int MaxPlayers { get; } = 1;
+    public static int MaxPlayers { get; } = 2;
     
     /// <summary>
     /// Lista de jugadores en el juego.

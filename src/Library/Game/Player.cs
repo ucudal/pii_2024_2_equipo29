@@ -47,6 +47,7 @@ public class Player : IPokemonManager
     /// <returns></returns>
     public Pokemon EnemyCurrentPokemon { get; set;}
 
+    
     /// <summary>
     /// Inicializa una nueva instancia de la clase <see cref="Player"/> con un nombre específico.
     /// </summary>
@@ -100,8 +101,8 @@ public class Player : IPokemonManager
     {
         string msg = CurrentPokemon.Attack(enemyPlayer.CurrentPokemon, moveSlot);
         if (enemyPlayer.CurrentPokemon.IsDead()) enemyPlayer.ChangePokemon(enemyPlayer.GetNextPokemon());
-
-        return msg;
+        
+        return msg; 
     }
     
     /// <summary>
@@ -214,6 +215,7 @@ public class Player : IPokemonManager
         {
             msg += $"• {pokemon.ViewPokemonSimple()}\n";
         }
+
         return msg;
     }
     
@@ -233,5 +235,4 @@ public class Player : IPokemonManager
 
         return msg + "\n";
     }
-    
 }

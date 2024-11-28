@@ -585,7 +585,7 @@ namespace Library.DiscordBot
         {
             await context.CreateResponseAsync(GameCommands.ShowItemsDesc());
         }
-
+        
         /// <summary>
         /// Comando que permite evaluar la probabilidad de ganarle al Pokemon rival
         /// </summary>
