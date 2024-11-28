@@ -242,19 +242,31 @@ public class Player : IPokemonManager
         
         foreach (var pokemon in pokemons)
         {
+            // Console.WriteLine($"Pokemon aliado: {pokemon.Name} - Pokemon enemigo: {pokemonEnemy.Name}");
             if(pokemon.IsDead()) continue;
             
             float pokemonEffectivity = 0;
             foreach (var move in pokemon.Moves)
             {
+                // string msgEnemyTypes = "";
+                // foreach (var enemyType in pokemonEnemy.Types)
+                // {
+                //    msgEnemyTypes += $"{enemyType.Name}";
+                // }
+                
+                // Console.WriteLine($"Tipo del ataque aliado: {move.Type.Name} - Tipos del pokemon enemigo: {msgEnemyTypes}");
+                // Console.WriteLine($"Efectividad del movimiento {move.Type.Name}: {calculate.CalculateEffectivity(pokemonEnemy.Types, move.Type)}");
                 pokemonEffectivity += calculate.CalculateEffectivity(pokemonEnemy.Types, move.Type);
             }
+            // Console.WriteLine($"Efectividad total del pokemon {pokemon.Name}: {pokemonEffectivity}\n\n");
             
             if (pokemonEffectivity >= bestPokemonEffectivity)
             {
                 bestPokemonToFight = pokemon;
+                bestPokemonEffectivity = pokemonEffectivity;
             }
         }
+        // Console.WriteLine($"El mejor pokemon es {bestPokemonToFight.Name}");
 
         return bestPokemonToFight!;
     }
