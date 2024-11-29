@@ -1,3 +1,5 @@
+using Library.DiscordBot;
+
 namespace Library;
 
 /// <summary>
@@ -40,6 +42,10 @@ public class Player : IPokemonManager
     /// Permite setear otro de forma privada.
     /// </summary>
     public Pokemon CurrentPokemon { get; private set; }
+
+    public bool Surrender = false;
+
+    public Calculate calculate = new();
 
     /// <summary>
     /// Inicializa una nueva instancia de la clase <see cref="Player"/> con un nombre específico.
@@ -104,7 +110,7 @@ public class Player : IPokemonManager
     /// <returns><c>true</c> si el jugador ha perdido, de lo contrario, <c>false</c>.</returns>
     public bool HasLost()
     {
-        return pokemons.All(pokemon => pokemon.IsDead());
+        return pokemons.All(pokemon => pokemon.IsDead()) || Surrender; //PokemonesMuertos o PlayerSurrender***
     }
 
     /// <summary>
@@ -228,4 +234,62 @@ public class Player : IPokemonManager
 
         return msg + "\n";
     }
+
+    /// <summary>
+    /// Intancia de forma publica la lista privada con los pokemones del jugador en turno
+    /// </summary>
+    /// <returns></returns>
+    public List<Pokemon> PokemonsList()
+    {
+        return pokemons;
+    }
+    
+    /// <summary>
+    /// Obtengo una lista con los pokemones del jugador en turno
+    /// </summary>
+    /// <param name="playerInTurn"></param>
+    /// <returns></returns>
+    public List<Type> PlayerPokemonTypes(Player playerInTurn)
+    {
+        playerInTurn.PokemonsList();
+        foreach (var pokemon in playerInTurn.PokemonsList())
+        {
+            return pokemon.Types;
+        }
+        return null!;
+    }
+
+    /// <summary>
+    /// Obtiene una lista de los tipos del pokemon actual del enemigo
+    /// </summary>
+    /// <param name="enemyPlayer"></param>
+    /// <returns></returns>
+    public List<Type> EnemyPokemonTypes(IPokemonManager enemyPlayer)
+    {
+        return enemyPlayer.CurrentPokemon.Types;
+    }
+    
+    /// <summary>
+    /// Obtiene el numero de ataques efectivos del pokemon en turno del jugador
+    /// </summary>
+    /// <param name="enemyTypes"></param>
+    /// <param name="moveType"></param>
+    /// <returns></returns>
+    public string EffectivityAtacks(List<Type> enemyTypes, Type moveType)
+    {
+        float effectivity = 1;
+        int count = 0;
+        foreach (Type enemyType in enemyTypes)
+        {
+            effectivity *= DicTypeEffectivity.Effectivity[moveType.Name][enemyType.Name];
+            if (effectivity >= 2)
+            {
+                count += 1;
+                return $"{count}, es la cantidad de ataques efectivos de tu pokemon";
+            }
+        }
+
+        return "Solo cuentas con ataques normales";
+    }
+
 }

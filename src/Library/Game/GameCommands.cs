@@ -12,6 +12,7 @@ public class GameCommands
     /// Atributo que contiene la instancia de <c>Game</c>.
     /// </summary>
     private Game game = new();
+    
 
     
     /// <summary>
@@ -277,4 +278,15 @@ public class GameCommands
                "2) **SUPER POCION**: Cada una recupera 70 puntos de HP.\n" +
                "3) **CURA TOTAL**: Cura a un Pokémon de efectos de ataques especiales, dormido, paralizado, envenenado, o quemado.\n";
     }
+
+    public Player GetWinner()
+    {
+        return game.GetWinner();
+    }
+
+    public Player GetPlayerNotInTurn()
+    {
+        return game.PlayerNotInTurn;
+    }
+    
 }

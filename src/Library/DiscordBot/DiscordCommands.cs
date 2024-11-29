@@ -585,5 +585,69 @@ namespace Library.DiscordBot
         {
             await context.CreateResponseAsync(GameCommands.ShowItemsDesc());
         }
+        
+        [SlashCommand("Surrender", "El jugador se rinde para acabar la partida.")]
+        public async Task Surrender(InteractionContext context)
+        {
+            await context.CreateResponseAsync("\u231b **Realizando comprobaciones para aprobar rendicion...** \u23f3");
+            Lobby lobby = Lobby.GetInstance();
+            GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
+            var builder = new DiscordWebhookBuilder();
+            bool Uso = false;
+            
+            if (room != null!)
+            {
+                Player playerInTurn = room.Commands.GetPlayerInTurn();
+                if (context.Member.Username == playerInTurn.Name)
+                {
+                    playerInTurn.Surrender = true;
+                    await context.Channel.SendMessageAsync($"El jugador {room.Commands.GetPlayerInTurn().Name} se ha rendido \n" +
+                                                     $"Ha ganado el jugador {room.Commands.GetWinner().Name}");
+                    builder.WithContent($"{room.Commands.RestartGame()}");
+                }
+                else
+                {
+                    builder.WithContent("\u26d4  **DEBE ESPERAR TU TURNO.**  \u26d4");
+                }
+            }
+            else
+            {
+                builder.WithContent("\u26d4  **DEBES ESTAR EN EL CANAL DE BATALLA.**  \u26d4");
+            }
+            await context.EditResponseAsync(builder);
+        }
+        
+        /// <summary>
+        /// Deberia de ejecutar la probabilidad de victoria del equipo pokemon ante un pokemon rival
+        /// </summary>
+        /// <param name="context"></param>
+        [SlashCommand("ProbablyWin", "El jugador tiene la opcion de ver que tan efectivos son sus pokemones.")]
+        public async Task ProbablyWin(InteractionContext context)
+        {
+            await context.CreateResponseAsync("\u231b **Realizando comprobaciones para aprobar rendicion...** \u23f3");
+            Lobby lobby = Lobby.GetInstance();
+            GameRoom room = lobby.GetGameRoomById(context.Channel.Id);
+            var builder = new DiscordWebhookBuilder();
+            bool Uso = false;
+            
+            if (room != null!)
+            {
+                Player playerInTurn = room.Commands.GetPlayerInTurn();
+                Player playerNotInTurn = room.Commands.GetPlayerNotInTurn();
+                if (context.Member.Username == playerInTurn.Name)
+                {
+                    playerInTurn.EffectivityAtacks(playerNotInTurn.CurrentPokemon.Types, ); //Deberia de ir una lista de movimientos del equipo pokemon.
+                    await context.Channel.SendMessageAsync($"La probabilidad de Win es de ");
+                }
+                else
+                {
+                    builder.WithContent("\u26d4  **DEBE ESPERAR TU TURNO.**  \u26d4");
+                }
+            }
+            else
+            {
+                builder.WithContent("\u26d4  **DEBES ESTAR EN EL CANAL DE BATALLA.**  \u26d4");
+            }
+            await context.EditResponseAsync(builder);
     }
 }

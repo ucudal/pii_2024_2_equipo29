@@ -83,15 +83,10 @@ public class Calculate: ICalculate
         
         return effectivity;
     }
-
-    /// <summary>
-    /// Calcula la efectividad del movimiento contra los tipos del Pokémon defensor.
-    /// </summary>
-    /// <param name="enemyTypes">Lista de tipos del Pokémon defensor.</param>
-    /// <param name="moveType">Tipo del movimiento utilizado.</param>
-    /// <returns>El multiplicador de efectividad del movimiento.</returns>
+    
     private int CalculateVariation(int min, int max)
     {
         return new Random().Next(min, max);
     }
+    
 }
